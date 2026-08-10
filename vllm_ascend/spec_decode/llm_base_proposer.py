@@ -1089,10 +1089,9 @@ class AscendSpecDecodeBaseProposer(SpecDecodeBaseProposer):
             common_attn_metadata.block_table_tensor = self._adjust_tensor(
                 common_attn_metadata.block_table_tensor, slicing_length
             )
-            if self.method in ("dflash", "dspark"):
-                common_attn_metadata.seq_lens = self._adjust_parallel_draft_seq_lens_for_graph(
-                    common_attn_metadata.seq_lens, num_reqs_padded
-                )
+
+            if self.method == "dflash":
+                common_attn_metadata.seq_lens = self._adjust_tensor(common_attn_metadata.seq_lens, num_reqs_padded)
             else:
                 common_attn_metadata.seq_lens = self._adjust_tensor(self.runner.seq_lens, num_reqs_padded)
                 common_attn_metadata.seq_lens_cpu = self._adjust_tensor(
@@ -1106,6 +1105,7 @@ class AscendSpecDecodeBaseProposer(SpecDecodeBaseProposer):
                 # ``attn_update_stack_num_spec_norm`` don't double-count.
                 if common_attn_metadata._seq_lens_cpu is not None:
                     common_attn_metadata._seq_lens_cpu = common_attn_metadata.seq_lens_cpu.clone()
+
             if common_attn_metadata.num_computed_tokens_cpu is not None:
                 common_attn_metadata.num_computed_tokens_cpu = self._adjust_tensor(
                     common_attn_metadata.num_computed_tokens_cpu, num_reqs_padded

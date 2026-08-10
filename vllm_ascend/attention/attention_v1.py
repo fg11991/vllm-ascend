@@ -315,10 +315,12 @@ class AscendAttentionMetadataBuilder(AttentionMetadataBuilder[AscendMetadata]):
         slot_mapping = common_attn_metadata.slot_mapping[:num_actual_tokens]
         # this slot_mapping override doesn't work since vllm will override it again. We should fix it vllm.
         # see: https://github.com/vllm-project/vllm/blob/ce88756b967c2c5006746a424c15dd59a284ed8c/vllm/model_executor/layers/attention/cross_attention.py#L117
+        seq_lens_cpu_mirror = None
         if isinstance(self.kv_cache_spec, CrossAttentionSpec):
             seq_lens = common_attn_metadata.seq_lens
             slot_mapping = common_attn_metadata.slot_mapping.to(torch.int32)
         elif self.speculative_config and self.speculative_config.parallel_drafting:
+            seq_lens_cpu_mirror = seq_lens
             seq_lens = common_attn_metadata.seq_lens
 
         attn_state = common_attn_metadata.attn_state
@@ -330,7 +332,9 @@ class AscendAttentionMetadataBuilder(AttentionMetadataBuilder[AscendMetadata]):
         query_start_loc = query_start_loc_cpu.pin_memory().to(self.device, non_blocking=True)
 
         actual_seq_lengths_q = query_start_loc_cpu[1:].tolist()
-        seq_lens_list = seq_lens.tolist()
+        # seq_lens_list = seq_lens.tolist()
+        seq_lens_list = (seq_lens if seq_lens_cpu_mirror is None else seq_lens_cpu_mirror).tolist()
+        
         # flashcomm1/SP (or cudagraph) padding makes the model runner insert a
         # dummy padding request into query_start_loc to satisfy the FIA TND-layout
         # constraint (sum of q lengths == hidden_states.shape[0]), bumping the
