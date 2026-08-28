@@ -3899,7 +3899,12 @@ class NPUModelRunner(GPUModelRunner):
             attn_layer = attn_layers[layer_name]
             if isinstance(attn_layer, MLAAttention):
                 # DeepSeek MLA: K=kv_lora_rank, V=qk_rope_head_dim
-                return attn_layer.kv_lora_rank, attn_layer.qk_rope_head_dim
+                cache_rank = getattr(
+                    attn_layer.impl,
+                    "kv_cache_lora_rank",
+                    attn_layer.kv_lora_rank,
+                )
+                return cache_rank, attn_layer.qk_rope_head_dim
             # CacheOnlyAttentionLayer uses AscendMLAAttentionSpec but isn't MLAAttention
             if isinstance(attn_layer, CacheOnlyAttentionLayer):
                 return kv_cache_spec.head_size, kv_cache_spec.head_size

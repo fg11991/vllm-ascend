@@ -67,6 +67,7 @@ BUILD_METADATA_STEP_PREFILL = 0
 BUILD_METADATA_STEP_DECODE = 1
 # token count limits within the mlapo operator
 MLAPO_MAX_SUPPORTED_TOKENS = 1024
+KV_RMSNORM_ROPE_CACHE_SUPPORTED_RANKS = frozenset({192, 512})
 # AttentionUpdate on A5 accepts at most 16 Local LSE/Output inputs. Keep the
 # effective FIA batch close to the 32 A5 vector cores without exceeding it.
 MLA_FIA_SPLIT_TARGET_BATCH = 32
@@ -844,14 +845,19 @@ class AscendMLAMetadataBuilder(MLACommonMetadataBuilder[AscendMLAMetadata]):
         common_attn_metadata: AscendCommonAttentionMetadata,
         attn_state: AscendAttentionState = AscendAttentionState.DecodeOnly,
     ):
-        if attn_state in {AscendAttentionState.DecodeOnly, AscendAttentionState.SpecDecoding}:
+        if attn_state in {
+            AscendAttentionState.DecodeOnly,
+            AscendAttentionState.ChunkedPrefill,
+            AscendAttentionState.SpecDecoding,
+        }:
             attn_metadata = self.build(
                 common_prefix_len=0,
                 common_attn_metadata=common_attn_metadata,
             )
         else:
             raise NotImplementedError(
-                "Currently we only support building dummy metadata for DecodeOnly and SpecDecoding state"
+                "Currently we only support building dummy metadata for "
+                "DecodeOnly, ChunkedPrefill and SpecDecoding state"
             )
 
         attn_metadata.attn_state = attn_state
@@ -1363,6 +1369,32 @@ class AscendMLAImpl(MLAAttentionImpl):
     ) -> tuple[torch.Tensor, torch.Tensor]:
         return kv_c_normed, k_pe
 
+    def _pad_prefill_qk(self, tensor: torch.Tensor) -> torch.Tensor:
+        prefill_qk_head_dim = getattr(
+            self,
+            "prefill_qk_head_dim",
+            self.qk_nope_head_dim,
+        )
+        input_head_dim = tensor.size(-1)
+        if input_head_dim < self.qk_nope_head_dim:
+            raise ValueError(
+                "MLA prefill QK input head dimension cannot be smaller than "
+                "its semantic dimension: "
+                f"input={input_head_dim}, semantic={self.qk_nope_head_dim}"
+            )
+        if input_head_dim > prefill_qk_head_dim:
+            raise ValueError(
+                "MLA prefill QK input head dimension cannot be larger than "
+                "its physical dimension: "
+                f"input={input_head_dim}, physical={prefill_qk_head_dim}"
+            )
+        return F.pad(
+            tensor,
+            (0, prefill_qk_head_dim - input_head_dim),
+            "constant",
+            0,
+        )
+
     def _compute_prefill_context(
         self,
         q_nope: torch.Tensor,
@@ -1388,6 +1420,8 @@ class AscendMLAImpl(MLAAttentionImpl):
 
         if iters == 0:
             return prefix_output, prefix_lse
+
+        q_nope = self._pad_prefill_qk(q_nope)
 
         num_tokens = q_nope.size(0)
         D = self.v_head_dim
@@ -1439,12 +1473,21 @@ class AscendMLAImpl(MLAAttentionImpl):
                 toks=toks,
             )
             kv_c_normed = kv_c_normed.squeeze()
+            cache_rank = kv_c_normed.size(-1)
+            if cache_rank < self.kv_lora_rank:
+                raise ValueError(
+                    "MLA physical KV cache rank cannot be smaller than its "
+                    f"semantic rank: cache={cache_rank}, semantic={self.kv_lora_rank}"
+                )
+            if cache_rank > self.kv_lora_rank:
+                kv_c_normed = kv_c_normed[..., : self.kv_lora_rank]
             if self.fa_quant_layer and get_ascend_device_type() == AscendDeviceType.A5:
                 kv_c_normed = torch.mul(kv_c_normed.to(self.fak_descale_float.dtype), self.fak_descale_float).to(
                     torch.bfloat16
                 )
             kv_nope = self.kv_b_proj(kv_c_normed)[0].view(-1, self.num_heads, self.qk_nope_head_dim + self.v_head_dim)
             k_nope, v = kv_nope.split([self.qk_nope_head_dim, self.v_head_dim], dim=-1)
+            k_nope = self._pad_prefill_qk(k_nope)
             k_pe = k_pe.expand((*k_nope.shape[:-1], -1))
 
             actual_seq_lengths_kv = prefill_metadata.chunked_context.chunk_actual_seq_lengths_kv_list[i]
@@ -1499,6 +1542,9 @@ class AscendMLAImpl(MLAAttentionImpl):
             k_nope = k_nope.to(torch.bfloat16)
             k_pe = k_pe.to(torch.bfloat16)
             value = value.to(torch.bfloat16)
+
+        q_nope = self._pad_prefill_qk(q_nope)
+        k_nope = self._pad_prefill_qk(k_nope)
 
         attn_output = torch.empty(num_tokens, self.num_heads, self.v_head_dim, dtype=q_nope.dtype, device=q_nope.device)
         attn_lse = torch.empty(self.num_heads, num_tokens, dtype=torch.float32, device=q_nope.device)
@@ -1595,6 +1641,9 @@ class AscendMLAImpl(MLAAttentionImpl):
         S = 1
         # npu_kv_rmsnorm_rope_cache needs [B, N, S, D]
         kv_no_split = kv_no_split.view(B, N, S, self.kv_lora_rank + self.qk_rope_head_dim)
+        if self.kv_lora_rank not in KV_RMSNORM_ROPE_CACHE_SUPPORTED_RANKS:
+            self._exec_kv_unfused(kv_no_split, cos, sin, kv_cache, slots)
+            return kv_cache[1], kv_cache[0]
         cache_mode = "PA_NZ" if self.enable_kv_nz else "PA"
         c_kv_scale = None
         if get_ascend_device_type() == AscendDeviceType.A5 and self.fa_quant_layer:
@@ -1631,6 +1680,8 @@ class AscendMLAImpl(MLAAttentionImpl):
         S = 1
         # npu_kv_rmsnorm_rope_cache needs [B, N, S, D]
         kv_no_split = kv_no_split.view(B, N, S, self.kv_lora_rank + self.qk_rope_head_dim)
+        if self.kv_lora_rank not in KV_RMSNORM_ROPE_CACHE_SUPPORTED_RANKS:
+            return self._exec_kv_unfused(kv_no_split, cos, sin, kv_cache, slots)
         cache_mode = "PA"
         c_kv_scale = None
         if get_ascend_device_type() == AscendDeviceType.A5 and self.fa_quant_layer:
@@ -1647,6 +1698,55 @@ class AscendMLAImpl(MLAAttentionImpl):
             epsilon=self.kv_a_layernorm.variance_epsilon,  # type: ignore[union-attr]
             cache_mode=cache_mode,
             is_output_kv=True,
+        )
+        return k_pe, k_nope
+
+    def _exec_kv_unfused(
+        self,
+        kv_no_split: torch.Tensor,
+        cos: torch.Tensor,
+        sin: torch.Tensor,
+        kv_cache: tuple,
+        slots: torch.Tensor,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        assert self.kv_a_layernorm is not None
+        assert not self.enable_kv_nz, "The unfused MLA KV path requires PA cache layout"
+        assert not self.fa_quant_layer, "The unfused MLA KV path requires unquantized KV cache"
+
+        k_nope, k_pe = kv_no_split.split([self.kv_lora_rank, self.qk_rope_head_dim], dim=-1)
+        k_nope, _ = torch_npu.npu_rms_norm(
+            k_nope.contiguous(),
+            self.kv_a_layernorm.weight,
+            epsilon=self.kv_a_layernorm.variance_epsilon,
+        )
+        k_pe = torch_npu.npu_interleave_rope(k_pe.contiguous(), cos, sin)
+        cache_rank = getattr(self, "kv_cache_lora_rank", self.kv_lora_rank)
+        if cache_rank < self.kv_lora_rank:
+            raise ValueError(
+                "MLA physical KV cache rank cannot be smaller than its "
+                f"semantic rank: cache={cache_rank}, semantic={self.kv_lora_rank}"
+            )
+        cache_k_nope = F.pad(
+            k_nope,
+            (0, cache_rank - self.kv_lora_rank),
+            "constant",
+            0,
+        )
+
+        DeviceOperator.reshape_and_cache(
+            key=cache_k_nope.view(
+                cache_k_nope.shape[0],
+                self.num_kv_heads,
+                cache_rank,
+            ),
+            value=k_pe.view(
+                k_pe.shape[0],
+                self.num_kv_heads,
+                self.qk_rope_head_dim,
+            ),
+            key_cache=kv_cache[0],
+            value_cache=kv_cache[1],
+            slot_mapping=slots.to(torch.int32),
         )
         return k_pe, k_nope
 
@@ -1697,27 +1797,31 @@ class AscendMLAImpl(MLAAttentionImpl):
         # powers of 2 in 2026 Q2. Once supported, all padding operations under
         # `if self.head_padding > 0` in this function can be removed.
         num_tokens = q_nope.size(0)
+        cache_rank = getattr(self, "kv_cache_lora_rank", self.kv_lora_rank)
+        if cache_rank < self.kv_lora_rank:
+            raise ValueError(
+                "MLA physical KV cache rank cannot be smaller than its "
+                f"semantic rank: cache={cache_rank}, semantic={self.kv_lora_rank}"
+            )
         # shape of knope/k_pe for npu graph mode should be:
         # [num_blocks, num_kv_heads, block_size, self.kv_lora_rank/self.qk_rope_head_dim]
         actual_seq_lengths = None
         if self.fa_quant_layer and get_ascend_device_type() != AscendDeviceType.A5:
             nz_fmt_last_dim = 16
             k_nope = k_nope.view(
-                -1, self.num_kv_heads, self.kv_lora_rank // (nz_fmt_last_dim * 2), block_size, nz_fmt_last_dim * 2
+                -1, self.num_kv_heads, cache_rank // (nz_fmt_last_dim * 2), block_size, nz_fmt_last_dim * 2
             )
             k_pe = k_pe.view(
                 -1, self.num_kv_heads, self.qk_rope_head_dim // nz_fmt_last_dim, block_size, nz_fmt_last_dim
             )
         elif self.enable_kv_nz:
             nz_fmt_last_dim = 16
-            k_nope = k_nope.view(
-                -1, self.num_kv_heads, self.kv_lora_rank // nz_fmt_last_dim, block_size, nz_fmt_last_dim
-            )
+            k_nope = k_nope.view(-1, self.num_kv_heads, cache_rank // nz_fmt_last_dim, block_size, nz_fmt_last_dim)
             k_pe = k_pe.view(
                 -1, self.num_kv_heads, self.qk_rope_head_dim // nz_fmt_last_dim, block_size, nz_fmt_last_dim
             )
         else:
-            k_nope = k_nope.view(-1, self.num_kv_heads, block_size, self.kv_lora_rank)
+            k_nope = k_nope.view(-1, self.num_kv_heads, block_size, cache_rank)
             k_pe = k_pe.view(-1, self.num_kv_heads, block_size, self.qk_rope_head_dim)
 
         attn_output_shape: tuple | None = None
@@ -1743,7 +1847,7 @@ class AscendMLAImpl(MLAAttentionImpl):
                 q_pe = F.pad(q_pe, (0, 0, 0, self.head_padding), "constant", 0)
                 q_nope = F.pad(q_nope, (0, 0, 0, self.head_padding), "constant", 0)
             # Output shape: [num_heads, num_tokens, dim]
-            attn_output_shape = (self.num_heads_padded, num_tokens, self.kv_lora_rank)
+            attn_output_shape = (self.num_heads_padded, num_tokens, cache_rank)
             if not attn_metadata.causal:
                 # The DSpark MLA draft block is non-causal (bidirectional):
                 # every query token attends to the trailing context window plus
@@ -1771,7 +1875,7 @@ class AscendMLAImpl(MLAAttentionImpl):
                     q_pe = F.pad(q_pe, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
                     q_nope = F.pad(q_nope, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
                 dequant_scale_q_nope = dequant_scale_q_nope.view(num_tokens, self.num_heads, 1)
-                attn_output_shape = (num_tokens, self.num_heads_padded, 1, self.kv_lora_rank)
+                attn_output_shape = (num_tokens, self.num_heads_padded, 1, cache_rank)
             else:
                 input_layout = "BSND_NBSD"
                 q_nope = q_nope.view(num_tokens, 1, self.num_heads, -1).contiguous()
@@ -1780,7 +1884,7 @@ class AscendMLAImpl(MLAAttentionImpl):
                     q_pe = F.pad(q_pe, (0, 0, 0, self.head_padding), "constant", 0)
                     q_nope = F.pad(q_nope, (0, 0, 0, self.head_padding), "constant", 0)
                 dequant_scale_q_nope = dequant_scale_q_nope.view(num_tokens, 1, self.num_heads)
-                attn_output_shape = (self.num_heads_padded, num_tokens, 1, self.kv_lora_rank)
+                attn_output_shape = (self.num_heads_padded, num_tokens, 1, cache_rank)
         else:
             # The output layout is set to NBSD to eliminate the need for a
             # transpose operation after attention.
@@ -1801,9 +1905,17 @@ class AscendMLAImpl(MLAAttentionImpl):
                     q_pe = F.pad(q_pe, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
                     q_nope = F.pad(q_nope, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
             # Output shape: [num_heads, num_tokens, seq_len, dim]
-            attn_output_shape = (self.num_heads_padded, num_tokens, 1, self.kv_lora_rank)
+            attn_output_shape = (self.num_heads_padded, num_tokens, 1, cache_rank)
             sparse_mode = 0
             attn_mask = None
+
+        if cache_rank > self.kv_lora_rank:
+            q_nope = F.pad(
+                q_nope,
+                (0, cache_rank - self.kv_lora_rank),
+                "constant",
+                0,
+            )
 
         fia_num_splits = 1
         fia_blocks_per_split = decode_meta.block_table.shape[1]
@@ -1840,11 +1952,11 @@ class AscendMLAImpl(MLAAttentionImpl):
 
             split_batch_size = num_tokens * fia_num_splits
             if input_layout.endswith("_NBSD"):
-                attn_output_shape = (self.num_heads_padded, split_batch_size, 1, self.kv_lora_rank)
+                attn_output_shape = (self.num_heads_padded, split_batch_size, 1, cache_rank)
             elif input_layout.startswith("BNSD"):
-                attn_output_shape = (split_batch_size, self.num_heads_padded, 1, self.kv_lora_rank)
+                attn_output_shape = (split_batch_size, self.num_heads_padded, 1, cache_rank)
             elif input_layout.startswith("BSND"):
-                attn_output_shape = (split_batch_size, 1, self.num_heads_padded, self.kv_lora_rank)
+                attn_output_shape = (split_batch_size, 1, self.num_heads_padded, cache_rank)
             else:
                 raise ValueError(f"Unsupported MLA FIA split input layout: {input_layout}")
 
@@ -1956,7 +2068,7 @@ class AscendMLAImpl(MLAAttentionImpl):
                 batch_size=num_tokens,
                 num_splits=fia_num_splits,
                 num_heads=self.num_heads_padded,
-                head_dim=self.kv_lora_rank,
+                head_dim=cache_rank,
                 seq_lens_device=decode_meta.seq_lens_device,
                 chunk_tokens=fia_blocks_per_split * block_size,
             )
@@ -1970,13 +2082,15 @@ class AscendMLAImpl(MLAAttentionImpl):
                     input_layout=input_layout,
                     batch_size=num_tokens,
                     num_heads=self.num_heads_padded,
-                    head_dim=self.kv_lora_rank,
+                    head_dim=cache_rank,
                 )
                 .permute(1, 0, 2)
                 .contiguous()
             )
         if self.head_padding > 0:
             attn_output = attn_output[: self.num_heads]
+        if cache_rank > self.kv_lora_rank:
+            attn_output = attn_output[..., : self.kv_lora_rank]
         return self._v_up_proj(attn_output)
 
     def reorg_decode_q(self, decode_q_nope, decode_q_pe):
