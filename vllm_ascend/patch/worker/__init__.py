@@ -32,6 +32,13 @@ import vllm_ascend.patch.worker.patch_mamba_utils  # noqa
 import vllm_ascend.patch.worker.patch_qwen3_next_mtp  # noqa
 import vllm_ascend.patch.worker.patch_step3p5  # noqa
 
+try:
+    import vllm.model_executor.models.mistral4  # noqa
+except ImportError:
+    pass
+else:
+    import vllm_ascend.patch.worker.patch_mistral4  # noqa
+
 if not is_310p():
     import vllm_ascend.patch.worker.patch_qwen3_5  # noqa
     import vllm_ascend.patch.worker.patch_qwen3_dflash  # noqa

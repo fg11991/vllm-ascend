@@ -60,6 +60,18 @@ _cos_slice: torch.Tensor = None
 _sin_slice: torch.Tensor = None
 
 
+def _uses_mla_rope_buffer(model_config) -> bool:
+    if model_config.use_mla:
+        return True
+
+    hf_config = getattr(model_config, "hf_config", None)
+    hf_text_config = getattr(model_config, "hf_text_config", None)
+    return (
+        getattr(hf_config, "model_type", None) == "mistral3"
+        and getattr(hf_text_config, "model_type", None) == "mistral4"
+    )
+
+
 def set_cos_and_sin(vllm_config, max_num_reqs, decode_token_per_req, dtype, device):
     global _cos_mla
     global _sin_mla
@@ -72,7 +84,7 @@ def set_cos_and_sin(vllm_config, max_num_reqs, decode_token_per_req, dtype, devi
     model_config = vllm_config.model_config
     max_num_batched_tokens = vllm_config.scheduler_config.max_num_batched_tokens
 
-    if model_config.use_mla:
+    if _uses_mla_rope_buffer(model_config):
         rope_dim = model_config.hf_text_config.qk_rope_head_dim
         _cos_mla = torch.ones(max_num_batched_tokens, 1, 1, rope_dim, dtype=dtype, device=device)
         _sin_mla = torch.zeros(max_num_batched_tokens, 1, 1, rope_dim, dtype=dtype, device=device)
