@@ -1,0 +1,1258 @@
+diff --git a/tests/ut/attention/a2/test_mla_v1.py b/tests/ut/attention/a2/test_mla_v1.py
+index adcd05243..2af437375 100755
+--- a/tests/ut/attention/a2/test_mla_v1.py
++++ b/tests/ut/attention/a2/test_mla_v1.py
+@@ -872,12 +872,22 @@ class TestAscendMLAMetadataBuilderBuild(TestBase):
+             device=self.mock_device,
+         )
+         mock_get_cos_and_sin_mla.return_value = (torch.tensor([10, 10]), torch.Tensor([10, 10]))
+-        metadata = builder.build_for_graph_capture(common_attn_metadata, AscendAttentionState.DecodeOnly)
++        graph_states = (
++            AscendAttentionState.DecodeOnly,
++            AscendAttentionState.ChunkedPrefill,
++            AscendAttentionState.SpecDecoding,
++        )
++        for graph_state in graph_states:
++            metadata = builder.build_for_graph_capture(
++                common_attn_metadata,
++                graph_state,
++            )
+ 
+-        self.assertIsInstance(metadata, AscendMLAMetadata)
+-        self.assertEqual(metadata.num_actual_tokens, base_inputs["num_actual_tokens"])
+-        self.assertTrue(torch.all(metadata.slot_mapping == base_inputs["slot_mapping"]))
+-        self.assertEqual(metadata.head_dim, self.kv_cache_spec.head_size)
++            self.assertIsInstance(metadata, AscendMLAMetadata)
++            self.assertEqual(metadata.num_actual_tokens, base_inputs["num_actual_tokens"])
++            self.assertTrue(torch.all(metadata.slot_mapping == base_inputs["slot_mapping"]))
++            self.assertEqual(metadata.head_dim, self.kv_cache_spec.head_size)
++            self.assertEqual(metadata.attn_state, graph_state)
+ 
+     @patch("vllm_ascend.attention.mla_v1.get_cos_and_sin_mla")
+     def test_build_for_graph_capture_prefill(self, mock_get_cos_and_sin_mla):
+@@ -910,7 +920,7 @@ class TestAscendMLAMetadataBuilderBuild(TestBase):
+         with self.assertRaises(NotImplementedError) as ctx:
+             builder.build_for_graph_capture(common_attn_metadata, AscendAttentionState.PrefillNoCache)
+         self.assertIn(
+-            "Currently we only support building dummy metadata for DecodeOnly and SpecDecoding state",
++            "Currently we only support building dummy metadata for DecodeOnly, ChunkedPrefill and SpecDecoding state",
+             str(ctx.exception),
+         )
+ 
+@@ -1068,6 +1078,56 @@ class TestAscendMLAImpl(TestBase):
+         self.assertEqual(self.impl.num_heads_padded, 256)
+         self.assertEqual(self.impl.head_padding, 0)
+ 
++    def test_pad_prefill_qk_uses_physical_dimension(self):
++        self.impl.qk_nope_head_dim = 64
++        self.impl.prefill_qk_head_dim = 128
++        semantic_q = torch.randn(2, 4, 64)
++
++        padded_q = self.impl._pad_prefill_qk(semantic_q)
++
++        self.assertEqual(padded_q.shape, (2, 4, 128))
++        torch.testing.assert_close(padded_q[..., :64], semantic_q)
++        self.assertEqual(torch.count_nonzero(padded_q[..., 64:]), 0)
++
++    @patch("vllm_ascend.attention.mla_v1.DeviceOperator.reshape_and_cache")
++    @patch("torch_npu.npu_interleave_rope")
++    @patch("torch_npu.npu_rms_norm")
++    def test_exec_kv_unfused_pads_physical_cache_rank(
++        self,
++        mock_npu_rms_norm,
++        mock_npu_interleave_rope,
++        mock_reshape_and_cache,
++    ):
++        batch_size = 2
++        self.impl.num_kv_heads = 1
++        self.impl.kv_lora_rank = 256
++        self.impl.kv_cache_lora_rank = 512
++        self.impl.qk_rope_head_dim = 64
++        self.impl.enable_kv_nz = False
++        self.impl.fa_quant_layer = False
++        self.impl.kv_a_layernorm.variance_epsilon = 1e-6
++        kv_no_split = torch.randn(batch_size, 1, 1, 320)
++        k_nope = torch.randn(batch_size, 1, 1, 256)
++        k_pe = torch.randn(batch_size, 1, 1, 64)
++        mock_npu_rms_norm.return_value = (k_nope, MagicMock())
++        mock_npu_interleave_rope.return_value = k_pe
++
++        result_k_pe, result_k_nope = self.impl._exec_kv_unfused(
++            kv_no_split,
++            MagicMock(),
++            MagicMock(),
++            (MagicMock(), MagicMock()),
++            torch.tensor([3, 129]),
++        )
++
++        self.assertIs(result_k_pe, k_pe)
++        self.assertIs(result_k_nope, k_nope)
++        cache_key = mock_reshape_and_cache.call_args.kwargs["key"]
++        self.assertEqual(cache_key.shape, (batch_size, 1, 512))
++        torch.testing.assert_close(cache_key[..., :256], k_nope.view(batch_size, 1, 256))
++        self.assertEqual(torch.count_nonzero(cache_key[..., 256:]), 0)
++        self.assertEqual(mock_reshape_and_cache.call_args.kwargs["slot_mapping"].dtype, torch.int32)
++
+     @patch("vllm_ascend.attention.mla_v1.enable_fa_quant", return_value=True)
+     @patch("vllm_ascend.attention.mla_v1.enabling_mlapo", return_value=True)
+     @patch("vllm_ascend.attention.mla_v1.get_current_vllm_config")
+@@ -2369,6 +2429,7 @@ class TestAscendMLAImpl(TestBase):
+ 
+     @patch("torch_npu.npu_kv_rmsnorm_rope_cache")
+     def test_exec_kv_prefill(self, mock_kv_rmsnorm_rope_cache):
++        self.impl.kv_lora_rank = 512
+         B = 2
+         N = self.impl.num_kv_heads
+         D = self.impl.kv_lora_rank + self.impl.qk_rope_head_dim
+@@ -2467,6 +2528,7 @@ class TestAscendMLAImpl(TestBase):
+     @patch("torch_npu.npu_kv_rmsnorm_rope_cache")
+     def test_exec_kv_prefill_with_fa_quant(self, mock_kv_rmsnorm_rope_cache):
+         # if fa_quant_layer is True
++        self.impl.kv_lora_rank = 512
+         B = 2
+         N = self.impl.num_kv_heads
+         D = self.impl.kv_lora_rank + self.impl.qk_rope_head_dim
+@@ -2496,6 +2558,7 @@ class TestAscendMLAImpl(TestBase):
+ 
+     @patch("torch_npu.npu_kv_rmsnorm_rope_cache")
+     def test_exec_kv_decode(self, mock_kv_rmsnorm_rope_cache):
++        self.impl.kv_lora_rank = 512
+         B = 2
+         N = self.impl.num_kv_heads
+         D = self.impl.kv_lora_rank + self.impl.qk_rope_head_dim
+diff --git a/tests/ut/ops/test_rotary_embedding.py b/tests/ut/ops/test_rotary_embedding.py
+index ca8e3942d..a0e386ee1 100644
+--- a/tests/ut/ops/test_rotary_embedding.py
++++ b/tests/ut/ops/test_rotary_embedding.py
+@@ -15,6 +15,7 @@
+ 
+ 
+ import inspect
++from types import SimpleNamespace
+ from unittest.mock import MagicMock, patch
+ 
+ import pytest
+@@ -24,6 +25,7 @@ from vllm.model_executor.layers.rotary_embedding import RotaryEmbedding, YaRNSca
+ from vllm_ascend.ops.rotary_embedding import (
+     AscendRotaryEmbedding,
+     AscendYaRNRotaryEmbedding,
++    _uses_mla_rope_buffer,
+     get_identity_cos_and_sin_mla,
+ )
+ 
+@@ -36,6 +38,26 @@ SEQ_LEN = 4
+ NUM_HEADS = 2
+ 
+ 
++def test_mistral4_nested_in_mistral3_uses_mla_rope_buffer():
++    model_config = SimpleNamespace(
++        use_mla=False,
++        hf_config=SimpleNamespace(model_type="mistral3"),
++        hf_text_config=SimpleNamespace(model_type="mistral4"),
++    )
++
++    assert _uses_mla_rope_buffer(model_config)
++
++
++def test_unrelated_multimodal_model_does_not_use_mla_rope_buffer():
++    model_config = SimpleNamespace(
++        use_mla=False,
++        hf_config=SimpleNamespace(model_type="qwen2_5_vl"),
++        hf_text_config=SimpleNamespace(model_type="qwen2"),
++    )
++
++    assert not _uses_mla_rope_buffer(model_config)
++
++
+ def test_kimi_k3_identity_mla_rope_does_not_index_position_cache(monkeypatch):
+     identity_cos = torch.ones(8, 1, 1, ROTARY_DIM)
+     identity_sin = torch.zeros_like(identity_cos)
+diff --git a/tests/ut/patch/platform/test_patch_mistral4_config.py b/tests/ut/patch/platform/test_patch_mistral4_config.py
+new file mode 100644
+index 000000000..f581560b9
+--- /dev/null
++++ b/tests/ut/patch/platform/test_patch_mistral4_config.py
+@@ -0,0 +1,111 @@
++import json
++from types import SimpleNamespace
++
++from vllm_ascend.patch.platform import patch_mistral4_config
++
++
++def _write_native_eagle_params(tmp_path) -> str:
++    model_path = tmp_path / "mistral-eagle"
++    model_path.mkdir()
++    (model_path / "params.json").write_text(
++        json.dumps(
++            {
++                "quantization": {
++                    "qformat_weight": "fp8_e4m3",
++                    "qscheme_act": "TENSOR",
++                }
++            }
++        ),
++        encoding="utf-8",
++    )
++    return str(model_path)
++
++
++def test_nested_mistral4_config_is_detected() -> None:
++    config = SimpleNamespace(
++        model_arch_config=SimpleNamespace(model_type="mistral3"),
++        hf_config=SimpleNamespace(model_type="mistral3"),
++        hf_text_config=SimpleNamespace(model_type="mistral4"),
++    )
++
++    assert patch_mistral4_config._is_mistral4_config(config)
++
++
++def test_native_fp8_eagle_is_detected(tmp_path) -> None:
++    config = SimpleNamespace(
++        model=_write_native_eagle_params(tmp_path),
++        model_arch_config=SimpleNamespace(
++            model_type="deepseek_mtp",
++            architectures=["EagleMistralLarge3ForCausalLM"],
++        ),
++        hf_config=SimpleNamespace(model_type="deepseek_mtp"),
++    )
++
++    assert patch_mistral4_config._is_mistral_native_fp8_eagle_config(config)
++
++
++def test_deepseek_eagle_is_not_detected(tmp_path) -> None:
++    config = SimpleNamespace(
++        model=_write_native_eagle_params(tmp_path),
++        model_arch_config=SimpleNamespace(
++            model_type="eagle",
++            architectures=["EagleDeepseekV3ForCausalLM"],
++        ),
++        hf_config=SimpleNamespace(model_type="eagle"),
++    )
++
++    assert not patch_mistral4_config._is_mistral_native_fp8_eagle_config(config)
++
++
++def test_fp8_discovered_during_verification_is_disabled(monkeypatch) -> None:
++    config = SimpleNamespace(
++        hf_config=SimpleNamespace(
++            model_type="mistral3",
++            text_config=SimpleNamespace(model_type="mistral4"),
++        ),
++        quantization=None,
++    )
++
++    def reject_native_fp8(quant_method: str | None) -> None:
++        raise AssertionError(f"native fp8 verification called for {quant_method}")
++
++    platform = SimpleNamespace(
++        device_name="npu",
++        verify_quantization=reject_native_fp8,
++    )
++
++    def original_verify(candidate) -> None:
++        candidate.quantization = "fp8"
++        platform.verify_quantization(candidate.quantization)
++
++    monkeypatch.setattr(patch_mistral4_config, "current_platform", platform)
++    monkeypatch.setattr(
++        patch_mistral4_config,
++        "_original_verify_quantization",
++        original_verify,
++    )
++
++    patch_mistral4_config._patched_verify_quantization(config)
++
++    assert config.quantization is None
++    assert platform.verify_quantization is reject_native_fp8
++
++
++def test_fp8_auto_detection_is_not_reapplied(monkeypatch) -> None:
++    model_config = SimpleNamespace(
++        model_arch_config=SimpleNamespace(
++            model_type="mistral4",
++            quantization_config={"quant_method": "fp8"},
++        ),
++        hf_config=SimpleNamespace(model_type="mistral4"),
++        quantization=None,
++    )
++    vllm_config = SimpleNamespace(
++        model_config=model_config,
++        quant_config="stale-fp8-config",
++    )
++
++    patch_mistral4_config._patched_auto_detect_quantization(vllm_config)
++
++    assert model_config.quantization is None
++    assert vllm_config.quant_config is None
+diff --git a/tests/ut/patch/worker/test_patch_mistral4.py b/tests/ut/patch/worker/test_patch_mistral4.py
+new file mode 100644
+index 000000000..002ca70a8
+--- /dev/null
++++ b/tests/ut/patch/worker/test_patch_mistral4.py
+@@ -0,0 +1,131 @@
++from types import SimpleNamespace
++
++import pytest
++import torch
++
++pytest.importorskip("vllm.model_executor.models.mistral4")
++
++from vllm.model_executor.models.interfaces import SupportsMultiModal
++from vllm.model_executor.models.mistral_large_3_eagle import (
++    EagleMistralLarge3ForCausalLM,
++)
++from vllm.v1.kv_cache_interface import MLAAttentionSpec
++
++from vllm_ascend.patch.worker import patch_mistral4
++from vllm_ascend.patch.worker.patch_mistral4 import (
++    _dequantize_fp8_weight,
++    _fp8_dequant_weight_iter,
++)
++
++
++def test_dequantize_scalar_and_expert_scales() -> None:
++    dense = torch.tensor([[1.0, -2.0]], dtype=torch.float8_e4m3fn)
++    dense_result = _dequantize_fp8_weight(
++        dense,
++        torch.tensor(0.5, dtype=torch.bfloat16),
++    )
++    torch.testing.assert_close(
++        dense_result,
++        torch.tensor([[0.5, -1.0]], dtype=torch.bfloat16),
++    )
++
++    experts = torch.ones((2, 2, 2), dtype=torch.float8_e4m3fn)
++    scales = torch.tensor([2.0, 3.0], dtype=torch.bfloat16).view(2, 1, 1)
++    expert_result = _dequantize_fp8_weight(experts, scales)
++    torch.testing.assert_close(
++        expert_result[0],
++        torch.full((2, 2), 2.0, dtype=torch.bfloat16),
++    )
++    torch.testing.assert_close(
++        expert_result[1],
++        torch.full((2, 2), 3.0, dtype=torch.bfloat16),
++    )
++
++
++def test_dequant_iterator_pairs_native_eagle_scale_names() -> None:
++    converted = list(
++        _fp8_dequant_weight_iter(
++            [
++                ("eagle_linear.qscale_act", torch.tensor(4.0)),
++                ("eagle_linear.qscale_weight", torch.tensor(0.5)),
++                (
++                    "eagle_linear.weight",
++                    torch.ones((2, 2), dtype=torch.float8_e4m3fn),
++                ),
++            ],
++            "Mistral native EAGLE",
++        )
++    )
++
++    assert [name for name, _ in converted] == ["eagle_linear.weight"]
++    torch.testing.assert_close(
++        converted[0][1],
++        torch.full((2, 2), 0.5, dtype=torch.bfloat16),
++    )
++
++
++def test_dequant_iterator_rejects_unpaired_weight() -> None:
++    weight = torch.ones((2, 2), dtype=torch.float8_e4m3fn)
++    with pytest.raises(ValueError, match="Unpaired Mistral 4"):
++        list(_fp8_dequant_weight_iter([("layer.weight", weight)]))
++
++
++def test_mistral_eagle_init_marks_only_256_rank_draft_mla(monkeypatch) -> None:
++    draft_attn = patch_mistral4.MLAAttention.__new__(patch_mistral4.MLAAttention)
++    torch.nn.Module.__init__(draft_attn)
++    draft_attn.kv_lora_rank = 256
++    draft_attn.qk_nope_head_dim = 64
++    draft_attn.qk_rope_head_dim = 64
++    draft_attn.v_head_dim = 128
++    draft_attn.impl = SimpleNamespace()
++
++    draft_model = torch.nn.Module()
++    draft_model.add_module("draft_attn", draft_attn)
++    eagle = SimpleNamespace()
++
++    def original_init(candidate, *, vllm_config, prefix=""):
++        candidate.model = draft_model
++
++    monkeypatch.setattr(patch_mistral4, "_original_eagle_init", original_init)
++    monkeypatch.setattr(
++        patch_mistral4,
++        "current_platform",
++        SimpleNamespace(device_name="npu"),
++    )
++
++    patch_mistral4._patched_eagle_init(eagle, vllm_config=SimpleNamespace())
++
++    assert draft_attn.impl.kv_cache_lora_rank == 512
++    assert draft_attn.impl.prefill_qk_head_dim == 128
++
++
++def test_mistral_eagle_mla_spec_uses_padded_physical_rank(monkeypatch) -> None:
++    original_spec = MLAAttentionSpec(
++        block_size=16,
++        num_kv_heads=1,
++        head_size=320,
++        dtype=torch.bfloat16,
++        cache_dtype_str="auto",
++    )
++    monkeypatch.setattr(
++        patch_mistral4,
++        "_original_mla_get_kv_cache_spec",
++        lambda _self, _config: original_spec,
++    )
++    draft_attn = SimpleNamespace(
++        kv_lora_rank=256,
++        qk_rope_head_dim=64,
++        impl=SimpleNamespace(kv_cache_lora_rank=512),
++    )
++
++    draft_spec = patch_mistral4._patched_mla_get_kv_cache_spec(
++        draft_attn,
++        SimpleNamespace(),
++    )
++
++    assert draft_spec.head_size == 576
++
++
++def test_eagle_multimodal_embedding_interface_is_complete() -> None:
++    assert EagleMistralLarge3ForCausalLM._embed_text_input_ids is SupportsMultiModal._embed_text_input_ids
++    assert EagleMistralLarge3ForCausalLM._has_oov_mm_tokens is False
+diff --git a/tests/ut/worker/a2/test_model_runner_v1.py b/tests/ut/worker/a2/test_model_runner_v1.py
+index 4c35b68f5..a3827b46f 100644
+--- a/tests/ut/worker/a2/test_model_runner_v1.py
++++ b/tests/ut/worker/a2/test_model_runner_v1.py
+@@ -226,6 +226,27 @@ class TestNPUModelRunnerKVCache(unittest.TestCase):
+         self.assertEqual(k_cache.shape, (2, 16, 8, 64))
+         self.assertEqual(v_cache.shape, (2, 16, 8, 64))
+ 
++    @patch("vllm_ascend.worker.model_runner_v1.get_layers_from_vllm_config")
++    def test_mla_cache_dims_use_draft_physical_rank(self, mock_get_layers):
++        runner = self._build_runner()
++        layer_name = "model.layers.36.self_attn.attn"
++        attn_module = MLAAttention.__new__(MLAAttention)
++        torch.nn.Module.__init__(attn_module)
++        attn_module.kv_lora_rank = 256
++        attn_module.qk_rope_head_dim = 64
++        attn_module.impl = SimpleNamespace(kv_cache_lora_rank=512)
++        mock_get_layers.return_value = {layer_name: attn_module}
++        spec = AscendMLAAttentionSpec(
++            block_size=16,
++            num_kv_heads=1,
++            head_size=576,
++            dtype=torch.bfloat16,
++        )
++
++        dims = runner._get_attention_kv_cache_dims(layer_name, spec)
++
++        self.assertEqual(dims, (512, 64))
++
+     @patch("vllm_ascend.worker.model_runner_v1.has_ec_transfer", return_value=False)
+     @patch("vllm_ascend.worker.model_runner_v1.get_layers_from_vllm_config")
+     def test_sparse_layer_without_indexer_allocates_only_mla_kv_cache(
+diff --git a/vllm_ascend/attention/mla_v1.py b/vllm_ascend/attention/mla_v1.py
+index 2febc50d3..9a363bb73 100644
+--- a/vllm_ascend/attention/mla_v1.py
++++ b/vllm_ascend/attention/mla_v1.py
+@@ -67,6 +67,7 @@ BUILD_METADATA_STEP_PREFILL = 0
+ BUILD_METADATA_STEP_DECODE = 1
+ # token count limits within the mlapo operator
+ MLAPO_MAX_SUPPORTED_TOKENS = 1024
++KV_RMSNORM_ROPE_CACHE_SUPPORTED_RANKS = frozenset({192, 512})
+ # AttentionUpdate on A5 accepts at most 16 Local LSE/Output inputs. Keep the
+ # effective FIA batch close to the 32 A5 vector cores without exceeding it.
+ MLA_FIA_SPLIT_TARGET_BATCH = 32
+@@ -844,14 +845,19 @@ class AscendMLAMetadataBuilder(MLACommonMetadataBuilder[AscendMLAMetadata]):
+         common_attn_metadata: AscendCommonAttentionMetadata,
+         attn_state: AscendAttentionState = AscendAttentionState.DecodeOnly,
+     ):
+-        if attn_state in {AscendAttentionState.DecodeOnly, AscendAttentionState.SpecDecoding}:
++        if attn_state in {
++            AscendAttentionState.DecodeOnly,
++            AscendAttentionState.ChunkedPrefill,
++            AscendAttentionState.SpecDecoding,
++        }:
+             attn_metadata = self.build(
+                 common_prefix_len=0,
+                 common_attn_metadata=common_attn_metadata,
+             )
+         else:
+             raise NotImplementedError(
+-                "Currently we only support building dummy metadata for DecodeOnly and SpecDecoding state"
++                "Currently we only support building dummy metadata for "
++                "DecodeOnly, ChunkedPrefill and SpecDecoding state"
+             )
+ 
+         attn_metadata.attn_state = attn_state
+@@ -1363,6 +1369,32 @@ class AscendMLAImpl(MLAAttentionImpl):
+     ) -> tuple[torch.Tensor, torch.Tensor]:
+         return kv_c_normed, k_pe
+ 
++    def _pad_prefill_qk(self, tensor: torch.Tensor) -> torch.Tensor:
++        prefill_qk_head_dim = getattr(
++            self,
++            "prefill_qk_head_dim",
++            self.qk_nope_head_dim,
++        )
++        input_head_dim = tensor.size(-1)
++        if input_head_dim < self.qk_nope_head_dim:
++            raise ValueError(
++                "MLA prefill QK input head dimension cannot be smaller than "
++                "its semantic dimension: "
++                f"input={input_head_dim}, semantic={self.qk_nope_head_dim}"
++            )
++        if input_head_dim > prefill_qk_head_dim:
++            raise ValueError(
++                "MLA prefill QK input head dimension cannot be larger than "
++                "its physical dimension: "
++                f"input={input_head_dim}, physical={prefill_qk_head_dim}"
++            )
++        return F.pad(
++            tensor,
++            (0, prefill_qk_head_dim - input_head_dim),
++            "constant",
++            0,
++        )
++
+     def _compute_prefill_context(
+         self,
+         q_nope: torch.Tensor,
+@@ -1389,6 +1421,8 @@ class AscendMLAImpl(MLAAttentionImpl):
+         if iters == 0:
+             return prefix_output, prefix_lse
+ 
++        q_nope = self._pad_prefill_qk(q_nope)
++
+         num_tokens = q_nope.size(0)
+         D = self.v_head_dim
+         H = self.num_heads
+@@ -1439,12 +1473,21 @@ class AscendMLAImpl(MLAAttentionImpl):
+                 toks=toks,
+             )
+             kv_c_normed = kv_c_normed.squeeze()
++            cache_rank = kv_c_normed.size(-1)
++            if cache_rank < self.kv_lora_rank:
++                raise ValueError(
++                    "MLA physical KV cache rank cannot be smaller than its "
++                    f"semantic rank: cache={cache_rank}, semantic={self.kv_lora_rank}"
++                )
++            if cache_rank > self.kv_lora_rank:
++                kv_c_normed = kv_c_normed[..., : self.kv_lora_rank]
+             if self.fa_quant_layer and get_ascend_device_type() == AscendDeviceType.A5:
+                 kv_c_normed = torch.mul(kv_c_normed.to(self.fak_descale_float.dtype), self.fak_descale_float).to(
+                     torch.bfloat16
+                 )
+             kv_nope = self.kv_b_proj(kv_c_normed)[0].view(-1, self.num_heads, self.qk_nope_head_dim + self.v_head_dim)
+             k_nope, v = kv_nope.split([self.qk_nope_head_dim, self.v_head_dim], dim=-1)
++            k_nope = self._pad_prefill_qk(k_nope)
+             k_pe = k_pe.expand((*k_nope.shape[:-1], -1))
+ 
+             actual_seq_lengths_kv = prefill_metadata.chunked_context.chunk_actual_seq_lengths_kv_list[i]
+@@ -1500,6 +1543,9 @@ class AscendMLAImpl(MLAAttentionImpl):
+             k_pe = k_pe.to(torch.bfloat16)
+             value = value.to(torch.bfloat16)
+ 
++        q_nope = self._pad_prefill_qk(q_nope)
++        k_nope = self._pad_prefill_qk(k_nope)
++
+         attn_output = torch.empty(num_tokens, self.num_heads, self.v_head_dim, dtype=q_nope.dtype, device=q_nope.device)
+         attn_lse = torch.empty(self.num_heads, num_tokens, dtype=torch.float32, device=q_nope.device)
+ 
+@@ -1595,6 +1641,9 @@ class AscendMLAImpl(MLAAttentionImpl):
+         S = 1
+         # npu_kv_rmsnorm_rope_cache needs [B, N, S, D]
+         kv_no_split = kv_no_split.view(B, N, S, self.kv_lora_rank + self.qk_rope_head_dim)
++        if self.kv_lora_rank not in KV_RMSNORM_ROPE_CACHE_SUPPORTED_RANKS:
++            self._exec_kv_unfused(kv_no_split, cos, sin, kv_cache, slots)
++            return kv_cache[1], kv_cache[0]
+         cache_mode = "PA_NZ" if self.enable_kv_nz else "PA"
+         c_kv_scale = None
+         if get_ascend_device_type() == AscendDeviceType.A5 and self.fa_quant_layer:
+@@ -1631,6 +1680,8 @@ class AscendMLAImpl(MLAAttentionImpl):
+         S = 1
+         # npu_kv_rmsnorm_rope_cache needs [B, N, S, D]
+         kv_no_split = kv_no_split.view(B, N, S, self.kv_lora_rank + self.qk_rope_head_dim)
++        if self.kv_lora_rank not in KV_RMSNORM_ROPE_CACHE_SUPPORTED_RANKS:
++            return self._exec_kv_unfused(kv_no_split, cos, sin, kv_cache, slots)
+         cache_mode = "PA"
+         c_kv_scale = None
+         if get_ascend_device_type() == AscendDeviceType.A5 and self.fa_quant_layer:
+@@ -1650,6 +1701,55 @@ class AscendMLAImpl(MLAAttentionImpl):
+         )
+         return k_pe, k_nope
+ 
++    def _exec_kv_unfused(
++        self,
++        kv_no_split: torch.Tensor,
++        cos: torch.Tensor,
++        sin: torch.Tensor,
++        kv_cache: tuple,
++        slots: torch.Tensor,
++    ) -> tuple[torch.Tensor, torch.Tensor]:
++        assert self.kv_a_layernorm is not None
++        assert not self.enable_kv_nz, "The unfused MLA KV path requires PA cache layout"
++        assert not self.fa_quant_layer, "The unfused MLA KV path requires unquantized KV cache"
++
++        k_nope, k_pe = kv_no_split.split([self.kv_lora_rank, self.qk_rope_head_dim], dim=-1)
++        k_nope, _ = torch_npu.npu_rms_norm(
++            k_nope.contiguous(),
++            self.kv_a_layernorm.weight,
++            epsilon=self.kv_a_layernorm.variance_epsilon,
++        )
++        k_pe = torch_npu.npu_interleave_rope(k_pe.contiguous(), cos, sin)
++        cache_rank = getattr(self, "kv_cache_lora_rank", self.kv_lora_rank)
++        if cache_rank < self.kv_lora_rank:
++            raise ValueError(
++                "MLA physical KV cache rank cannot be smaller than its "
++                f"semantic rank: cache={cache_rank}, semantic={self.kv_lora_rank}"
++            )
++        cache_k_nope = F.pad(
++            k_nope,
++            (0, cache_rank - self.kv_lora_rank),
++            "constant",
++            0,
++        )
++
++        DeviceOperator.reshape_and_cache(
++            key=cache_k_nope.view(
++                cache_k_nope.shape[0],
++                self.num_kv_heads,
++                cache_rank,
++            ),
++            value=k_pe.view(
++                k_pe.shape[0],
++                self.num_kv_heads,
++                self.qk_rope_head_dim,
++            ),
++            key_cache=kv_cache[0],
++            value_cache=kv_cache[1],
++            slot_mapping=slots.to(torch.int32),
++        )
++        return k_pe, k_nope
++
+     def rope_single(
+         self,
+         x: torch.Tensor,
+@@ -1697,27 +1797,31 @@ class AscendMLAImpl(MLAAttentionImpl):
+         # powers of 2 in 2026 Q2. Once supported, all padding operations under
+         # `if self.head_padding > 0` in this function can be removed.
+         num_tokens = q_nope.size(0)
++        cache_rank = getattr(self, "kv_cache_lora_rank", self.kv_lora_rank)
++        if cache_rank < self.kv_lora_rank:
++            raise ValueError(
++                "MLA physical KV cache rank cannot be smaller than its "
++                f"semantic rank: cache={cache_rank}, semantic={self.kv_lora_rank}"
++            )
+         # shape of knope/k_pe for npu graph mode should be:
+         # [num_blocks, num_kv_heads, block_size, self.kv_lora_rank/self.qk_rope_head_dim]
+         actual_seq_lengths = None
+         if self.fa_quant_layer and get_ascend_device_type() != AscendDeviceType.A5:
+             nz_fmt_last_dim = 16
+             k_nope = k_nope.view(
+-                -1, self.num_kv_heads, self.kv_lora_rank // (nz_fmt_last_dim * 2), block_size, nz_fmt_last_dim * 2
++                -1, self.num_kv_heads, cache_rank // (nz_fmt_last_dim * 2), block_size, nz_fmt_last_dim * 2
+             )
+             k_pe = k_pe.view(
+                 -1, self.num_kv_heads, self.qk_rope_head_dim // nz_fmt_last_dim, block_size, nz_fmt_last_dim
+             )
+         elif self.enable_kv_nz:
+             nz_fmt_last_dim = 16
+-            k_nope = k_nope.view(
+-                -1, self.num_kv_heads, self.kv_lora_rank // nz_fmt_last_dim, block_size, nz_fmt_last_dim
+-            )
++            k_nope = k_nope.view(-1, self.num_kv_heads, cache_rank // nz_fmt_last_dim, block_size, nz_fmt_last_dim)
+             k_pe = k_pe.view(
+                 -1, self.num_kv_heads, self.qk_rope_head_dim // nz_fmt_last_dim, block_size, nz_fmt_last_dim
+             )
+         else:
+-            k_nope = k_nope.view(-1, self.num_kv_heads, block_size, self.kv_lora_rank)
++            k_nope = k_nope.view(-1, self.num_kv_heads, block_size, cache_rank)
+             k_pe = k_pe.view(-1, self.num_kv_heads, block_size, self.qk_rope_head_dim)
+ 
+         attn_output_shape: tuple | None = None
+@@ -1743,7 +1847,7 @@ class AscendMLAImpl(MLAAttentionImpl):
+                 q_pe = F.pad(q_pe, (0, 0, 0, self.head_padding), "constant", 0)
+                 q_nope = F.pad(q_nope, (0, 0, 0, self.head_padding), "constant", 0)
+             # Output shape: [num_heads, num_tokens, dim]
+-            attn_output_shape = (self.num_heads_padded, num_tokens, self.kv_lora_rank)
++            attn_output_shape = (self.num_heads_padded, num_tokens, cache_rank)
+             if not attn_metadata.causal:
+                 # The DSpark MLA draft block is non-causal (bidirectional):
+                 # every query token attends to the trailing context window plus
+@@ -1771,7 +1875,7 @@ class AscendMLAImpl(MLAAttentionImpl):
+                     q_pe = F.pad(q_pe, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
+                     q_nope = F.pad(q_nope, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
+                 dequant_scale_q_nope = dequant_scale_q_nope.view(num_tokens, self.num_heads, 1)
+-                attn_output_shape = (num_tokens, self.num_heads_padded, 1, self.kv_lora_rank)
++                attn_output_shape = (num_tokens, self.num_heads_padded, 1, cache_rank)
+             else:
+                 input_layout = "BSND_NBSD"
+                 q_nope = q_nope.view(num_tokens, 1, self.num_heads, -1).contiguous()
+@@ -1780,7 +1884,7 @@ class AscendMLAImpl(MLAAttentionImpl):
+                     q_pe = F.pad(q_pe, (0, 0, 0, self.head_padding), "constant", 0)
+                     q_nope = F.pad(q_nope, (0, 0, 0, self.head_padding), "constant", 0)
+                 dequant_scale_q_nope = dequant_scale_q_nope.view(num_tokens, 1, self.num_heads)
+-                attn_output_shape = (self.num_heads_padded, num_tokens, 1, self.kv_lora_rank)
++                attn_output_shape = (self.num_heads_padded, num_tokens, 1, cache_rank)
+         else:
+             # The output layout is set to NBSD to eliminate the need for a
+             # transpose operation after attention.
+@@ -1801,10 +1905,18 @@ class AscendMLAImpl(MLAAttentionImpl):
+                     q_pe = F.pad(q_pe, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
+                     q_nope = F.pad(q_nope, (0, 0, 0, 0, 0, self.head_padding), "constant", 0)
+             # Output shape: [num_heads, num_tokens, seq_len, dim]
+-            attn_output_shape = (self.num_heads_padded, num_tokens, 1, self.kv_lora_rank)
++            attn_output_shape = (self.num_heads_padded, num_tokens, 1, cache_rank)
+             sparse_mode = 0
+             attn_mask = None
+ 
++        if cache_rank > self.kv_lora_rank:
++            q_nope = F.pad(
++                q_nope,
++                (0, cache_rank - self.kv_lora_rank),
++                "constant",
++                0,
++            )
++
+         fia_num_splits = 1
+         fia_blocks_per_split = decode_meta.block_table.shape[1]
+         split_seq_lens = decode_meta.seq_lens_list
+@@ -1840,11 +1952,11 @@ class AscendMLAImpl(MLAAttentionImpl):
+ 
+             split_batch_size = num_tokens * fia_num_splits
+             if input_layout.endswith("_NBSD"):
+-                attn_output_shape = (self.num_heads_padded, split_batch_size, 1, self.kv_lora_rank)
++                attn_output_shape = (self.num_heads_padded, split_batch_size, 1, cache_rank)
+             elif input_layout.startswith("BNSD"):
+-                attn_output_shape = (split_batch_size, self.num_heads_padded, 1, self.kv_lora_rank)
++                attn_output_shape = (split_batch_size, self.num_heads_padded, 1, cache_rank)
+             elif input_layout.startswith("BSND"):
+-                attn_output_shape = (split_batch_size, 1, self.num_heads_padded, self.kv_lora_rank)
++                attn_output_shape = (split_batch_size, 1, self.num_heads_padded, cache_rank)
+             else:
+                 raise ValueError(f"Unsupported MLA FIA split input layout: {input_layout}")
+ 
+@@ -1956,7 +2068,7 @@ class AscendMLAImpl(MLAAttentionImpl):
+                 batch_size=num_tokens,
+                 num_splits=fia_num_splits,
+                 num_heads=self.num_heads_padded,
+-                head_dim=self.kv_lora_rank,
++                head_dim=cache_rank,
+                 seq_lens_device=decode_meta.seq_lens_device,
+                 chunk_tokens=fia_blocks_per_split * block_size,
+             )
+@@ -1970,13 +2082,15 @@ class AscendMLAImpl(MLAAttentionImpl):
+                     input_layout=input_layout,
+                     batch_size=num_tokens,
+                     num_heads=self.num_heads_padded,
+-                    head_dim=self.kv_lora_rank,
++                    head_dim=cache_rank,
+                 )
+                 .permute(1, 0, 2)
+                 .contiguous()
+             )
+         if self.head_padding > 0:
+             attn_output = attn_output[: self.num_heads]
++        if cache_rank > self.kv_lora_rank:
++            attn_output = attn_output[..., : self.kv_lora_rank]
+         return self._v_up_proj(attn_output)
+ 
+     def reorg_decode_q(self, decode_q_nope, decode_q_pe):
+diff --git a/vllm_ascend/ops/rotary_embedding.py b/vllm_ascend/ops/rotary_embedding.py
+index 1e3a90bbd..a20995834 100644
+--- a/vllm_ascend/ops/rotary_embedding.py
++++ b/vllm_ascend/ops/rotary_embedding.py
+@@ -60,6 +60,18 @@ _cos_slice: torch.Tensor = None
+ _sin_slice: torch.Tensor = None
+ 
+ 
++def _uses_mla_rope_buffer(model_config) -> bool:
++    if model_config.use_mla:
++        return True
++
++    hf_config = getattr(model_config, "hf_config", None)
++    hf_text_config = getattr(model_config, "hf_text_config", None)
++    return (
++        getattr(hf_config, "model_type", None) == "mistral3"
++        and getattr(hf_text_config, "model_type", None) == "mistral4"
++    )
++
++
+ def set_cos_and_sin(vllm_config, max_num_reqs, decode_token_per_req, dtype, device):
+     global _cos_mla
+     global _sin_mla
+@@ -72,7 +84,7 @@ def set_cos_and_sin(vllm_config, max_num_reqs, decode_token_per_req, dtype, devi
+     model_config = vllm_config.model_config
+     max_num_batched_tokens = vllm_config.scheduler_config.max_num_batched_tokens
+ 
+-    if model_config.use_mla:
++    if _uses_mla_rope_buffer(model_config):
+         rope_dim = model_config.hf_text_config.qk_rope_head_dim
+         _cos_mla = torch.ones(max_num_batched_tokens, 1, 1, rope_dim, dtype=dtype, device=device)
+         _sin_mla = torch.zeros(max_num_batched_tokens, 1, 1, rope_dim, dtype=dtype, device=device)
+diff --git a/vllm_ascend/patch/platform/__init__.py b/vllm_ascend/patch/platform/__init__.py
+index 39f0a41be..b0c53d714 100644
+--- a/vllm_ascend/patch/platform/__init__.py
++++ b/vllm_ascend/patch/platform/__init__.py
+@@ -35,6 +35,7 @@ if not is_310p():
+ else:
+     import vllm_ascend.patch.platform.patch_mamba_config_310  # noqa
+ import vllm_ascend.patch.platform.patch_minimax_m2_config  # noqa
++import vllm_ascend.patch.platform.patch_mistral4_config  # noqa
+ import vllm_ascend.patch.platform.patch_recompute_chat  # noqa
+ import vllm_ascend.patch.platform.patch_shm_broadcast  # noqa
+ import vllm_ascend.patch.platform.patch_structured_output  # noqa
+diff --git a/vllm_ascend/patch/platform/patch_mistral4_config.py b/vllm_ascend/patch/platform/patch_mistral4_config.py
+new file mode 100644
+index 000000000..e1f70c2e2
+--- /dev/null
++++ b/vllm_ascend/patch/platform/patch_mistral4_config.py
+@@ -0,0 +1,164 @@
++# Copyright (c) 2026 Huawei Technologies Co., Ltd. All Rights Reserved.
++# This file is a part of the vllm-ascend project.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
++import json
++from pathlib import Path
++
++from vllm.config.model import ModelConfig
++from vllm.logger import logger
++from vllm.platforms import current_platform
++
++from vllm_ascend.quantization import utils as quantization_utils
++
++_original_verify_quantization = getattr(ModelConfig, "_verify_quantization", None)
++_original_auto_detect_quantization = quantization_utils.maybe_auto_detect_quantization
++
++_MISTRAL_NATIVE_EAGLE_ARCHITECTURE = "EagleMistralLarge3ForCausalLM"
++
++
++def _is_mistral4_config(config: ModelConfig) -> bool:
++    hf_config = getattr(config, "hf_config", None)
++    candidates = (
++        getattr(config, "model_arch_config", None),
++        getattr(config, "hf_text_config", None),
++        hf_config,
++        getattr(hf_config, "text_config", None),
++    )
++    return any(
++        getattr(candidate, "model_type", None) == "mistral4" for candidate in candidates if candidate is not None
++    )
++
++
++def _is_mistral_native_fp8_eagle_config(config: ModelConfig) -> bool:
++    hf_config = getattr(config, "hf_config", None)
++    model_arch_config = getattr(config, "model_arch_config", None)
++    architectures = getattr(model_arch_config, "architectures", None)
++    if architectures is None:
++        architectures = getattr(hf_config, "architectures", None)
++    if not architectures or _MISTRAL_NATIVE_EAGLE_ARCHITECTURE not in architectures:
++        return False
++
++    model_type = getattr(model_arch_config, "model_type", None)
++    if model_type is None:
++        model_type = getattr(hf_config, "model_type", None)
++    if model_type not in ("deepseek_mtp", "eagle"):
++        return False
++
++    model = getattr(config, "model", None)
++    if not isinstance(model, str):
++        return False
++    params_path = Path(model) / "params.json"
++    if not params_path.is_file():
++        return False
++
++    try:
++        with params_path.open(encoding="utf-8") as params_file:
++            params = json.load(params_file)
++    except (OSError, TypeError, ValueError):
++        return False
++
++    quantization = params.get("quantization")
++    return (
++        isinstance(quantization, dict)
++        and str(quantization.get("qformat_weight", "")).startswith("fp8_")
++        and quantization.get("qscheme_act") == "TENSOR"
++    )
++
++
++def _needs_mistral_fp8_dequantization(config: ModelConfig) -> bool:
++    return _is_mistral4_config(config) or _is_mistral_native_fp8_eagle_config(config)
++
++
++def _checkpoint_label(config: ModelConfig) -> str:
++    if _is_mistral_native_fp8_eagle_config(config):
++        return "Mistral native EAGLE"
++    return "Mistral 4"
++
++
++def _should_dequantize(config: ModelConfig, quant_method: str | None) -> bool:
++    return current_platform.device_name == "npu" and _needs_mistral_fp8_dequantization(config) and quant_method == "fp8"
++
++
++def _is_fp8_checkpoint(config: ModelConfig) -> bool:
++    if not _needs_mistral_fp8_dequantization(config):
++        return False
++
++    model_arch_config = getattr(config, "model_arch_config", None)
++    hf_config = getattr(config, "hf_config", None)
++    quant_config = getattr(model_arch_config, "quantization_config", None)
++    if quant_config is None:
++        quant_config = getattr(hf_config, "quantization_config", None)
++
++    if isinstance(quant_config, dict):
++        quant_method = quant_config.get("quant_method")
++    else:
++        quant_method = getattr(quant_config, "quant_method", None)
++    if quant_method is None:
++        model = getattr(config, "model", None)
++        if model is None:
++            return False
++        quant_method = quantization_utils.detect_quantization_method(
++            model,
++            revision=getattr(config, "revision", None),
++        )
++    return quant_method == "fp8"
++
++
++def _patched_verify_quantization(self: ModelConfig) -> None:
++    assert _original_verify_quantization is not None
++
++    original_platform_verify = getattr(current_platform, "verify_quantization", None)
++    should_dequantize = current_platform.device_name == "npu" and _needs_mistral_fp8_dequantization(self)
++
++    def _platform_verify_hook(quant_method: str | None) -> None:
++        if _should_dequantize(self, quant_method):
++            logger.info(
++                "Detected a per-tensor fp8 %s checkpoint on NPU. "
++                "Loading strictly paired, dequantized bf16 weights instead.",
++                _checkpoint_label(self),
++            )
++            self.quantization = None
++            return
++        assert original_platform_verify is not None
++        return original_platform_verify(quant_method)
++
++    try:
++        if original_platform_verify is not None:
++            current_platform.verify_quantization = _platform_verify_hook
++        return _original_verify_quantization(self)
++    finally:
++        if original_platform_verify is not None:
++            current_platform.verify_quantization = original_platform_verify
++        if should_dequantize and getattr(self, "quantization", None) == "fp8":
++            self.quantization = None
++
++
++def _patched_auto_detect_quantization(vllm_config) -> None:
++    model_config = vllm_config.model_config
++    if _is_fp8_checkpoint(model_config):
++        model_config.quantization = None
++        vllm_config.quant_config = None
++        logger.info(
++            "Keeping %s fp8 checkpoint quantization disabled on NPU for load-time bf16 dequantization.",
++            _checkpoint_label(model_config),
++        )
++        return
++    return _original_auto_detect_quantization(vllm_config)
++
++
++if _original_verify_quantization is not None:
++    ModelConfig._verify_quantization = _patched_verify_quantization
++
++quantization_utils.maybe_auto_detect_quantization = _patched_auto_detect_quantization
+diff --git a/vllm_ascend/patch/worker/__init__.py b/vllm_ascend/patch/worker/__init__.py
+index 376ae30a3..45658c147 100644
+--- a/vllm_ascend/patch/worker/__init__.py
++++ b/vllm_ascend/patch/worker/__init__.py
+@@ -32,6 +32,13 @@ import vllm_ascend.patch.worker.patch_mamba_utils  # noqa
+ import vllm_ascend.patch.worker.patch_qwen3_next_mtp  # noqa
+ import vllm_ascend.patch.worker.patch_step3p5  # noqa
+ 
++try:
++    import vllm.model_executor.models.mistral4  # noqa
++except ImportError:
++    pass
++else:
++    import vllm_ascend.patch.worker.patch_mistral4  # noqa
++
+ if not is_310p():
+     import vllm_ascend.patch.worker.patch_qwen3_5  # noqa
+     import vllm_ascend.patch.worker.patch_qwen3_dflash  # noqa
+diff --git a/vllm_ascend/patch/worker/patch_mistral4.py b/vllm_ascend/patch/worker/patch_mistral4.py
+new file mode 100644
+index 000000000..0cce7bb67
+--- /dev/null
++++ b/vllm_ascend/patch/worker/patch_mistral4.py
+@@ -0,0 +1,214 @@
++# Copyright (c) 2026 Huawei Technologies Co., Ltd. All Rights Reserved.
++# This file is a part of the vllm-ascend project.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
++from collections.abc import Iterable, Iterator
++from dataclasses import replace
++
++import torch
++from vllm.logger import logger
++from vllm.model_executor.layers.attention import MLAAttention
++from vllm.model_executor.models.interfaces import SupportsMultiModal
++from vllm.model_executor.models.mistral4 import Mistral4Model
++from vllm.model_executor.models.mistral_large_3_eagle import (
++    EagleMistralLarge3ForCausalLM,
++)
++from vllm.platforms import current_platform
++
++FP8_DTYPES = tuple(
++    getattr(torch, dtype_name)
++    for dtype_name in (
++        "float8_e4m3fn",
++        "float8_e4m3fnuz",
++        "float8_e5m2",
++        "float8_e5m2fnuz",
++    )
++    if hasattr(torch, dtype_name)
++)
++
++MISTRAL_EAGLE_KV_LORA_RANK = 256
++MISTRAL_EAGLE_ROPE_HEAD_DIM = 64
++MISTRAL_EAGLE_PADDED_KV_LORA_RANK = 512
++
++
++def _dequantize_fp8_weight(
++    fp8_weight: torch.Tensor,
++    weight_scale_inv: torch.Tensor,
++) -> torch.Tensor:
++    scale_shape = tuple(weight_scale_inv.shape)
++    valid_scale = weight_scale_inv.numel() == 1 or (
++        fp8_weight.ndim == 3
++        and weight_scale_inv.ndim == 3
++        and weight_scale_inv.shape[0] == fp8_weight.shape[0]
++        and weight_scale_inv.shape[1:] == (1, 1)
++    )
++    if not valid_scale:
++        raise ValueError(
++            f"Unexpected Mistral 4 fp8 inverse-scale shape: weight={tuple(fp8_weight.shape)}, scale={scale_shape}"
++        )
++
++    return fp8_weight.to(dtype=torch.bfloat16) * weight_scale_inv.to(dtype=torch.bfloat16)
++
++
++def _fp8_dequant_weight_iter(
++    weights: Iterable[tuple[str, torch.Tensor]],
++    checkpoint_label: str = "Mistral 4",
++) -> Iterator[tuple[str, torch.Tensor]]:
++    pending_weights: dict[str, torch.Tensor] = {}
++    pending_scales: dict[str, torch.Tensor] = {}
++    converted_tensors = 0
++    converted_elements = 0
++    skipped_activation_scales = 0
++
++    for name, loaded_weight in weights:
++        if name.endswith(("activation_scale", ".input_scale", ".qscale_act")):
++            skipped_activation_scales += 1
++            continue
++
++        if name.endswith("_scale_inv"):
++            weight_name = name[: -len("_scale_inv")]
++        elif name.endswith(".weight_scale"):
++            weight_name = name[: -len("_scale")]
++        elif name.endswith(".qscale_weight"):
++            weight_name = name[: -len(".qscale_weight")] + ".weight"
++        else:
++            weight_name = None
++
++        if weight_name is not None:
++            pending_weight = pending_weights.pop(weight_name, None)
++            if pending_weight is None:
++                pending_scales[name] = loaded_weight
++                continue
++            loaded_weight = _dequantize_fp8_weight(pending_weight, loaded_weight)
++            name = weight_name
++            converted_tensors += 1
++            converted_elements += loaded_weight.numel()
++        elif loaded_weight.dtype in FP8_DTYPES:
++            pending_scale = None
++            scale_names = [f"{name}_scale_inv", f"{name}_scale"]
++            if name.endswith(".weight"):
++                scale_names.append(name[: -len(".weight")] + ".qscale_weight")
++            for scale_name in scale_names:
++                pending_scale = pending_scales.pop(scale_name, None)
++                if pending_scale is not None:
++                    break
++            if pending_scale is None:
++                pending_weights[name] = loaded_weight
++                continue
++            loaded_weight = _dequantize_fp8_weight(loaded_weight, pending_scale)
++            converted_tensors += 1
++            converted_elements += loaded_weight.numel()
++
++        yield name, loaded_weight
++
++    if pending_weights or pending_scales:
++        raise ValueError(
++            f"Unpaired {checkpoint_label} fp8 weight/scale tensors: "
++            f"pending_weights={sorted(pending_weights)}, "
++            f"pending_scales={sorted(pending_scales)}"
++        )
++
++    logger.info(
++        "Dequantized %d %s fp8 tensors (%d elements) to bf16; ignored %d paired activation-scale metadata tensors.",
++        converted_tensors,
++        checkpoint_label,
++        converted_elements,
++        skipped_activation_scales,
++    )
++
++
++_original_load_weights = Mistral4Model.load_weights
++_original_mla_get_kv_cache_spec = MLAAttention.get_kv_cache_spec
++_original_eagle_init = EagleMistralLarge3ForCausalLM.__init__
++_original_eagle_load_weights = EagleMistralLarge3ForCausalLM.load_weights
++
++
++def _patched_load_weights(
++    self: Mistral4Model,
++    weights: Iterable[tuple[str, torch.Tensor]],
++) -> set[str]:
++    if current_platform.device_name == "npu":
++        weights = _fp8_dequant_weight_iter(weights)
++    return _original_load_weights(self, weights)
++
++
++Mistral4Model.load_weights = _patched_load_weights
++
++
++def _patched_mla_get_kv_cache_spec(self: MLAAttention, vllm_config):
++    spec = _original_mla_get_kv_cache_spec(self, vllm_config)
++    cache_rank = getattr(self.impl, "kv_cache_lora_rank", self.kv_lora_rank)
++    if cache_rank == self.kv_lora_rank:
++        return spec
++
++    expected_head_size = self.kv_lora_rank + self.qk_rope_head_dim
++    if spec.head_size != expected_head_size:
++        raise ValueError(
++            "Unexpected MLA KV cache spec before Mistral EAGLE padding: "
++            f"head_size={spec.head_size}, expected={expected_head_size}"
++        )
++    return replace(spec, head_size=cache_rank + self.qk_rope_head_dim)
++
++
++MLAAttention.get_kv_cache_spec = _patched_mla_get_kv_cache_spec
++
++
++def _patched_eagle_init(
++    self: EagleMistralLarge3ForCausalLM,
++    *,
++    vllm_config,
++    prefix: str = "",
++) -> None:
++    _original_eagle_init(self, vllm_config=vllm_config, prefix=prefix)
++    if current_platform.device_name != "npu":
++        return
++
++    padded_layers = 0
++    for module in self.model.modules():
++        if not isinstance(module, MLAAttention):
++            continue
++        if module.kv_lora_rank == MISTRAL_EAGLE_KV_LORA_RANK and module.qk_rope_head_dim == MISTRAL_EAGLE_ROPE_HEAD_DIM:
++            module.impl.kv_cache_lora_rank = MISTRAL_EAGLE_PADDED_KV_LORA_RANK
++            module.impl.prefill_qk_head_dim = max(
++                module.qk_nope_head_dim,
++                module.v_head_dim,
++            )
++            padded_layers += 1
++
++    if padded_layers:
++        logger.info(
++            "Using a %d-dimension physical MLA KV cache for %d Mistral EAGLE draft layer(s); semantic rank remains %d.",
++            MISTRAL_EAGLE_PADDED_KV_LORA_RANK,
++            padded_layers,
++            MISTRAL_EAGLE_KV_LORA_RANK,
++        )
++
++
++EagleMistralLarge3ForCausalLM.__init__ = _patched_eagle_init
++
++
++def _patched_eagle_load_weights(
++    self: EagleMistralLarge3ForCausalLM,
++    weights: Iterable[tuple[str, torch.Tensor]],
++) -> set[str]:
++    if current_platform.device_name == "npu" and self.quant_config is None:
++        weights = _fp8_dequant_weight_iter(weights, "Mistral native EAGLE")
++    return _original_eagle_load_weights(self, weights)
++
++
++EagleMistralLarge3ForCausalLM.load_weights = _patched_eagle_load_weights
++EagleMistralLarge3ForCausalLM._embed_text_input_ids = (  # type: ignore[attr-defined]
++    SupportsMultiModal._embed_text_input_ids
++)
++EagleMistralLarge3ForCausalLM._has_oov_mm_tokens = False  # type: ignore[attr-defined]
+diff --git a/vllm_ascend/worker/model_runner_v1.py b/vllm_ascend/worker/model_runner_v1.py
+index 9bcf43452..01531a5b1 100644
+--- a/vllm_ascend/worker/model_runner_v1.py
++++ b/vllm_ascend/worker/model_runner_v1.py
+@@ -3899,7 +3899,12 @@ class NPUModelRunner(GPUModelRunner):
+             attn_layer = attn_layers[layer_name]
+             if isinstance(attn_layer, MLAAttention):
+                 # DeepSeek MLA: K=kv_lora_rank, V=qk_rope_head_dim
+-                return attn_layer.kv_lora_rank, attn_layer.qk_rope_head_dim
++                cache_rank = getattr(
++                    attn_layer.impl,
++                    "kv_cache_lora_rank",
++                    attn_layer.kv_lora_rank,
++                )
++                return cache_rank, attn_layer.qk_rope_head_dim
+             # CacheOnlyAttentionLayer uses AscendMLAAttentionSpec but isn't MLAAttention
+             if isinstance(attn_layer, CacheOnlyAttentionLayer):
+                 return kv_cache_spec.head_size, kv_cache_spec.head_size
+diff --git a/vllm_ascend/worker/v2/attn_utils.py b/vllm_ascend/worker/v2/attn_utils.py
+index 842245b99..479ac0d14 100644
+--- a/vllm_ascend/worker/v2/attn_utils.py
++++ b/vllm_ascend/worker/v2/attn_utils.py
+@@ -321,7 +321,12 @@ def _get_attention_kv_cache_dims(
+         attn_layer = attn_layers[layer_name]
+         if not isinstance(attn_layer, MLAAttention):
+             raise TypeError(f"Expected an MLAAttention layer for {layer_name}, got {type(attn_layer).__name__}.")
+-        return attn_layer.kv_lora_rank, attn_layer.qk_rope_head_dim
++        cache_rank = getattr(
++            attn_layer.impl,
++            "kv_cache_lora_rank",
++            attn_layer.kv_lora_rank,
++        )
++        return cache_rank, attn_layer.qk_rope_head_dim
+ 
+     head_size_v = getattr(kv_cache_spec, "head_size_v", kv_cache_spec.head_size)
+     return kv_cache_spec.head_size, head_size_v
+@@ -679,4 +684,4 @@ def build_attn_metadata_wrapper():
+         _BUILD_ATTN_METADATA_MODULE.build_attn_metadata = build_attn_metadata
+         yield
+     finally:
+-        _BUILD_ATTN_METADATA_MODULE.build_attn_metadata = original_func
+\ No newline at end of file
++        _BUILD_ATTN_METADATA_MODULE.build_attn_metadata = original_func
