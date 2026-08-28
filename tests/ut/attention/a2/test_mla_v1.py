@@ -872,12 +872,22 @@ class TestAscendMLAMetadataBuilderBuild(TestBase):
             device=self.mock_device,
         )
         mock_get_cos_and_sin_mla.return_value = (torch.tensor([10, 10]), torch.Tensor([10, 10]))
-        metadata = builder.build_for_graph_capture(common_attn_metadata, AscendAttentionState.DecodeOnly)
+        graph_states = (
+            AscendAttentionState.DecodeOnly,
+            AscendAttentionState.ChunkedPrefill,
+            AscendAttentionState.SpecDecoding,
+        )
+        for graph_state in graph_states:
+            metadata = builder.build_for_graph_capture(
+                common_attn_metadata,
+                graph_state,
+            )
 
-        self.assertIsInstance(metadata, AscendMLAMetadata)
-        self.assertEqual(metadata.num_actual_tokens, base_inputs["num_actual_tokens"])
-        self.assertTrue(torch.all(metadata.slot_mapping == base_inputs["slot_mapping"]))
-        self.assertEqual(metadata.head_dim, self.kv_cache_spec.head_size)
+            self.assertIsInstance(metadata, AscendMLAMetadata)
+            self.assertEqual(metadata.num_actual_tokens, base_inputs["num_actual_tokens"])
+            self.assertTrue(torch.all(metadata.slot_mapping == base_inputs["slot_mapping"]))
+            self.assertEqual(metadata.head_dim, self.kv_cache_spec.head_size)
+            self.assertEqual(metadata.attn_state, graph_state)
 
     @patch("vllm_ascend.attention.mla_v1.get_cos_and_sin_mla")
     def test_build_for_graph_capture_prefill(self, mock_get_cos_and_sin_mla):
@@ -910,7 +920,7 @@ class TestAscendMLAMetadataBuilderBuild(TestBase):
         with self.assertRaises(NotImplementedError) as ctx:
             builder.build_for_graph_capture(common_attn_metadata, AscendAttentionState.PrefillNoCache)
         self.assertIn(
-            "Currently we only support building dummy metadata for DecodeOnly and SpecDecoding state",
+            "Currently we only support building dummy metadata for DecodeOnly, ChunkedPrefill and SpecDecoding state",
             str(ctx.exception),
         )
 
@@ -1067,6 +1077,56 @@ class TestAscendMLAImpl(TestBase):
         # 256 is power of 2, so padding should be 0
         self.assertEqual(self.impl.num_heads_padded, 256)
         self.assertEqual(self.impl.head_padding, 0)
+
+    def test_pad_prefill_qk_uses_physical_dimension(self):
+        self.impl.qk_nope_head_dim = 64
+        self.impl.prefill_qk_head_dim = 128
+        semantic_q = torch.randn(2, 4, 64)
+
+        padded_q = self.impl._pad_prefill_qk(semantic_q)
+
+        self.assertEqual(padded_q.shape, (2, 4, 128))
+        torch.testing.assert_close(padded_q[..., :64], semantic_q)
+        self.assertEqual(torch.count_nonzero(padded_q[..., 64:]), 0)
+
+    @patch("vllm_ascend.attention.mla_v1.DeviceOperator.reshape_and_cache")
+    @patch("torch_npu.npu_interleave_rope")
+    @patch("torch_npu.npu_rms_norm")
+    def test_exec_kv_unfused_pads_physical_cache_rank(
+        self,
+        mock_npu_rms_norm,
+        mock_npu_interleave_rope,
+        mock_reshape_and_cache,
+    ):
+        batch_size = 2
+        self.impl.num_kv_heads = 1
+        self.impl.kv_lora_rank = 256
+        self.impl.kv_cache_lora_rank = 512
+        self.impl.qk_rope_head_dim = 64
+        self.impl.enable_kv_nz = False
+        self.impl.fa_quant_layer = False
+        self.impl.kv_a_layernorm.variance_epsilon = 1e-6
+        kv_no_split = torch.randn(batch_size, 1, 1, 320)
+        k_nope = torch.randn(batch_size, 1, 1, 256)
+        k_pe = torch.randn(batch_size, 1, 1, 64)
+        mock_npu_rms_norm.return_value = (k_nope, MagicMock())
+        mock_npu_interleave_rope.return_value = k_pe
+
+        result_k_pe, result_k_nope = self.impl._exec_kv_unfused(
+            kv_no_split,
+            MagicMock(),
+            MagicMock(),
+            (MagicMock(), MagicMock()),
+            torch.tensor([3, 129]),
+        )
+
+        self.assertIs(result_k_pe, k_pe)
+        self.assertIs(result_k_nope, k_nope)
+        cache_key = mock_reshape_and_cache.call_args.kwargs["key"]
+        self.assertEqual(cache_key.shape, (batch_size, 1, 512))
+        torch.testing.assert_close(cache_key[..., :256], k_nope.view(batch_size, 1, 256))
+        self.assertEqual(torch.count_nonzero(cache_key[..., 256:]), 0)
+        self.assertEqual(mock_reshape_and_cache.call_args.kwargs["slot_mapping"].dtype, torch.int32)
 
     @patch("vllm_ascend.attention.mla_v1.enable_fa_quant", return_value=True)
     @patch("vllm_ascend.attention.mla_v1.enabling_mlapo", return_value=True)
@@ -2369,6 +2429,7 @@ class TestAscendMLAImpl(TestBase):
 
     @patch("torch_npu.npu_kv_rmsnorm_rope_cache")
     def test_exec_kv_prefill(self, mock_kv_rmsnorm_rope_cache):
+        self.impl.kv_lora_rank = 512
         B = 2
         N = self.impl.num_kv_heads
         D = self.impl.kv_lora_rank + self.impl.qk_rope_head_dim
@@ -2467,6 +2528,7 @@ class TestAscendMLAImpl(TestBase):
     @patch("torch_npu.npu_kv_rmsnorm_rope_cache")
     def test_exec_kv_prefill_with_fa_quant(self, mock_kv_rmsnorm_rope_cache):
         # if fa_quant_layer is True
+        self.impl.kv_lora_rank = 512
         B = 2
         N = self.impl.num_kv_heads
         D = self.impl.kv_lora_rank + self.impl.qk_rope_head_dim
@@ -2496,6 +2558,7 @@ class TestAscendMLAImpl(TestBase):
 
     @patch("torch_npu.npu_kv_rmsnorm_rope_cache")
     def test_exec_kv_decode(self, mock_kv_rmsnorm_rope_cache):
+        self.impl.kv_lora_rank = 512
         B = 2
         N = self.impl.num_kv_heads
         D = self.impl.kv_lora_rank + self.impl.qk_rope_head_dim

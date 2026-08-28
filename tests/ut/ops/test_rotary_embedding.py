@@ -15,6 +15,7 @@
 
 
 import inspect
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -24,6 +25,7 @@ from vllm.model_executor.layers.rotary_embedding import RotaryEmbedding, YaRNSca
 from vllm_ascend.ops.rotary_embedding import (
     AscendRotaryEmbedding,
     AscendYaRNRotaryEmbedding,
+    _uses_mla_rope_buffer,
     get_identity_cos_and_sin_mla,
 )
 
@@ -34,6 +36,26 @@ BASE = 10000.0
 DTYPE = torch.bfloat16
 SEQ_LEN = 4
 NUM_HEADS = 2
+
+
+def test_mistral4_nested_in_mistral3_uses_mla_rope_buffer():
+    model_config = SimpleNamespace(
+        use_mla=False,
+        hf_config=SimpleNamespace(model_type="mistral3"),
+        hf_text_config=SimpleNamespace(model_type="mistral4"),
+    )
+
+    assert _uses_mla_rope_buffer(model_config)
+
+
+def test_unrelated_multimodal_model_does_not_use_mla_rope_buffer():
+    model_config = SimpleNamespace(
+        use_mla=False,
+        hf_config=SimpleNamespace(model_type="qwen2_5_vl"),
+        hf_text_config=SimpleNamespace(model_type="qwen2"),
+    )
+
+    assert not _uses_mla_rope_buffer(model_config)
 
 
 def test_kimi_k3_identity_mla_rope_does_not_index_position_cache(monkeypatch):

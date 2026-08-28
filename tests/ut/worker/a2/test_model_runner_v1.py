@@ -226,6 +226,27 @@ class TestNPUModelRunnerKVCache(unittest.TestCase):
         self.assertEqual(k_cache.shape, (2, 16, 8, 64))
         self.assertEqual(v_cache.shape, (2, 16, 8, 64))
 
+    @patch("vllm_ascend.worker.model_runner_v1.get_layers_from_vllm_config")
+    def test_mla_cache_dims_use_draft_physical_rank(self, mock_get_layers):
+        runner = self._build_runner()
+        layer_name = "model.layers.36.self_attn.attn"
+        attn_module = MLAAttention.__new__(MLAAttention)
+        torch.nn.Module.__init__(attn_module)
+        attn_module.kv_lora_rank = 256
+        attn_module.qk_rope_head_dim = 64
+        attn_module.impl = SimpleNamespace(kv_cache_lora_rank=512)
+        mock_get_layers.return_value = {layer_name: attn_module}
+        spec = AscendMLAAttentionSpec(
+            block_size=16,
+            num_kv_heads=1,
+            head_size=576,
+            dtype=torch.bfloat16,
+        )
+
+        dims = runner._get_attention_kv_cache_dims(layer_name, spec)
+
+        self.assertEqual(dims, (512, 64))
+
     @patch("vllm_ascend.worker.model_runner_v1.has_ec_transfer", return_value=False)
     @patch("vllm_ascend.worker.model_runner_v1.get_layers_from_vllm_config")
     def test_sparse_layer_without_indexer_allocates_only_mla_kv_cache(
