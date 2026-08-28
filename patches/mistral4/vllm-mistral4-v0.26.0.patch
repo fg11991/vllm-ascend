@@ -1,0 +1,363 @@
+diff --git a/tests/models/test_mistral4.py b/tests/models/test_mistral4.py
+new file mode 100644
+index 0000000000..353c7519ce
+--- /dev/null
++++ b/tests/models/test_mistral4.py
+@@ -0,0 +1,169 @@
++# SPDX-License-Identifier: Apache-2.0
++
++from types import SimpleNamespace
++from unittest.mock import MagicMock, patch
++
++import pytest
++import torch
++from transformers import Mistral4Config
++from transformers.models.pixtral import PixtralProcessor
++from transformers.models.mistral4.modeling_mistral4 import (
++    Mistral4RotaryEmbedding,
++)
++
++from vllm.config import VllmConfig, set_current_vllm_config
++from vllm.model_executor.layers.rotary_embedding import get_rope
++from vllm.model_executor.models.mistral3 import Mistral3ProcessingInfo
++from vllm.model_executor.models.mistral4 import (
++    prepare_mistral4_config,
++    unpack_mistral4_expert_weights,
++)
++from vllm.tokenizers.mistral import MistralTokenizer
++
++
++def test_mistral4_processor_uses_checkpoint_hf_tokenizer() -> None:
++    tokenizer = object.__new__(MistralTokenizer)
++    tokenizer.version = 15
++    hf_tokenizer = object()
++    model_config = MagicMock()
++    ctx = MagicMock(model_config=model_config)
++    ctx.get_tokenizer.return_value = tokenizer
++    ctx.get_merged_mm_kwargs.return_value = {
++        "size": {"longest_edge": 1540},
++        "tokenizer": hf_tokenizer,
++    }
++    expected_processor = MagicMock()
++
++    with patch(
++        "vllm.model_executor.models.mistral3.cached_processor_from_config",
++        return_value=expected_processor,
++    ) as get_processor:
++        processor = Mistral3ProcessingInfo(ctx).get_hf_processor()
++
++    assert processor is expected_processor
++    get_processor.assert_called_once_with(
++        model_config,
++        processor_cls=PixtralProcessor,
++        size={"longest_edge": 1540},
++    )
++
++
++def test_prepare_mistral4_config() -> None:
++    original_rope_parameters = {
++        "rope_type": "yarn",
++        "original_max_position_embeddings": 8192,
++        "llama_4_scaling_beta": 0.1,
++        "attention_factor": 1.25,
++        "partial_rotary_factor": 0.5,
++    }
++    text_config = SimpleNamespace(rope_parameters=original_rope_parameters)
++    vllm_config = SimpleNamespace(
++        model_config=SimpleNamespace(hf_config=text_config)
++    )
++
++    prepare_mistral4_config(vllm_config)
++
++    assert text_config.llama_4_scaling == {
++        "original_max_position_embeddings": 8192,
++        "beta": 0.1,
++    }
++    assert text_config.rope_parameters["apply_yarn_scaling"] is False
++    assert text_config.rope_parameters["attn_factor"] == 1.25
++    assert text_config.rope_parameters["partial_rotary_factor"] == 1.0
++    assert "apply_yarn_scaling" not in original_rope_parameters
++    assert original_rope_parameters["partial_rotary_factor"] == 0.5
++
++
++@pytest.mark.parametrize(
++    ("config_overrides", "error_match"),
++    [
++        ({"rope_interleave": False}, "rope_interleave=True"),
++        ({"n_group": 2, "topk_group": 1}, "grouped expert routing"),
++    ],
++)
++def test_prepare_mistral4_config_rejects_unsupported_semantics(
++    config_overrides: dict[str, object], error_match: str
++) -> None:
++    text_config = SimpleNamespace(
++        rope_parameters={
++            "rope_type": "yarn",
++            "original_max_position_embeddings": 8192,
++            "llama_4_scaling_beta": 0.1,
++        },
++        **config_overrides,
++    )
++    vllm_config = SimpleNamespace(
++        model_config=SimpleNamespace(hf_config=text_config)
++    )
++
++    with pytest.raises(NotImplementedError, match=error_match):
++        prepare_mistral4_config(vllm_config)
++
++
++def test_prepared_rope_matches_transformers_rotary_dimensions() -> None:
++    config = Mistral4Config(
++        max_position_embeddings=64,
++        rope_parameters={
++            "rope_type": "yarn",
++            "factor": 2.0,
++            "rope_theta": 10000.0,
++            "original_max_position_embeddings": 32,
++            "beta_fast": 32.0,
++            "beta_slow": 1.0,
++            "mscale": 1.0,
++            "mscale_all_dim": 1.0,
++            "llama_4_scaling_beta": 0.1,
++        },
++    )
++    hf_rope = Mistral4RotaryEmbedding(config)
++    positions = torch.arange(64).unsqueeze(0)
++    hf_cos, hf_sin = hf_rope(
++        torch.empty(1, 64, config.qk_rope_head_dim), positions
++    )
++
++    prepare_mistral4_config(
++        SimpleNamespace(model_config=SimpleNamespace(hf_config=config))
++    )
++    config.rope_parameters["rope_type"] = "deepseek_llama_scaling"
++    with set_current_vllm_config(VllmConfig()):
++        vllm_rope = get_rope(
++            config.qk_rope_head_dim,
++            max_position=config.max_position_embeddings,
++            is_neox_style=False,
++            rope_parameters=config.rope_parameters,
++            dtype=torch.float32,
++        )
++    vllm_cos, vllm_sin = vllm_rope.get_cos_sin(64)
++
++    assert vllm_rope.rotary_dim == config.qk_rope_head_dim
++    torch.testing.assert_close(vllm_cos, hf_cos[0, :, :32])
++    torch.testing.assert_close(vllm_sin, hf_sin[0, :, :32])
++
++
++def test_unpack_mistral4_expert_weights() -> None:
++    gate_up = torch.arange(2 * 6 * 4).reshape(2, 6, 4)
++    down = torch.arange(2 * 4 * 3).reshape(2, 4, 3)
++    other = torch.ones(2)
++
++    unpacked = dict(
++        unpack_mistral4_expert_weights(
++            [
++                ("layers.0.mlp.experts.gate_up_proj", gate_up),
++                ("layers.0.mlp.experts.down_proj", down),
++                ("layers.0.input_layernorm.weight", other),
++            ],
++            num_experts=2,
++        )
++    )
++
++    assert len(unpacked) == 7
++    torch.testing.assert_close(
++        unpacked["layers.0.mlp.experts.0.gate_proj.weight"], gate_up[0, :3]
++    )
++    torch.testing.assert_close(
++        unpacked["layers.0.mlp.experts.1.up_proj.weight"], gate_up[1, 3:]
++    )
++    torch.testing.assert_close(
++        unpacked["layers.0.mlp.experts.1.down_proj.weight"], down[1]
++    )
++    assert unpacked["layers.0.input_layernorm.weight"] is other
+diff --git a/vllm/model_executor/models/mistral3.py b/vllm/model_executor/models/mistral3.py
+index 025ce56408..b337e2a435 100644
+--- a/vllm/model_executor/models/mistral3.py
++++ b/vllm/model_executor/models/mistral3.py
+@@ -32,6 +32,8 @@ from vllm.multimodal.processing import (
+     PromptUpdateDetails,
+ )
+ from vllm.sequence import IntermediateTensors
++from vllm.tokenizers.mistral import MistralTokenizer
++from vllm.transformers_utils.processor import cached_processor_from_config
+ from vllm.utils.tensor_schema import TensorSchema, TensorShape
+ 
+ from .interfaces import (
+@@ -178,6 +180,20 @@ class Mistral3ProcessingInfo(BaseProcessingInfo):
+         return get_vision_encoder_info(self.get_hf_config())
+ 
+     def get_hf_processor(self, **kwargs: object):
++        tokenizer = self.ctx.get_tokenizer()
++        if isinstance(tokenizer, MistralTokenizer) and tokenizer.version >= 15:
++            # Tekken encodes control tokens through the instruct protocol, while
++            # PixtralProcessor expands raw [IMG] strings before that protocol is
++            # applied. Use the checkpoint's ID-compatible HF tokenizer only for
++            # multimodal placeholder expansion.
++            merged_kwargs = self.ctx.get_merged_mm_kwargs(kwargs)
++            merged_kwargs.pop("tokenizer", None)
++            return cached_processor_from_config(
++                self.ctx.model_config,
++                processor_cls=PixtralProcessor,
++                **merged_kwargs,
++            )
++
+         return self.ctx.get_hf_processor(PixtralProcessor, **kwargs)
+ 
+     def get_supported_mm_limits(self) -> Mapping[str, int | None]:
+@@ -436,9 +452,13 @@ class Mistral3ForConditionalGeneration(
+             )
+ 
+         with self._mark_language_model(vllm_config):
++            architectures = None
++            if config.text_config.model_type == "mistral4":
++                architectures = ["Mistral4ForCausalLM"]
+             self.language_model = init_vllm_registered_model(
+                 vllm_config=vllm_config,
+                 hf_config=config.text_config,
++                architectures=architectures,
+                 prefix=maybe_prefix(prefix, "language_model"),
+             )
+ 
+diff --git a/vllm/model_executor/models/mistral4.py b/vllm/model_executor/models/mistral4.py
+new file mode 100644
+index 0000000000..7859d1f53b
+--- /dev/null
++++ b/vllm/model_executor/models/mistral4.py
+@@ -0,0 +1,122 @@
++# SPDX-License-Identifier: Apache-2.0
++# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
++
++"""Inference-only Mistral 4 language model."""
++
++from collections.abc import Iterable, Iterator
++
++import torch
++
++from vllm.config import VllmConfig
++
++from .deepseek_v2 import DeepseekV2ForCausalLM, DeepseekV2Model
++
++
++def prepare_mistral4_config(vllm_config: VllmConfig) -> None:
++    """Map Mistral 4 config fields onto the shared MLA implementation."""
++    config = vllm_config.model_config.hf_config
++
++    if not getattr(config, "rope_interleave", True):
++        raise NotImplementedError(
++            "Mistral 4 currently requires rope_interleave=True in vLLM."
++        )
++    if getattr(config, "n_group", 1) != 1 or getattr(config, "topk_group", 1) != 1:
++        raise NotImplementedError(
++            "Mistral 4 grouped expert routing with n_group/topk_group other "
++            "than 1 is not yet supported."
++        )
++
++    rope_parameters = dict(config.rope_parameters)
++    config.rope_parameters = rope_parameters
++
++    # Transformers' Mistral 4 YaRN implementation applies the mscale ratio to
++    # RoPE but does not apply DeepSeek's additional mscale_all_dim**2 factor to
++    # the attention scale. The shared MLA implementation uses this flag to
++    # distinguish those two policies.
++    rope_parameters["apply_yarn_scaling"] = False
++
++    # Mistral4Config expresses its 64 rotary dimensions as half of the full
++    # 128-dimensional QK head. The shared MLA layer already passes the 64-dim
++    # qk_rope_head_dim to get_rope(), so retaining the original 0.5 factor
++    # would incorrectly rotate only 32 dimensions.
++    rope_parameters["partial_rotary_factor"] = 1.0
++    if "attention_factor" in rope_parameters:
++        rope_parameters["attn_factor"] = rope_parameters["attention_factor"]
++
++    if not hasattr(config, "llama_4_scaling"):
++        config.llama_4_scaling = {
++            "original_max_position_embeddings": rope_parameters[
++                "original_max_position_embeddings"
++            ],
++            "beta": rope_parameters["llama_4_scaling_beta"],
++        }
++
++
++def unpack_mistral4_expert_weights(
++    weights: Iterable[tuple[str, torch.Tensor]],
++    num_experts: int,
++) -> Iterator[tuple[str, torch.Tensor]]:
++    """Expand Mistral's packed expert tensors for the shared MoE loader."""
++    gate_up_suffix = ".experts.gate_up_proj"
++    down_suffix = ".experts.down_proj"
++
++    for name, loaded_weight in weights:
++        if name.endswith(gate_up_suffix):
++            if loaded_weight.ndim != 3 or loaded_weight.shape[0] != num_experts:
++                raise ValueError(
++                    "Unexpected packed Mistral 4 gate/up expert shape: "
++                    f"name={name}, shape={tuple(loaded_weight.shape)}, "
++                    f"num_experts={num_experts}"
++                )
++            if loaded_weight.shape[1] % 2:
++                raise ValueError(
++                    "Mistral 4 packed gate/up dimension must be even: "
++                    f"name={name}, shape={tuple(loaded_weight.shape)}"
++                )
++
++            prefix = name[: -len(gate_up_suffix)]
++            gate_weights, up_weights = loaded_weight.chunk(2, dim=1)
++            for expert_id in range(num_experts):
++                expert_prefix = f"{prefix}.experts.{expert_id}"
++                yield f"{expert_prefix}.gate_proj.weight", gate_weights[expert_id]
++                yield f"{expert_prefix}.up_proj.weight", up_weights[expert_id]
++            continue
++
++        if name.endswith(down_suffix):
++            if loaded_weight.ndim != 3 or loaded_weight.shape[0] != num_experts:
++                raise ValueError(
++                    "Unexpected packed Mistral 4 down expert shape: "
++                    f"name={name}, shape={tuple(loaded_weight.shape)}, "
++                    f"num_experts={num_experts}"
++                )
++
++            prefix = name[: -len(down_suffix)]
++            for expert_id in range(num_experts):
++                yield (
++                    f"{prefix}.experts.{expert_id}.down_proj.weight",
++                    loaded_weight[expert_id],
++                )
++            continue
++
++        yield name, loaded_weight
++
++
++class Mistral4Model(DeepseekV2Model):
++    def __init__(self, *, vllm_config: VllmConfig, prefix: str = "") -> None:
++        prepare_mistral4_config(vllm_config)
++        super().__init__(vllm_config=vllm_config, prefix=prefix)
++
++    def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
++        weights = unpack_mistral4_expert_weights(
++            weights,
++            num_experts=self.config.n_routed_experts,
++        )
++        return super().load_weights(weights)
++
++
++class Mistral4ForCausalLM(DeepseekV2ForCausalLM):
++    model_cls = Mistral4Model
++
++    def __init__(self, *, vllm_config: VllmConfig, prefix: str = "") -> None:
++        prepare_mistral4_config(vllm_config)
++        super().__init__(vllm_config=vllm_config, prefix=prefix)
+diff --git a/vllm/model_executor/models/registry.py b/vllm/model_executor/models/registry.py
+index d28aac974b..94c6c04d12 100644
+--- a/vllm/model_executor/models/registry.py
++++ b/vllm/model_executor/models/registry.py
+@@ -166,6 +166,7 @@ _TEXT_GENERATION_MODELS = {
+     ),
+     "Ministral3ForCausalLM": ("mistral", "MistralForCausalLM"),
+     "MistralForCausalLM": ("mistral", "MistralForCausalLM"),
++    "Mistral4ForCausalLM": ("mistral4", "Mistral4ForCausalLM"),
+     "MistralLarge3ForCausalLM": ("mistral_large_3", "MistralLarge3ForCausalLM"),
+     "MixtralForCausalLM": ("mixtral", "MixtralForCausalLM"),
+     # transformers's mpt class has lower case
