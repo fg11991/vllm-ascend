@@ -26,6 +26,7 @@ from vllm.v1.kv_cache_interface import (
     get_kv_cache_spec_kind,
 )
 
+from vllm_ascend import envs
 from vllm_ascend.core.kv_cache_interface import (
     get_kv_cache_compression_ratio,
     is_prefix_cacheable,
@@ -919,6 +920,11 @@ def _widen_hidden_state_cache_blocks(
     24, which cuts the block count and the page waste (68.75% to 6.25%) about
     three-fold.
     """
+    if not envs.VLLM_ASCEND_QWEN4EXP_WIDEN_HIDDEN_CACHE_BLOCKS:
+        # Off by default: see the env var's note. Upstream sizing is correct for
+        # the capture lengths the scaled budget already serves, and a wrong
+        # inference here corrupts captures silently.
+        return groups
     token_indexed = [
         group.kv_cache_spec.block_size
         for group in groups

@@ -119,6 +119,18 @@ env_variables: dict[str, Callable[[], Any]] = {
     "VLLM_ASCEND_QWEN4EXP_AUX_HIDDEN_SELF_CHECK": lambda: bool(
         int(os.getenv("VLLM_ASCEND_QWEN4EXP_AUX_HIDDEN_SELF_CHECK", "0"))
     ),
+    # Re-derive the hidden-state cache block size while ignoring the QSA ring
+    # capacity, which raises the servable capture length roughly three-fold.
+    # Boolean 0/1, default 0. EXPERIMENTAL and unverified: it has not been
+    # shown that groups with differing block sizes are safe to mix in the
+    # shared block-id space, and a wrong inference shifts slot_mapping and
+    # silently corrupts the captured hidden states instead of erroring. Before
+    # enabling it, capture one sample with it off and one with it on at a
+    # max-model-len both can serve, and compare token_ids and hidden_states bit
+    # for bit. Not sensitive.
+    "VLLM_ASCEND_QWEN4EXP_WIDEN_HIDDEN_CACHE_BLOCKS": lambda: bool(
+        int(os.getenv("VLLM_ASCEND_QWEN4EXP_WIDEN_HIDDEN_CACHE_BLOCKS", "0"))
+    ),
 }
 
 # end-env-vars-definition

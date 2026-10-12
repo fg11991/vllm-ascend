@@ -21,6 +21,7 @@ cache to one block per 8 tokens and makes every other group pay that block
 count out of the shared index space.
 """
 
+import pytest
 import torch
 from vllm.v1.kv_cache_interface import (
     CircularBufferSpec,
@@ -30,10 +31,22 @@ from vllm.v1.kv_cache_interface import (
     MambaSpec,
 )
 
+from vllm_ascend.patch.platform import patch_kv_cache_utils
 from vllm_ascend.patch.platform.patch_kv_cache_utils import _widen_hidden_state_cache_blocks
 
 COMMON_PAGE = 786432
 AUX_WIDTH = 6 * 2560  # six aux ids of hidden_size 2560
+
+
+@pytest.fixture
+def widening_enabled(monkeypatch):
+    """The widening is opt-in; these tests exercise the enabled path."""
+    monkeypatch.setattr(
+        patch_kv_cache_utils.envs,
+        "VLLM_ASCEND_QWEN4EXP_WIDEN_HIDDEN_CACHE_BLOCKS",
+        True,
+        raising=False,
+    )
 
 
 def hidden_group(block_size):
@@ -77,7 +90,7 @@ def mamba_group(block_size=4608):
     return KVCacheGroupSpec(["layers.0.linear_attn"], spec)
 
 
-def test_ring_capacity_does_not_cap_the_hidden_block_size():
+def test_ring_capacity_does_not_cap_the_hidden_block_size(widening_enabled):
     """gcd(768, 4608) = 768, and the page holds 25 tokens, so 24 is the answer."""
     groups = [qsa_main_group(), ring_group(8), mamba_group(), hidden_group(8)]
     widened = _widen_hidden_state_cache_blocks(groups)
@@ -96,18 +109,24 @@ def test_widening_is_bounded_by_what_the_page_holds():
     assert 32 * per_token > COMMON_PAGE  # the next divisor of 768 overflows
 
 
-def test_already_wide_enough_is_left_alone():
+def test_already_wide_enough_is_left_alone(widening_enabled):
     groups = [qsa_main_group(), ring_group(8), mamba_group(), hidden_group(24)]
     widened = _widen_hidden_state_cache_blocks(groups)
     assert widened[-1].kv_cache_spec.block_size == 24
     assert widened[-1] is groups[-1]
 
 
-def test_no_hidden_cache_is_a_no_op():
+def test_no_hidden_cache_is_a_no_op(widening_enabled):
     groups = [qsa_main_group(), ring_group(8), mamba_group()]
     assert _widen_hidden_state_cache_blocks(groups) is groups
 
 
-def test_no_token_indexed_group_is_a_no_op():
+def test_no_token_indexed_group_is_a_no_op(widening_enabled):
     groups = [ring_group(8), hidden_group(8)]
+    assert _widen_hidden_state_cache_blocks(groups) is groups
+
+
+def test_disabled_by_default_leaves_everything_alone():
+    """Default path must be byte-identical to upstream sizing."""
+    groups = [qsa_main_group(), ring_group(8), mamba_group(), hidden_group(8)]
     assert _widen_hidden_state_cache_blocks(groups) is groups
