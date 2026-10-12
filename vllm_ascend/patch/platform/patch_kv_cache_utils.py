@@ -8,10 +8,12 @@ import vllm.v1.core.kv_cache_utils
 from vllm.config import VllmConfig
 from vllm.logger import logger
 from vllm.utils.math_utils import cdiv, round_up
+from vllm.utils.torch_utils import get_dtype_size
 from vllm.v1.core.kv_cache_utils import _approximate_gcd, may_override_num_blocks
 from vllm.v1.kv_cache_interface import (
     CircularBufferSpec,
     FullAttentionSpec,
+    HiddenStateCacheSpec,
     KVCacheConfig,
     KVCacheGroupSpec,
     KVCacheSpec,
@@ -887,6 +889,76 @@ def _merge_mamba_state_groups(
     return [replacements.get(index, group) for index, group in enumerate(groups) if index not in drop]
 
 
+def _largest_divisor_at_most(value: int, limit: int) -> int:
+    for candidate in range(min(value, limit), 0, -1):
+        if value % candidate == 0:
+            return candidate
+    return 1
+
+
+def _widen_hidden_state_cache_blocks(
+    groups: list[KVCacheGroupSpec],
+) -> list[KVCacheGroupSpec]:
+    """Re-derive the hidden-state cache block size without the ring capacity.
+
+    Upstream sizes that group with
+    ``gcd(every group's block_size)`` (``kv_cache_utils.py``, "Using block size
+    %d for hidden-state cache layer"). A ``CircularBufferSpec`` joins that gcd
+    with its **ring capacity**, which is how many key rows the open compression
+    group holds - not a token-per-block count. Its own
+    ``max_num_blocks_per_req()`` returns 1, so it never indexes blocks by token
+    at all, and letting it constrain the token-indexed granularity is wrong.
+
+    The cost is severe rather than cosmetic. Qwen4Exp's ring capacity is 8
+    (``compress_ratio=4`` plus one speculative token, which
+    ``ExtractHiddenStatesProposer`` pins at 1), so the gcd collapses from 768 to
+    8 and the hidden-state cache takes one block per 8 tokens. Every group then
+    gets that block count out of the shared index space: capturing 4608 tokens
+    asks for 576 blocks when the six-region groups need 6, and each block still
+    pays their full ~36 MiB page. Excluding the ring restores a block size of
+    24, which cuts the block count and the page waste (68.75% to 6.25%) about
+    three-fold.
+    """
+    token_indexed = [
+        group.kv_cache_spec.block_size
+        for group in groups
+        if not isinstance(group.kv_cache_spec, (CircularBufferSpec, HiddenStateCacheSpec))
+    ]
+    hidden_indices = [
+        index for index, group in enumerate(groups) if isinstance(group.kv_cache_spec, HiddenStateCacheSpec)
+    ]
+    if not token_indexed or not hidden_indices:
+        return groups
+
+    token_block_size = math.gcd(*token_indexed)
+    widened = list(groups)
+    for index in hidden_indices:
+        group = groups[index]
+        spec = group.kv_cache_spec
+        per_token = spec.num_kv_heads * spec.head_size * get_dtype_size(spec.dtype)
+        # page_size_padded is the common page upstream aligned this spec to.
+        common_page = spec.page_size_padded or spec.page_size_bytes
+        new_block_size = _largest_divisor_at_most(token_block_size, max(common_page // per_token, 1))
+        if new_block_size <= spec.block_size:
+            continue
+        logger.info(
+            "Widening hidden-state cache %s block size %d -> %d (token-indexed "
+            "gcd %d, page fits %d tokens); page waste %.2f%% -> %.2f%%",
+            ",".join(group.layer_names),
+            spec.block_size,
+            new_block_size,
+            token_block_size,
+            common_page // per_token,
+            100 * (common_page - spec.block_size * per_token) / common_page,
+            100 * (common_page - new_block_size * per_token) / common_page,
+        )
+        widened[index] = KVCacheGroupSpec(
+            group.layer_names,
+            replace(spec, block_size=new_block_size),
+        )
+    return widened
+
+
 def _get_ascend_kv_cache_groups(
     vllm_config: VllmConfig,
     kv_cache_spec: dict[str, KVCacheSpec],
@@ -903,6 +975,7 @@ def _get_ascend_kv_cache_groups(
         *qsa_owners,
     )
     merged = _merge_mamba_state_groups(merged)
+    merged = _widen_hidden_state_cache_blocks(merged)
     logger.info(
         "Using QSA six-region grouping: %d main/compressed owners, %d raw circular owners, %d total cache groups",
         len(qsa_owners[0]) + len(qsa_owners[1]),

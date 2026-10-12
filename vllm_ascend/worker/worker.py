@@ -701,23 +701,11 @@ class NPUWorker(WorkerBase):
         has_mamba = any(isinstance(spec, MambaSpec) for spec in per_layer_specs)
         model_runner = getattr(self, "model_runner", None)
         layout = self.vllm_config.cache_config.get_resolved_kv_cache_layout()
-        # A KV transfer normally means some connector owns per-layer buffers of
-        # its own, which the packed backing cannot provide. The
-        # extract_hidden_states connector is the exception: it only reads the
-        # dedicated hidden-state cache-only layer and migrates no attention or
-        # Mamba block, exactly as patch_mamba_config notes for the same
-        # connector. Excluding it here would halve the planner budget and cap
-        # the servable context well below the capture length.
-        spec_config = self.vllm_config.speculative_config
-        captures_hidden_states_only = (
-            spec_config is not None and getattr(spec_config, "method", None) == "extract_hidden_states"
-        )
-        packed_backing_is_shareable = self.vllm_config.kv_transfer_config is None or captures_hidden_states_only
         if (
             has_attention
             and has_mamba
             and getattr(layout, "is_block_outermost", False)
-            and packed_backing_is_shareable
+            and self.vllm_config.kv_transfer_config is None
             and getattr(
                 model_runner,
                 "supports_page_strided_shared_kv_backing",
