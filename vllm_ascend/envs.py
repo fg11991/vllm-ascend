@@ -111,6 +111,14 @@ env_variables: dict[str, Callable[[], Any]] = {
     # default 0; honored only on SoCs with the QSA_E3_EXPAND capability,
     # otherwise the portable expansion is used. Not sensitive.
     "VLLM_ASCEND_ENABLE_QSA_E3V": lambda: bool(int(os.getenv("VLLM_ASCEND_ENABLE_QSA_E3V", "0"))),
+    # Verify each Qwen4Exp auxiliary hidden-state readout is the very tensor
+    # its layer's attention consumes, and that aux id num_hidden_layers is the
+    # tensor lm_head consumes. Boolean 0/1, default 0; overrides bound forwards
+    # and costs one identity comparison per capture, so enable it for capture
+    # validation rather than production. Not sensitive.
+    "VLLM_ASCEND_QWEN4EXP_AUX_HIDDEN_SELF_CHECK": lambda: bool(
+        int(os.getenv("VLLM_ASCEND_QWEN4EXP_AUX_HIDDEN_SELF_CHECK", "0"))
+    ),
 }
 
 # end-env-vars-definition
