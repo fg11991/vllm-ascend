@@ -5350,7 +5350,22 @@ class NPUModelRunner(GPUModelRunner):
 
         # Match the worker's block-outermost cache budget policy: shared
         # backing is supported only when KV transfer is disabled.
-        supports_shared_backing_with_kv_transfer = self.vllm_config.kv_transfer_config is None
+        # A KV transfer normally rules out a shared backing, because a connector
+        # may own per-layer buffers the packed allocation cannot provide. The
+        # extract_hidden_states connector is the exception: it writes only the
+        # dedicated hidden-state cache-only layer and migrates no attention or
+        # Mamba block, the same reasoning patch_mamba_config records for it.
+        # Without this, six_region_layout is discarded for capture and every QSA
+        # state layer falls through to the generic reshape path, which asks the
+        # backend for Ascend's own get_kv_cache_shape - a method the upstream
+        # QSA and cache-only backends do not implement.
+        captures_hidden_states_only = (
+            self.speculative_config is not None
+            and getattr(self.speculative_config, "method", None) == "extract_hidden_states"
+        )
+        supports_shared_backing_with_kv_transfer = (
+            self.vllm_config.kv_transfer_config is None or captures_hidden_states_only
+        )
 
         six_region_layout = (
             None
