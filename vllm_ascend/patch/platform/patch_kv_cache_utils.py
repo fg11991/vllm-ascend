@@ -30,7 +30,7 @@ from vllm.v1.kv_cache_interface import (
 )
 
 import vllm_ascend.envs as envs_ascend
-from vllm_ascend.core.kv_cache_interface import is_prefix_cacheable
+from vllm_ascend.core.kv_cache_interface import AscendDSparkSlidingWindowMLASpec, is_prefix_cacheable
 from vllm_ascend.models.deepseek_v41.cache_config import (
     get_deepseek_v41_kv_cache_config,
     get_deepseek_v41_pool_bytes_per_block,
@@ -353,7 +353,10 @@ def group_and_unify_kv_cache_specs(
     Group the KV cache specs and unify each group into one UniformTypeKVCacheSpecs.
     Currently, this is only used for DeepseekV4.
     """
-    if not any(isinstance(spec, SlidingWindowMLASpec) for spec in kv_cache_spec.values()):
+    if not any(
+        isinstance(spec, SlidingWindowMLASpec) and not isinstance(spec, AscendDSparkSlidingWindowMLASpec)
+        for spec in kv_cache_spec.values()
+    ):
         return None
 
     logical_block_specs: dict[int, dict[str, KVCacheSpec]] = defaultdict(dict)

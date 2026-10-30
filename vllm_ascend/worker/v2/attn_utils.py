@@ -77,6 +77,7 @@ from vllm_ascend.attention.utils import (
     supports_strided_mla_cache,
 )
 from vllm_ascend.core.kv_cache_interface import (
+    AscendDSparkSlidingWindowMLASpec,
     AscendIndexerKPoolTailSpec,
     AscendMLAAttentionSpec,
     AscendSFAIndexerCacheSpec,
@@ -271,7 +272,11 @@ def get_kv_cache_spec(vllm_config: VllmConfig) -> dict[str, KVCacheSpec]:
             )
             compression_ratio = get_kv_cache_compression_ratio(spec)
             ratio_kwargs: dict[str, Any] = {"tokens_per_state": compression_ratio}
-            spec = AscendMLAAttentionSpec(
+            spec_type = AscendMLAAttentionSpec
+            if isinstance(spec, AscendDSparkSlidingWindowMLASpec):
+                spec_type = AscendDSparkSlidingWindowMLASpec
+                ratio_kwargs["sliding_window"] = spec.sliding_window
+            spec = spec_type(
                 block_size=spec.block_size,
                 # ``num_heads`` describes physical cache head slots, not query
                 # heads. Kimi K3 publishes one latent KV slot per token; using
@@ -687,7 +692,7 @@ def _get_attention_kv_cache_dims(
     layer_name: str,
     kv_cache_spec: AttentionSpec,
 ) -> tuple[int, int]:
-    if isinstance(kv_cache_spec, AscendMLAAttentionSpec):
+    if isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec)):
         attn_layers = get_layers_from_vllm_config(get_current_vllm_config(), AttentionLayerBase, [layer_name])
         attn_layer = attn_layers[layer_name]
         if not isinstance(attn_layer, MLAAttention):
@@ -959,7 +964,7 @@ def _uses_single_raw_mla_cache(
     kv_cache_spec: KVCacheSpec,
 ) -> bool:
     """Whether an MLA layer uses the Ascend single raw backing protocol."""
-    if not isinstance(kv_cache_spec, AscendMLAAttentionSpec):
+    if not isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec)):
         return False
     if not kv_cache_spec.supports_single_raw_backing:
         return False
@@ -1610,7 +1615,10 @@ def _reshape_kv_cache_v2(
                 )
                 kv_cache_shape_list = [kv_cache_shape]
                 kv_cache_dtype_list = [kv_cache_spec.dtype]
-                is_index = isinstance(kv_cache_spec, AscendMLAAttentionSpec) and kv_cache_spec.scale_dim
+                is_index = (
+                    isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec))
+                    and kv_cache_spec.scale_dim
+                )
                 if is_index:
                     source_name = layer_name.removesuffix(".indexer.k_cache") + ".long_kv_cache"
                     source_spec = layer_kv_cache_spec[source_name]
@@ -1739,7 +1747,7 @@ def _reshape_kv_cache_v2(
                 )
                 continue
             if (
-                isinstance(kv_cache_spec, AscendMLAAttentionSpec)
+                isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec))
                 and getattr(kv_cache_spec, "model_version", None) == "glm5_next"
                 and get_kv_cache_compression_ratio(kv_cache_spec) > 1
             ):
@@ -1851,9 +1859,9 @@ def _reshape_kv_cache_v2(
                 cache_dtype,
             )
             packed_sfa_main_cache = enable_sfa(vllm_config) and kv_cache_spec_uses_packed_sfa_main_cache(kv_cache_spec)
-            if isinstance(kv_cache_spec, (AscendMLAAttentionSpec, MLAAttentionSpec)) and (
-                get_kv_cache_compression_ratio(kv_cache_spec) > 1
-            ):
+            if isinstance(
+                kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec, MLAAttentionSpec)
+            ) and (get_kv_cache_compression_ratio(kv_cache_spec) > 1):
                 raw_single = raw_cache[0] if isinstance(raw_cache, tuple) else raw_cache
                 if isinstance(raw_cache, tuple) and len(raw_cache) != 1:
                     raise ValueError(f"Compressed indexer cache for {layer_name} must be a single tensor.")
@@ -1870,7 +1878,7 @@ def _reshape_kv_cache_v2(
                 cache = torch.as_strided(typed_slot, size=shape, stride=tuple(strides))
                 kv_caches[layer_name] = (cache,)
                 continue
-            if isinstance(kv_cache_spec, (AscendMLAAttentionSpec, MLAAttentionSpec)):
+            if isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec, MLAAttentionSpec)):
                 num_blocks_, block_size_, num_kv_heads, _ = kv_cache_shape
                 k_dim, v_dim = _get_attention_kv_cache_dims(layer_name, kv_cache_spec)
                 k_shape = (num_blocks_, block_size_, num_kv_heads, k_dim)
@@ -1887,7 +1895,7 @@ def _reshape_kv_cache_v2(
 
             k_dtype = v_dtype = kv_cache_spec.dtype
             if (
-                isinstance(kv_cache_spec, AscendMLAAttentionSpec)
+                isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec))
                 and not enable_sfa(vllm_config)
                 and enable_fa_quant(vllm_config)
             ):
@@ -1914,7 +1922,9 @@ def _reshape_kv_cache_v2(
             else:
                 if k_dtype != v_dtype:
                     raise ValueError("Combined hybrid K/V cache requires matching K/V dtypes.")
-                if isinstance(kv_cache_spec, (AscendMLAAttentionSpec, MLAAttentionSpec)):
+                if isinstance(
+                    kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec, MLAAttentionSpec)
+                ):
                     k_cache, v_cache = _reshape_combined_mla_kv_cache(
                         raw_cache, k_shape, v_shape, k_dtype, page_stride_bytes, num_blocks_per_kv_block
                     )

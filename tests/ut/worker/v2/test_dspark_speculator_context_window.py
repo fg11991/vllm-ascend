@@ -12,7 +12,7 @@ from unittest.mock import MagicMock
 import pytest
 import torch
 from vllm.config.compilation import CUDAGraphMode
-from vllm.v1.kv_cache_interface import AttentionSpec
+from vllm.v1.kv_cache_interface import AttentionSpec, SlidingWindowSpec, UniformTypeKVCacheSpecs
 from vllm.v1.worker.gpu.cudagraph_utils import BatchExecutionDescriptor
 
 from vllm_ascend.worker.v2.spec_decode.dspark.context_window import (
@@ -27,7 +27,7 @@ KERNEL_BLOCK_SIZE = 128
 
 
 def paged_group():
-    return SimpleNamespace(kv_cache_spec=MagicMock(spec=AttentionSpec))
+    return SimpleNamespace(kv_cache_spec=MagicMock(spec=SlidingWindowSpec))
 
 
 def make_speculator(
@@ -92,6 +92,25 @@ class TestWithoutTheConfig:
 
 
 class TestWithTheConfig:
+    def test_full_allocation_fallback_is_rejected(self):
+        speculator = make_speculator(
+            DraftContextWindowConfig(256, 128),
+            kv_cache_groups=[SimpleNamespace(kv_cache_spec=MagicMock(spec=AttentionSpec))],
+        )
+        with pytest.raises(ValueError, match="retention was lost"):
+            speculator._init_context_window()
+
+    def test_uniform_sliding_group_is_windowed(self):
+        spec = SlidingWindowSpec(
+            block_size=128, num_kv_heads=1, head_size=128, dtype=torch.bfloat16, sliding_window=399
+        )
+        group = SimpleNamespace(
+            kv_cache_spec=UniformTypeKVCacheSpecs(block_size=128, kv_cache_specs={"draft.0": spec, "draft.1": spec})
+        )
+        speculator = make_speculator(DraftContextWindowConfig(256, 128), kv_cache_groups=[group])
+        speculator._init_context_window()
+        assert speculator._context_window.group_ids == (0,)
+
     def test_init_builds_the_window(self):
         speculator = make_speculator(DraftContextWindowConfig(256, 128))
         speculator._init_context_window()
