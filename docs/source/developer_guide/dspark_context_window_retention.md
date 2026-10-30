@@ -1,5 +1,7 @@
 # DSpark MRv2 窗口 KV 回收验证记录
 
+> 本页保留前期验证/规划时的记录。后续size=8并发实测与当前结论见[实机验证报告](dspark_npu_validation.md)；文中的“尚未测试”描述的是当时状态。
+
 日期：2026-10-30。分支：`030_dspark_ctxwin_tmp`，基线：`4a01608da`，实现：`cc746b7ca`。
 CPU 与指定 GQA 模型的 NPU 对照通过；128k 启动估算并发提升14.53%，32k下降6.89%。
 图模式实际为 target FULL_DECODE_ONLY、DSpark FULL，不能宣称支持 GDN 的全 prefill FULL 图。
