@@ -1,8 +1,10 @@
+日期：2026-10-30
+
 # DSpark KV 分组空位优化规划
 
 > 本页保留前期验证/规划时的记录。后续size=8并发实测与当前结论见[实机验证报告](dspark_npu_validation.md)；文中的“尚未测试”描述的是当时状态。
 
-日期：2026-10-30。范围：Qwen3.8-27B target + 5 层 GQA DSpark，
+范围：Qwen3.8-27B target + 5 层 GQA DSpark，
 MRv2、TP4、W=4096、align=128、B=S=7、async、
 max_num_batched_tokens=8192，prefix caching/PD/DCP/PCP 仍关闭。
 本次仅阅读源码和运行 CPU planner；未改生产实现、未重启服务。
