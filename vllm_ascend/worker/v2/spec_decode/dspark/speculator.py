@@ -27,7 +27,7 @@ from vllm.distributed import get_dcp_group
 from vllm.logger import logger
 from vllm.model_executor.layers.attention_layer_base import AttentionLayerBase
 from vllm.v1.attention.backend import AttentionBackend
-from vllm.v1.kv_cache_interface import AttentionSpec
+from vllm.v1.kv_cache_interface import AttentionSpec, SlidingWindowSpec, UniformTypeKVCacheSpecs
 from vllm.v1.worker.gpu.cudagraph_utils import BatchExecutionDescriptor
 from vllm.v1.worker.gpu.input_batch import InputBatch
 from vllm.v1.worker.gpu.spec_decode.dflash import speculator as dflash_speculator
@@ -52,6 +52,10 @@ from vllm_ascend.worker.v2.attn_utils import (
 )
 from vllm_ascend.worker.v2.pcp_manager import AscendPCPManager
 from vllm_ascend.worker.v2.spec_decode.dflash.speculator import prepare_dflash_inputs_factory
+from vllm_ascend.worker.v2.spec_decode.dspark.cache_retention import (
+    configure_draft_kv_retention,
+    validate_windowed_retention,
+)
 from vllm_ascend.worker.v2.spec_decode.dspark.context_window import (
     DraftContextWindow,
     read_context_window_config,
@@ -73,6 +77,8 @@ class AscendDSparkSpeculator(LmheadTPDraftSamplingMixin, DSparkSpeculator):
     _lmhead_tp_sample_draft_supported = True
 
     def __init__(self, vllm_config: VllmConfig, device: torch.device):
+        if read_context_window_config(vllm_config.speculative_config.draft_model_config.hf_config) is not None:
+            validate_windowed_retention(vllm_config)
         vllm_config, self.replicated_pcp = prepare_replicated_pcp_config(vllm_config)
         super().__init__(vllm_config, device)
         self._lmhead_tp_validate_draft_sampling()
@@ -114,6 +120,7 @@ class AscendDSparkSpeculator(LmheadTPDraftSamplingMixin, DSparkSpeculator):
         if getattr(model, "draft_id_to_target_id", None) is not None:
             settle_reduced_vocab_lm_head(model, target_model, self.vllm_config.model_config.get_vocab_size())
         self._lmhead_tp_wrap_draft_logits(model)
+        configure_draft_kv_retention(model, self.vllm_config, self.num_query_per_req)
 
         return model
 
@@ -293,17 +300,36 @@ class AscendDSparkSpeculator(LmheadTPDraftSamplingMixin, DSparkSpeculator):
             )
         # Only paged KV groups have a window: a recurrent group's "block table"
         # addresses state slots, not context tokens.
-        group_ids = [
-            gid
-            for gid in self.draft_kv_cache_group_ids
-            if isinstance(self.kv_cache_config.kv_cache_groups[gid].kv_cache_spec, AttentionSpec)
-        ]
+        group_ids = []
+        for gid in self.draft_kv_cache_group_ids:
+            spec = self.kv_cache_config.kv_cache_groups[gid].kv_cache_spec
+            specs = tuple(spec.kv_cache_specs.values()) if isinstance(spec, UniformTypeKVCacheSpecs) else (spec,)
+            if not all(isinstance(inner, AttentionSpec) for inner in specs):
+                continue
+            if not all(isinstance(inner, SlidingWindowSpec) for inner in specs):
+                raise ValueError(
+                    f"DSpark context-window KV retention was lost while grouping draft cache group {gid}; "
+                    "full-attention allocation fallback is not supported."
+                )
+            group_ids.append(gid)
         if not group_ids:
             raise ValueError("DSpark context windowing found no paged draft KV cache group to window.")
         if len(group_ids) != len(self.draft_kv_cache_group_ids):
             skipped = sorted(set(self.draft_kv_cache_group_ids) - set(group_ids))
             logger.warning(
                 "DSpark context windowing leaves the non-paged draft KV cache groups %s unwindowed.", skipped
+            )
+        for gid, group in enumerate(self.kv_cache_config.kv_cache_groups):
+            spec = group.kv_cache_spec
+            specs = tuple(spec.kv_cache_specs.values()) if isinstance(spec, UniformTypeKVCacheSpecs) else (spec,)
+            logger.info(
+                "DSpark KV group %d: spec=%s block_size=%s per_layer_page_bytes=%s layers=%s draft=%s",
+                gid,
+                type(spec).__name__,
+                getattr(spec, "block_size", None),
+                [getattr(inner, "page_size_bytes", None) for inner in specs],
+                getattr(group, "layer_names", ()),
+                gid in group_ids,
             )
         self._context_window = DraftContextWindow(
             config,

@@ -16,10 +16,9 @@
 #
 """Windowed draft-context reads for the DSpark speculator.
 
-The draft keeps writing its KV at absolute positions, so the cache still holds
-every drafted token (full KV retention). Only the *reads* are restricted: the
-draft block attends to an aligned window that ends at the block itself, which
-is the context the draft was trained with.
+The draft writes KV at absolute positions. ``cache_retention`` independently
+gives the scheduler a conservative retention window; the *reads* here remain
+the aligned window the draft was trained with.
 
 Window definition, shared token-for-token with the SpecForge training side:
 
@@ -39,8 +38,8 @@ The one place where ``anchor`` is approximate is a request that has reached
 ``max_model_len``: the preparation kernel clamps ``seq_len`` there, so the
 anchor derived from it is *smaller* than the real one and the window can
 start up to one ``align`` step early. Such a request then reads a little more
-context than training did -- never unwritten or evicted KV, since everything
-below ``seq_len`` has been written -- and only in the last block before the
+context than training did -- the retention bound includes this clamp retreat
+so the additional context stays resident -- and only in the last block before the
 model length. Recovering the exact anchor would mean carrying the unclamped
 position out of the preparation kernel; until then this is a known, bounded
 deviation from the training definition.

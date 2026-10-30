@@ -36,7 +36,7 @@ def get_storage_block_size(kv_cache_spec: KVCacheSpec) -> int:
         return storage_block_sizes.pop()
     # vLLM #53906 added an optional MLA storage-view override. It is not
     # Ascend's derived number of physical rows per logical block.
-    if isinstance(kv_cache_spec, AscendMLAAttentionSpec):
+    if isinstance(kv_cache_spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec)):
         return kv_cache_spec.block_size // kv_cache_spec.tokens_per_state
     if isinstance(kv_cache_spec, MLAAttentionSpec):
         storage_block_size = kv_cache_spec.storage_block_size
@@ -291,6 +291,36 @@ class AscendSFAIndexerCacheSpec(MLAAttentionSpec):
 
 
 @dataclass(frozen=True, kw_only=True)
+class AscendDSparkSlidingWindowMLASpec(SlidingWindowMLASpec):
+    """Keep Ascend MLA's storage capabilities with sliding-window residency.
+
+    Do not also inherit MLAAttentionSpec: the upstream uniformity probe uses
+    isinstance(FullAttentionSpec), which would absorb this cache into a full
+    target group. Storage capabilities mirror AscendMLAAttentionSpec, while
+    residency and uniformity come exclusively from SlidingWindowMLASpec.
+    """
+
+    num_heads: int = 1
+    scale_dim: int = 0
+    scale_dtype: torch.dtype = torch.int8
+    cache_sparse_sfa_c8: bool = False
+    cache_sparse_sfa_turboquant: bool = False
+    store_on_host: bool = False
+    indexes_kv_by_block_stride: bool = False
+    non_causal_multi_token_decode: bool = False
+
+    real_page_size_bytes = AscendMLAAttentionSpec.real_page_size_bytes
+    unpadded_page_size_bytes = AscendMLAAttentionSpec.unpadded_page_size_bytes
+    supports_single_raw_backing = AscendMLAAttentionSpec.supports_single_raw_backing
+    uses_packed_sfa_main_cache = AscendMLAAttentionSpec.uses_packed_sfa_main_cache
+
+    @classmethod
+    def merge(cls, specs: list[Self]) -> Self:
+        assert specs and all(spec == specs[0] for spec in specs)
+        return replace(specs[0])
+
+
+@dataclass(frozen=True, kw_only=True)
 class AscendSlidingWindowMLASpec(SlidingWindowMLASpec):
     """Sliding window attention with MLA cache format."""
 
@@ -432,6 +462,11 @@ def register_ascend_kv_cache_specs() -> None:
         kvcache_spec_cls=AscendSFAIndexerCacheSpec,
         manager_class=FullAttentionManager,
         uniform_type_base_spec=FullAttentionSpec,
+    )
+    KVCacheSpecRegistry.register(
+        kvcache_spec_cls=AscendDSparkSlidingWindowMLASpec,
+        manager_class=SlidingWindowManager,
+        uniform_type_base_spec=SlidingWindowMLASpec,
     )
     KVCacheSpecRegistry.register(
         kvcache_spec_cls=AscendSlidingWindowMLASpec,

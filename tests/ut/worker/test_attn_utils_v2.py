@@ -46,6 +46,7 @@ from vllm_ascend.attention.fa4_v1 import AscendFA4Backend
 from vllm_ascend.attention.mla_v1 import AscendMLABackend
 from vllm_ascend.attention.sfa_v1 import AscendSFAImpl, AscendSFAMetadataBuilder
 from vllm_ascend.core.kv_cache_interface import (
+    AscendDSparkSlidingWindowMLASpec,
     AscendMLAAttentionSpec,
     AscendSFAIndexerCacheSpec,
     get_storage_block_size,
@@ -498,16 +499,19 @@ def test_mrv2_attention_views_interleave_kv_per_physical_page():
 
 
 @pytest.mark.parametrize("connector", ["MooncakeConnectorV2", "MooncakePullConnector"])
-def test_v2_mla_single_raw_backing_selects_layout_by_resolved_backend(monkeypatch, connector):
+@pytest.mark.parametrize("windowed", [False, True])
+def test_v2_mla_single_raw_backing_selects_layout_by_resolved_backend(monkeypatch, connector, windowed):
     layer_name = "model.layers.0.self_attn.attn"
     num_blocks = 2
-    spec = AscendMLAAttentionSpec(
+    spec_type = AscendDSparkSlidingWindowMLASpec if windowed else AscendMLAAttentionSpec
+    spec = spec_type(
         block_size=384,
         num_heads=64,
         num_kv_heads=1,
         head_size=576,
         dtype=torch.bfloat16,
         page_size_padded=488448,
+        **({"sliding_window": 4239} if windowed else {}),
     )
     attn_module = MLAAttention.__new__(MLAAttention)
     torch.nn.Module.__init__(attn_module)
@@ -1121,13 +1125,22 @@ def test_gqa_pcp_dcp_cache_keeps_tp_local_kv_heads(monkeypatch, dcp_size):
     ("model_type", "expected_num_heads"),
     [("kimi_linear", 1), ("deepseek_v3", 12)],
 )
-def test_mla_cache_spec_uses_physical_heads_for_kimi_k3(monkeypatch, model_type, expected_num_heads):
+@pytest.mark.parametrize("windowed", [False, True])
+def test_mla_cache_spec_uses_physical_heads_for_kimi_k3(monkeypatch, model_type, expected_num_heads, windowed):
     source_spec = MLAAttentionSpec(
         block_size=128,
         num_kv_heads=1,
         head_size=576,
         dtype=torch.bfloat16,
     )
+    if windowed:
+        source_spec = AscendDSparkSlidingWindowMLASpec(
+            block_size=source_spec.block_size,
+            num_kv_heads=source_spec.num_kv_heads,
+            head_size=source_spec.head_size,
+            dtype=source_spec.dtype,
+            sliding_window=4239,
+        )
     layer = MLAAttention.__new__(MLAAttention)
     layer.impl = SimpleNamespace(
         fa_quant_layer=False,
@@ -1160,9 +1173,12 @@ def test_mla_cache_spec_uses_physical_heads_for_kimi_k3(monkeypatch, model_type,
 
     spec = attn_utils.get_kv_cache_spec(vllm_config)["model.layers.0.self_attn.attn"]
 
-    assert isinstance(spec, AscendMLAAttentionSpec)
+    assert isinstance(spec, (AscendMLAAttentionSpec, AscendDSparkSlidingWindowMLASpec))
     assert spec.num_heads == expected_num_heads
     assert spec.page_size_bytes == source_spec.page_size_bytes
+    if windowed:
+        assert isinstance(spec, AscendDSparkSlidingWindowMLASpec)
+        assert spec.sliding_window == 4239
 
 
 @pytest.mark.parametrize(
