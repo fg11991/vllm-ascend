@@ -1,3 +1,5 @@
+日期：2026-10-30
+
 # DSpark 窗口外 KV 回收：实现、分组成本与使用边界
 
 本文接续[MRv2 只读窗口报告](dspark_read_window.md)。
