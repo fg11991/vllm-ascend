@@ -1,0 +1,167 @@
+{
+  "time": 1793435640.9140337,
+  "models": {
+    "trained-full-2048": {
+      "config_path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-full-2048/config.json",
+      "config_sha256": "44f31063aa212d867ee18f5db68d2125b41af32732db2ef87741256b92f59cb5",
+      "dflash_config": {
+        "attention_mode": "gqa",
+        "confidence_head_alpha": 1.0,
+        "confidence_head_with_markov": true,
+        "enable_confidence_head": true,
+        "markov_head_type": "vanilla",
+        "markov_rank": 256,
+        "mask_token_id": 248070,
+        "projector_type": "dspark",
+        "target_layer_ids": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "context_window": 2048,
+        "context_window_align": 128
+      },
+      "weights": [
+        {
+          "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-full-2048/model.safetensors",
+          "target": "/opt/w00958190/specforge_tmp/export_B_agent_nowindow_step50/model.safetensors",
+          "size": 3830829722,
+          "inode": 4866618,
+          "device": 64768,
+          "mtime": 1793267263.9910035
+        }
+      ]
+    },
+    "trained-full-none": {
+      "config_path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-full-none/config.json",
+      "config_sha256": "198ab2c6b49bf0a654c9949c2f9c5bcac5a5cdf980683ce8e04c8a4a3c2b227b",
+      "dflash_config": {
+        "attention_mode": "gqa",
+        "confidence_head_alpha": 1.0,
+        "confidence_head_with_markov": true,
+        "enable_confidence_head": true,
+        "markov_head_type": "vanilla",
+        "markov_rank": 256,
+        "mask_token_id": 248070,
+        "projector_type": "dspark",
+        "target_layer_ids": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ]
+      },
+      "weights": [
+        {
+          "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-full-none/model.safetensors",
+          "target": "/opt/w00958190/specforge_tmp/export_B_agent_nowindow_step50/model.safetensors",
+          "size": 3830829722,
+          "inode": 4866618,
+          "device": 64768,
+          "mtime": 1793267263.9910035
+        }
+      ]
+    },
+    "trained-window-128": {
+      "config_path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-window-128/config.json",
+      "config_sha256": "e83c6a2225167bf5e82f3f6e914b852013bc6eb4789ed6acfa65e874e928f066",
+      "dflash_config": {
+        "attention_mode": "gqa",
+        "confidence_head_alpha": 1.0,
+        "confidence_head_with_markov": true,
+        "enable_confidence_head": true,
+        "markov_head_type": "vanilla",
+        "markov_rank": 256,
+        "mask_token_id": 248070,
+        "projector_type": "dspark",
+        "target_layer_ids": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "context_window": 128,
+        "context_window_align": 128
+      },
+      "weights": [
+        {
+          "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-window-128/model.safetensors",
+          "target": "/opt/w00958190/specforge_tmp/export_A_agent_ctxwin2048_step50/model.safetensors",
+          "size": 3830829722,
+          "inode": 4866346,
+          "device": 64768,
+          "mtime": 1793264353.8830035
+        }
+      ]
+    },
+    "trained-window-2048": {
+      "config_path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-window-2048/config.json",
+      "config_sha256": "44f31063aa212d867ee18f5db68d2125b41af32732db2ef87741256b92f59cb5",
+      "dflash_config": {
+        "attention_mode": "gqa",
+        "confidence_head_alpha": 1.0,
+        "confidence_head_with_markov": true,
+        "enable_confidence_head": true,
+        "markov_head_type": "vanilla",
+        "markov_rank": 256,
+        "mask_token_id": 248070,
+        "projector_type": "dspark",
+        "target_layer_ids": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ],
+        "context_window": 2048,
+        "context_window_align": 128
+      },
+      "weights": [
+        {
+          "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-window-2048/model.safetensors",
+          "target": "/opt/w00958190/specforge_tmp/export_A_agent_ctxwin2048_step50/model.safetensors",
+          "size": 3830829722,
+          "inode": 4866346,
+          "device": 64768,
+          "mtime": 1793264353.8830035
+        }
+      ]
+    },
+    "trained-window-none": {
+      "config_path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-window-none/config.json",
+      "config_sha256": "198ab2c6b49bf0a654c9949c2f9c5bcac5a5cdf980683ce8e04c8a4a3c2b227b",
+      "dflash_config": {
+        "attention_mode": "gqa",
+        "confidence_head_alpha": 1.0,
+        "confidence_head_with_markov": true,
+        "enable_confidence_head": true,
+        "markov_head_type": "vanilla",
+        "markov_rank": 256,
+        "mask_token_id": 248070,
+        "projector_type": "dspark",
+        "target_layer_ids": [
+          1,
+          16,
+          31,
+          46,
+          61
+        ]
+      },
+      "weights": [
+        {
+          "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/models/trained-window-none/model.safetensors",
+          "target": "/opt/w00958190/specforge_tmp/export_A_agent_ctxwin2048_step50/model.safetensors",
+          "size": 3830829722,
+          "inode": 4866346,
+          "device": 64768,
+          "mtime": 1793264353.8830035
+        }
+      ]
+    }
+  },
+  "note": "Actual isolated-root paths; weight identity/size/mtime and copied config hashes match initial provenance. No full multi-GB weight content hash was computed."
+}

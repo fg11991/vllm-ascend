@@ -1,0 +1,18 @@
+{
+  "4a01608da": {
+    "root": "/workspace/dspark_ctxwin_baseline",
+    "files": 722,
+    "mismatches": [
+      {
+        "path": "vllm_ascend/worker/v2/spec_decode/dspark/speculator.py",
+        "expected": "0c2679047418dd389bca6613aac74a7e2768019e2fe80189676151be3aa0cf20",
+        "actual": "1103bbb37638d497fad94b1d98ba2b9f55ddd6e8e46eba755b34c384f33724b7"
+      }
+    ]
+  },
+  "HEAD": {
+    "root": "/workspace/dspark_ctxwin_tmp",
+    "files": 723,
+    "mismatches": []
+  }
+}

@@ -2,6 +2,10 @@
 
 # DSpark 窗口外 KV 回收：实现、分组成本与使用边界
 
+2026-10-31 补充：W2048 实际窗口增训模型的验证及未解决问题见
+[补充实验报告](2026-10-31_dspark_trained_window_followup.md)，完整命令和计数见
+[技术证据附件](2026-10-31_dspark_followup_evidence.md)。本文的原实现推导与历史测量保留不变。
+
 本文接续[MRv2 只读窗口报告](dspark_read_window.md)。
 设备测量和复现方法集中在[实机验证报告](dspark_npu_validation.md)。
 这里解释为什么需要第二阶段、代码怎样实现，以及为什么回收不一定立刻改善启动并发数字。

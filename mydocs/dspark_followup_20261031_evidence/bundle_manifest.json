@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-31",
+  "location": "local repository delivery",
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 1243,
+      "sha256": "a4e45e2eb10e722aa913de07dd22fbd880ab7f6a30583d089d6a2807f6eed820"
+    },
+    {
+      "name": "binary_dependencies_final.json",
+      "bytes": 2858,
+      "sha256": "b8fc30a9a9e537ab22afd21ec2fd362e9bcbcb20f8e7577735e8c6ac100baac6"
+    },
+    {
+      "name": "binary_dependencies_initial.json",
+      "bytes": 2827,
+      "sha256": "459118907a3ca1cd870c8eb66fbb06539b8cd8ed202069f589dd3404d14062c0"
+    },
+    {
+      "name": "boundary_poolonly_outcome.json",
+      "bytes": 7227,
+      "sha256": "157252def1a70ea64bf7dfd64fdb0f48d53c399e0fb29809396a018b96f2f0f9"
+    },
+    {
+      "name": "business_rounds.csv",
+      "bytes": 7720,
+      "sha256": "204a921518d235d46e3b80d1a78d03d2e063a11830f36ad8de10157680145392"
+    },
+    {
+      "name": "clock_observation.json",
+      "bytes": 372,
+      "sha256": "9440543e686f93dc039d67743f4ab3babf1021a6536a6d0b30dc408244c29985"
+    },
+    {
+      "name": "configuration_labels.json",
+      "bytes": 3749,
+      "sha256": "236f711af35b945726caea4efc69db7179ff32d5abad576a4e97917d9135ea1b"
+    },
+    {
+      "name": "coverage_inventory.json",
+      "bytes": 6581,
+      "sha256": "fac5c66139b471a992aeba157c8c146015d5ee4214527e56224c9c6027b8410f"
+    },
+    {
+      "name": "device_health_after_exception.json",
+      "bytes": 1070,
+      "sha256": "1538697fc34e0031d0d07cddbe99662807dde209cda90f9e1ac24647027994c6"
+    },
+    {
+      "name": "diagnostic_overview.json",
+      "bytes": 26338,
+      "sha256": "47b8f0c2cffd7131fefbd28eeb5bd790cd8a31333f62ce7712c26bb4be3abd2c"
+    },
+    {
+      "name": "document_checks.json",
+      "bytes": 517,
+      "sha256": "73832951b74b96bf838258d5ca482f139f174d92b36c052bff85a676beca1146"
+    },
+    {
+      "name": "document_reader_review.json",
+      "bytes": 714,
+      "sha256": "3514297cd13a9e8d35650a3b72eeb42d39d9a7d6fc6c3d6d06b7538639fbe6e9"
+    },
+    {
+      "name": "formal_per_request_results.jsonl.gz",
+      "bytes": 322397,
+      "sha256": "1464054bb4b72d5e60af29b827adecb385c38353ad78233de8a3c87cba9f1346"
+    },
+    {
+      "name": "formal_performance_cache_audit_summary.json",
+      "bytes": 2587,
+      "sha256": "2c66ec8c59540add1e4ccc1bedb1c276fda4607c7dfe7dfe71ae1abd6e1c303b"
+    },
+    {
+      "name": "incremental_divergence_case_summary.json",
+      "bytes": 72879,
+      "sha256": "b02c30cc731c40ccb0013df45e3e9e5ac3437347a96f1c9f315d1e53b21c814b"
+    },
+    {
+      "name": "memory32_comparison.json",
+      "bytes": 116577,
+      "sha256": "587f0b9699dc72def06cd3e0352af76f0ce6ba0d9a2a88f9ba272999746ca2cc"
+    },
+    {
+      "name": "memory32_token_comparisons.json",
+      "bytes": 65494,
+      "sha256": "9ef514f89ec1e794f2c63650ed01e8e02e5dc2e4daa33c6d48d1c5e30945c20d"
+    },
+    {
+      "name": "models_final_audit.json",
+      "bytes": 5822,
+      "sha256": "8dc85fd53c5ed894d522b2a6f199b96f69b88b905ff58cf2397af853e1d27667"
+    },
+    {
+      "name": "ownership_analysis_selftest.json",
+      "bytes": 550,
+      "sha256": "5353c2bec27d19771f6421834ba807180365bc1561074a3d4252e38a0e7b9783"
+    },
+    {
+      "name": "performance_descriptive_summary.json",
+      "bytes": 2563,
+      "sha256": "3928efb922b08e5a4e85bc3fe6ce3a635f4a266725a73938ae2bb6e2ede443ca"
+    },
+    {
+      "name": "performance_rounds.csv",
+      "bytes": 21967,
+      "sha256": "f2b833db4f7b60dc830e3ba72b0115fe55e7333279165ce3927ef8d68bf9609d"
+    },
+    {
+      "name": "prefix_mixed_trace_selftest.json",
+      "bytes": 409,
+      "sha256": "31761ead242fd19fbfaa90bde6b0b0a025a6cf558288f3aeed92275739741000"
+    },
+    {
+      "name": "remote_bundle_manifest.json",
+      "bytes": 4781,
+      "sha256": "24247d5c743173fb26aa37606d73905566850c62ae0f3002e779b1e892b19245"
+    },
+    {
+      "name": "remote_results_sha256.json",
+      "bytes": 169094,
+      "sha256": "b487d569f1954c0b452be95f893909403864ba22d1937b57e28b0bb8df8884df"
+    },
+    {
+      "name": "repository_format_check.json",
+      "bytes": 468,
+      "sha256": "7b95b9977041b5f6a4e83887ffc9724666d2fdb94f9e212c3a7da52aa534f4c2"
+    },
+    {
+      "name": "retained_service_audit.json",
+      "bytes": 4094,
+      "sha256": "c0a0ec0664a156b7ee54df31076fd306b2c338efd236ae1c82a3c9a433b04f2a"
+    },
+    {
+      "name": "retained_service_health.json",
+      "bytes": 1160,
+      "sha256": "ae218d08bfa3f34e3a067ac154ea4c8cc4a01fbde23d57f3e10c00fd283f3ea2"
+    },
+    {
+      "name": "scope_reduction.json",
+      "bytes": 453,
+      "sha256": "1e68ce8cd8e33da2484c4e88f9773f954dd19ef9bd0b0bc66ec2de06542b1266"
+    },
+    {
+      "name": "source_audit.json",
+      "bytes": 480,
+      "sha256": "8a64b68c908122ac9c7161278888bf59ab73d9c71b5ca67a30c438c5c46731ec"
+    },
+    {
+      "name": "source_audit_final.json",
+      "bytes": 720,
+      "sha256": "64e1626f3b1e859a80de00663235288b75ea84bc18f66c8630871ea9a05d258d"
+    },
+    {
+      "name": "startup_audits.json",
+      "bytes": 386543,
+      "sha256": "8531da866c1453e305ab69e4a91b457acaed432144fff9aa552b0e98c540145b"
+    },
+    {
+      "name": "trace_request_match_selftest.json",
+      "bytes": 247,
+      "sha256": "b5af07ca89178ffcbd971d9c6ab83ee9210d67b558e77c6bc61aefde52f8e1b5"
+    },
+    {
+      "name": "validation_harness.tar.gz",
+      "bytes": 146225,
+      "sha256": "539f1d3be1852df3aff6460473f495283515a82764545b9002f70b0388455162"
+    }
+  ]
+}

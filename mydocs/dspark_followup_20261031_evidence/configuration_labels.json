@@ -1,0 +1,104 @@
+{
+  "isocache_trained_window_2048_readonly_graph_s8": {
+    "草稿训练": "窗口增训",
+    "读窗口": "2048/128",
+    "回收": "否",
+    "实际分组": "FullAttentionSpec 21层×1组 + GDN 16层×3组",
+    "模式": "图",
+    "代码提交": "4a01608da7be1950eebc9902e3692d257f304759",
+    "MRV": "MRV2",
+    "共享槽字节": 19267584,
+    "每层page字节": "[917504]",
+    "scheduler块大小": "[896, 32768]",
+    "草稿模型": "export_A_agent_ctxwin2048_step50"
+  },
+  "isocache_trained_window_2048_reclaim_graph_s8": {
+    "草稿训练": "窗口增训",
+    "读窗口": "2048/128",
+    "回收": "是",
+    "实际分组": "FullAttentionSpec 8层×2组 + SWA 5层×1组 + GDN 8层×6组",
+    "模式": "图",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "共享槽字节": 7340032,
+    "每层page字节": "[917504]",
+    "scheduler块大小": "[896, 32768]",
+    "草稿模型": "export_A_agent_ctxwin2048_step50"
+  },
+  "isocache_trained_window_2048_reclaim_graph_s16": {
+    "草稿训练": "窗口增训",
+    "读窗口": "2048/128",
+    "回收": "是",
+    "实际分组": "FullAttentionSpec 16层×1组 + SWA 5层×1组 + GDN 16层×3组",
+    "模式": "图",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "共享槽字节": 14680064,
+    "每层page字节": "[917504]",
+    "scheduler块大小": "[896, 32768]",
+    "草稿模型": "export_A_agent_ctxwin2048_step50"
+  },
+  "isocache_trained_window_none_full_graph_s8": {
+    "草稿训练": "窗口增训",
+    "读窗口": "关闭",
+    "回收": "否",
+    "实际分组": "FullAttentionSpec 21层×1组 + GDN 16层×3组",
+    "模式": "图",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "共享槽字节": 19267584,
+    "每层page字节": "[917504]",
+    "scheduler块大小": "[896, 32768]",
+    "草稿模型": "export_A_agent_ctxwin2048_step50"
+  },
+  "isocache_trained_full_none_baseline_graph_s8": {
+    "草稿训练": "不开窗增训",
+    "读窗口": "关闭",
+    "回收": "否",
+    "实际分组": "待逐配置启动日志确认",
+    "模式": "图",
+    "代码提交": "4a01608da7be1950eebc9902e3692d257f304759",
+    "MRV": "MRV2",
+    "草稿模型": "export_B_agent_nowindow_step50"
+  },
+  "isocache_trained_full_none_current_graph_s8": {
+    "草稿训练": "不开窗增训",
+    "读窗口": "关闭",
+    "回收": "否",
+    "实际分组": "待逐配置启动日志确认",
+    "模式": "图",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "草稿模型": "export_B_agent_nowindow_step50"
+  },
+  "isocache_trained_full_2048_reclaim_graph_s8": {
+    "草稿训练": "不开窗增训",
+    "读窗口": "2048/128",
+    "回收": "是",
+    "实际分组": "待逐配置启动日志确认",
+    "模式": "图",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "草稿模型": "export_B_agent_nowindow_step50"
+  },
+  "isocache_trained_window_128_reclaim_graph_s8": {
+    "草稿训练": "窗口增训",
+    "读窗口": "128/128",
+    "回收": "是",
+    "实际分组": "待逐配置启动日志确认",
+    "模式": "图",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "草稿模型": "export_A_agent_ctxwin2048_step50"
+  },
+  "isocache_trained_window_2048_reclaim_eager_s8": {
+    "草稿训练": "窗口增训",
+    "读窗口": "2048/128",
+    "回收": "是",
+    "实际分组": "待逐配置启动日志确认",
+    "模式": "eager",
+    "代码提交": "ed48548e885aa37126e497c102124184385c636a",
+    "MRV": "MRV2",
+    "草稿模型": "export_A_agent_ctxwin2048_step50"
+  }
+}

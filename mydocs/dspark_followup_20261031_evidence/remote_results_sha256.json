@@ -1,0 +1,2837 @@
+[
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_boundaries.json",
+    "bytes": 163733,
+    "sha256": "3726f66375a23e9cb9e49330e961c85c5033c7f65f3203f69cf229a916962b78"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_map_summary.json",
+    "bytes": 5270,
+    "sha256": "afe519e156a885f636178c462b7c10522ab5a82e97dbaa381211bc6b630a5622"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_ownership_summary.json",
+    "bytes": 68134,
+    "sha256": "db391d4aaa73b16ef03847e7c2d007d1fd98e3dfbe09ccaf819192915c0a6a8c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_pool_evidence.before_reuse_failure.json",
+    "bytes": 796846,
+    "sha256": "4c18d2f6ca3c898176713676b5e69c69954c706489f9b6264e9b29fddbade950"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_pool_evidence.json",
+    "bytes": 1806856,
+    "sha256": "c006cbb5b505e3a0dded148471da03dbf1129c797103793d8f7f9cf10cc31db5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_pool_summary.before_reuse_failure.json",
+    "bytes": 14788,
+    "sha256": "35fdfa096c85af0e625982aaa049b77eac24f74a0cc804013dde0b422b60174c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_isocache_trained_window_W2048_reclaim8_pool384_pool_summary.json",
+    "bytes": 17205,
+    "sha256": "67b0f398057321cac80f08ecb86ef336d1c3ed643f43bb5a4d2af286a298e7d1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_poolonly_outcome.json",
+    "bytes": 7227,
+    "sha256": "157252def1a70ea64bf7dfd64fdb0f48d53c399e0fb29809396a018b96f2f0f9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_retry_poolonly_trained_window_W2048_reclaim8_pool384_boundaries.json",
+    "bytes": 163807,
+    "sha256": "45ab407904048045a0b39da272f4bb1f2147744bf18de5f736a6459b2242c53f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_retry_poolonly_trained_window_W2048_reclaim8_pool384_boundaries_journal.jsonl",
+    "bytes": 31008,
+    "sha256": "c6ab6484e55429067118136b419fc49fbc7c2d6be904236e3329d5b4eefc2681"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_retry_poolonly_trained_window_W2048_reclaim8_pool384_pool_evidence.json",
+    "bytes": 4375711,
+    "sha256": "de3b654ca1e6ea43fc5cb4dd7449be63a8d93b2b26f7a489fe3773bab0b24ffb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_retry_poolonly_trained_window_W2048_reclaim8_pool384_pool_summary.json",
+    "bytes": 14734,
+    "sha256": "07b601d25691b83ab5a53195c8173699e4038c47bc09fc5fcb0172dcb9154b0e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_retry_poolonly_trained_window_W2048_reclaim8_pool384_reuse.json",
+    "bytes": 247251,
+    "sha256": "2078a05a99daf71019aeb440e1e096d39cacf076ff464fdcee19ea27d6b2946a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/boundary_retry_poolonly_trained_window_W2048_reclaim8_pool384_reuse_journal.jsonl",
+    "bytes": 112502,
+    "sha256": "0ac71de6939448e628a473ebacf5c5bb147fcebade2d4d61fdb44389085bd172"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_archive_fixed_c1_r1.json",
+    "bytes": 62248,
+    "sha256": "296d4b4ffeb91200dfd39245ef27b1622b0ae5a9f0fdaf3e5c4a370867e78bda"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_archive_fixed_c1_r2.json",
+    "bytes": 61818,
+    "sha256": "e0fb0f3772d31a175f176ce25dbe1985da9cf1276fe6a98d8678f7921fc38129"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_business_fixed_c1_r1.json",
+    "bytes": 7767,
+    "sha256": "7c99e71d6aa8cc73074ca55a34cc6c26afe8aeba454d209efd0f30ec6affa063"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_business_fixed_c1_r2.json",
+    "bytes": 8575,
+    "sha256": "3b7f3fe4241610cac8f09ed0290ae2b1bb11e31d11c4306e8bc817652e596afe"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_map_summary.json",
+    "bytes": 4433,
+    "sha256": "b733d6b4aee69e9eeb1a3c5c886fb1a2a871ff49756c8a5e1a0d094bd70384c7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_ownership_summary.json",
+    "bytes": 61052,
+    "sha256": "6efbec1627b0a911e1cdc9a936b90be2a84a5ec9a5567e536b4604639e186596"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_pool_evidence.json",
+    "bytes": 3464576,
+    "sha256": "214799b8ae726de800a98ab09f09b820b4c26d5f1f142893b55bcaf9efe610bb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_pool_summary.json",
+    "bytes": 11888,
+    "sha256": "e276269599980d0ef24e5d96dc2c0541026efbe9f926e5c58e1ca031611a5956"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_prefix_replay_c1_r1.json",
+    "bytes": 731843,
+    "sha256": "07e5ece28c9bbe1b6d6a7c2bbb4108f45f6ce7cdecc1d4f732a2e2b387b5c5f2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_prefix_replay_c1_r2.json",
+    "bytes": 731847,
+    "sha256": "8e307aef93d892894c2ee1d594aec9cb03ffc32969479e86b998e0df1ce499d1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_prefix_trace_audit.json",
+    "bytes": 5781904,
+    "sha256": "d3184d110183b28131ab010bac8ebfb64ff03a2343b022997136165428a7f708"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_final_answer_2026-10-31_07-11-13.jsonl",
+    "bytes": 608415,
+    "sha256": "437636be37bd728c91fc26ec4342d7a1062369262585b158f6c0247019697863"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_final_answer_2026-10-31_07-11-13.jsonl.metrics.0.txt",
+    "bytes": 64268,
+    "sha256": "7975da46f41ad54600092a5ec8e05e63e401311a0cb4e3663dee5bf12aa39e06"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_final_answer_2026-10-31_07-11-13.jsonl.metrics.1.txt",
+    "bytes": 64291,
+    "sha256": "a9a470acbcffc0bac65d9ed34934cd4ef31682861e2374b4d2dd8a6cda59ca1b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_final_answer_2026-10-31_07-11-13.summary.json",
+    "bytes": 831,
+    "sha256": "3f5136d9e799a6ac0be1ab07653272c2c36cb64846b847c719c0eccc0d595277"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_tool_call_2026-10-31_07-09-27.jsonl",
+    "bytes": 499036,
+    "sha256": "78bb808b59106377b363e4097a5d9c74ec75635c958acba1b708682f8dfc2846"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_tool_call_2026-10-31_07-09-27.jsonl.metrics.0.txt",
+    "bytes": 62014,
+    "sha256": "46626175b3240f186c773ebc1a6cc0a55a46de98f25b7cd5bcf2af5e3d5ff64a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_tool_call_2026-10-31_07-09-27.jsonl.metrics.1.txt",
+    "bytes": 64269,
+    "sha256": "bfae5d658bcdfce591a7c8d7ff325812bbb59e9282d177737084829a88007a5d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_readonly_baseline_graph_warm_tool_call_2026-10-31_07-09-27.summary.json",
+    "bytes": 814,
+    "sha256": "7fdc657699e0a59fc071dc0854950540f64ff8dcfcaf89f145845d934a343aea"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_archive_fixed_c1_r1.json",
+    "bytes": 62048,
+    "sha256": "0044ddd3289492f705c588f1f3b590e73f440b03badf6a3c6e93dca6dcf5b36f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_archive_fixed_c1_r2.json",
+    "bytes": 62036,
+    "sha256": "6d8dc789a1deee573f63eae8a8ea59c4b2478117aafde558232fce76d751b4c7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_business_fixed_c1_r1.json",
+    "bytes": 15043,
+    "sha256": "674e5a52c3c979b7cd2b593a487f82cff92e6440716e7bc63567918b1ce2132c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_business_fixed_c1_r2.json",
+    "bytes": 15260,
+    "sha256": "c4891e0f51fe8f7d17990f44ced2817b980b2327b3c6dd499c4aa031a4a5dfa8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_map_summary.json",
+    "bytes": 4428,
+    "sha256": "13f813ddbe02cf6b0079d926864dbec290130234c0a199d86929eb8056484fb9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_ownership_summary.json",
+    "bytes": 60992,
+    "sha256": "0f9646bab77f75ed9d5a259254c724c4a012a3687affcd355d1159d1c9243f03"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_ownership_summary.original_failure.json",
+    "bytes": 24536,
+    "sha256": "e8b66bab2c3a0ed11d9ed5609c4e0e6f4ae8304107fec3cacb4c153df0d8e210"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_pool_evidence.json",
+    "bytes": 5224710,
+    "sha256": "d50cbc9b0d2708b62f270e4ad6df993da71c8a9301af12ba11c1a57bd2d756f4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_pool_summary.json",
+    "bytes": 14856,
+    "sha256": "bba79a046603a32fdf503f7d774741501b177f7906e40e0d7de98fb0f2fc24c5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_prefix_replay_c1_r1.json",
+    "bytes": 731781,
+    "sha256": "1fdfb65d84afd10966d8d322569e69df9ad3cef94b75ff8ba56173019859081a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_prefix_replay_c1_r2.json",
+    "bytes": 731777,
+    "sha256": "6bcbf910e2c79a3ff6701e6fe96b60c413d4a252337edc4d0d11a94bbf78629f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_prefix_trace_audit.json",
+    "bytes": 5781750,
+    "sha256": "d8b6a9c0716779527deea4c6f8a3afa65d133f7f9acdb37dcee7082a565c7633"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_final_answer_2026-10-31_06-36-12.jsonl",
+    "bytes": 608461,
+    "sha256": "ebdb02bb4651dceab9e5cb4e86d036995b14222b57c43fc55457319c0d660468"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_final_answer_2026-10-31_06-36-12.jsonl.metrics.0.txt",
+    "bytes": 64257,
+    "sha256": "f635b8aefc5f24d4760111ee35f45f27b0acb8f4f7003316b27cc32f6c048f5c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_final_answer_2026-10-31_06-36-12.jsonl.metrics.1.txt",
+    "bytes": 64261,
+    "sha256": "5ffb7985c7cac05101988efdaa3a5feb4939267148709d80286fcc521fcd4ccb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_final_answer_2026-10-31_06-36-12.summary.json",
+    "bytes": 825,
+    "sha256": "a74ffb7fa5fddbae15482fd03b935542bb0c2eae5ac07afab26df92cfbdba778"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_tool_call_2026-10-31_06-34-32.jsonl",
+    "bytes": 499064,
+    "sha256": "d00462e69192f402fe2db368e53402a8e77683909c4d878f4377cf9ae8d333b2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_tool_call_2026-10-31_06-34-32.jsonl.metrics.0.txt",
+    "bytes": 61998,
+    "sha256": "24406cf928c235be2691103c3f7b8c25450cb8a7ba0f037bcfa507130dc78723"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_tool_call_2026-10-31_06-34-32.jsonl.metrics.1.txt",
+    "bytes": 64257,
+    "sha256": "1afaa1f257362bcef0d8f43d5a8e9033413e92e0c584e3eb2f106f9dca7603b1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_reclaim_s8_graph_warm_tool_call_2026-10-31_06-34-32.summary.json",
+    "bytes": 805,
+    "sha256": "9e652626b18ab10f8778687d90c1bfd31430a0a50cf50ff28fb72c7e55f7d073"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_archive_fixed_c1_r1.json",
+    "bytes": 62431,
+    "sha256": "3d5a6fecbe665889c56dfb811a26511e6efb3ac596a122a6a4a3209de5317557"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_archive_fixed_c1_r2.json",
+    "bytes": 62854,
+    "sha256": "8160f4d0c3f327e6c17e52fbe5c7a12471b23a1e616f01ee2eee3b6062f088a5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_business_fixed_c1_r1.json",
+    "bytes": 8835,
+    "sha256": "7cde2ee9ba5bea47e8b8ecdcadcc2241d78babcd9266152db6b885a0bba27af2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_business_fixed_c1_r2.json",
+    "bytes": 15098,
+    "sha256": "5e648980f181a60af3b6ef5847eebb9cad43b9299cdc244a6ff47c1a295cb472"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_map_summary.json",
+    "bytes": 4434,
+    "sha256": "6594d740f738f70950fa02ddc35b3deab2224276ae425add85442a040a321c95"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_ownership_summary.json",
+    "bytes": 61077,
+    "sha256": "afe6c1e842d2cad85337030cf42041aa0773d7d7e8d19850f9be4231b9885a8c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_pool_evidence.json",
+    "bytes": 5207818,
+    "sha256": "102dcc9e49fc3e8b0d6f5785a9ccec77de746300f2a17e31ef6caafcad4e18d0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_pool_summary.json",
+    "bytes": 14659,
+    "sha256": "6f27ca1bdd0360b75a4f4d887e46458df5f8e6c3ac3cfd3af7ebe771bb11e2ab"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_prefix_replay_c1_r1.json",
+    "bytes": 731862,
+    "sha256": "c3661def505a35b35711d0c2d01f178065fda064ecdb18551860b0d12e3d4cb3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_prefix_replay_c1_r2.json",
+    "bytes": 731866,
+    "sha256": "4ff92f0282124b6f7e25f9f581b65675ba322a4c0e776e53ab722ef2e9b81ded"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_prefix_trace_audit.json",
+    "bytes": 5781948,
+    "sha256": "c4bce1f27d415142fc8dc7f0f32dddf4c2ba626618006a91b4217462606cae81"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_final_answer_2026-10-31_06-56-54.jsonl",
+    "bytes": 608411,
+    "sha256": "5d8a6499e5f43d20ab432371d439e4a36a0ac33e323cadcd78254fe50da489f6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_final_answer_2026-10-31_06-56-54.jsonl.metrics.0.txt",
+    "bytes": 64256,
+    "sha256": "5f2694b51aa8c585c8829e69a665a63ff6bec6ab6f851079423d105c43ebf01b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_final_answer_2026-10-31_06-56-54.jsonl.metrics.1.txt",
+    "bytes": 64253,
+    "sha256": "a90d3704bded96497250b864f68d923280025603c17a1a765d552be32a9a1bc6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_final_answer_2026-10-31_06-56-54.summary.json",
+    "bytes": 832,
+    "sha256": "eb074976a1430c160dec8e9dae3f4e2881658ac61e0944dd2b34d4bad46eac82"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_tool_call_2026-10-31_06-55-08.jsonl",
+    "bytes": 499059,
+    "sha256": "564de269bd82c40ec12e940244af692324fd50c1005f9dcdad241f4ded906a4f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_tool_call_2026-10-31_06-55-08.jsonl.metrics.0.txt",
+    "bytes": 61989,
+    "sha256": "c2c2ad1aa145acf2bc6f6e4ab59f2ec6331bd32c04eef5b1f3e60d40aedc8373"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_tool_call_2026-10-31_06-55-08.jsonl.metrics.1.txt",
+    "bytes": 64244,
+    "sha256": "e8c55168516265d1f34fd685126e2e46a182035ec7d890ff504c78bdd64104c1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_warm_tool_call_2026-10-31_06-55-08.summary.json",
+    "bytes": 814,
+    "sha256": "7de5838feff57ef53a9ca88bb4b42402f6416072185c00a3440dbcb82c454614"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/diagnostic_overview.json",
+    "bytes": 26338,
+    "sha256": "47b8f0c2cffd7131fefbd28eeb5bd790cd8a31333f62ce7712c26bb4be3abd2c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/incremental_divergence_case_summary.json",
+    "bytes": 72879,
+    "sha256": "b02c30cc731c40ccb0013df45e3e9e5ac3437347a96f1c9f315d1e53b21c814b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_archive_fixed_c1_r1.json",
+    "bytes": 61758,
+    "sha256": "da25273ef27d38a9c34b1b443498ff9d76e7b2231ea43d479bf471b823251c04"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_archive_fixed_c1_r2.json",
+    "bytes": 61926,
+    "sha256": "513cd9d5104155433c2b1c5b2a9031f2a2f4f5dbca496e9dbf7dcb6d50a76587"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_archive_fixed_c1_r3.json",
+    "bytes": 62961,
+    "sha256": "65518c39cc536ce1e31c1579379c84f2961bf1c5134a7d755cb1b1374ee50684"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_archive_fixed_c4_r1.json",
+    "bytes": 62446,
+    "sha256": "7764d634f9ad994d14ff167542f49f95fb3c738ab0a239848d5c38d7071c0fc8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_archive_fixed_c4_r2.json",
+    "bytes": 62318,
+    "sha256": "39361b515fcffd57de13bb02574f336ec8ba81182d1e92ada7ac8de1c409bc00"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_archive_fixed_c4_r3.json",
+    "bytes": 63241,
+    "sha256": "77d584d13266d74b1e7ae21ef3324d0b016936c45639558e9683bd79715ebb86"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_fixed_c1_r1.json",
+    "bytes": 66909,
+    "sha256": "9ce2e93a39d382b6e3fd663fd609c5d9f07eea94d90a9cb3aa3d389582c80679"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_fixed_c1_r2.json",
+    "bytes": 67445,
+    "sha256": "3664e0297c5ff505369ea92abc59ea69222eacc1821cc89ff5d375beae67e775"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_fixed_c1_r3.json",
+    "bytes": 71509,
+    "sha256": "02215d2929f384f19a8f5387de81988eb3d189fb970202795b19f83797babe07"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_fixed_c4_r1.json",
+    "bytes": 71792,
+    "sha256": "3d6fc185302f107944f385a3cf958745a74c2bebe32bee7739156205b4007c4b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_fixed_c4_r2.json",
+    "bytes": 71275,
+    "sha256": "e6d76c42b0c8fd5b222bfde8c3947faac96a22a4bdc3dca6a05dad311cdd10c2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_fixed_c4_r3.json",
+    "bytes": 71863,
+    "sha256": "4de3c0aeb9a1ecf37aa003f39552465cc17956a80df76e966def2c024a59b15b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-12-04.jsonl",
+    "bytes": 603291,
+    "sha256": "fd451b7dcbc2b49077e3ca0ef8083d4c3d6db8509c040186301800a7ec954e85"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-12-04.jsonl.metrics.0.txt",
+    "bytes": 64730,
+    "sha256": "1cafc226a2c7f2dd021331f44b2be5c796bc5c6e3ef81dc11defb1a0d2fab5af"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-12-04.jsonl.metrics.1.txt",
+    "bytes": 64746,
+    "sha256": "e54ccadb3318f9db16ea76bf4ee334aa2cd2b5f5c9e2a0ff1cec130569ff76d8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-12-04.summary.json",
+    "bytes": 838,
+    "sha256": "c28dce401773c1bf0033b3b56f43265c430cfe83929c30d8a4470ad139f7bc63"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-13-20.jsonl",
+    "bytes": 600716,
+    "sha256": "d42639de5350efe0469bbecd9726a4148571bd6db54fdf9a57b5b3a889d6fa54"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-13-20.jsonl.metrics.0.txt",
+    "bytes": 64734,
+    "sha256": "447574c9cdcc93c0577ffddc65b6636a592f7c93bf6cfebb5ba8f291aac45e0e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-13-20.jsonl.metrics.1.txt",
+    "bytes": 64763,
+    "sha256": "79243384414f9bbf7fe45eb6861fd6c4849805ea0ea46ab4816085bb4a9a3e62"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-13-20.summary.json",
+    "bytes": 843,
+    "sha256": "d23d580adebed16ead168361359f670813a705b71dafc169944ff796aa305979"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c1_final_answer_2026-10-31_04-13-55.jsonl",
+    "bytes": 1099679,
+    "sha256": "c8a47560bc91e85ac342e44bbe9adc8d54bd3411f3399e307ee1809a98fc6986"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c1_final_answer_2026-10-31_04-13-55.jsonl.metrics.0.txt",
+    "bytes": 64763,
+    "sha256": "f25bd7c04716a20692a2506fedbc02345576457062a03a3eca984e750b495610"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c1_final_answer_2026-10-31_04-13-55.jsonl.metrics.1.txt",
+    "bytes": 64770,
+    "sha256": "14974716d733534b022318565cc3a427049278bf8514a0903a6fceb1f597b526"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c1_final_answer_2026-10-31_04-13-55.summary.json",
+    "bytes": 843,
+    "sha256": "7f28a28f138ac7544335b4162af4d955ddcd709b140727ae155f7df025955356"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c4_final_answer_2026-10-31_04-14-45.jsonl",
+    "bytes": 1102572,
+    "sha256": "a3f7687008f678fe1727828b8014e0acabe54fc66663da3ecd35c55877b25569"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c4_final_answer_2026-10-31_04-14-45.jsonl.metrics.0.txt",
+    "bytes": 64758,
+    "sha256": "d18d01b7973f86c449343cb96e5a543996a5d237e63e181c8ed70c6594d605ed"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c4_final_answer_2026-10-31_04-14-45.jsonl.metrics.1.txt",
+    "bytes": 64759,
+    "sha256": "dead567279ebd01b406d8e4cccd330a1a5c6a59276e248c3508d61eeada8157a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_24576_c4_final_answer_2026-10-31_04-14-45.summary.json",
+    "bytes": 844,
+    "sha256": "491d5d680128ca54e7bb58d5cbfeea9686f9354d9265301d67b9f7fc2ad4a325"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c1_final_answer_2026-10-31_04-15-27.jsonl",
+    "bytes": 1342168,
+    "sha256": "e446b75d446ee75635f126344fc7ff40a5332d2e1d1def6be9d03ec0547c7bf8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c1_final_answer_2026-10-31_04-15-27.jsonl.metrics.0.txt",
+    "bytes": 64759,
+    "sha256": "9470bcfcdffe98595e289254c4aa84372751e577cc0ae4f0a1c1a0d804679810"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c1_final_answer_2026-10-31_04-15-27.jsonl.metrics.1.txt",
+    "bytes": 64761,
+    "sha256": "636bf372ff028e1b8d1e661435cc0d6cbd1f8db0130a8d776d72e78076e87fb8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c1_final_answer_2026-10-31_04-15-27.summary.json",
+    "bytes": 845,
+    "sha256": "dfad36ae3774e582a85fc1110b2c347d3a1eba6ef8a92776db69eeabf1bbd3fc"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c4_final_answer_2026-10-31_04-16-21.jsonl",
+    "bytes": 1342322,
+    "sha256": "d693c6398e92b66f0d1b8eb948a2c4c1965e9de5b800a4ee15fb11d9fb543952"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c4_final_answer_2026-10-31_04-16-21.jsonl.metrics.0.txt",
+    "bytes": 64774,
+    "sha256": "d124ca4b14268327a29cd65c2f3d1da33857fde8fe8111f8ce3b87d2f8a9e5a5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c4_final_answer_2026-10-31_04-16-21.jsonl.metrics.1.txt",
+    "bytes": 64765,
+    "sha256": "19c138fae5956cd05bbea537554a1c5d6cc747eac4a2bee2e1d6738dde6ea2f3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_perf_r1_long_29696_c4_final_answer_2026-10-31_04-16-21.summary.json",
+    "bytes": 845,
+    "sha256": "2c4361a069052717e913a3e050ee0c32f52fecb131b429fab52218fa127aeb2f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_final_answer_2026-10-31_04-09-42.business.json",
+    "bytes": 72204,
+    "sha256": "235a8bf7fad8666285cb626f2394049adccf71434ce4ebe7b3ec0db772cc0713"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_final_answer_2026-10-31_04-09-42.jsonl",
+    "bytes": 7623383,
+    "sha256": "68db2f179688de753be7ca32151ab616d87d05b64fdb125ce3dd1af59959735d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_final_answer_2026-10-31_04-09-42.jsonl.metrics.0.txt",
+    "bytes": 64506,
+    "sha256": "ca36df7a96375c82af6a7b926a38258a7e160c03211a572f17757107d62b3191"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_final_answer_2026-10-31_04-09-42.jsonl.metrics.1.txt",
+    "bytes": 64730,
+    "sha256": "283b83f44cab1e59469ea24dbd8891d35e8ac672f22bab969d609a422ce4a120"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_final_answer_2026-10-31_04-09-42.summary.json",
+    "bytes": 830,
+    "sha256": "fd826e22e3281b8137fcbd002da175884d260b9d053f777788508ea4aaba670d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_tool_call_2026-10-31_04-07-44.business.json",
+    "bytes": 38577,
+    "sha256": "d44696a6843f36ddfaf8f4d24fb2d5edc756b70625db2faa5420996fd189d4e9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_tool_call_2026-10-31_04-07-44.jsonl",
+    "bytes": 6314034,
+    "sha256": "a6d92d3a243087f411b3dc668d7b63760fad3af22ebe08e47193533e60020a00"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_tool_call_2026-10-31_04-07-44.jsonl.metrics.0.txt",
+    "bytes": 64278,
+    "sha256": "a21e769ae662592868ec37982e9c22defb1b61a31f0384f168e44a5b23a0ec1f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_tool_call_2026-10-31_04-07-44.jsonl.metrics.1.txt",
+    "bytes": 64506,
+    "sha256": "ca4438aaae911ecd34e8ed9bdcd2c9ae3e8a63800e726953e29f6dc2e7d0b22c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_r1_tool_call_2026-10-31_04-07-44.summary.json",
+    "bytes": 821,
+    "sha256": "2c563ec005e3c084add509ec7f260b359105895319e4e46aeae6160b192a066e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-59.jsonl",
+    "bytes": 601665,
+    "sha256": "63de75a3be23bba431f3cc5e1ff0149fbbc68315f93dd56ea2c6d97f0ba8dcb5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-59.jsonl.metrics.0.txt",
+    "bytes": 64771,
+    "sha256": "a4e9399a449360af5439de4569707bc801abb8ac42a9e81f497957859e817658"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-59.jsonl.metrics.1.txt",
+    "bytes": 64766,
+    "sha256": "ea647263cb115f8cd8606222780debf7d6415e443f42779d9c5a3dfeb81d5e8b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-59.summary.json",
+    "bytes": 849,
+    "sha256": "5d36630be74211dd9a9d2fed0a85da5643f672c997ecdfbb2a00989acbf78128"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-24-13.jsonl",
+    "bytes": 599501,
+    "sha256": "9e7454f92d0e650fdf20bddc60febd0e5d9df6098b2629d517dd6637fa9c2eaa"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-24-13.jsonl.metrics.0.txt",
+    "bytes": 64770,
+    "sha256": "ac4fe448cb6ecb4e20702fc10b2f6d81f1dda3ed14d7bea6083b3c425b3501f4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-24-13.jsonl.metrics.1.txt",
+    "bytes": 64772,
+    "sha256": "b24f3ec6b1afa6b3feb251d0ad6ccb4fd86c6fc15bf545e11154012e3c2e6606"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-24-13.summary.json",
+    "bytes": 848,
+    "sha256": "f889fcc06958702d79567f8e45050a21b029873f650f0119737cbdec15f8f0b7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-25-28.jsonl",
+    "bytes": 1099642,
+    "sha256": "4fcbd1ab1f887aa765a74f656dd085d09d58ecdd98af25fbd804981fc81dd7d9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-25-28.jsonl.metrics.0.txt",
+    "bytes": 64787,
+    "sha256": "ee3a0935bebc508f5c9ed868dfc22a20ac4ab1c9c228889acef623cefb9b3ef7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-25-28.jsonl.metrics.1.txt",
+    "bytes": 64783,
+    "sha256": "5290284086af751627c77905807e4caccc54eea46a010851f937b9036c5d8c09"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-25-28.summary.json",
+    "bytes": 851,
+    "sha256": "db7ae62f166fa0fe1f0c8f809d409f9cd112298543ace6b79891c460e52ba0fa"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-57.jsonl",
+    "bytes": 1102857,
+    "sha256": "80cc463a12463dfe875dcc401bad453c99f6b137f4ae307085bedefe036d7ed1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-57.jsonl.metrics.0.txt",
+    "bytes": 64776,
+    "sha256": "ede66c38d01f971ea00f801c32eb1775c0d6ca419a4b13f2af9447971a0232ff"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-57.jsonl.metrics.1.txt",
+    "bytes": 64776,
+    "sha256": "bd42133ac3b93a08c38abfffa5a0c5c1994e100bbdf68845e26472b34c7e0940"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-57.summary.json",
+    "bytes": 850,
+    "sha256": "2d7461edc8b71b1eec49de8aaf09f75b942897b3cd370f5f07eeaf5e5b6ac751"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_04-28-20.jsonl",
+    "bytes": 1345223,
+    "sha256": "4fe6959bf26b4eb4dc3d8e6cf9b6e46a8c43efb3df5e713f7937de99d95b8900"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_04-28-20.jsonl.metrics.0.txt",
+    "bytes": 64775,
+    "sha256": "6e2f096cd670df9f6159050e53bfb2ba8e4b7e9cb13a8fdca6535cc547c5e455"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_04-28-20.jsonl.metrics.1.txt",
+    "bytes": 64774,
+    "sha256": "6911335a5f9666561578118109bef24b4200cd7631f1512c777c4d41a5edf441"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_04-28-20.summary.json",
+    "bytes": 849,
+    "sha256": "56b887078a05dd5b4e0cce1b138fcf5bdb7d7acaccc710a3eff6e8fd70c94d00"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-54.jsonl",
+    "bytes": 1341711,
+    "sha256": "1c30723a70f54d2e09ddd45106b4d95c87fcebb0a65a88abb08e5f56fd2e1ef4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-54.jsonl.metrics.0.txt",
+    "bytes": 64778,
+    "sha256": "0292202f803b051d2184ff02c3e308db0e2732a432f44d254b698b2d4640b6ba"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-54.jsonl.metrics.1.txt",
+    "bytes": 64779,
+    "sha256": "34a949b53cfc75b9a655867e3b04679f33674f2a3e28ad251f77285accb63484"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-54.summary.json",
+    "bytes": 838,
+    "sha256": "5f874eaa3d503e3d3a38bad9833ebb3fff29a04e1625fb8ff1b5eddbd3b3b347"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_final_answer_2026-10-31_04-07-12.jsonl",
+    "bytes": 608447,
+    "sha256": "eaed49ac80b24644366c032c7c69c5349d2d00e627658858e2bd931063962ed0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_final_answer_2026-10-31_04-07-12.jsonl.metrics.0.txt",
+    "bytes": 64268,
+    "sha256": "ad8637d9bc75a721b519dff222dcc37c8c49865748e9f05dc95f063ef06b9595"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_final_answer_2026-10-31_04-07-12.jsonl.metrics.1.txt",
+    "bytes": 64278,
+    "sha256": "cc9a7bbd7a56f7ed188258055edc6fb99f2a4a8b5f1cadc5a4dcf6ae2af8af17"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_final_answer_2026-10-31_04-07-12.summary.json",
+    "bytes": 823,
+    "sha256": "d3cb3d1e0641f6f912dcef817d3fa13a414cc1f6554d569a07160ca577dbb6f4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_tool_call_2026-10-31_04-05-31.jsonl",
+    "bytes": 499032,
+    "sha256": "cf35141f2fcf9fc0cf6ea255cbe5983e2b068cd897a895b1ee2529ccb874ba70"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_tool_call_2026-10-31_04-05-31.jsonl.metrics.0.txt",
+    "bytes": 62011,
+    "sha256": "f463a9d5febe24aa323836589cc0aed24592bf83076fee4d09092e67f57a0776"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_tool_call_2026-10-31_04-05-31.jsonl.metrics.1.txt",
+    "bytes": 64269,
+    "sha256": "aa7243122cbc6757a82bceaf5f57e55545b9a22e32ce2978f51705862c5fafb8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_visit1_warm_tool_call_2026-10-31_04-05-31.summary.json",
+    "bytes": 803,
+    "sha256": "5b9e1292235301b44a1e7a263afec8413a5619787e8038c7e5e87afda3712cff"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-26.jsonl",
+    "bytes": 559027,
+    "sha256": "589395cf8a85f0b0865f9fdc698fc8a43f416f2c6980a6dcdd2f45610b2b0103"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-26.jsonl.metrics.0.txt",
+    "bytes": 64765,
+    "sha256": "77a1c33090c593013792c0129eaf965e4dd74f980a5f1ab4551236ffe7566cb8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-26.jsonl.metrics.1.txt",
+    "bytes": 64771,
+    "sha256": "d2d088964de4619a7ec0d7d25722c2fcc704f5b6bb838bc060888fdaf846d76e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-22-26.summary.json",
+    "bytes": 835,
+    "sha256": "18e2aaa59116b5addaf5012b788dc096371986e2af782a3d3a9b6a61657f1fae"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-23-42.jsonl",
+    "bytes": 558983,
+    "sha256": "d24b2411cc73a2589a79d938c48416df28fe876ce63b3d415e07faff41113511"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-23-42.jsonl.metrics.0.txt",
+    "bytes": 64766,
+    "sha256": "d3f734c6be4ea0a03587f2a871b70d7f9f1edf6a2d13fd40334bfefded25424c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-23-42.jsonl.metrics.1.txt",
+    "bytes": 64770,
+    "sha256": "65533c5840e8a19787ccfa310a86a204881f0e5f7bfe908984bf5c6a29933d72"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-23-42.summary.json",
+    "bytes": 836,
+    "sha256": "bdb501444709d6b9efb2d602dc1a81e1d69f5e605e6922a2c2301e8e90428a2b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-24-48.jsonl",
+    "bytes": 1063801,
+    "sha256": "ed22307aea90fbe5c6e3f09d32b1e1d98bed873a3cec1bb04ee45f1b7be694c6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-24-48.jsonl.metrics.0.txt",
+    "bytes": 64772,
+    "sha256": "8618301030e080fb379a4250cc07c95c41b4a916e832ec6e64b857a2516b9d38"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-24-48.jsonl.metrics.1.txt",
+    "bytes": 64775,
+    "sha256": "a874ddadb22255adb34e27244cf52a5493e5f325b4949536bdb5343c10297315"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-24-48.summary.json",
+    "bytes": 841,
+    "sha256": "b5d66ebceec147c83903766d3364b8a90111f315cc0b1a2124f8d9c6c02f5385"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-19.jsonl",
+    "bytes": 1063579,
+    "sha256": "dee8b5733212973897695da78dfd61a258a55a0f6cfcf8c1815502afe3a0298c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-19.jsonl.metrics.0.txt",
+    "bytes": 64771,
+    "sha256": "807129a3808f7ae5f2a866f4e5802f729ede3f63494c290f20e37459275fb280"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-19.jsonl.metrics.1.txt",
+    "bytes": 64776,
+    "sha256": "eb10aa695bbec3d065b0ed20c410aac29760133d8e2b55feb74d2ca78be09978"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-26-19.summary.json",
+    "bytes": 837,
+    "sha256": "4bbe48d4b2dbd712294d232d10f1a30bace83c6a7ca6afcf6ce39e262b66aa03"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_04-27-38.jsonl",
+    "bytes": 1306149,
+    "sha256": "2c9aab9c41b9f6c009f228d9fbbb18ed1aa09920a39f537e1c52c13068a1fbb7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_04-27-38.jsonl.metrics.0.txt",
+    "bytes": 64776,
+    "sha256": "1158c0f4ff75fc32ac14c4a6d7225cd997b497cd2daac9ac56184fa45ad7d7b4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_04-27-38.jsonl.metrics.1.txt",
+    "bytes": 64775,
+    "sha256": "41a37b4f815cc4317c468373472f8bf5a1dfdf01f6a0a5731b32f9cdd4388929"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_04-27-38.summary.json",
+    "bytes": 840,
+    "sha256": "2adac1c36e5dc4dbeae1bf13f80207e662bebd0b18fc26bc753971734227912f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-14.jsonl",
+    "bytes": 1306217,
+    "sha256": "c2343b96121a3a7dcb83846900d77902c908589f5fa5458aba06f4e839f9aec4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-14.jsonl.metrics.0.txt",
+    "bytes": 64773,
+    "sha256": "8015facef1cc328a96637e6b8b16a3af9eca470e50287be372f8370a3189ee75"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-14.jsonl.metrics.1.txt",
+    "bytes": 64778,
+    "sha256": "ebb45ee035de52253586b3904e6c68733485a3680dfed2c186120b08dd93f316"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_readonly_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_04-29-14.summary.json",
+    "bytes": 838,
+    "sha256": "38155d19a75b68969d510720cb2752a75a7b1d950fa7735cb8988a54976d19b0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_archive_fixed_c1_r1.json",
+    "bytes": 61270,
+    "sha256": "51f16b67b1180bdc1357471cdf292f7a6e4887f3372b237f294482a9a0e9a4ba"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_archive_fixed_c1_r2.json",
+    "bytes": 61401,
+    "sha256": "7004a0a902e5de08ddd66e578ce628222a13151d8ce7219935dc2ff87d5e973b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_archive_fixed_c1_r3.json",
+    "bytes": 61742,
+    "sha256": "3c2f19d99bef3a8f07a4a8be81067c6f136a1ebbb94bb719ab9f1063323ff4e7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_archive_fixed_c4_r1.json",
+    "bytes": 62943,
+    "sha256": "382344f2c244802c4c3318fce821366e79dd432acc79d13e9c1c5f4c4f26ad15"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_archive_fixed_c4_r2.json",
+    "bytes": 62480,
+    "sha256": "0176b94b4579956632275d879fd2e65ce1fb37b4e7f6d6feb44961c1c2dc8d32"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_archive_fixed_c4_r3.json",
+    "bytes": 63379,
+    "sha256": "a2d1045d29b10120bcc9baa2ee44674ec1de3a375cda7212f30adcc2e50db880"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_fixed_c1_r1.json",
+    "bytes": 72713,
+    "sha256": "62b08b70ee4f95c512918302543be62f2e586ad6a2b2d26372c3545be8eedd34"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_fixed_c1_r2.json",
+    "bytes": 70945,
+    "sha256": "c191d90032ab8294702cb5542c1b8255a9bb5edd2705ee3ac2357cec730d26ab"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_fixed_c1_r3.json",
+    "bytes": 70874,
+    "sha256": "01f2a71148b6d19389d4a0861902dfc4fd005ee8a0d89c15a5aac109a01ea33f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_fixed_c4_r1.json",
+    "bytes": 56153,
+    "sha256": "5177708cc14ff13c1c6da95d678cd25dcc7203312072de3a0ffee2f5fc9d39cc"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_fixed_c4_r2.json",
+    "bytes": 70791,
+    "sha256": "5087af085e0660bad84116c075ee00cf17c71f6831c2fd3e68a000e7c3e0914d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_fixed_c4_r3.json",
+    "bytes": 65199,
+    "sha256": "b07fafe9ded493b1545a7fde997c03dd58fb7251d528c96b651e17de9da51e2a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_final_answer_2026-10-31_05-48-26.business.json",
+    "bytes": 74893,
+    "sha256": "2f14d6d9e5c9ad7ada6c6c7a0bf2a2221c10e97896773c0d8d5ab9fd4a2831d8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_final_answer_2026-10-31_05-48-26.jsonl",
+    "bytes": 7636791,
+    "sha256": "e86210701607b0e50de49df1f223f26aeb7983d8e056c22f0be2a62e52fceff5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_final_answer_2026-10-31_05-48-26.jsonl.metrics.0.txt",
+    "bytes": 64509,
+    "sha256": "b77024fcb8d3465a6df710a7de4cbce8d912455437efbe1e58215e7b82dfbfc7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_final_answer_2026-10-31_05-48-26.jsonl.metrics.1.txt",
+    "bytes": 64733,
+    "sha256": "d76d757a5e466b01836b0140bddd7d5907d8bbbffd20623a31f85b143eb394c9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_final_answer_2026-10-31_05-48-26.summary.json",
+    "bytes": 833,
+    "sha256": "5dea5c2f1dd7fa2eacaa1fa75d949d1a39f63e5d9632c6e13ecef409c293f509"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_tool_call_2026-10-31_05-46-28.business.json",
+    "bytes": 38577,
+    "sha256": "f7ee06f32e83a92f7fd55847d23acdd6e83ebef304383b8b01ce3ed41f7dc85f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_tool_call_2026-10-31_05-46-28.jsonl",
+    "bytes": 6313957,
+    "sha256": "234b34383af5b9d70d9b49a1e95d8495f923a85b695a79570f3d3ff0c7d53ae0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_tool_call_2026-10-31_05-46-28.jsonl.metrics.0.txt",
+    "bytes": 64279,
+    "sha256": "a6b1588669de8ec72c3931d9f2299102ed0f45a9eb3220d075e750cb4e0227bf"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_tool_call_2026-10-31_05-46-28.jsonl.metrics.1.txt",
+    "bytes": 64509,
+    "sha256": "2cc1731694827089ff7013cd7964b9816ab75c58c68d47e37b3a71039d78db26"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r1_tool_call_2026-10-31_05-46-28.summary.json",
+    "bytes": 822,
+    "sha256": "a3313a7bea1f0bff68ac8203f424ae3779b0e9c47555db280a19d478ad94bfc4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_final_answer_2026-10-31_06-17-04.business.json",
+    "bytes": 74485,
+    "sha256": "0d28207b4eceae988c4fe9971e424cb2100b9a284837f14ba167f63447cc8101"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_final_answer_2026-10-31_06-17-04.jsonl",
+    "bytes": 7634958,
+    "sha256": "3269ca2f97e9652a89b8d742e74cd60e5aa27f8818a4a4e5376dcf5fa120466c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_final_answer_2026-10-31_06-17-04.jsonl.metrics.0.txt",
+    "bytes": 64525,
+    "sha256": "4fac1d4f30df7190fe885e9ba2f45202a27e361210abf422f86a776c056fb382"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_final_answer_2026-10-31_06-17-04.jsonl.metrics.1.txt",
+    "bytes": 64739,
+    "sha256": "16f9357157b3deb48684595c2d54abbe03d2b515f550b5fc3936b1eafd74a651"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_final_answer_2026-10-31_06-17-04.summary.json",
+    "bytes": 831,
+    "sha256": "1f05cf2a40ea49b6cc83844792d848c31cd2ef8db998fb28d88984b0a6ac1f63"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_tool_call_2026-10-31_06-15-11.business.json",
+    "bytes": 38574,
+    "sha256": "d600b2e7577fb7a76c3431b5764425e481fc94dafe35646280cea4cc414d9819"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_tool_call_2026-10-31_06-15-11.jsonl",
+    "bytes": 6313903,
+    "sha256": "3c27147fc58d104568320551223d6529920a0083f78d614e50b72a76717e3037"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_tool_call_2026-10-31_06-15-11.jsonl.metrics.0.txt",
+    "bytes": 64288,
+    "sha256": "95aee562176cf5ee97d5cc047c99028b3fa3ab883d4d81256bd674600008135a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_tool_call_2026-10-31_06-15-11.jsonl.metrics.1.txt",
+    "bytes": 64512,
+    "sha256": "8f9f3ec37f682bb81b83e0dcdb445d5abe153d94512b02b0bc277130f5dc365c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_r2_tool_call_2026-10-31_06-15-11.summary.json",
+    "bytes": 819,
+    "sha256": "a7989459b0bb50b3f43222d33057b17a26ddc23493d0e01e864490a84318056d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c1_cache_audit.json",
+    "bytes": 313,
+    "sha256": "74c6db5ff3776ad5c7b37f6bf9dad40aeacdf3d84706a1167414feb89ae7da01"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-51-51.jsonl",
+    "bytes": 600591,
+    "sha256": "8dd37edb4b62b6dffd8ccb57e7e8777d6f23f7d58cd5eae64f1908977c7ebac2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-51-51.jsonl.metrics.0.txt",
+    "bytes": 64742,
+    "sha256": "35ebbe1fc7bce0eaa94bcc4651fb3ddec3620db013a46380cb8aeac2b2540767"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-51-51.jsonl.metrics.1.txt",
+    "bytes": 64763,
+    "sha256": "ea13e7dfdbc48644a8d71bd8863db0349c8b4588f666474572c7a0ea362e11e5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-51-51.summary.json",
+    "bytes": 850,
+    "sha256": "87615c6471d38ca5b7802d026df93c983046db5e9791b025925cc72ae860d309"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c4_cache_audit.json",
+    "bytes": 313,
+    "sha256": "cd3ea054b32e49ede381d3d26de1fe20017f1b89bd37172fd221acd3aa735395"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-53-06.jsonl",
+    "bytes": 596868,
+    "sha256": "45c6dec4db54c7c2f5cdc7a79c993bdb9474a44307d2535d3a7832061e4ceb7e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-53-06.jsonl.metrics.0.txt",
+    "bytes": 64765,
+    "sha256": "8734ef236c7773a4b85028293fe48786bf21e9c3d584d696a84a13a59610458c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-53-06.jsonl.metrics.1.txt",
+    "bytes": 64765,
+    "sha256": "539401c03d22155b2ce8e8ca78edcfd6fd46cb20237c12862aaa5f469d45ed4a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-53-06.summary.json",
+    "bytes": 850,
+    "sha256": "fd22c824970cd9405098382f08fd5d8d79f16eb9b39c3ced245785991eecd0fa"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c1_cache_audit.json",
+    "bytes": 311,
+    "sha256": "5361ca78f36f6716e35f92142c2c1bd6afb274d0ba576a9ca37dfb083aefdc76"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-54-21.jsonl",
+    "bytes": 1099582,
+    "sha256": "ddbfb54d5dda621e80a68e4a8533a0b4ca334532006f280d3ac63b0f090cfb5a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-54-21.jsonl.metrics.0.txt",
+    "bytes": 64766,
+    "sha256": "475c03b73ca8a643fb46cb5b1ed018224023dfde9b5fb0364d5e954a6a8df4e6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-54-21.jsonl.metrics.1.txt",
+    "bytes": 64768,
+    "sha256": "7e6c7319cfb6e1c258eb8906f25cbae341123cbb4b2a5bf8a92dede137d259f9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-54-21.summary.json",
+    "bytes": 851,
+    "sha256": "6d6f48df5f7a10b3ef18927f3f2b4277bd64be0b3b1eda779b3122a7cf7e668f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c4_cache_audit.json",
+    "bytes": 312,
+    "sha256": "49ff6ba0bf9a3f823336e59f6357733f43586e49e543d2622ae21995b830e9d5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-50.jsonl",
+    "bytes": 1103109,
+    "sha256": "2287881cc898980f3c84bfe648557d18ee4e5ea974117a5102b97753a6e028a3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-50.jsonl.metrics.0.txt",
+    "bytes": 64769,
+    "sha256": "5fc269ec4d6d456dae888704977ca970ee3281aa736afba92d3f198c97994fb1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-50.jsonl.metrics.1.txt",
+    "bytes": 64774,
+    "sha256": "ced71c54a5055eb7a8b4df5be998dea6e12c90b3c84f61d16607c13f072b32c4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-50.summary.json",
+    "bytes": 851,
+    "sha256": "3e4e1f5936b2eeadddbe2f3f3d0795337ae776341f8c9e7735740ff61344c0f9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c1_cache_audit.json",
+    "bytes": 312,
+    "sha256": "33afacfaec2ec454244c667eebb30afcddff3aa04ac13a8d463ee1d19c41f50e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-57-14.jsonl",
+    "bytes": 1342994,
+    "sha256": "e592252cdf88f2629833b1b083468e4875b3127e86e121561a9f9157178371a0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-57-14.jsonl.metrics.0.txt",
+    "bytes": 64775,
+    "sha256": "1cdcb21cbde0aa3f7aa2390486c50dd56f425478966a1aa143c05213e4ed7c9c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-57-14.jsonl.metrics.1.txt",
+    "bytes": 64777,
+    "sha256": "403bbadc2658f73993e4fa21e6dfa95b679c32d898235a640df8d1418a425aa3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-57-14.summary.json",
+    "bytes": 851,
+    "sha256": "8fb08bcbb9f4ab46cc33cd2d6196f7b429d55fe81f8383a78a7ce56eb060c064"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c4_cache_audit.json",
+    "bytes": 313,
+    "sha256": "227714208d602504d0cf7208614b01464ec50a9167e8460b3e25b0287c67ab09"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-49.jsonl",
+    "bytes": 1342132,
+    "sha256": "c696eb9290c24db81d198cf6e5171179ca95713e78be1cf880cd80a0fd28b47e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-49.jsonl.metrics.0.txt",
+    "bytes": 64789,
+    "sha256": "a87a9c519ba268c0289a2eb464931aa3d85d96e81c3b0da01f48ff639c1c8178"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-49.jsonl.metrics.1.txt",
+    "bytes": 64789,
+    "sha256": "b7ea95de693653c2d73eed4b264915f943212c8f24abb59141d70cdd42a07414"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-49.summary.json",
+    "bytes": 851,
+    "sha256": "b5fb55039b26eeabcb860103b1e6658cdf9356b9ecf7ee9bab2de3f55b3fad72"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c1_cache_audit.json",
+    "bytes": 313,
+    "sha256": "b382e9df9f5cd75287109e9c7647566c9dc783d345c51913c440454ccf3a5c3f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-21-06.jsonl",
+    "bytes": 599421,
+    "sha256": "3940f41bccb203271d7751ec07ca54cb016517799335ba6cef46074b49660243"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-21-06.jsonl.metrics.0.txt",
+    "bytes": 64768,
+    "sha256": "72b214c1fd1d470305dfaa8e1261f02660afcf908b3268739bd6ae510c15fa9b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-21-06.jsonl.metrics.1.txt",
+    "bytes": 64773,
+    "sha256": "50ba1ff187cb61973b589584bbb734bd035f73fb118fe270f47e91964ea13762"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-21-06.summary.json",
+    "bytes": 849,
+    "sha256": "3d1306935c1db6cd0f67a30d1ec6c9bef185976ecd8e923f57db97bf8a71c385"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c4_cache_audit.json",
+    "bytes": 311,
+    "sha256": "03a44037da5c728e53f603488b1167a7fc4fe099beefa17d52f4974dae4356a2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-58.jsonl",
+    "bytes": 599325,
+    "sha256": "0625eba4eaab8a35d9763dd652e1d39118e8a67eaf3fdee37df6d5f166ee05cd"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-58.jsonl.metrics.0.txt",
+    "bytes": 64750,
+    "sha256": "bf99059a9c4ea06ef5b064c5b63aa9671a285aafad1f13e221cf89fc965f3d03"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-58.jsonl.metrics.1.txt",
+    "bytes": 64756,
+    "sha256": "329a1353f84ae5efa1fd806769fff1f60e6825079b6370a41f21bc439a3019af"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-58.summary.json",
+    "bytes": 849,
+    "sha256": "d058d24b714df6bd7c26f83e69762b0903024cd7e3b80d7ca63448392d9ae027"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c1_cache_audit.json",
+    "bytes": 312,
+    "sha256": "1826d8e0c17e9e1366f12e5a4b130cdb008c2ba4cfe8da07dad03b47e069c58c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-55.jsonl",
+    "bytes": 1102513,
+    "sha256": "267e2b340e4e19e78e43d172fcf91a80a9e8e8a3424747b9b3ae4223239f9e39"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-55.jsonl.metrics.0.txt",
+    "bytes": 64777,
+    "sha256": "539c15e3bd80938a2980fbd3114e3c119a243a8b444162bc001d38feb474f2b8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-55.jsonl.metrics.1.txt",
+    "bytes": 64784,
+    "sha256": "747845f05a183d30a349f23ef96744a15c87ee6c8c75905106a845807c536a30"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-55.summary.json",
+    "bytes": 852,
+    "sha256": "af0b8433d07fc301c19257b7d7a4026590c7dada0a5e8700eca0b520ebf409d5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c4_cache_audit.json",
+    "bytes": 313,
+    "sha256": "d12b160ae0a51729796396bd181b06fa9b03eee3855e4d6ff7a58cb0e7f9c126"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c4_final_answer_2026-10-31_06-25-32.jsonl",
+    "bytes": 1102804,
+    "sha256": "89f3b9f7f5da359c3145bbd2dc33010d13443f825406b5bf16b4e51e0d6d8459"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c4_final_answer_2026-10-31_06-25-32.jsonl.metrics.0.txt",
+    "bytes": 64781,
+    "sha256": "2fb8909997abb9518f4527f05c63cddc446aa66eb6f032a6e5b04ac89dd953ed"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c4_final_answer_2026-10-31_06-25-32.jsonl.metrics.1.txt",
+    "bytes": 64778,
+    "sha256": "533e29a1a62c41100d9f7eaba4b8c6abb7cff027a04f3074c71546c9ccafff16"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c4_final_answer_2026-10-31_06-25-32.summary.json",
+    "bytes": 851,
+    "sha256": "653dc51898fade8788e5234ff84afeb84d5cea62aff507f88218c47b38fee3e3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c1_cache_audit.json",
+    "bytes": 313,
+    "sha256": "a96baf10344cc1f7d6b31ff18e71f9fe2ba9a970449cf38fe18f9ae18832440b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c1_final_answer_2026-10-31_06-24-00.jsonl",
+    "bytes": 1339186,
+    "sha256": "a9878601b54b7735ab2ca381f6143011b19f1102e4924520a03611ad784551e5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c1_final_answer_2026-10-31_06-24-00.jsonl.metrics.0.txt",
+    "bytes": 64774,
+    "sha256": "246c74e9311b51847c4ce620b5dc4fa660e7784d5bae01f236113b32061e2393"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c1_final_answer_2026-10-31_06-24-00.jsonl.metrics.1.txt",
+    "bytes": 64782,
+    "sha256": "00f912befe70acb43fb00d661c0e66821d3e97295bf730716105bff46c2945bd"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c1_final_answer_2026-10-31_06-24-00.summary.json",
+    "bytes": 850,
+    "sha256": "ca7ecdab7b275409a149dace91fa8826a41c996f1312b88388aa85bcdf9acf92"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c4_cache_audit.json",
+    "bytes": 312,
+    "sha256": "21684ed9e76b1637abc1dbf71e6c701d532ba75449cd2c356d98e24840d16c6d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c4_final_answer_2026-10-31_06-22-31.jsonl",
+    "bytes": 1342459,
+    "sha256": "fb31b8c7ec4742ed8ca042a24afc5fc0e2e99241824432aaeb8afca95fb2d8d6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c4_final_answer_2026-10-31_06-22-31.jsonl.metrics.0.txt",
+    "bytes": 64775,
+    "sha256": "acc35bb9028eb7098edcc26704d925dd8761fa6d7c593c41543ae6f8d74b63ac"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c4_final_answer_2026-10-31_06-22-31.jsonl.metrics.1.txt",
+    "bytes": 64776,
+    "sha256": "4e6f51dcad75c057af749da9836a201f4e434b3c5ac3dd61b7d61f45a9084574"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c4_final_answer_2026-10-31_06-22-31.summary.json",
+    "bytes": 851,
+    "sha256": "421b85794a078c7b1c37b84193b57b49a54ff7ef5595b42e40b6d975e621039a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_final_answer_2026-10-31_05-45-56.jsonl",
+    "bytes": 608252,
+    "sha256": "6d37f59001c22495b0393afc3dfadb3354c4a4b1072e64e31ac096a26aae52f5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_final_answer_2026-10-31_05-45-56.jsonl.metrics.0.txt",
+    "bytes": 64269,
+    "sha256": "abd9ef2bfe22204cd42160f2cad96e01d63275b65d0b907495a557dd9013a650"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_final_answer_2026-10-31_05-45-56.jsonl.metrics.1.txt",
+    "bytes": 64291,
+    "sha256": "813a24aaa8051caaba1fd2602d14476c14ed3f00d2d817bcb2f2ed832b235e8f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_final_answer_2026-10-31_05-45-56.summary.json",
+    "bytes": 825,
+    "sha256": "4979f894a23f6f67528923f19343bacd1e723e626767661446ea809184c95577"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_tool_call_2026-10-31_05-44-14.jsonl",
+    "bytes": 499061,
+    "sha256": "e192b17da8198cedb8fe2950a199f2205b07ca3a4fa8c03cfe771d969d3400ab"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_tool_call_2026-10-31_05-44-14.jsonl.metrics.0.txt",
+    "bytes": 62025,
+    "sha256": "008341c6066a666b10211c68902c3591658c2f98ffcd6567afeeff9f3801a3b3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_tool_call_2026-10-31_05-44-14.jsonl.metrics.1.txt",
+    "bytes": 64269,
+    "sha256": "a1b0240f153c6d3ab48c555150d4a17099ccc84d7edbdedab9b01959f6b5abcb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit1_warm_tool_call_2026-10-31_05-44-14.summary.json",
+    "bytes": 804,
+    "sha256": "c24ca744ff194b872c11bc78baea29864c37bd052ae1be538782abc032a5aa02"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_final_answer_2026-10-31_06-14-40.jsonl",
+    "bytes": 608459,
+    "sha256": "1d66bac9d70f1c14246c70c308b10bfbd6415bb3717929175942397354ed3363"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_final_answer_2026-10-31_06-14-40.jsonl.metrics.0.txt",
+    "bytes": 64288,
+    "sha256": "60fb2792c52349b787844004968d6aa5b8b2409c564b66681f3c71410cc2e25b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_final_answer_2026-10-31_06-14-40.jsonl.metrics.1.txt",
+    "bytes": 64288,
+    "sha256": "109348627f08998d815cc057a3ae16b23648573a07c3c789ff0f2d4417f90e20"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_final_answer_2026-10-31_06-14-40.summary.json",
+    "bytes": 823,
+    "sha256": "5d294dc75b6a8f9308337535f0f2085b36029349f3013852ae27fd56fe443673"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_tool_call_2026-10-31_06-14-09.jsonl",
+    "bytes": 499063,
+    "sha256": "7c65383925111c4aa427ddb762adcc6d3696eb1fa4cccfb8ee9b3e5d23f4a47d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_tool_call_2026-10-31_06-14-09.jsonl.metrics.0.txt",
+    "bytes": 62028,
+    "sha256": "e6119f82be95a19dc0cdd0ab3bda51f831d43e5de1dab91c8fee92a7440980e7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_tool_call_2026-10-31_06-14-09.jsonl.metrics.1.txt",
+    "bytes": 64288,
+    "sha256": "c8245da5e6a85fb3e9504e9fecfc4b63a73fed3dd6b547095c4f29b0365acea0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_visit2_warm_tool_call_2026-10-31_06-14-09.summary.json",
+    "bytes": 804,
+    "sha256": "b4be1e8323c692577f332ed4fe81cde9975dc45066c3f4cb05eaf0b8ea14163a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c1_cache_audit.json",
+    "bytes": 6356,
+    "sha256": "16bc94958071ca867bc32926a4e87f9d33d8e12e33bfd679622a56dfbdf48b1a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-50-47.jsonl",
+    "bytes": 558938,
+    "sha256": "6ff3faa0884909ee877aab8e8eccfe6223cc5f08d1cfc5884ccb753018a7212f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-50-47.jsonl.metrics.0.txt",
+    "bytes": 64745,
+    "sha256": "b7a28f5dc7643c56453612bb598569082abc99a5736b8ddc33afcf32c2700432"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-50-47.jsonl.metrics.1.txt",
+    "bytes": 64741,
+    "sha256": "1aec336f145747aff0227950244ae442ad01cfd63e01f3dfd800aa7f5f00f12c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-50-47.summary.json",
+    "bytes": 836,
+    "sha256": "82637245036c855a2a33780c0c0e5bf9500731574965870dba25d5c939caf9b2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c4_cache_audit.json",
+    "bytes": 311,
+    "sha256": "8ad9f66201c0ff78c3ba93fd7179448f7eb174bed8a38d2c6f0f65a9521e1f19"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-52-34.jsonl",
+    "bytes": 559017,
+    "sha256": "d79899ce9bf7d059f89cc96583f60a793d542f0c6c80eaf73a21821e861b5687"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-52-34.jsonl.metrics.0.txt",
+    "bytes": 64763,
+    "sha256": "75f65f094c1a63ea747203fea4562d5b6287f4f840e2eafa3544a930eeb8a1ad"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-52-34.jsonl.metrics.1.txt",
+    "bytes": 64765,
+    "sha256": "439528edfd4d4f99f7e3bb5dc3dc83d94fad423d574934adc98435a824b22998"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-52-34.summary.json",
+    "bytes": 837,
+    "sha256": "c9a6d510a76e7ab9f92925b12fb2414c991351c36ac37ed433b2980bd5dd325b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c1_cache_audit.json",
+    "bytes": 311,
+    "sha256": "07eba8bf729b175780580f15f6155f6bab2d94276134ce2a32b1fa22ddd45fd0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-53-41.jsonl",
+    "bytes": 1063603,
+    "sha256": "9c2284f2b377fbbf910ef2adad2e16a191be8f21e6d429cf78c00a57fc6ae004"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-53-41.jsonl.metrics.0.txt",
+    "bytes": 64765,
+    "sha256": "e50f1f5aebcf84dc9404e626ae016e3ed29c3ada65bd5d381ea402477b12add3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-53-41.jsonl.metrics.1.txt",
+    "bytes": 64765,
+    "sha256": "b0a770add5a3bbe61ca28d8f1f880415a401fa42d3c28bf459a173e2eecb1cf9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-53-41.summary.json",
+    "bytes": 839,
+    "sha256": "719a2fbe07dd752afb8de1f648d5dc83886b757168d4b6d071ddbc4806557f54"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c4_cache_audit.json",
+    "bytes": 311,
+    "sha256": "8a54cc0c9b899d2a80c5e987bfcde0a64d079e61244218a45d2d836b14ecd7ea"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-12.jsonl",
+    "bytes": 1063645,
+    "sha256": "a828e11e7e63f866593785504bbc7fef38f2a02c909c2756bff49a6e696952c3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-12.jsonl.metrics.0.txt",
+    "bytes": 64768,
+    "sha256": "0d7cd9f3569420beebc8e7ac1d11c9dfec8ae1ebc8a7b65eef44a8061b18239c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-12.jsonl.metrics.1.txt",
+    "bytes": 64769,
+    "sha256": "a55ac0269d5dde36f86c518f754b5cbc1d1fcf6336eafcb9758ae102a99e4c4f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-55-12.summary.json",
+    "bytes": 837,
+    "sha256": "17bd122d6cca1a85fcea4661aa3e4fc089fe50761e7e55cce1244e1837fdb587"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c1_cache_audit.json",
+    "bytes": 310,
+    "sha256": "1f2a14cb0d52a4bff6e35b252d264ab2044db2d511489fc9906c045f7f3d3ecd"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-56-32.jsonl",
+    "bytes": 1306108,
+    "sha256": "83982f670e06332905c5dbe3abbf048575320f90a35f0ab675205b46b9eef887"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-56-32.jsonl.metrics.0.txt",
+    "bytes": 64786,
+    "sha256": "270e68c942af67fd2bf86b458ed92a7d6ef9e87d835268468203bd4214bc67e0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-56-32.jsonl.metrics.1.txt",
+    "bytes": 64775,
+    "sha256": "784399aa92d9cc89ec502e46d99c54eef1ec700b98fb1bae29abb0291fdcfcc9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-56-32.summary.json",
+    "bytes": 820,
+    "sha256": "1999eb98d7937d5d72a18b60fa68e0eaa899bb136117b61cf3c0a166fbe52ac9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c4_cache_audit.json",
+    "bytes": 310,
+    "sha256": "a6e3d4c966c3ee5f81cb52dc32eeea03379a532b4d25affabf45a0f646a03dbb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-08.jsonl",
+    "bytes": 1306119,
+    "sha256": "74a472ff313715f018466797bba9d53ea7694b643ff18e9fd108d116748273f9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-08.jsonl.metrics.0.txt",
+    "bytes": 64777,
+    "sha256": "65d73cae6cd1052d54661ac7d7764b9c651bd2bd17955f3693c23f493ec7956b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-08.jsonl.metrics.1.txt",
+    "bytes": 64789,
+    "sha256": "48987276eaf17dc87f801e715b32b7274ee380362120cde23029b70dc756c89e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-58-08.summary.json",
+    "bytes": 825,
+    "sha256": "5e0faa190d2260434b2bf64385038769c8f8ccee8bd2b8a9bd38a01624cdc217"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c1_cache_audit.json",
+    "bytes": 310,
+    "sha256": "1577cb1cf99e1d1d18910a96f11956b24094433d91e79e4ee2b12f08db5c92a7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-20-33.jsonl",
+    "bytes": 559335,
+    "sha256": "9e7f46e16add0f8facb0c0b79c213c384b18f2fd244f9f3dd3fab571196da367"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-20-33.jsonl.metrics.0.txt",
+    "bytes": 64744,
+    "sha256": "885a1e1174a5722fb4f4ee0f312468d821a56a0ce1585002510e10614fe756ae"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-20-33.jsonl.metrics.1.txt",
+    "bytes": 64756,
+    "sha256": "c8a6ac51ae774ed918b54c9b48c4c2c679b4cc7adb86b40e9bd510b4c8dd0733"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c1_final_answer_2026-10-31_06-20-33.summary.json",
+    "bytes": 836,
+    "sha256": "a058e2e1d83e55a58c9de1600d3e6bc68868923e392293ddd2ab76b5e8565a69"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c4_cache_audit.json",
+    "bytes": 310,
+    "sha256": "6d8ef3e1209f15f51723af2b7444207f664cc1cb677c61252b2789ff89c9d75c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-27.jsonl",
+    "bytes": 559208,
+    "sha256": "1008062e23d1612e5fcd8af10cd2714928ae7a5ff3e41e0954645b7e91cacd0d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-27.jsonl.metrics.0.txt",
+    "bytes": 64740,
+    "sha256": "44ce5502f1baa364e0e2cd3889a97d10b3dbcc5e7f55c23c70bd806a9f800bb3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-27.jsonl.metrics.1.txt",
+    "bytes": 64738,
+    "sha256": "44636d416f44bbeaa1b9206360e51aa722519531d80012ea1888a0a175d6c852"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_agent_13k_c4_final_answer_2026-10-31_06-19-27.summary.json",
+    "bytes": 835,
+    "sha256": "94d1d5fe03f44a4890b161a59df2b93e0aebc5ae56fe3ef04f2f20872a295d06"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c1_cache_audit.json",
+    "bytes": 311,
+    "sha256": "064089ad4dc80054936483a6de795647e315c2282530363da8d99af43293b764"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-14.jsonl",
+    "bytes": 1063650,
+    "sha256": "2bb04c39c6612f47085dffd68241b2d8ddbc7534e6c009362fcf134de963f08a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-14.jsonl.metrics.0.txt",
+    "bytes": 64778,
+    "sha256": "e280b69b77533f8c0fb6a72b567c4fdc281b20968a001102f13e9a1ab4467ca3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-14.jsonl.metrics.1.txt",
+    "bytes": 64777,
+    "sha256": "bb2da541acc281fc372810fea7c90e359faaaf88af167105f92daacefb6df747"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c1_final_answer_2026-10-31_06-26-14.summary.json",
+    "bytes": 841,
+    "sha256": "f69225091be05ba0a06ea41132edd480e1c4c597aec122db62ce6a3ba9c90042"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c4_cache_audit.json",
+    "bytes": 310,
+    "sha256": "499a7daf03debc9f8688eb183d684b694b837a059a27dff85d3dade15fb8c1dc"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c4_final_answer_2026-10-31_06-24-53.jsonl",
+    "bytes": 1063609,
+    "sha256": "6f493b1d94f540b28c6f38d86cce14b7aa3ab277e30b3f87a8deabcba17a0a9f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c4_final_answer_2026-10-31_06-24-53.jsonl.metrics.0.txt",
+    "bytes": 64782,
+    "sha256": "44647072e55a74352ca3475b59e3daddfe39846f53e73c92edf1f97dfe31d664"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c4_final_answer_2026-10-31_06-24-53.jsonl.metrics.1.txt",
+    "bytes": 64780,
+    "sha256": "7bb431ed5209d49c749fb960b348017952113988787733160b57411d27e11610"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_24576_c4_final_answer_2026-10-31_06-24-53.summary.json",
+    "bytes": 837,
+    "sha256": "aa7c1a0b335a6b2a617de20f324c04f9df37f13dfbc48458bf581997d058b2f2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c1_cache_audit.json",
+    "bytes": 311,
+    "sha256": "6b8c4b1f83887312eabef8cbb1d0c1c7f7618a19c8c8f8681684f69825563c18"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c1_final_answer_2026-10-31_06-23-17.jsonl",
+    "bytes": 1306224,
+    "sha256": "74a279f687eeddb4c2703999606d106fd2ae7618f2dc40ea9b7b3558e4da2db5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c1_final_answer_2026-10-31_06-23-17.jsonl.metrics.0.txt",
+    "bytes": 64788,
+    "sha256": "263dd1ff616d5a6e699420a95d7a8a9cf356c8adc86fab6705220c4b58dbd5ea"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c1_final_answer_2026-10-31_06-23-17.jsonl.metrics.1.txt",
+    "bytes": 64774,
+    "sha256": "cc1d4ecfe9bce2b7e57425fb069c2e1ab282a49a2fd5e5f928565aad62a39ea2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c1_final_answer_2026-10-31_06-23-17.summary.json",
+    "bytes": 817,
+    "sha256": "ab77013dbbce7d1480b18cdcf949d569bc6343e4cd03dd6b262c8357906ccf96"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c4_cache_audit.json",
+    "bytes": 311,
+    "sha256": "783d5be23eaac0a68a62b77a1ca27362358ecd11a8a7541782961a1534471471"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c4_final_answer_2026-10-31_06-21-50.jsonl",
+    "bytes": 1306160,
+    "sha256": "324f4ab711a2e6a8c91fe782cb43dc23c2f1f1869e779deda7e4914722659597"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c4_final_answer_2026-10-31_06-21-50.jsonl.metrics.0.txt",
+    "bytes": 64773,
+    "sha256": "6f0220eeb36467d7a9172c5220325344f5487741967ad8332afaacebfc286c24"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c4_final_answer_2026-10-31_06-21-50.jsonl.metrics.1.txt",
+    "bytes": 64787,
+    "sha256": "6c9c8766b349ed1a753eefa7bf33ba336e6682baa6b950f7c0c6c3463fc8b217"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s16_warm_perf_r2_long_29696_c4_final_answer_2026-10-31_06-21-50.summary.json",
+    "bytes": 830,
+    "sha256": "16a3b74d851e556793800597367c51e97a3f93f13d9a0fd3cd35977440310f4c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_archive_fixed_c1_r1.json",
+    "bytes": 61133,
+    "sha256": "a9bb9b8adf0dce410e5dd048ae98e8e3c05d9a1d711fdef92c20ee1e688326b6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_archive_fixed_c1_r2.json",
+    "bytes": 62936,
+    "sha256": "684581b7300516e1d15ddf28475713a1ce06295af5cf8b75a1ebce17fb332652"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_archive_fixed_c1_r3.json",
+    "bytes": 61296,
+    "sha256": "35b45fb6c8d909c1e61c6aab3b6ca8929c43eeddc7505cfcf1902d00b8e37fc4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_archive_fixed_c4_r1.json",
+    "bytes": 62307,
+    "sha256": "2e5bf7666f489d7cce9f725381730afe821f3d591b816b72dec00de882d6590d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_archive_fixed_c4_r2.json",
+    "bytes": 62447,
+    "sha256": "dceec6fa5f409e6b2aa70055b38f3f91adf5bd7f436715bc1edc5d83d65a3d49"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_archive_fixed_c4_r3.json",
+    "bytes": 62677,
+    "sha256": "d06db8f3db764af5ec27429da5bf5b3a8d651002a2859d24a6eb366da2b12206"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_fixed_c1_r1.json",
+    "bytes": 70789,
+    "sha256": "87763783c53bd451a78fbaaa93c5017315d00bef9951c33035459ef7309fe903"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_fixed_c1_r2.json",
+    "bytes": 71034,
+    "sha256": "c9cf02eab4ac457471b716b3a499e1f8c8e0b7850b415a0ba8c61f138c502c32"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_fixed_c1_r3.json",
+    "bytes": 71541,
+    "sha256": "89d8668796fe633f7a9ff64428c5af5302df817226589fac6bf30dd1a7478557"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_fixed_c4_r1.json",
+    "bytes": 70919,
+    "sha256": "1a8188e20c4a0b9ab1dabf8f8fca4db57ada88aa141bb3bf42c7a7e165e69484"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_fixed_c4_r2.json",
+    "bytes": 77286,
+    "sha256": "f0d29c443bd7c601536408bd88f6409d8ce54c12d2e730c1db188c52a339528a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_fixed_c4_r3.json",
+    "bytes": 77613,
+    "sha256": "2c2285f6903325fe6a5df49b4aadc5bb7e08b30777a128da49e4e6a6080b9fce"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_final_answer_2026-10-31_04-52-51.business.json",
+    "bytes": 74514,
+    "sha256": "0d64ce68e418dd2f71fab4923a3f557a4d8951d8969121c015ae0f69a25951e1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_final_answer_2026-10-31_04-52-51.jsonl",
+    "bytes": 7633596,
+    "sha256": "6666b19bbf078c20b90d74bf12ae1399b73f97073fed0512124d5a55c45f9caf"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_final_answer_2026-10-31_04-52-51.jsonl.metrics.0.txt",
+    "bytes": 64487,
+    "sha256": "6ca9debed7a428a052f3e29da20bde34e22aac0a5ff99eec69e7e41deabd6ced"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_final_answer_2026-10-31_04-52-51.jsonl.metrics.1.txt",
+    "bytes": 64732,
+    "sha256": "b16090c3d5387c5caead46d189ed931c14c18270779d96b366e6e594dd166448"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_final_answer_2026-10-31_04-52-51.summary.json",
+    "bytes": 830,
+    "sha256": "3c4a72daa885ce509aaac6c6da4fc323f63e67a885869a0a40d33ca9e1300704"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_tool_call_2026-10-31_04-50-55.business.json",
+    "bytes": 38668,
+    "sha256": "cfb03e9edd68e35f65f769258a8e1e0c2dc9639f97f4498efc35a17a10d8f0d5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_tool_call_2026-10-31_04-50-55.jsonl",
+    "bytes": 6314854,
+    "sha256": "3d50310d0f06fcb8fa8db7d3a94c58dec2fe3a17e33bbc65c88f2f66debbe4d7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_tool_call_2026-10-31_04-50-55.jsonl.metrics.0.txt",
+    "bytes": 64274,
+    "sha256": "e61850aaecc560e73145313558f4c2c144ee0cb17a1b70970279e4529b7cd068"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_tool_call_2026-10-31_04-50-55.jsonl.metrics.1.txt",
+    "bytes": 64487,
+    "sha256": "9c99d2f992750a034852265346787957ed1205974dfa6cff05e39c482958a742"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_r1_tool_call_2026-10-31_04-50-55.summary.json",
+    "bytes": 820,
+    "sha256": "decce0933206b21fb66084c4d893e6740a68da80c7729468d9ac5b30c238884c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c1_cache_audit.json",
+    "bytes": 310,
+    "sha256": "3c92c4f39a1e13f9442caa57526aae96ab8c4f3fddd8a7f9f7b5ea9425937c7c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-56-19.jsonl",
+    "bytes": 603380,
+    "sha256": "42e7bbdfe5d3ed22c4f36ed633c694fe9d52172cb5676960ba72b359f34195c1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-56-19.jsonl.metrics.0.txt",
+    "bytes": 64720,
+    "sha256": "690c56c64686bd40383ffb79caa22d528b9b6fb1af5dc9c2219aabbe337c8af7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-56-19.jsonl.metrics.1.txt",
+    "bytes": 64744,
+    "sha256": "8dcf00ba304ad121d27cad2477e15889b26e4d107174a7ad2ae259943d972911"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-56-19.summary.json",
+    "bytes": 848,
+    "sha256": "792f42a78fa440047647f12c312658c2c7edb9830921bf85193c0d92bd3b7a22"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c4_cache_audit.json",
+    "bytes": 312,
+    "sha256": "34779bfc5638f4a7e91a9b6eab4effbf11d27838d7c7662f07929a59810b540f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-35.jsonl",
+    "bytes": 600155,
+    "sha256": "ba74185a21a5d349b291c82b16f51e389102dedbf25e53c925bec8c8cd8930c4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-35.jsonl.metrics.0.txt",
+    "bytes": 64748,
+    "sha256": "8fb04163b7a76cb386ebe778ec9e972e7e9e8377465a80b08806d090eea38578"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-35.jsonl.metrics.1.txt",
+    "bytes": 64749,
+    "sha256": "1b19d813aa53a89e585e23587f86192b61135e74c4815819ad930e643bd7098b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-35.summary.json",
+    "bytes": 849,
+    "sha256": "052c8645cd0ef66b62bd01a177fea833700e0e69137abc667ae79c33ecfe2653"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c1_cache_audit.json",
+    "bytes": 312,
+    "sha256": "54a42648bbb5053a718a16207447b2055d07ce5abdc989965d85f06a5553c3b5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-50.jsonl",
+    "bytes": 1099489,
+    "sha256": "94963cdefb9dde724d890dcfdc0bab89aca547a61944018a52783f7bc6f54b15"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-50.jsonl.metrics.0.txt",
+    "bytes": 64763,
+    "sha256": "049ce8c4ed080e601a95e2ce04d4633e2c325a95444eac12cd1cd05d24f8071c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-50.jsonl.metrics.1.txt",
+    "bytes": 64750,
+    "sha256": "f23e64c5d8e03d92d20bb9315692dc262859597ffb588ea73b14b26ec2e3101e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-50.summary.json",
+    "bytes": 851,
+    "sha256": "49c6279839fc64dcaf63da0183c81774b0fe17cfdb5ce635f01bf4ca68a1a753"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c4_cache_audit.json",
+    "bytes": 312,
+    "sha256": "dddbef9807ab9e0ea2b7138181e17242902f37d587dbf0d9cc5069eb19400998"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-00-22.jsonl",
+    "bytes": 1102807,
+    "sha256": "e93900e4b90a2f4d6750c1aacd3a416d40572d3b875ce9d3be0c43a2649666af"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-00-22.jsonl.metrics.0.txt",
+    "bytes": 64754,
+    "sha256": "87baccd49c688dd5602dbf8e8780aa49cb0c6712d9dec19cb3c0dc4666b578a5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-00-22.jsonl.metrics.1.txt",
+    "bytes": 64755,
+    "sha256": "8bfe2d36c2f475d5dade521562dbbffeac9bf9b50f7b2936ff32bb3c50052522"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-00-22.summary.json",
+    "bytes": 846,
+    "sha256": "7a99b787eb52f3d5359f653c9ecd0b13fce8154bdf446153d97ee22ae605c526"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c1_cache_audit.json",
+    "bytes": 312,
+    "sha256": "9e40968f3ed6b72ba5b6c91826a07aa723e3ca7bfb2078834fafe10ef751ed1f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-46.jsonl",
+    "bytes": 1341838,
+    "sha256": "2f0bf6e434d7397603332ef14b0b379e7b1e0af62b54d7a9b06782c6f0852342"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-46.jsonl.metrics.0.txt",
+    "bytes": 64755,
+    "sha256": "c5be7deef1709797b174e8caf0900ce22aaf175378bbd5b3e87c7f716bbc2733"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-46.jsonl.metrics.1.txt",
+    "bytes": 64760,
+    "sha256": "0832002f63eb6d186533d2629561d24d0637cb9bbe952aa85d907f2a8b6f436c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-46.summary.json",
+    "bytes": 848,
+    "sha256": "df6f3f42b8e3827b5a962de4cee797e07abf8c866cecbfe60bcdb53f0dc86569"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c4_cache_audit.json",
+    "bytes": 312,
+    "sha256": "0c003406ddd945406c9bb325a8513822a2f30803996dc24b1bfca89004985d53"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-03-20.jsonl",
+    "bytes": 1345428,
+    "sha256": "c1ebabf86c2c3a8a8640d2a7ef0e813bfc2fdd4c4017d6b0e56620f42cf4976b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-03-20.jsonl.metrics.0.txt",
+    "bytes": 64757,
+    "sha256": "a506fb6e836df165d4437fd4461de8ce3221e0d696ff689d11e541b2d7e02ca9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-03-20.jsonl.metrics.1.txt",
+    "bytes": 64771,
+    "sha256": "ec360d4fb6fd46a56039cf0d60cb83a0e4ec8ee683d7adf3b8429f041012007d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-03-20.summary.json",
+    "bytes": 850,
+    "sha256": "c7c6b43dce06e3067378bdd497abdfa03e0207e1676fad358bbde1777f5ca3f9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_final_answer_2026-10-31_04-50-24.jsonl",
+    "bytes": 608459,
+    "sha256": "83d544fdc2799f9b450c0fce791f12cf6318ef011dfe9929c6e01e96188f8a77"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_final_answer_2026-10-31_04-50-24.jsonl.metrics.0.txt",
+    "bytes": 64256,
+    "sha256": "41ae819b1051abc2e324de328fc9ba174169fc62cdc7dacb8d9b24249032e7f5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_final_answer_2026-10-31_04-50-24.jsonl.metrics.1.txt",
+    "bytes": 64274,
+    "sha256": "858ff1d1ebf706e33bcc1bf8626b410a7c993132295bbd8b8067937cb67193c4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_final_answer_2026-10-31_04-50-24.summary.json",
+    "bytes": 822,
+    "sha256": "926e6afe6db14238e7c4443d8da5a2250723144a856b8616a6269355fc0de649"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_tool_call_2026-10-31_04-48-39.jsonl",
+    "bytes": 499035,
+    "sha256": "a8ac049dacbc5ba4b97137a936b8b171bd27d20e9441fb64373c3e9262754d87"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_tool_call_2026-10-31_04-48-39.jsonl.metrics.0.txt",
+    "bytes": 61996,
+    "sha256": "f0c4023c6306f22f167ba81aca87b899212f74195d100486692b167fbdfb9fc9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_tool_call_2026-10-31_04-48-39.jsonl.metrics.1.txt",
+    "bytes": 64268,
+    "sha256": "b214d0ad02e52dc981c5a4add8fc04146d7b9484c6f6428ceb56c4ea69625116"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_visit1_warm_tool_call_2026-10-31_04-48-39.summary.json",
+    "bytes": 804,
+    "sha256": "55f3fb63b152dd93589c91fd798f15c5d0d34984a3387e5bc743d2918d931381"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c1_cache_audit.json",
+    "bytes": 6356,
+    "sha256": "53b1c11efc9c63418578fae632b1d898b50295ea5232b1a9a89ada495caf5b21"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-55-15.jsonl",
+    "bytes": 558941,
+    "sha256": "18c95d823721ff1d2205fd5372f5f31b44020b3c410c2625cacf4531ce4bfa5c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-55-15.jsonl.metrics.0.txt",
+    "bytes": 64720,
+    "sha256": "7838206182ad8e379dfd550f31a70c1f455dd8a2436033741c4e29452d4feedf"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-55-15.jsonl.metrics.1.txt",
+    "bytes": 64719,
+    "sha256": "124bedd93ad28a8e0e10ecb50012acd6a490f36edbcf2570cb7c107cb8957add"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_04-55-15.summary.json",
+    "bytes": 833,
+    "sha256": "ce64408bf94f7769c047c59dbed856c613e871d3368e7b0dc18cce191166b51d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c4_cache_audit.json",
+    "bytes": 310,
+    "sha256": "f24e02cbdd47153647b5ee6cc44498cd28db97d962675afd6e4710cba8b8a202"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-04.jsonl",
+    "bytes": 559010,
+    "sha256": "c41ed0d285758efb723f05197d33e4ac18967da4829ea2a4fe643149d821a1c7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-04.jsonl.metrics.0.txt",
+    "bytes": 64756,
+    "sha256": "44356e3f897ef0b13176781a86385351cab1f0e14902db404545b395ca89223c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-04.jsonl.metrics.1.txt",
+    "bytes": 64760,
+    "sha256": "edc93d8c52941dcaaaa4933355d7493bffff256104d81eead773aa77a3bcb6fc"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_04-57-04.summary.json",
+    "bytes": 835,
+    "sha256": "e697d0672b2ca6c5d1ee635a028cd7a40160275ce2f0af75c1a60c87000fb5b9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c1_cache_audit.json",
+    "bytes": 309,
+    "sha256": "a2132937a6c4418a7bd5eeea5e9e4681fa7f07b5a406ac4e936e18df25b65604"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-10.jsonl",
+    "bytes": 1063518,
+    "sha256": "afb684ac21a384b7ac703b3971ba5250d6fc1fac16bef559245f36e4fe04930d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-10.jsonl.metrics.0.txt",
+    "bytes": 64749,
+    "sha256": "110c464a9b6e822f462a2d7f674c6867cd50bad33ab6c81fb7c365389460c821"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-10.jsonl.metrics.1.txt",
+    "bytes": 64751,
+    "sha256": "d4c9ac3b3ef5acba8abf6952c6f56e23681c3388d23b4770affd48917aa2af67"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_04-58-10.summary.json",
+    "bytes": 838,
+    "sha256": "339e2c0ceeb2ae410e7cbe6f85ac26dd93e3f58a226ed054e40a49eeeac6583a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c4_cache_audit.json",
+    "bytes": 310,
+    "sha256": "be9c02cd48e958ef033296b8a29370f3afb74f352cdcb5aab9ae73226fd2ce1f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-59-44.jsonl",
+    "bytes": 1063629,
+    "sha256": "b5d24ba4a042bda642c7d1c43dbb1a8aafbea27ddc4d246e8138b2aa4c622066"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-59-44.jsonl.metrics.0.txt",
+    "bytes": 64751,
+    "sha256": "186e72ec7996b8fa15147fbd74a72dccfb41f87ca04eb106a4b8d8d81a2001e7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-59-44.jsonl.metrics.1.txt",
+    "bytes": 64754,
+    "sha256": "061f3193674f02802708b5c19ce5a95a04f38f1c3550f530f2e895e0f42bf6b8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_04-59-44.summary.json",
+    "bytes": 838,
+    "sha256": "eb8d43b1a3385dab73a6cb7434847a2e589bdd2c70ddc9f38c96e6dd5c9ed3d5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c1_cache_audit.json",
+    "bytes": 310,
+    "sha256": "ea88c4b30cc1e08a7b860f91294acdfd03a4ae964592abd7d7dd0815aeab8fa8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-04.jsonl",
+    "bytes": 1306152,
+    "sha256": "41f0137b481888943f9a4b1901f2cd32d7748d9d21f7c1d8d48be5be36acf79d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-04.jsonl.metrics.0.txt",
+    "bytes": 64755,
+    "sha256": "2d696e0b5eaabe66727400058da6db76ab7e676fa939f98cf28e3de3e81ef9a5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-04.jsonl.metrics.1.txt",
+    "bytes": 64767,
+    "sha256": "4b6753932294ab287e65513ec8f6a9b56f12b1486f4565322a15f7b2ad6dcc64"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-01-04.summary.json",
+    "bytes": 839,
+    "sha256": "e5c2cea79364cba71edb2bdc69912a3e0012f1d1fcdf7077bf3b81cad665ac5c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c4_cache_audit.json",
+    "bytes": 310,
+    "sha256": "59597d55f80128797ad9cec837c3bef54b434b9fc09e1e740a44c29609d11dbd"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-02-40.jsonl",
+    "bytes": 1306114,
+    "sha256": "ccd9d07cbf518c5e963100f3ecd599e9e64ec31c9e89221eb84837b290a12723"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-02-40.jsonl.metrics.0.txt",
+    "bytes": 64760,
+    "sha256": "73eb62f08e46c4c0240e87ea2932a083b5e3fb453e3b724b96ceb8dbd71cdcc3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-02-40.jsonl.metrics.1.txt",
+    "bytes": 64758,
+    "sha256": "2e58b812ad37511b228d229e5f8845d63182c1d3a2c3eb078abf083506465707"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_2048_reclaim_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-02-40.summary.json",
+    "bytes": 823,
+    "sha256": "68ba9241beaab1e4e40d7ec01ce734b94afda156ec9fef89453d39fccbe4591c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_final_answer_2026-10-31_05-26-28.business.json",
+    "bytes": 74675,
+    "sha256": "cd95b2e9e20400d6f81a3d7dae2299a0d3f62a36427ab86cb1e3d8ebca2dd016"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_final_answer_2026-10-31_05-26-28.jsonl",
+    "bytes": 7635527,
+    "sha256": "3a23fdc93b2cae53c575f70eeb3cfcf8f46b4b88961fa8c4595d83dccd2c82e8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_final_answer_2026-10-31_05-26-28.jsonl.metrics.0.txt",
+    "bytes": 64508,
+    "sha256": "0e434cb90f470e6a16cdca08a94af61609cb431219be81065e4490652e6e1d3b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_final_answer_2026-10-31_05-26-28.jsonl.metrics.1.txt",
+    "bytes": 64733,
+    "sha256": "25e156d6e0edc677d2d2cecd37e8b2b13b28c6b18d525887afc83483c7452a8f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_final_answer_2026-10-31_05-26-28.summary.json",
+    "bytes": 828,
+    "sha256": "bfec2ccdff2c1a565713f9e744d7040fad486e64a1997daf384ab691cf38e1c7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_tool_call_2026-10-31_05-24-35.business.json",
+    "bytes": 38568,
+    "sha256": "9339f8ff5b54a6fbe70343de7232c12dd3f2ef8980c5107ba64af2280de9f922"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_tool_call_2026-10-31_05-24-35.jsonl",
+    "bytes": 6313844,
+    "sha256": "4482529d2e33aa6cc45af85b897684032339116c26f72b1e51b54cfd5176e1d4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_tool_call_2026-10-31_05-24-35.jsonl.metrics.0.txt",
+    "bytes": 64274,
+    "sha256": "41a0b1fab59fd42791c49575418f2bf23f9ff703f383559cc84f01154add20cd"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_tool_call_2026-10-31_05-24-35.jsonl.metrics.1.txt",
+    "bytes": 64521,
+    "sha256": "97b451e81eee7bbf862c0abb947206142d967b65e954a4ee2a2d48e67182d80d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_r1_tool_call_2026-10-31_05-24-35.summary.json",
+    "bytes": 818,
+    "sha256": "87ec1357bf5c2e374eef1f8f2e219241adb254ad1a96008213c7d4392195335a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c1_cache_audit.json",
+    "bytes": 308,
+    "sha256": "665f42e0567e1bea9ef059bd8672bef9a56424019767609e8985bc2c29d8a02e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-29-56.jsonl",
+    "bytes": 601066,
+    "sha256": "a93a2d638cc008b84441c8da4bc1e50c49bd33c14fcac7faec51972e08945827"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-29-56.jsonl.metrics.0.txt",
+    "bytes": 64740,
+    "sha256": "ad8952f71c7aa6a7fefd4b92deabaa45a009058dd920d6fc05beac9e787c827f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-29-56.jsonl.metrics.1.txt",
+    "bytes": 64774,
+    "sha256": "4593560f48b15cbe039c66662af8d16b399d7b314ab8328fc8798cea41f6f7c5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-29-56.summary.json",
+    "bytes": 845,
+    "sha256": "615d7621ead1f321b9ef84fbb50e117146a49a66a364d751c3f00a7379b121af"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c4_cache_audit.json",
+    "bytes": 309,
+    "sha256": "3dd43c7a3fda1e12d2127f393cc5937ccdc6af90e3c5eb29f552d2cdac5d2f08"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-31-12.jsonl",
+    "bytes": 600031,
+    "sha256": "e00a26939cb451f613604810e4b84672c55426039b28aa470db0819ba5d8cada"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-31-12.jsonl.metrics.0.txt",
+    "bytes": 64775,
+    "sha256": "21037d872aa7af08709b762e4ed6c658c471189bcd78e4529bdb314c1d8df673"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-31-12.jsonl.metrics.1.txt",
+    "bytes": 64761,
+    "sha256": "b5eef760f5cc915d70b160bd77baf7f258e56386f272277e6fe8622ea982827a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-31-12.summary.json",
+    "bytes": 845,
+    "sha256": "a0ccc65b0c257c20a230f540570cb816f56c67d30a1198aefc3c398e9a239b63"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c1_cache_audit.json",
+    "bytes": 309,
+    "sha256": "5594f4e55bfab3b6a165d27b931f569e5232d54d005b3ca4a8bb0c0f8ea6c723"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-32-27.jsonl",
+    "bytes": 1102363,
+    "sha256": "31226dafad96200ccc75e41abd0bef3e029acf29bd40827d30d03b2fcae31ef1"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-32-27.jsonl.metrics.0.txt",
+    "bytes": 64766,
+    "sha256": "f903f5243b6b23246ecd3fc55c039f1bcd3dc377ee915198c0a2cb1961f7437d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-32-27.jsonl.metrics.1.txt",
+    "bytes": 64765,
+    "sha256": "5698d584f2f2e61bff9c3ffa4bb33931b5316fd01a26a53a3715ffc561dba3d5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c1_final_answer_2026-10-31_05-32-27.summary.json",
+    "bytes": 846,
+    "sha256": "b02e7348d3721b61aa9756cacc546d27296958200a66d4ba74ca9151723781f7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c4_cache_audit.json",
+    "bytes": 307,
+    "sha256": "f97ccdf4cd0cf352b4df1082dab15fb05b910f360a2f8d8805beb1618351f018"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-56.jsonl",
+    "bytes": 1102746,
+    "sha256": "57657375ffb2466f397653e44410f0509dcc306416d35c23c56266428da465e3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-56.jsonl.metrics.0.txt",
+    "bytes": 64770,
+    "sha256": "02e65433d27090499201e9324ceb6e81347f69ba396ebceea27c3aa31aace82b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-56.jsonl.metrics.1.txt",
+    "bytes": 64771,
+    "sha256": "81ecd49b4179f2fa1527540ad91d5f49365951ee6a93087295f2be710df50896"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-56.summary.json",
+    "bytes": 846,
+    "sha256": "c9b8dbbac502f7a697df5f7f592fad4fe01f0a30280f90c678272a5a1f53fc6b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c1_cache_audit.json",
+    "bytes": 308,
+    "sha256": "e8a2d69e00bd75537ae1f7fb8a58f940d680bcf25849f8f60e227f1f9753205d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-35-20.jsonl",
+    "bytes": 1341919,
+    "sha256": "a9eecf645775fae44b224840b70a18107781a29fa5453788cbab4dee871d98c8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-35-20.jsonl.metrics.0.txt",
+    "bytes": 64771,
+    "sha256": "49eaa3814a7c7eae994e871499d134c67cd02b6055e865ba8395bfbabe862720"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-35-20.jsonl.metrics.1.txt",
+    "bytes": 64770,
+    "sha256": "f88dc02a0df57688701a344aaad4d2936fbb187a1a2be626d85d0634dd56ab15"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c1_final_answer_2026-10-31_05-35-20.summary.json",
+    "bytes": 847,
+    "sha256": "4cacde9286c273afb6b89d0ccc0028566fa2370f9acc27cc11c9f87899e80b06"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c4_cache_audit.json",
+    "bytes": 309,
+    "sha256": "7c7ccef1bdde0a1b30ad52fb0aecadc7353924014c284314a3b6f4a06c260e51"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-55.jsonl",
+    "bytes": 1342381,
+    "sha256": "c59b1f8bb77dfb5208693ee94fff4ed470bb50cb0c7ac8e23ec403ebf353119e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-55.jsonl.metrics.0.txt",
+    "bytes": 64771,
+    "sha256": "728c9fda03b20b587cb7e6699b0d5669821e3b67cb8b7386573f358129d99f63"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-55.jsonl.metrics.1.txt",
+    "bytes": 64775,
+    "sha256": "093ebb2397f6669138ccc2a861cc3c62fffc287280d83c2a88735a7626b65be0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-55.summary.json",
+    "bytes": 843,
+    "sha256": "84c7ba1b6dd6b8592ed1af003f13a5f9a85bc832e5a89dbad299d2bde151ead3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_final_answer_2026-10-31_05-24-03.jsonl",
+    "bytes": 608405,
+    "sha256": "511f9a960dec2c4a44c49a786810889d80d6cc3a70c8764e304267bd12fc8fb9"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_final_answer_2026-10-31_05-24-03.jsonl.metrics.0.txt",
+    "bytes": 64266,
+    "sha256": "3a64cf5e6218334ed36ba9a521f498a7e17ee43d67747db63dd532215e58205e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_final_answer_2026-10-31_05-24-03.jsonl.metrics.1.txt",
+    "bytes": 64274,
+    "sha256": "9cc0da5285e77914bf6f169aac26ff0ee65ccb07ae30196f46a67b33e9668141"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_final_answer_2026-10-31_05-24-03.summary.json",
+    "bytes": 819,
+    "sha256": "18d5fe856e6eb5dec2311161a95e4511269af71d421c732424cfb2e42cb9a6ca"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_tool_call_2026-10-31_05-22-20.jsonl",
+    "bytes": 499061,
+    "sha256": "aa9b9ef1fe7dba01d386e4ccc77d2554ef72793c8a96acbde04ab6ee4e4b9aa3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_tool_call_2026-10-31_05-22-20.jsonl.metrics.0.txt",
+    "bytes": 62012,
+    "sha256": "75056bd29515a2ad5ffa566f46071de2e17f9570742051feea2dfb7e8d3ebda3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_tool_call_2026-10-31_05-22-20.jsonl.metrics.1.txt",
+    "bytes": 64278,
+    "sha256": "906f35911f9bf50370f2e697f0282c493eb4c2812eea0babc83f93b0123a8ba3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_visit1_warm_tool_call_2026-10-31_05-22-20.summary.json",
+    "bytes": 800,
+    "sha256": "553ece3d5073b9709e464d3043c53dabc6c7abd8e91a803c5c4eab1a50a393ac"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c1_cache_audit.json",
+    "bytes": 6353,
+    "sha256": "6c8a7cf3c1e36642105d14a82bdca24ea70f6230ee69752b5196bcec37ee18a3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-28-52.jsonl",
+    "bytes": 559608,
+    "sha256": "ebed3b6e91ba3e08d575d40911fba93e8c5eff2dcf7fb3a253a190bc33ccf2c3"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-28-52.jsonl.metrics.0.txt",
+    "bytes": 64733,
+    "sha256": "9a0966e24f58d62048d7b34a4b99b821aceb57e3ffead616055529e5fc6e5169"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-28-52.jsonl.metrics.1.txt",
+    "bytes": 64752,
+    "sha256": "a2ddf638d8f87186085ea92adba02a3ec908998a0162f5ce4ad946a3318d9723"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c1_final_answer_2026-10-31_05-28-52.summary.json",
+    "bytes": 831,
+    "sha256": "dbf624f8a7020aba5cf167e41084a35512fbab4841bb107633cebbbdb31ab178"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c4_cache_audit.json",
+    "bytes": 307,
+    "sha256": "9552afe2618ffb6d80eb63beb2e64ffe1afa9e979efca963565e8d6c9d7e6f9e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-30-40.jsonl",
+    "bytes": 559275,
+    "sha256": "57a7250efabc95856bdd897162aabf14f5fbbdc35aed3fff9fb6692a082e02d2"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-30-40.jsonl.metrics.0.txt",
+    "bytes": 64774,
+    "sha256": "23a2df5f1976cec1fcf39216900e3470dc57d96bdf9d66170e6fc3288160ccd4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-30-40.jsonl.metrics.1.txt",
+    "bytes": 64763,
+    "sha256": "4a0d68ccf000fe482d94db919e77d7119e9ca17e1c4722a805f93640037154cb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_agent_13k_c4_final_answer_2026-10-31_05-30-40.summary.json",
+    "bytes": 822,
+    "sha256": "5cdec8a8ff9f8b63af3291cdc626e1168a19488cbfa111ccec9c391e57270db0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c1_cache_audit.json",
+    "bytes": 307,
+    "sha256": "df95e58909410dfed250517c1bd2abe563d81b61d366d500810000c8e23a8e40"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-31-47.jsonl",
+    "bytes": 1063798,
+    "sha256": "a558f47ddf7e820b546873488da08a8e28692ce315c86e6ebf961977adcbbe70"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-31-47.jsonl.metrics.0.txt",
+    "bytes": 64761,
+    "sha256": "0959ebf0ccce6a51635d6ddb6e3ff85c0dfe94dc5f8366477afc0a73a23ce4e0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-31-47.jsonl.metrics.1.txt",
+    "bytes": 64766,
+    "sha256": "758117f03a2cf3eccd076b2ae09d7412c52e758bed7f19fb355fc89c8d9e22a8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c1_final_answer_2026-10-31_05-31-47.summary.json",
+    "bytes": 835,
+    "sha256": "bfd1d441db03fa58899837a2790260ff0fdb937652e2edee937d5d87c934a424"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c4_cache_audit.json",
+    "bytes": 307,
+    "sha256": "1529ed6a3b8cf71d216035f12b1fa0c60b77258b927027ae6e7a601389144b57"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-18.jsonl",
+    "bytes": 1063545,
+    "sha256": "b4c618702a4ac32b70cbb6ad044783be8a78d7ef6b021d5850ea9e4524a87f22"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-18.jsonl.metrics.0.txt",
+    "bytes": 64765,
+    "sha256": "3360adc98896b07bb7ad88ab4ff0ce2089acd4d320233c1011d246cfd5af79d0"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-18.jsonl.metrics.1.txt",
+    "bytes": 64782,
+    "sha256": "4f6485b6317e4b0a210155068ccab526365d7a9e14d314d1eda104ab88240667"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_24576_c4_final_answer_2026-10-31_05-33-18.summary.json",
+    "bytes": 833,
+    "sha256": "e7356ff7e74fc4b79bf8c168a274b3761f71259f0390f340c724cc3cb270981f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c1_cache_audit.json",
+    "bytes": 307,
+    "sha256": "fb7717a8040c8ca0c2982b07eb8f93bfeb8cfbe859211ebb5308b77b0218ec99"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-34-38.jsonl",
+    "bytes": 1305990,
+    "sha256": "6eeedb214c62c59fd20ffd8505a3745f4b05334da0e00a8d3b810cb07510e8fb"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-34-38.jsonl.metrics.0.txt",
+    "bytes": 64772,
+    "sha256": "e4314ccdf941ded81ac2b70df8715750430cb4a79a7e3bfd8a008fc49d142dca"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-34-38.jsonl.metrics.1.txt",
+    "bytes": 64772,
+    "sha256": "150e2311ef9dc5d6d2dd2ad8cd07aa3fc284e26feca162c87ceb2482d0d85c39"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c1_final_answer_2026-10-31_05-34-38.summary.json",
+    "bytes": 834,
+    "sha256": "b2d4e05fa80499663faef3a43028bc7b06546b9eca7f75dc8e870bfd49ce7f1f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c4_cache_audit.json",
+    "bytes": 307,
+    "sha256": "8d9e8ed660e5714ff090897826650eea2f8f7f550621a4c1f410db03414ae292"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-14.jsonl",
+    "bytes": 1306105,
+    "sha256": "551cac062ea4d261af9382093d502d8c8b35b148c36c841eeafcd47bb1f78700"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-14.jsonl.metrics.0.txt",
+    "bytes": 64770,
+    "sha256": "ef4580a0e148f6e912c111c76cbab912873329f01580af7de5124c38c125c116"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-14.jsonl.metrics.1.txt",
+    "bytes": 64771,
+    "sha256": "1bf2ba9e0405d956f59b72a166b00bed90a0634c86425013749be94d2ed9b81c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/isocache_trained_window_none_full_graph_s8_warm_perf_r1_long_29696_c4_final_answer_2026-10-31_05-36-14.summary.json",
+    "bytes": 825,
+    "sha256": "533309216f9c305ceb210b6633da7dd4d6bc088d1cc7001379b5824001ad676d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_comparison.json",
+    "bytes": 116577,
+    "sha256": "587f0b9699dc72def06cd3e0352af76f0ce6ba0d9a2a88f9ba272999746ca2cc"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_memory32.json",
+    "bytes": 533476,
+    "sha256": "4cf82b5f0182e5f5490d99aaccf1e6fac39d5bd074ec971e3dd5a29a35ecc24c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_memory32_journal.jsonl",
+    "bytes": 398041,
+    "sha256": "d1a05e637bf65f35b28367cefb9c75eb141ba81847242dfba824d1c1c46c3b30"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_pool_evidence.json",
+    "bytes": 2796778,
+    "sha256": "2081bb12cdc0a1aaaaa40a68e6beeaadead4ed42ec7c7de78352af68fc010c9a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_pool_summary.json",
+    "bytes": 43462,
+    "sha256": "bfdf5ccd069994492803e1d831e741fcd9a976c01383ba40a386160ed7858e01"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_final_answer_2026-10-31_08-04-27.jsonl",
+    "bytes": 608459,
+    "sha256": "8f3a7d987bf0e1fd06da61baf663387cae6bbfb9718d4ef45e4e54cf2e65be85"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_final_answer_2026-10-31_08-04-27.jsonl.metrics.0.txt",
+    "bytes": 64264,
+    "sha256": "347376d81e5a117c21e4992ddcd13d22ee274b34bdde92243c369365534f0fff"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_final_answer_2026-10-31_08-04-27.jsonl.metrics.1.txt",
+    "bytes": 64287,
+    "sha256": "c8cdf4e288e8f45f816f15c4f946e5d26c406f8d723b695b5bc035b9c0bf3c91"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_final_answer_2026-10-31_08-04-27.summary.json",
+    "bytes": 815,
+    "sha256": "34c407f418dbb9cd18738fc947da888cd436171b23d11f039b8a6e8f4c93c3ca"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_tool_call_2026-10-31_08-02-44.jsonl",
+    "bytes": 499040,
+    "sha256": "c254e7d5f73765012f60961c745a52ae21a612141e9e00db7aa3ce51100d8ee6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_tool_call_2026-10-31_08-02-44.jsonl.metrics.0.txt",
+    "bytes": 62010,
+    "sha256": "91c0f0a1e9471d845e9c9f1489c848029797dedc7ae504dac797069115fea35b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_tool_call_2026-10-31_08-02-44.jsonl.metrics.1.txt",
+    "bytes": 64277,
+    "sha256": "7334fe1a3d55916aaba21303f664d0beb993d0ad7f6771e97b867338dcfabcab"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_readonly_warm_tool_call_2026-10-31_08-02-44.summary.json",
+    "bytes": 796,
+    "sha256": "c655ae9cc363bb50406a8a19e7dc1475fe94ebf37bc62ef1a9d37effa8f166d4"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_memory32.json",
+    "bytes": 533890,
+    "sha256": "dea6f21ca18b65e66d7c0e6cfc8e6b2cb48ed2b6ae5b62ad076a9d48faa186f8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_memory32_journal.jsonl",
+    "bytes": 398468,
+    "sha256": "0cc019edae17fc6a6f693f0c56d4d34ac0bec5aed55e77eb3133adedf51f408e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_pool_evidence.json",
+    "bytes": 5723535,
+    "sha256": "e025bbef15922ca7e80605f7000999c8ee6d511f161b9b2728fde403bee15a77"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_pool_summary.json",
+    "bytes": 46306,
+    "sha256": "7a7ad5c64c4ed149bbdde300e2dba057f8e4da4ef95473f3cb7a657c12f05f6d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_final_answer_2026-10-31_08-40-20.jsonl",
+    "bytes": 608405,
+    "sha256": "468df6618ded883476e72c6cd00833bafc129aa52a637050d8b9a504aa885308"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_final_answer_2026-10-31_08-40-20.jsonl.metrics.0.txt",
+    "bytes": 64266,
+    "sha256": "b04cc64678965aa327de575a34f7897fb81814d1b643a67f58099fbe63267183"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_final_answer_2026-10-31_08-40-20.jsonl.metrics.1.txt",
+    "bytes": 64257,
+    "sha256": "97975e37e250be4de25853dcfa1be027b79d0de7436cedfc870a88330cfee052"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_final_answer_2026-10-31_08-40-20.summary.json",
+    "bytes": 800,
+    "sha256": "ceb7a5def7fc9a109dd752b45be0fd8dea7ca1f951fdfdcd8bebc31a98034cca"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_tool_call_2026-10-31_08-38-35.jsonl",
+    "bytes": 499040,
+    "sha256": "3efc8a2b138d2cd197db1fec6e4e9e5f64a25c338b5fd1a79e1bb46c1d74e345"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_tool_call_2026-10-31_08-38-35.jsonl.metrics.0.txt",
+    "bytes": 61995,
+    "sha256": "8e499f184b460324573f1eefe188af08653ce08bd462f4116c59cde53cb35d00"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_tool_call_2026-10-31_08-38-35.jsonl.metrics.1.txt",
+    "bytes": 64254,
+    "sha256": "4b898508afd49f79b7093d9cebd6c4f5bbd757ec4ee6ea73f92f6350671ead21"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_reclaim8_warm_tool_call_2026-10-31_08-38-35.summary.json",
+    "bytes": 796,
+    "sha256": "a6aa210847843c91c921251404312a88eb46e141260ab077b5e23b30a2aa3ed8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_memory32.json",
+    "bytes": 533907,
+    "sha256": "e3cc11b087d5824c24f9f48645572eeb6372436f2337e15feb5d7139939b8e3e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_memory32_journal.jsonl",
+    "bytes": 398468,
+    "sha256": "291d11838b31aed2a66d405f7f01c0d8b25c32d966372e7c000c681d5b00dc58"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_pool_evidence.json",
+    "bytes": 6140804,
+    "sha256": "55473b138c492acc8157710b79bc7344149e29030be069c8681a88d898878af6"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_pool_summary.json",
+    "bytes": 45139,
+    "sha256": "25838e507f220f11b011bcb733211c8fb50955fab36e3bbee06dbdde19fd9aaa"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_final_answer_2026-10-31_08-22-38.jsonl",
+    "bytes": 608462,
+    "sha256": "4dfdf8c4979a3aefb2900c761a1e0383d05403e6cb6108564bea6c4507771474"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_final_answer_2026-10-31_08-22-38.jsonl.metrics.0.txt",
+    "bytes": 64266,
+    "sha256": "b6cd23a3a25caaa19c0a0f3a1d3851279f16808f306d4ae355abf5ccc9edfb05"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_final_answer_2026-10-31_08-22-38.jsonl.metrics.1.txt",
+    "bytes": 64273,
+    "sha256": "5ae1094c02b3e46bfeeb31a253c20538749214fb62f6161d8f9f132a7163d676"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_final_answer_2026-10-31_08-22-38.summary.json",
+    "bytes": 822,
+    "sha256": "6b0b8bb1d6de6abc0fc27d1df31bafd4d561e83d5059772b1b640ff461b20404"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_tool_call_2026-10-31_08-20-55.jsonl",
+    "bytes": 499037,
+    "sha256": "ca5bc0e563af9499e60d07c6982069f1274dad3e43089505af89f93b705d45d5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_tool_call_2026-10-31_08-20-55.jsonl.metrics.0.txt",
+    "bytes": 62008,
+    "sha256": "3c29e1856d2767d9138e296e80923780fa64b49f2c4b739abca52ba47cc1ceae"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_tool_call_2026-10-31_08-20-55.jsonl.metrics.1.txt",
+    "bytes": 64278,
+    "sha256": "da7bfd273c11a1075078965351d3cff0afd5100ddc111b8435da10417719c0a5"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/memory32_isocache_trained_window2048_samegroups_full8_warm_tool_call_2026-10-31_08-20-55.summary.json",
+    "bytes": 802,
+    "sha256": "bfbe70ca6a11f3d9766e025115d7a8ddee982be28bfa757981e662fc7a96774c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/prefix_reclaim_vs_samegroups_full.json",
+    "bytes": 9559,
+    "sha256": "61f6155645f37d66c0af17844dc8c26957ef82b54eb43db52de9bdaaacdbd29e"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/reclaim8_first_real_window_reuse.json",
+    "bytes": 29244,
+    "sha256": "27e0546f469dd7426911cbef1cbe0005a4cb919e3444216d12ad57bf0aa726a8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/reclaim8_incremental_target_alignment.json",
+    "bytes": 285,
+    "sha256": "582183eebda6f1bf40e0d4ffa8571ee89458df81e2b59b251999db1265a51200"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/reclaim8_prefix_repeat_differences.json",
+    "bytes": 6395,
+    "sha256": "44bc979309600ab9584dcf58e033dc6ac59b4eff7b2ee3215f2ab70053cc8f8f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/synthetic_isolated_pool_counterfactual_pool_evidence.json",
+    "bytes": 1465,
+    "sha256": "2a27f1d5df9fc654a627cdc758e0fd6f76617819c7f6cc99666f6afa5c3909af"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/synthetic_isolated_pool_counterfactual_pool_summary.json",
+    "bytes": 2275,
+    "sha256": "b51efaf22bcaefebe65f0315c969e8f6c13cf4fcedb5544f034a5a6ca43098e7"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "bytes": 30348,
+    "sha256": "59d05c84bd08ba8c4bf865fcd47f7913a5d71fb69d90c40b4dbda43ec3cd866f"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "bytes": 30222,
+    "sha256": "9bcf6b373f2606f16a5d91408122f1dcf7e2e3c1f679acdd994132b9ffcd408d"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_c1.json",
+    "bytes": 32035,
+    "sha256": "a7fcf026d3c7f1af19e8bffe03a98b0a29f6e6ef4d00b62a820c0ab5530cde2c"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "bytes": 29661,
+    "sha256": "1f7f449f1a64fcf4362a909d039d499df1e692f1687c6ee9b2397b8b8ea70198"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "bytes": 29677,
+    "sha256": "288b9cb8f163ad000f2d5215682c3f5d7a14fc344c7717da0e93b6f0cd494a05"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "bytes": 29760,
+    "sha256": "a8332c9ff7ffe7195c1fcc8c5d8d3b3f3d8922f544d51f52f9a3b93eb8cf9082"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "bytes": 29798,
+    "sha256": "064ccc136b10e4583e6da311950200f847d7970cf877d1bf76f12d35193d978b"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_business_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "bytes": 16911,
+    "sha256": "5560e6fb36a3585b1f8d2e1df95ecb90476abe1cf6323459fa9c115744f22a73"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_business_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "bytes": 16916,
+    "sha256": "5af0f10b9586d370fca98fc16d9be20fff14e88880f844c2533aeac1e1d1a317"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_business_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "bytes": 9179,
+    "sha256": "c8d7d43401071547238bf576bdbc2062c69aba0225a47eeadd197e2ccae387e8"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_business_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "bytes": 16939,
+    "sha256": "e191fb99ea16d896bf7a7f3c775aaf32321da7dd8c0e4709e6e2fbdb9cb7791a"
+  },
+  {
+    "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/results/trace_compare_business_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "bytes": 17012,
+    "sha256": "e58dfdb2ae7b143e4031b0eef007af8636a242de256ab6abc4918ab8d744716b"
+  }
+]

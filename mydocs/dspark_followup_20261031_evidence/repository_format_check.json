@@ -1,0 +1,6 @@
+{
+  "command": "bash format.sh ci",
+  "exit_code": 1,
+  "output": "❓❓pre-commit is not installed, please run:\n# Install lint deps\npip install -r requirements-lint.txt\n# (optional) Enable git commit pre check\npre-commit install\n\nSee step by step contribution guide:\nhttps://docs.vllm.ai/projects/ascend/en/latest/developer_guide/contribution\n",
+  "fallback": "Repository-pinned markdownlint-cli 0.45.0 on all changed Markdown files; recorded separately."
+}

@@ -1,0 +1,4276 @@
+{
+  "input_tokens": 31744,
+  "output_tokens": 1024,
+  "concurrency": 32,
+  "waves_per_configuration": 2,
+  "configurations": {
+    "readonly": {
+      "tag": "memory32_isocache_trained_window2048_readonly",
+      "num_blocks": 2139,
+      "groups": [
+        {
+          "spec": "FullAttentionSpec",
+          "layers": [
+            "language_model.model.layers.3.self_attn.attn",
+            "language_model.model.layers.7.self_attn.attn",
+            "language_model.model.layers.11.self_attn.attn",
+            "language_model.model.layers.15.self_attn.attn",
+            "language_model.model.layers.19.self_attn.attn",
+            "language_model.model.layers.23.self_attn.attn",
+            "language_model.model.layers.27.self_attn.attn",
+            "language_model.model.layers.31.self_attn.attn",
+            "language_model.model.layers.35.self_attn.attn",
+            "language_model.model.layers.39.self_attn.attn",
+            "language_model.model.layers.43.self_attn.attn",
+            "language_model.model.layers.47.self_attn.attn",
+            "language_model.model.layers.51.self_attn.attn",
+            "language_model.model.layers.55.self_attn.attn",
+            "language_model.model.layers.59.self_attn.attn",
+            "language_model.model.layers.63.self_attn.attn",
+            "model.layers.64.self_attn.attn",
+            "model.layers.65.self_attn.attn",
+            "model.layers.66.self_attn.attn",
+            "model.layers.67.self_attn.attn",
+            "model.layers.68.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.0.linear_attn",
+            "language_model.model.layers.4.linear_attn",
+            "language_model.model.layers.8.linear_attn",
+            "language_model.model.layers.12.linear_attn",
+            "language_model.model.layers.16.linear_attn",
+            "language_model.model.layers.20.linear_attn",
+            "language_model.model.layers.24.linear_attn",
+            "language_model.model.layers.28.linear_attn",
+            "language_model.model.layers.32.linear_attn",
+            "language_model.model.layers.36.linear_attn",
+            "language_model.model.layers.40.linear_attn",
+            "language_model.model.layers.44.linear_attn",
+            "language_model.model.layers.48.linear_attn",
+            "language_model.model.layers.52.linear_attn",
+            "language_model.model.layers.56.linear_attn",
+            "language_model.model.layers.60.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.1.linear_attn",
+            "language_model.model.layers.5.linear_attn",
+            "language_model.model.layers.9.linear_attn",
+            "language_model.model.layers.13.linear_attn",
+            "language_model.model.layers.17.linear_attn",
+            "language_model.model.layers.21.linear_attn",
+            "language_model.model.layers.25.linear_attn",
+            "language_model.model.layers.29.linear_attn",
+            "language_model.model.layers.33.linear_attn",
+            "language_model.model.layers.37.linear_attn",
+            "language_model.model.layers.41.linear_attn",
+            "language_model.model.layers.45.linear_attn",
+            "language_model.model.layers.49.linear_attn",
+            "language_model.model.layers.53.linear_attn",
+            "language_model.model.layers.57.linear_attn",
+            "language_model.model.layers.61.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.2.linear_attn",
+            "language_model.model.layers.6.linear_attn",
+            "language_model.model.layers.10.linear_attn",
+            "language_model.model.layers.14.linear_attn",
+            "language_model.model.layers.18.linear_attn",
+            "language_model.model.layers.22.linear_attn",
+            "language_model.model.layers.26.linear_attn",
+            "language_model.model.layers.30.linear_attn",
+            "language_model.model.layers.34.linear_attn",
+            "language_model.model.layers.38.linear_attn",
+            "language_model.model.layers.42.linear_attn",
+            "language_model.model.layers.46.linear_attn",
+            "language_model.model.layers.50.linear_attn",
+            "language_model.model.layers.54.linear_attn",
+            "language_model.model.layers.58.linear_attn",
+            "language_model.model.layers.62.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "last_pool_count": {
+        "time": 1793434371.1084073,
+        "free": 2138
+      },
+      "released_by_window_service_total": 0,
+      "released_by_window_memory_requests": 0,
+      "steady32": {
+        "samples": 490,
+        "pool_bytes": {
+          "min": 36993761280,
+          "median": 37359845376.0,
+          "max": 37610323968
+        },
+        "held_bytes": {
+          "min": 36993761280,
+          "median": 37359845376.0,
+          "max": 37610323968
+        },
+        "effective_layer_pages_bytes": {
+          "min": 33470545920,
+          "median": 33836630016.0,
+          "max": 34087108608
+        },
+        "group_empty_bytes": {
+          "min": 3523215360,
+          "median": 3523215360.0,
+          "max": 3523215360
+        },
+        "unattributed_deferred_blocks": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "same_group_full_counterfactual_bytes": {
+          "min": 36993761280,
+          "median": 37359845376.0,
+          "max": 37610323968
+        },
+        "reclaimed_swa_slot_bytes": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "reclaimed_swa_layer_pages_bytes": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "reclaimed_swa_empty_bytes": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "waves": {
+        "0": {
+          "start": 1793433890.6668131,
+          "end": 1793434116.2477562,
+          "stable_samples": 244,
+          "held_GiB": {
+            "samples": 244,
+            "min": 34.453125,
+            "median": 34.7940673828125,
+            "max": 35.02734375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 244,
+            "min": 31.171875,
+            "median": 31.5128173828125,
+            "max": 31.74609375
+          },
+          "group_empty_GiB": {
+            "samples": 244,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "1": {
+          "start": 1793434128.6171703,
+          "end": 1793434345.8150883,
+          "stable_samples": 246,
+          "held_GiB": {
+            "samples": 246,
+            "min": 34.453125,
+            "median": 34.81201171875,
+            "max": 35.02734375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 246,
+            "min": 31.171875,
+            "median": 31.53076171875,
+            "max": 31.74609375
+          },
+          "group_empty_GiB": {
+            "samples": 246,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        }
+      }
+    },
+    "samegroups_full8": {
+      "tag": "memory32_isocache_trained_window2048_samegroups_full8",
+      "num_blocks": 5616,
+      "groups": [
+        {
+          "spec": "FullAttentionSpec",
+          "layers": [
+            "language_model.model.layers.3.self_attn.attn",
+            "language_model.model.layers.11.self_attn.attn",
+            "language_model.model.layers.19.self_attn.attn",
+            "language_model.model.layers.27.self_attn.attn",
+            "language_model.model.layers.35.self_attn.attn",
+            "language_model.model.layers.43.self_attn.attn",
+            "language_model.model.layers.51.self_attn.attn",
+            "language_model.model.layers.59.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "FullAttentionSpec",
+          "layers": [
+            "language_model.model.layers.7.self_attn.attn",
+            "language_model.model.layers.15.self_attn.attn",
+            "language_model.model.layers.23.self_attn.attn",
+            "language_model.model.layers.31.self_attn.attn",
+            "language_model.model.layers.39.self_attn.attn",
+            "language_model.model.layers.47.self_attn.attn",
+            "language_model.model.layers.55.self_attn.attn",
+            "language_model.model.layers.63.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "SlidingWindowSpec",
+          "layers": [
+            "model.layers.64.self_attn.attn",
+            "model.layers.65.self_attn.attn",
+            "model.layers.66.self_attn.attn",
+            "model.layers.67.self_attn.attn",
+            "model.layers.68.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            2191,
+            2191,
+            2191,
+            2191,
+            2191
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.0.linear_attn",
+            "language_model.model.layers.8.linear_attn",
+            "language_model.model.layers.16.linear_attn",
+            "language_model.model.layers.24.linear_attn",
+            "language_model.model.layers.32.linear_attn",
+            "language_model.model.layers.40.linear_attn",
+            "language_model.model.layers.48.linear_attn",
+            "language_model.model.layers.56.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.1.linear_attn",
+            "language_model.model.layers.9.linear_attn",
+            "language_model.model.layers.17.linear_attn",
+            "language_model.model.layers.25.linear_attn",
+            "language_model.model.layers.33.linear_attn",
+            "language_model.model.layers.41.linear_attn",
+            "language_model.model.layers.49.linear_attn",
+            "language_model.model.layers.57.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.2.linear_attn",
+            "language_model.model.layers.10.linear_attn",
+            "language_model.model.layers.18.linear_attn",
+            "language_model.model.layers.26.linear_attn",
+            "language_model.model.layers.34.linear_attn",
+            "language_model.model.layers.42.linear_attn",
+            "language_model.model.layers.50.linear_attn",
+            "language_model.model.layers.58.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.4.linear_attn",
+            "language_model.model.layers.12.linear_attn",
+            "language_model.model.layers.20.linear_attn",
+            "language_model.model.layers.28.linear_attn",
+            "language_model.model.layers.36.linear_attn",
+            "language_model.model.layers.44.linear_attn",
+            "language_model.model.layers.52.linear_attn",
+            "language_model.model.layers.60.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.5.linear_attn",
+            "language_model.model.layers.13.linear_attn",
+            "language_model.model.layers.21.linear_attn",
+            "language_model.model.layers.29.linear_attn",
+            "language_model.model.layers.37.linear_attn",
+            "language_model.model.layers.45.linear_attn",
+            "language_model.model.layers.53.linear_attn",
+            "language_model.model.layers.61.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.6.linear_attn",
+            "language_model.model.layers.14.linear_attn",
+            "language_model.model.layers.22.linear_attn",
+            "language_model.model.layers.30.linear_attn",
+            "language_model.model.layers.38.linear_attn",
+            "language_model.model.layers.46.linear_attn",
+            "language_model.model.layers.54.linear_attn",
+            "language_model.model.layers.62.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "last_pool_count": {
+        "time": 1793435468.2758937,
+        "free": 5615
+      },
+      "released_by_window_service_total": 0,
+      "released_by_window_memory_requests": 0,
+      "steady32": {
+        "samples": 498,
+        "pool_bytes": {
+          "min": 36641439744,
+          "median": 37103861760.0,
+          "max": 37346082816
+        },
+        "held_bytes": {
+          "min": 36641439744,
+          "median": 37103861760.0,
+          "max": 37346082816
+        },
+        "effective_layer_pages_bytes": {
+          "min": 33470545920,
+          "median": 33875165184.0,
+          "max": 34087108608
+        },
+        "group_empty_bytes": {
+          "min": 3170893824,
+          "median": 3228696576.0,
+          "max": 3258974208
+        },
+        "unattributed_deferred_blocks": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "same_group_full_counterfactual_bytes": {
+          "min": 36641439744,
+          "median": 37103861760.0,
+          "max": 37346082816
+        },
+        "reclaimed_swa_slot_bytes": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "reclaimed_swa_layer_pages_bytes": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "reclaimed_swa_empty_bytes": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "waves": {
+        "0": {
+          "start": 1793434981.2830396,
+          "end": 1793435211.7936091,
+          "stable_samples": 255,
+          "held_GiB": {
+            "samples": 255,
+            "min": 34.125,
+            "median": 34.576171875,
+            "max": 34.78125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 255,
+            "min": 31.171875,
+            "median": 31.566650390625,
+            "max": 31.74609375
+          },
+          "group_empty_GiB": {
+            "samples": 255,
+            "min": 2.953125,
+            "median": 3.009521484375,
+            "max": 3.03515625
+          }
+        },
+        "1": {
+          "start": 1793435224.1596088,
+          "end": 1793435442.9951828,
+          "stable_samples": 243,
+          "held_GiB": {
+            "samples": 243,
+            "min": 34.125,
+            "median": 34.5556640625,
+            "max": 34.78125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 243,
+            "min": 31.171875,
+            "median": 31.5487060546875,
+            "max": 31.74609375
+          },
+          "group_empty_GiB": {
+            "samples": 243,
+            "min": 2.953125,
+            "median": 3.0069580078125,
+            "max": 3.03515625
+          }
+        }
+      }
+    },
+    "reclaim8": {
+      "tag": "memory32_isocache_trained_window2048_reclaim8",
+      "num_blocks": 5616,
+      "groups": [
+        {
+          "spec": "FullAttentionSpec",
+          "layers": [
+            "language_model.model.layers.3.self_attn.attn",
+            "language_model.model.layers.11.self_attn.attn",
+            "language_model.model.layers.19.self_attn.attn",
+            "language_model.model.layers.27.self_attn.attn",
+            "language_model.model.layers.35.self_attn.attn",
+            "language_model.model.layers.43.self_attn.attn",
+            "language_model.model.layers.51.self_attn.attn",
+            "language_model.model.layers.59.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "FullAttentionSpec",
+          "layers": [
+            "language_model.model.layers.7.self_attn.attn",
+            "language_model.model.layers.15.self_attn.attn",
+            "language_model.model.layers.23.self_attn.attn",
+            "language_model.model.layers.31.self_attn.attn",
+            "language_model.model.layers.39.self_attn.attn",
+            "language_model.model.layers.47.self_attn.attn",
+            "language_model.model.layers.55.self_attn.attn",
+            "language_model.model.layers.63.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "SlidingWindowSpec",
+          "layers": [
+            "model.layers.64.self_attn.attn",
+            "model.layers.65.self_attn.attn",
+            "model.layers.66.self_attn.attn",
+            "model.layers.67.self_attn.attn",
+            "model.layers.68.self_attn.attn"
+          ],
+          "block_size": 896,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            2191,
+            2191,
+            2191,
+            2191,
+            2191
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.0.linear_attn",
+            "language_model.model.layers.8.linear_attn",
+            "language_model.model.layers.16.linear_attn",
+            "language_model.model.layers.24.linear_attn",
+            "language_model.model.layers.32.linear_attn",
+            "language_model.model.layers.40.linear_attn",
+            "language_model.model.layers.48.linear_attn",
+            "language_model.model.layers.56.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.1.linear_attn",
+            "language_model.model.layers.9.linear_attn",
+            "language_model.model.layers.17.linear_attn",
+            "language_model.model.layers.25.linear_attn",
+            "language_model.model.layers.33.linear_attn",
+            "language_model.model.layers.41.linear_attn",
+            "language_model.model.layers.49.linear_attn",
+            "language_model.model.layers.57.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.2.linear_attn",
+            "language_model.model.layers.10.linear_attn",
+            "language_model.model.layers.18.linear_attn",
+            "language_model.model.layers.26.linear_attn",
+            "language_model.model.layers.34.linear_attn",
+            "language_model.model.layers.42.linear_attn",
+            "language_model.model.layers.50.linear_attn",
+            "language_model.model.layers.58.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.4.linear_attn",
+            "language_model.model.layers.12.linear_attn",
+            "language_model.model.layers.20.linear_attn",
+            "language_model.model.layers.28.linear_attn",
+            "language_model.model.layers.36.linear_attn",
+            "language_model.model.layers.44.linear_attn",
+            "language_model.model.layers.52.linear_attn",
+            "language_model.model.layers.60.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.5.linear_attn",
+            "language_model.model.layers.13.linear_attn",
+            "language_model.model.layers.21.linear_attn",
+            "language_model.model.layers.29.linear_attn",
+            "language_model.model.layers.37.linear_attn",
+            "language_model.model.layers.45.linear_attn",
+            "language_model.model.layers.53.linear_attn",
+            "language_model.model.layers.61.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "spec": "MambaSpec",
+          "layers": [
+            "language_model.model.layers.6.linear_attn",
+            "language_model.model.layers.14.linear_attn",
+            "language_model.model.layers.22.linear_attn",
+            "language_model.model.layers.30.linear_attn",
+            "language_model.model.layers.38.linear_attn",
+            "language_model.model.layers.46.linear_attn",
+            "language_model.model.layers.54.linear_attn",
+            "language_model.model.layers.62.linear_attn"
+          ],
+          "block_size": 32768,
+          "pages": [
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504,
+            917504
+          ],
+          "retention": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "last_pool_count": {
+        "time": 1793436534.2579582,
+        "free": 5615
+      },
+      "released_by_window_service_total": 2273,
+      "released_by_window_memory_requests": 2176,
+      "steady32": {
+        "samples": 480,
+        "pool_bytes": {
+          "min": 28890365952,
+          "median": 29308747776.0,
+          "max": 29595009024
+        },
+        "held_bytes": {
+          "min": 28890365952,
+          "median": 29308747776.0,
+          "max": 29595009024
+        },
+        "effective_layer_pages_bytes": {
+          "min": 28626124800,
+          "median": 28992208896.0,
+          "max": 29242687488
+        },
+        "group_empty_bytes": {
+          "min": 264241152,
+          "median": 316538880.0,
+          "max": 352321536
+        },
+        "unattributed_deferred_blocks": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "same_group_full_counterfactual_bytes": {
+          "min": 36641439744,
+          "median": 37059821568.0,
+          "max": 37346082816
+        },
+        "reclaimed_swa_slot_bytes": {
+          "min": 7743733760,
+          "median": 7751073792.0,
+          "max": 7802454016
+        },
+        "reclaimed_swa_layer_pages_bytes": {
+          "min": 4839833600,
+          "median": 4844421120.0,
+          "max": 4876533760
+        },
+        "reclaimed_swa_empty_bytes": {
+          "min": 2903900160,
+          "median": 2906652672.0,
+          "max": 2925920256
+        }
+      },
+      "waves": {
+        "0": {
+          "start": 1793436043.1179366,
+          "end": 1793436271.3545573,
+          "stable_samples": 241,
+          "held_GiB": {
+            "samples": 241,
+            "min": 26.90625,
+            "median": 27.31640625,
+            "max": 27.5625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 241,
+            "min": 26.66015625,
+            "median": 27.01904296875,
+            "max": 27.234375
+          },
+          "group_empty_GiB": {
+            "samples": 241,
+            "min": 0.24609375,
+            "median": 0.29736328125,
+            "max": 0.328125
+          }
+        },
+        "1": {
+          "start": 1793436283.664274,
+          "end": 1793436508.6726909,
+          "stable_samples": 239,
+          "held_GiB": {
+            "samples": 239,
+            "min": 26.90625,
+            "median": 27.275390625,
+            "max": 27.5625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 239,
+            "min": 26.66015625,
+            "median": 26.983154296875,
+            "max": 27.234375
+          },
+          "group_empty_GiB": {
+            "samples": 239,
+            "min": 0.24609375,
+            "median": 0.292236328125,
+            "max": 0.328125
+          }
+        }
+      }
+    }
+  },
+  "matched_states": [
+    {
+      "target_full_columns": 1152,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 88,
+            "min": 34.453125,
+            "median": 34.453125,
+            "max": 34.453125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 88,
+            "min": 31.171875,
+            "median": 31.171875,
+            "max": 31.171875
+          },
+          "group_empty_GiB": {
+            "samples": 88,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 94,
+            "min": 34.125,
+            "median": 34.125,
+            "max": 34.125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 94,
+            "min": 31.171875,
+            "median": 31.171875,
+            "max": 31.171875
+          },
+          "group_empty_GiB": {
+            "samples": 94,
+            "min": 2.953125,
+            "median": 2.953125,
+            "max": 2.953125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 66,
+            "min": 26.90625,
+            "median": 26.90625,
+            "max": 26.9130859375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 66,
+            "min": 26.66015625,
+            "median": 26.66015625,
+            "max": 26.6644287109375
+          },
+          "group_empty_GiB": {
+            "samples": 66,
+            "min": 0.24609375,
+            "median": 0.24609375,
+            "max": 0.2486572265625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.328125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 66,
+        "min": 7.2119140625,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 66,
+        "min": 7.5400390625,
+        "median": 7.546875,
+        "max": 7.546875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 66,
+        "min": 4.5074462890625,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 66,
+        "min": 3.0325927734375,
+        "median": 3.03515625,
+        "max": 3.03515625
+      }
+    },
+    {
+      "target_full_columns": 1153,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 34.4710693359375,
+            "median": 34.4710693359375,
+            "max": 34.4710693359375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 31.1898193359375,
+            "median": 31.1898193359375,
+            "max": 31.1898193359375
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 34.1455078125,
+            "median": 34.1455078125,
+            "max": 34.1455078125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 31.1898193359375,
+            "median": 31.1898193359375,
+            "max": 31.1898193359375
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 2.9556884765625,
+            "median": 2.9556884765625,
+            "max": 2.9556884765625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 32,
+            "min": 26.9267578125,
+            "median": 26.9267578125,
+            "max": 26.9267578125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 32,
+            "min": 26.6781005859375,
+            "median": 26.6781005859375,
+            "max": 26.6781005859375
+          },
+          "group_empty_GiB": {
+            "samples": 32,
+            "min": 0.2486572265625,
+            "median": 0.2486572265625,
+            "max": 0.2486572265625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.3255615234375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 32,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 32,
+        "min": 7.5443115234375,
+        "median": 7.5443115234375,
+        "max": 7.5443115234375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 32,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 32,
+        "min": 3.0325927734375,
+        "median": 3.0325927734375,
+        "max": 3.0325927734375
+      }
+    },
+    {
+      "target_full_columns": 1154,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 1,
+            "min": 34.489013671875,
+            "median": 34.489013671875,
+            "max": 34.489013671875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 1,
+            "min": 31.207763671875,
+            "median": 31.207763671875,
+            "max": 31.207763671875
+          },
+          "group_empty_GiB": {
+            "samples": 1,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 34.166015625,
+            "median": 34.166015625,
+            "max": 34.166015625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 31.207763671875,
+            "median": 31.207763671875,
+            "max": 31.207763671875
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 2.958251953125,
+            "median": 2.958251953125,
+            "max": 2.958251953125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 13,
+            "min": 26.947265625,
+            "median": 26.947265625,
+            "max": 26.947265625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 13,
+            "min": 26.696044921875,
+            "median": 26.696044921875,
+            "max": 26.696044921875
+          },
+          "group_empty_GiB": {
+            "samples": 13,
+            "min": 0.251220703125,
+            "median": 0.251220703125,
+            "max": 0.251220703125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.322998046875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 13,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 13,
+        "min": 7.541748046875,
+        "median": 7.541748046875,
+        "max": 7.541748046875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 13,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 13,
+        "min": 3.030029296875,
+        "median": 3.030029296875,
+        "max": 3.030029296875
+      }
+    },
+    {
+      "target_full_columns": 1155,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 25,
+            "min": 34.5069580078125,
+            "median": 34.5069580078125,
+            "max": 34.5069580078125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 25,
+            "min": 31.2257080078125,
+            "median": 31.2257080078125,
+            "max": 31.2257080078125
+          },
+          "group_empty_GiB": {
+            "samples": 25,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 6,
+            "min": 34.1865234375,
+            "median": 34.1865234375,
+            "max": 34.1865234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 6,
+            "min": 31.2257080078125,
+            "median": 31.2257080078125,
+            "max": 31.2257080078125
+          },
+          "group_empty_GiB": {
+            "samples": 6,
+            "min": 2.9608154296875,
+            "median": 2.9608154296875,
+            "max": 2.9608154296875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 2,
+            "min": 26.9677734375,
+            "median": 26.9677734375,
+            "max": 26.9677734375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 2,
+            "min": 26.7139892578125,
+            "median": 26.7139892578125,
+            "max": 26.7139892578125
+          },
+          "group_empty_GiB": {
+            "samples": 2,
+            "min": 0.2537841796875,
+            "median": 0.2537841796875,
+            "max": 0.2537841796875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.3204345703125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 2,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 2,
+        "min": 7.5391845703125,
+        "median": 7.5391845703125,
+        "max": 7.5391845703125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 2,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 2,
+        "min": 3.0274658203125,
+        "median": 3.0274658203125,
+        "max": 3.0274658203125
+      }
+    },
+    {
+      "target_full_columns": 1156,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 2,
+            "min": 34.52490234375,
+            "median": 34.52490234375,
+            "max": 34.52490234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 2,
+            "min": 31.24365234375,
+            "median": 31.24365234375,
+            "max": 31.24365234375
+          },
+          "group_empty_GiB": {
+            "samples": 2,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.20703125,
+            "median": 34.20703125,
+            "max": 34.20703125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.24365234375,
+            "median": 31.24365234375,
+            "max": 31.24365234375
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 2.96337890625,
+            "median": 2.96337890625,
+            "max": 2.96337890625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 11,
+            "min": 26.98828125,
+            "median": 26.98828125,
+            "max": 26.98828125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 11,
+            "min": 26.73193359375,
+            "median": 26.73193359375,
+            "max": 26.73193359375
+          },
+          "group_empty_GiB": {
+            "samples": 11,
+            "min": 0.25634765625,
+            "median": 0.25634765625,
+            "max": 0.25634765625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.31787109375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 11,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 11,
+        "min": 7.53662109375,
+        "median": 7.53662109375,
+        "max": 7.53662109375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 11,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 11,
+        "min": 3.02490234375,
+        "median": 3.02490234375,
+        "max": 3.02490234375
+      }
+    },
+    {
+      "target_full_columns": 1157,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 9,
+            "min": 34.5428466796875,
+            "median": 34.5428466796875,
+            "max": 34.5428466796875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 9,
+            "min": 31.2615966796875,
+            "median": 31.2615966796875,
+            "max": 31.2615966796875
+          },
+          "group_empty_GiB": {
+            "samples": 9,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 20,
+            "min": 34.2275390625,
+            "median": 34.2275390625,
+            "max": 34.2275390625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 20,
+            "min": 31.2615966796875,
+            "median": 31.2615966796875,
+            "max": 31.2615966796875
+          },
+          "group_empty_GiB": {
+            "samples": 20,
+            "min": 2.9659423828125,
+            "median": 2.9659423828125,
+            "max": 2.9659423828125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 9,
+            "min": 27.0087890625,
+            "median": 27.0087890625,
+            "max": 27.0087890625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 9,
+            "min": 26.7498779296875,
+            "median": 26.7498779296875,
+            "max": 26.7498779296875
+          },
+          "group_empty_GiB": {
+            "samples": 9,
+            "min": 0.2589111328125,
+            "median": 0.2589111328125,
+            "max": 0.2589111328125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.3153076171875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 9,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 9,
+        "min": 7.5340576171875,
+        "median": 7.5340576171875,
+        "max": 7.5340576171875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 9,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 9,
+        "min": 3.0223388671875,
+        "median": 3.0223388671875,
+        "max": 3.0223388671875
+      }
+    },
+    {
+      "target_full_columns": 1158,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 18,
+            "min": 34.560791015625,
+            "median": 34.560791015625,
+            "max": 34.560791015625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 18,
+            "min": 31.279541015625,
+            "median": 31.279541015625,
+            "max": 31.279541015625
+          },
+          "group_empty_GiB": {
+            "samples": 18,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.248046875,
+            "median": 34.248046875,
+            "max": 34.248046875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.279541015625,
+            "median": 31.279541015625,
+            "max": 31.279541015625
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 2.968505859375,
+            "median": 2.968505859375,
+            "max": 2.968505859375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 27.029296875,
+            "median": 27.029296875,
+            "max": 27.029296875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 26.767822265625,
+            "median": 26.767822265625,
+            "max": 26.767822265625
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 0.261474609375,
+            "median": 0.261474609375,
+            "max": 0.261474609375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.312744140625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 4,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 4,
+        "min": 7.531494140625,
+        "median": 7.531494140625,
+        "max": 7.531494140625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 4,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 4,
+        "min": 3.019775390625,
+        "median": 3.019775390625,
+        "max": 3.019775390625
+      }
+    },
+    {
+      "target_full_columns": 1159,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 34.5787353515625,
+            "median": 34.5787353515625,
+            "max": 34.5787353515625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 31.2974853515625,
+            "median": 31.2974853515625,
+            "max": 31.2974853515625
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 9,
+            "min": 34.2685546875,
+            "median": 34.2685546875,
+            "max": 34.2685546875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 9,
+            "min": 31.2974853515625,
+            "median": 31.2974853515625,
+            "max": 31.2974853515625
+          },
+          "group_empty_GiB": {
+            "samples": 9,
+            "min": 2.9710693359375,
+            "median": 2.9710693359375,
+            "max": 2.9710693359375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 27.0498046875,
+            "median": 27.0498046875,
+            "max": 27.0498046875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 26.7857666015625,
+            "median": 26.7857666015625,
+            "max": 26.7857666015625
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 0.2640380859375,
+            "median": 0.2640380859375,
+            "max": 0.2640380859375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.3101806640625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 10,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 10,
+        "min": 7.5289306640625,
+        "median": 7.5289306640625,
+        "max": 7.5289306640625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 10,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 10,
+        "min": 3.0172119140625,
+        "median": 3.0172119140625,
+        "max": 3.0172119140625
+      }
+    },
+    {
+      "target_full_columns": 1160,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 34.5966796875,
+            "median": 34.5966796875,
+            "max": 34.5966796875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 31.3154296875,
+            "median": 31.3154296875,
+            "max": 31.3154296875
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 1,
+            "min": 34.2890625,
+            "median": 34.2890625,
+            "max": 34.2890625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 1,
+            "min": 31.3154296875,
+            "median": 31.3154296875,
+            "max": 31.3154296875
+          },
+          "group_empty_GiB": {
+            "samples": 1,
+            "min": 2.9736328125,
+            "median": 2.9736328125,
+            "max": 2.9736328125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 17,
+            "min": 27.0703125,
+            "median": 27.0703125,
+            "max": 27.0703125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 17,
+            "min": 26.8037109375,
+            "median": 26.8037109375,
+            "max": 26.8037109375
+          },
+          "group_empty_GiB": {
+            "samples": 17,
+            "min": 0.2666015625,
+            "median": 0.2666015625,
+            "max": 0.2666015625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.3076171875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 17,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 17,
+        "min": 7.5263671875,
+        "median": 7.5263671875,
+        "max": 7.5263671875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 17,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 17,
+        "min": 3.0146484375,
+        "median": 3.0146484375,
+        "max": 3.0146484375
+      }
+    },
+    {
+      "target_full_columns": 1161,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 34.6146240234375,
+            "median": 34.6146240234375,
+            "max": 34.6146240234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 31.3333740234375,
+            "median": 31.3333740234375,
+            "max": 31.3333740234375
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 2,
+            "min": 34.3095703125,
+            "median": 34.3095703125,
+            "max": 34.3095703125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 2,
+            "min": 31.3333740234375,
+            "median": 31.3333740234375,
+            "max": 31.3333740234375
+          },
+          "group_empty_GiB": {
+            "samples": 2,
+            "min": 2.9761962890625,
+            "median": 2.9761962890625,
+            "max": 2.9761962890625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 27.0908203125,
+            "median": 27.0908203125,
+            "max": 27.0908203125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 26.8216552734375,
+            "median": 26.8216552734375,
+            "max": 26.8216552734375
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 0.2691650390625,
+            "median": 0.2691650390625,
+            "max": 0.2691650390625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.3050537109375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 5,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 5,
+        "min": 7.5238037109375,
+        "median": 7.5238037109375,
+        "max": 7.5238037109375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 5,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 5,
+        "min": 3.0120849609375,
+        "median": 3.0120849609375,
+        "max": 3.0120849609375
+      }
+    },
+    {
+      "target_full_columns": 1162,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.632568359375,
+            "median": 34.632568359375,
+            "max": 34.632568359375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.351318359375,
+            "median": 31.351318359375,
+            "max": 31.351318359375
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 17,
+            "min": 34.330078125,
+            "median": 34.330078125,
+            "max": 34.330078125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 17,
+            "min": 31.351318359375,
+            "median": 31.351318359375,
+            "max": 31.351318359375
+          },
+          "group_empty_GiB": {
+            "samples": 17,
+            "min": 2.978759765625,
+            "median": 2.978759765625,
+            "max": 2.978759765625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 13,
+            "min": 27.111328125,
+            "median": 27.111328125,
+            "max": 27.111328125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 13,
+            "min": 26.839599609375,
+            "median": 26.839599609375,
+            "max": 26.839599609375
+          },
+          "group_empty_GiB": {
+            "samples": 13,
+            "min": 0.271728515625,
+            "median": 0.271728515625,
+            "max": 0.271728515625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.302490234375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 13,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 13,
+        "min": 7.521240234375,
+        "median": 7.521240234375,
+        "max": 7.521240234375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 13,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 13,
+        "min": 3.009521484375,
+        "median": 3.009521484375,
+        "max": 3.009521484375
+      }
+    },
+    {
+      "target_full_columns": 1163,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 34.6505126953125,
+            "median": 34.6505126953125,
+            "max": 34.6505126953125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 31.3692626953125,
+            "median": 31.3692626953125,
+            "max": 31.3692626953125
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 34.3505859375,
+            "median": 34.3505859375,
+            "max": 34.3505859375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 31.3692626953125,
+            "median": 31.3692626953125,
+            "max": 31.3692626953125
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 2.9813232421875,
+            "median": 2.9813232421875,
+            "max": 2.9813232421875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 27.1318359375,
+            "median": 27.1318359375,
+            "max": 27.1318359375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 26.8575439453125,
+            "median": 26.8575439453125,
+            "max": 26.8575439453125
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 0.2742919921875,
+            "median": 0.2742919921875,
+            "max": 0.2742919921875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2999267578125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 5,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 5,
+        "min": 7.5186767578125,
+        "median": 7.5186767578125,
+        "max": 7.5186767578125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 5,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 5,
+        "min": 3.0069580078125,
+        "median": 3.0069580078125,
+        "max": 3.0069580078125
+      }
+    },
+    {
+      "target_full_columns": 1164,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.66845703125,
+            "median": 34.66845703125,
+            "max": 34.66845703125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.38720703125,
+            "median": 31.38720703125,
+            "max": 31.38720703125
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 16,
+            "min": 34.37109375,
+            "median": 34.37109375,
+            "max": 34.37109375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 16,
+            "min": 31.38720703125,
+            "median": 31.38720703125,
+            "max": 31.38720703125
+          },
+          "group_empty_GiB": {
+            "samples": 16,
+            "min": 2.98388671875,
+            "median": 2.98388671875,
+            "max": 2.98388671875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 27.15234375,
+            "median": 27.15234375,
+            "max": 27.15234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 26.87548828125,
+            "median": 26.87548828125,
+            "max": 26.87548828125
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 0.27685546875,
+            "median": 0.27685546875,
+            "max": 0.27685546875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.29736328125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 7,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 7,
+        "min": 7.51611328125,
+        "median": 7.51611328125,
+        "max": 7.51611328125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 7,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 7,
+        "min": 3.00439453125,
+        "median": 3.00439453125,
+        "max": 3.00439453125
+      }
+    },
+    {
+      "target_full_columns": 1165,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 6,
+            "min": 34.6864013671875,
+            "median": 34.6864013671875,
+            "max": 34.6864013671875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 6,
+            "min": 31.4051513671875,
+            "median": 31.4051513671875,
+            "max": 31.4051513671875
+          },
+          "group_empty_GiB": {
+            "samples": 6,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 1,
+            "min": 34.3916015625,
+            "median": 34.3916015625,
+            "max": 34.3916015625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 1,
+            "min": 31.4051513671875,
+            "median": 31.4051513671875,
+            "max": 31.4051513671875
+          },
+          "group_empty_GiB": {
+            "samples": 1,
+            "min": 2.9864501953125,
+            "median": 2.9864501953125,
+            "max": 2.9864501953125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 27.1728515625,
+            "median": 27.1728515625,
+            "max": 27.1728515625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 26.8934326171875,
+            "median": 26.8934326171875,
+            "max": 26.8934326171875
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 0.2794189453125,
+            "median": 0.2794189453125,
+            "max": 0.2794189453125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2947998046875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 4,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 4,
+        "min": 7.5135498046875,
+        "median": 7.5135498046875,
+        "max": 7.5135498046875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 4,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 4,
+        "min": 3.0018310546875,
+        "median": 3.0018310546875,
+        "max": 3.0018310546875
+      }
+    },
+    {
+      "target_full_columns": 1166,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 12,
+            "min": 34.704345703125,
+            "median": 34.704345703125,
+            "max": 34.704345703125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 12,
+            "min": 31.423095703125,
+            "median": 31.423095703125,
+            "max": 31.423095703125
+          },
+          "group_empty_GiB": {
+            "samples": 12,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 34.412109375,
+            "median": 34.412109375,
+            "max": 34.412109375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 31.423095703125,
+            "median": 31.423095703125,
+            "max": 31.423095703125
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 2.989013671875,
+            "median": 2.989013671875,
+            "max": 2.989013671875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 27.193359375,
+            "median": 27.193359375,
+            "max": 27.193359375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 26.911376953125,
+            "median": 26.911376953125,
+            "max": 26.911376953125
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 0.281982421875,
+            "median": 0.281982421875,
+            "max": 0.281982421875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.292236328125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 4,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 4,
+        "min": 7.510986328125,
+        "median": 7.510986328125,
+        "max": 7.510986328125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 4,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 4,
+        "min": 2.999267578125,
+        "median": 2.999267578125,
+        "max": 2.999267578125
+      }
+    },
+    {
+      "target_full_columns": 1167,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 22,
+            "min": 34.7222900390625,
+            "median": 34.7222900390625,
+            "max": 34.7222900390625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 22,
+            "min": 31.4410400390625,
+            "median": 31.4410400390625,
+            "max": 31.4410400390625
+          },
+          "group_empty_GiB": {
+            "samples": 22,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 13,
+            "min": 34.4326171875,
+            "median": 34.4326171875,
+            "max": 34.4326171875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 13,
+            "min": 31.4410400390625,
+            "median": 31.4410400390625,
+            "max": 31.4410400390625
+          },
+          "group_empty_GiB": {
+            "samples": 13,
+            "min": 2.9915771484375,
+            "median": 2.9915771484375,
+            "max": 2.9915771484375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 2,
+            "min": 27.2138671875,
+            "median": 27.2138671875,
+            "max": 27.2138671875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 2,
+            "min": 26.9293212890625,
+            "median": 26.9293212890625,
+            "max": 26.9293212890625
+          },
+          "group_empty_GiB": {
+            "samples": 2,
+            "min": 0.2845458984375,
+            "median": 0.2845458984375,
+            "max": 0.2845458984375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2896728515625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 2,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 2,
+        "min": 7.5084228515625,
+        "median": 7.5084228515625,
+        "max": 7.5084228515625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 2,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 2,
+        "min": 2.9967041015625,
+        "median": 2.9967041015625,
+        "max": 2.9967041015625
+      }
+    },
+    {
+      "target_full_columns": 1168,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 34.740234375,
+            "median": 34.740234375,
+            "max": 34.740234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 31.458984375,
+            "median": 31.458984375,
+            "max": 31.458984375
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.453125,
+            "median": 34.453125,
+            "max": 34.453125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.458984375,
+            "median": 31.458984375,
+            "max": 31.458984375
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 2.994140625,
+            "median": 2.994140625,
+            "max": 2.994140625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 27.234375,
+            "median": 27.234375,
+            "max": 27.234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 26.947265625,
+            "median": 26.947265625,
+            "max": 26.947265625
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 0.287109375,
+            "median": 0.287109375,
+            "max": 0.287109375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.287109375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 10,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 10,
+        "min": 7.505859375,
+        "median": 7.505859375,
+        "max": 7.505859375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 10,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 10,
+        "min": 2.994140625,
+        "median": 2.994140625,
+        "max": 2.994140625
+      }
+    },
+    {
+      "target_full_columns": 1169,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 34.7581787109375,
+            "median": 34.7581787109375,
+            "max": 34.7581787109375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 31.4769287109375,
+            "median": 31.4769287109375,
+            "max": 31.4769287109375
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 34.4736328125,
+            "median": 34.4736328125,
+            "max": 34.4736328125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 31.4769287109375,
+            "median": 31.4769287109375,
+            "max": 31.4769287109375
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 2.9967041015625,
+            "median": 2.9967041015625,
+            "max": 2.9967041015625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 27.2548828125,
+            "median": 27.2548828125,
+            "max": 27.2548828125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 26.9652099609375,
+            "median": 26.9652099609375,
+            "max": 26.9652099609375
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 0.2896728515625,
+            "median": 0.2896728515625,
+            "max": 0.2896728515625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2845458984375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 5,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 5,
+        "min": 7.5032958984375,
+        "median": 7.5032958984375,
+        "max": 7.5032958984375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 5,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 5,
+        "min": 2.9915771484375,
+        "median": 2.9915771484375,
+        "max": 2.9915771484375
+      }
+    },
+    {
+      "target_full_columns": 1170,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 34.776123046875,
+            "median": 34.776123046875,
+            "max": 34.776123046875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 31.494873046875,
+            "median": 31.494873046875,
+            "max": 31.494873046875
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 13,
+            "min": 34.494140625,
+            "median": 34.494140625,
+            "max": 34.494140625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 13,
+            "min": 31.494873046875,
+            "median": 31.494873046875,
+            "max": 31.494873046875
+          },
+          "group_empty_GiB": {
+            "samples": 13,
+            "min": 2.999267578125,
+            "median": 2.999267578125,
+            "max": 2.999267578125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 20,
+            "min": 27.275390625,
+            "median": 27.275390625,
+            "max": 27.275390625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 20,
+            "min": 26.983154296875,
+            "median": 26.983154296875,
+            "max": 26.983154296875
+          },
+          "group_empty_GiB": {
+            "samples": 20,
+            "min": 0.292236328125,
+            "median": 0.292236328125,
+            "max": 0.292236328125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.281982421875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 20,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 20,
+        "min": 7.500732421875,
+        "median": 7.500732421875,
+        "max": 7.500732421875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 20,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 20,
+        "min": 2.989013671875,
+        "median": 2.989013671875,
+        "max": 2.989013671875
+      }
+    },
+    {
+      "target_full_columns": 1171,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 34.7940673828125,
+            "median": 34.7940673828125,
+            "max": 34.7940673828125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 31.5128173828125,
+            "median": 31.5128173828125,
+            "max": 31.5128173828125
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 1,
+            "min": 34.5146484375,
+            "median": 34.5146484375,
+            "max": 34.5146484375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 1,
+            "min": 31.5128173828125,
+            "median": 31.5128173828125,
+            "max": 31.5128173828125
+          },
+          "group_empty_GiB": {
+            "samples": 1,
+            "min": 3.0018310546875,
+            "median": 3.0018310546875,
+            "max": 3.0018310546875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 27.2958984375,
+            "median": 27.2958984375,
+            "max": 27.2958984375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 27.0010986328125,
+            "median": 27.0010986328125,
+            "max": 27.0010986328125
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 0.2947998046875,
+            "median": 0.2947998046875,
+            "max": 0.2947998046875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2794189453125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 3,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 3,
+        "min": 7.4981689453125,
+        "median": 7.4981689453125,
+        "max": 7.4981689453125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 3,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 3,
+        "min": 2.9864501953125,
+        "median": 2.9864501953125,
+        "max": 2.9864501953125
+      }
+    },
+    {
+      "target_full_columns": 1172,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 12,
+            "min": 34.81201171875,
+            "median": 34.81201171875,
+            "max": 34.81201171875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 12,
+            "min": 31.53076171875,
+            "median": 31.53076171875,
+            "max": 31.53076171875
+          },
+          "group_empty_GiB": {
+            "samples": 12,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 6,
+            "min": 34.53515625,
+            "median": 34.53515625,
+            "max": 34.53515625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 6,
+            "min": 31.53076171875,
+            "median": 31.53076171875,
+            "max": 31.53076171875
+          },
+          "group_empty_GiB": {
+            "samples": 6,
+            "min": 3.00439453125,
+            "median": 3.00439453125,
+            "max": 3.00439453125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 11,
+            "min": 27.31640625,
+            "median": 27.31640625,
+            "max": 27.31640625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 11,
+            "min": 27.01904296875,
+            "median": 27.01904296875,
+            "max": 27.01904296875
+          },
+          "group_empty_GiB": {
+            "samples": 11,
+            "min": 0.29736328125,
+            "median": 0.29736328125,
+            "max": 0.29736328125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.27685546875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 11,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 11,
+        "min": 7.49560546875,
+        "median": 7.49560546875,
+        "max": 7.49560546875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 11,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 11,
+        "min": 2.98388671875,
+        "median": 2.98388671875,
+        "max": 2.98388671875
+      }
+    },
+    {
+      "target_full_columns": 1173,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.8299560546875,
+            "median": 34.8299560546875,
+            "max": 34.8299560546875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.5487060546875,
+            "median": 31.5487060546875,
+            "max": 31.5487060546875
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 14,
+            "min": 34.5556640625,
+            "median": 34.5556640625,
+            "max": 34.5556640625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 14,
+            "min": 31.5487060546875,
+            "median": 31.5487060546875,
+            "max": 31.5487060546875
+          },
+          "group_empty_GiB": {
+            "samples": 14,
+            "min": 3.0069580078125,
+            "median": 3.0069580078125,
+            "max": 3.0069580078125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 27.3369140625,
+            "median": 27.3369140625,
+            "max": 27.3369140625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 27.0369873046875,
+            "median": 27.0369873046875,
+            "max": 27.0369873046875
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 0.2999267578125,
+            "median": 0.2999267578125,
+            "max": 0.2999267578125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2742919921875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 5,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 5,
+        "min": 7.4930419921875,
+        "median": 7.4930419921875,
+        "max": 7.4930419921875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 5,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 5,
+        "min": 2.9813232421875,
+        "median": 2.9813232421875,
+        "max": 2.9813232421875
+      }
+    },
+    {
+      "target_full_columns": 1174,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 34.847900390625,
+            "median": 34.847900390625,
+            "max": 34.847900390625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 31.566650390625,
+            "median": 31.566650390625,
+            "max": 31.566650390625
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 34.576171875,
+            "median": 34.576171875,
+            "max": 34.576171875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 31.566650390625,
+            "median": 31.566650390625,
+            "max": 31.566650390625
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 3.009521484375,
+            "median": 3.009521484375,
+            "max": 3.009521484375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 18,
+            "min": 27.357421875,
+            "median": 27.357421875,
+            "max": 27.357421875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 18,
+            "min": 27.054931640625,
+            "median": 27.054931640625,
+            "max": 27.054931640625
+          },
+          "group_empty_GiB": {
+            "samples": 18,
+            "min": 0.302490234375,
+            "median": 0.302490234375,
+            "max": 0.302490234375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.271728515625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 18,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 18,
+        "min": 7.490478515625,
+        "median": 7.490478515625,
+        "max": 7.490478515625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 18,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 18,
+        "min": 2.978759765625,
+        "median": 2.978759765625,
+        "max": 2.978759765625
+      }
+    },
+    {
+      "target_full_columns": 1175,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 34.8658447265625,
+            "median": 34.8658447265625,
+            "max": 34.8658447265625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 31.5845947265625,
+            "median": 31.5845947265625,
+            "max": 31.5845947265625
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 34.5966796875,
+            "median": 34.5966796875,
+            "max": 34.5966796875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 31.5845947265625,
+            "median": 31.5845947265625,
+            "max": 31.5845947265625
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 3.0120849609375,
+            "median": 3.0120849609375,
+            "max": 3.0120849609375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 27.3779296875,
+            "median": 27.3779296875,
+            "max": 27.3779296875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 27.0728759765625,
+            "median": 27.0728759765625,
+            "max": 27.0728759765625
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 0.3050537109375,
+            "median": 0.3050537109375,
+            "max": 0.3050537109375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2691650390625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 10,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 10,
+        "min": 7.4879150390625,
+        "median": 7.4879150390625,
+        "max": 7.4879150390625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 10,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 10,
+        "min": 2.9761962890625,
+        "median": 2.9761962890625,
+        "max": 2.9761962890625
+      }
+    },
+    {
+      "target_full_columns": 1176,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 15,
+            "min": 34.8837890625,
+            "median": 34.8837890625,
+            "max": 34.8837890625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 15,
+            "min": 31.6025390625,
+            "median": 31.6025390625,
+            "max": 31.6025390625
+          },
+          "group_empty_GiB": {
+            "samples": 15,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 1,
+            "min": 34.6171875,
+            "median": 34.6171875,
+            "max": 34.6171875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 1,
+            "min": 31.6025390625,
+            "median": 31.6025390625,
+            "max": 31.6025390625
+          },
+          "group_empty_GiB": {
+            "samples": 1,
+            "min": 3.0146484375,
+            "median": 3.0146484375,
+            "max": 3.0146484375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 27.3984375,
+            "median": 27.3984375,
+            "max": 27.3984375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 27.0908203125,
+            "median": 27.0908203125,
+            "max": 27.0908203125
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 0.3076171875,
+            "median": 0.3076171875,
+            "max": 0.3076171875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2666015625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 4,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 4,
+        "min": 7.4853515625,
+        "median": 7.4853515625,
+        "max": 7.4853515625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 4,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 4,
+        "min": 2.9736328125,
+        "median": 2.9736328125,
+        "max": 2.9736328125
+      }
+    },
+    {
+      "target_full_columns": 1177,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 10,
+            "min": 34.9017333984375,
+            "median": 34.9017333984375,
+            "max": 34.9017333984375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 10,
+            "min": 31.6204833984375,
+            "median": 31.6204833984375,
+            "max": 31.6204833984375
+          },
+          "group_empty_GiB": {
+            "samples": 10,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 4,
+            "min": 34.6376953125,
+            "median": 34.6376953125,
+            "max": 34.6376953125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 4,
+            "min": 31.6204833984375,
+            "median": 31.6204833984375,
+            "max": 31.6204833984375
+          },
+          "group_empty_GiB": {
+            "samples": 4,
+            "min": 3.0172119140625,
+            "median": 3.0172119140625,
+            "max": 3.0172119140625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 27.4189453125,
+            "median": 27.4189453125,
+            "max": 27.4189453125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 27.1087646484375,
+            "median": 27.1087646484375,
+            "max": 27.1087646484375
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 0.3101806640625,
+            "median": 0.3101806640625,
+            "max": 0.3101806640625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2640380859375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 3,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 3,
+        "min": 7.4827880859375,
+        "median": 7.4827880859375,
+        "max": 7.4827880859375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 3,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 3,
+        "min": 2.9710693359375,
+        "median": 2.9710693359375,
+        "max": 2.9710693359375
+      }
+    },
+    {
+      "target_full_columns": 1178,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 34.919677734375,
+            "median": 34.919677734375,
+            "max": 34.919677734375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 31.638427734375,
+            "median": 31.638427734375,
+            "max": 31.638427734375
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 13,
+            "min": 34.658203125,
+            "median": 34.658203125,
+            "max": 34.658203125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 13,
+            "min": 31.638427734375,
+            "median": 31.638427734375,
+            "max": 31.638427734375
+          },
+          "group_empty_GiB": {
+            "samples": 13,
+            "min": 3.019775390625,
+            "median": 3.019775390625,
+            "max": 3.019775390625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 3,
+            "min": 27.439453125,
+            "median": 27.439453125,
+            "max": 27.439453125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 3,
+            "min": 27.126708984375,
+            "median": 27.126708984375,
+            "max": 27.126708984375
+          },
+          "group_empty_GiB": {
+            "samples": 3,
+            "min": 0.312744140625,
+            "median": 0.312744140625,
+            "max": 0.312744140625
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.261474609375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 3,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 3,
+        "min": 7.480224609375,
+        "median": 7.480224609375,
+        "max": 7.480224609375
+      },
+      "effective_page_saving_GiB": {
+        "samples": 3,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 3,
+        "min": 2.968505859375,
+        "median": 2.968505859375,
+        "max": 2.968505859375
+      }
+    },
+    {
+      "target_full_columns": 1179,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 34.9376220703125,
+            "median": 34.9376220703125,
+            "max": 34.9376220703125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 31.6563720703125,
+            "median": 31.6563720703125,
+            "max": 31.6563720703125
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 29,
+            "min": 34.6787109375,
+            "median": 34.6787109375,
+            "max": 34.6787109375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 29,
+            "min": 31.6563720703125,
+            "median": 31.6563720703125,
+            "max": 31.6563720703125
+          },
+          "group_empty_GiB": {
+            "samples": 29,
+            "min": 3.0223388671875,
+            "median": 3.0223388671875,
+            "max": 3.0223388671875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 27.4599609375,
+            "median": 27.4599609375,
+            "max": 27.4599609375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 27.1446533203125,
+            "median": 27.1446533203125,
+            "max": 27.1446533203125
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 0.3153076171875,
+            "median": 0.3153076171875,
+            "max": 0.3153076171875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2589111328125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 8,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 8,
+        "min": 7.4776611328125,
+        "median": 7.4776611328125,
+        "max": 7.4776611328125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 8,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 8,
+        "min": 2.9659423828125,
+        "median": 2.9659423828125,
+        "max": 2.9659423828125
+      }
+    },
+    {
+      "target_full_columns": 1180,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 34.95556640625,
+            "median": 34.95556640625,
+            "max": 34.95556640625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 31.67431640625,
+            "median": 31.67431640625,
+            "max": 31.67431640625
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 5,
+            "min": 34.69921875,
+            "median": 34.69921875,
+            "max": 34.69921875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 5,
+            "min": 31.67431640625,
+            "median": 31.67431640625,
+            "max": 31.67431640625
+          },
+          "group_empty_GiB": {
+            "samples": 5,
+            "min": 3.02490234375,
+            "median": 3.02490234375,
+            "max": 3.02490234375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 27.48046875,
+            "median": 27.48046875,
+            "max": 27.48046875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 27.16259765625,
+            "median": 27.16259765625,
+            "max": 27.16259765625
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 0.31787109375,
+            "median": 0.31787109375,
+            "max": 0.31787109375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.25634765625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 7,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 7,
+        "min": 7.47509765625,
+        "median": 7.47509765625,
+        "max": 7.47509765625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 7,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 7,
+        "min": 2.96337890625,
+        "median": 2.96337890625,
+        "max": 2.96337890625
+      }
+    },
+    {
+      "target_full_columns": 1181,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 34.9735107421875,
+            "median": 34.9735107421875,
+            "max": 34.9735107421875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 31.6922607421875,
+            "median": 31.6922607421875,
+            "max": 31.6922607421875
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 7,
+            "min": 34.7197265625,
+            "median": 34.7197265625,
+            "max": 34.7197265625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 7,
+            "min": 31.6922607421875,
+            "median": 31.6922607421875,
+            "max": 31.6922607421875
+          },
+          "group_empty_GiB": {
+            "samples": 7,
+            "min": 3.0274658203125,
+            "median": 3.0274658203125,
+            "max": 3.0274658203125
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 6,
+            "min": 27.5009765625,
+            "median": 27.5009765625,
+            "max": 27.5009765625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 6,
+            "min": 27.1805419921875,
+            "median": 27.1805419921875,
+            "max": 27.1805419921875
+          },
+          "group_empty_GiB": {
+            "samples": 6,
+            "min": 0.3204345703125,
+            "median": 0.3204345703125,
+            "max": 0.3204345703125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2537841796875,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 6,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 6,
+        "min": 7.4725341796875,
+        "median": 7.4725341796875,
+        "max": 7.4725341796875
+      },
+      "effective_page_saving_GiB": {
+        "samples": 6,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 6,
+        "min": 2.9608154296875,
+        "median": 2.9608154296875,
+        "max": 2.9608154296875
+      }
+    },
+    {
+      "target_full_columns": 1182,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 6,
+            "min": 34.991455078125,
+            "median": 34.991455078125,
+            "max": 34.991455078125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 6,
+            "min": 31.710205078125,
+            "median": 31.710205078125,
+            "max": 31.710205078125
+          },
+          "group_empty_GiB": {
+            "samples": 6,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 34.740234375,
+            "median": 34.740234375,
+            "max": 34.740234375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 31.710205078125,
+            "median": 31.710205078125,
+            "max": 31.710205078125
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 3.030029296875,
+            "median": 3.030029296875,
+            "max": 3.030029296875
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 15,
+            "min": 27.521484375,
+            "median": 27.521484375,
+            "max": 27.521484375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 15,
+            "min": 27.198486328125,
+            "median": 27.198486328125,
+            "max": 27.198486328125
+          },
+          "group_empty_GiB": {
+            "samples": 15,
+            "min": 0.322998046875,
+            "median": 0.322998046875,
+            "max": 0.322998046875
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.251220703125,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 15,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 15,
+        "min": 7.469970703125,
+        "median": 7.469970703125,
+        "max": 7.469970703125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 15,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 15,
+        "min": 2.958251953125,
+        "median": 2.958251953125,
+        "max": 2.958251953125
+      }
+    },
+    {
+      "target_full_columns": 1183,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 26,
+            "min": 35.0093994140625,
+            "median": 35.0093994140625,
+            "max": 35.0093994140625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 26,
+            "min": 31.7281494140625,
+            "median": 31.7281494140625,
+            "max": 31.7281494140625
+          },
+          "group_empty_GiB": {
+            "samples": 26,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 8,
+            "min": 34.7607421875,
+            "median": 34.7607421875,
+            "max": 34.7607421875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 8,
+            "min": 31.7281494140625,
+            "median": 31.7281494140625,
+            "max": 31.7281494140625
+          },
+          "group_empty_GiB": {
+            "samples": 8,
+            "min": 3.0325927734375,
+            "median": 3.0325927734375,
+            "max": 3.0325927734375
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 12,
+            "min": 27.5419921875,
+            "median": 27.5419921875,
+            "max": 27.5419921875
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 12,
+            "min": 27.2164306640625,
+            "median": 27.2164306640625,
+            "max": 27.2164306640625
+          },
+          "group_empty_GiB": {
+            "samples": 12,
+            "min": 0.3255615234375,
+            "median": 0.3255615234375,
+            "max": 0.3255615234375
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.2486572265625,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 12,
+        "min": 7.21875,
+        "median": 7.21875,
+        "max": 7.21875
+      },
+      "net_saving_GiB": {
+        "samples": 12,
+        "min": 7.4674072265625,
+        "median": 7.4674072265625,
+        "max": 7.4674072265625
+      },
+      "effective_page_saving_GiB": {
+        "samples": 12,
+        "min": 4.51171875,
+        "median": 4.51171875,
+        "max": 4.51171875
+      },
+      "group_empty_saving_GiB": {
+        "samples": 12,
+        "min": 2.9556884765625,
+        "median": 2.9556884765625,
+        "max": 2.9556884765625
+      }
+    },
+    {
+      "target_full_columns": 1184,
+      "gdn_layer_pages": 12288,
+      "groups": {
+        "readonly": {
+          "held_GiB": {
+            "samples": 135,
+            "min": 35.02734375,
+            "median": 35.02734375,
+            "max": 35.02734375
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 135,
+            "min": 31.74609375,
+            "median": 31.74609375,
+            "max": 31.74609375
+          },
+          "group_empty_GiB": {
+            "samples": 135,
+            "min": 3.28125,
+            "median": 3.28125,
+            "max": 3.28125
+          }
+        },
+        "samegroups_full8": {
+          "held_GiB": {
+            "samples": 152,
+            "min": 34.78125,
+            "median": 34.78125,
+            "max": 34.78125
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 152,
+            "min": 31.74609375,
+            "median": 31.74609375,
+            "max": 31.74609375
+          },
+          "group_empty_GiB": {
+            "samples": 152,
+            "min": 3.03515625,
+            "median": 3.03515625,
+            "max": 3.03515625
+          }
+        },
+        "reclaim8": {
+          "held_GiB": {
+            "samples": 136,
+            "min": 27.5146484375,
+            "median": 27.5556640625,
+            "max": 27.5625
+          },
+          "effective_layer_pages_GiB": {
+            "samples": 136,
+            "min": 27.2044677734375,
+            "median": 27.2301025390625,
+            "max": 27.234375
+          },
+          "group_empty_GiB": {
+            "samples": 136,
+            "min": 0.3101806640625,
+            "median": 0.3255615234375,
+            "max": 0.328125
+          }
+        }
+      },
+      "layout_only_saving_GiB": 0.24609375,
+      "reclaim_at_same_layout_saving_GiB": {
+        "samples": 136,
+        "min": 7.21875,
+        "median": 7.2255859375,
+        "max": 7.2666015625
+      },
+      "net_saving_GiB": {
+        "samples": 136,
+        "min": 7.46484375,
+        "median": 7.4716796875,
+        "max": 7.5126953125
+      },
+      "effective_page_saving_GiB": {
+        "samples": 136,
+        "min": 4.51171875,
+        "median": 4.5159912109375,
+        "max": 4.5416259765625
+      },
+      "group_empty_saving_GiB": {
+        "samples": 136,
+        "min": 2.953125,
+        "median": 2.9556884765625,
+        "max": 2.9710693359375
+      }
+    }
+  ],
+  "largest_common_state": {
+    "target_full_columns": 1184,
+    "gdn_layer_pages": 12288,
+    "groups": {
+      "readonly": {
+        "held_GiB": {
+          "samples": 135,
+          "min": 35.02734375,
+          "median": 35.02734375,
+          "max": 35.02734375
+        },
+        "effective_layer_pages_GiB": {
+          "samples": 135,
+          "min": 31.74609375,
+          "median": 31.74609375,
+          "max": 31.74609375
+        },
+        "group_empty_GiB": {
+          "samples": 135,
+          "min": 3.28125,
+          "median": 3.28125,
+          "max": 3.28125
+        }
+      },
+      "samegroups_full8": {
+        "held_GiB": {
+          "samples": 152,
+          "min": 34.78125,
+          "median": 34.78125,
+          "max": 34.78125
+        },
+        "effective_layer_pages_GiB": {
+          "samples": 152,
+          "min": 31.74609375,
+          "median": 31.74609375,
+          "max": 31.74609375
+        },
+        "group_empty_GiB": {
+          "samples": 152,
+          "min": 3.03515625,
+          "median": 3.03515625,
+          "max": 3.03515625
+        }
+      },
+      "reclaim8": {
+        "held_GiB": {
+          "samples": 136,
+          "min": 27.5146484375,
+          "median": 27.5556640625,
+          "max": 27.5625
+        },
+        "effective_layer_pages_GiB": {
+          "samples": 136,
+          "min": 27.2044677734375,
+          "median": 27.2301025390625,
+          "max": 27.234375
+        },
+        "group_empty_GiB": {
+          "samples": 136,
+          "min": 0.3101806640625,
+          "median": 0.3255615234375,
+          "max": 0.328125
+        }
+      }
+    },
+    "layout_only_saving_GiB": 0.24609375,
+    "reclaim_at_same_layout_saving_GiB": {
+      "samples": 136,
+      "min": 7.21875,
+      "median": 7.2255859375,
+      "max": 7.2666015625
+    },
+    "net_saving_GiB": {
+      "samples": 136,
+      "min": 7.46484375,
+      "median": 7.4716796875,
+      "max": 7.5126953125
+    },
+    "effective_page_saving_GiB": {
+      "samples": 136,
+      "min": 4.51171875,
+      "median": 4.5159912109375,
+      "max": 4.5416259765625
+    },
+    "group_empty_saving_GiB": {
+      "samples": 136,
+      "min": 2.953125,
+      "median": 2.9556884765625,
+      "max": 2.9710693359375
+    }
+  },
+  "notes": [
+    "All bytes are per TP rank/card; pool slots remain reserved by process.",
+    "Steady means32 simultaneously running, all prefill complete after subtracting inflight, each already emitted output.",
+    "Min/median/max over scheduler observations are descriptive, not independent repeats or confidence intervals.",
+    "Allocation states match target FullAttention columns and GDN layer pages across actual runs; output trajectories can differ.",
+    "Same-layout full retention also removes SWA admission cap, so this is not a fully identical admission policy."
+  ]
+}

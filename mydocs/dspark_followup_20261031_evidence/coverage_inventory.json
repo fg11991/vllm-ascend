@@ -1,0 +1,284 @@
+{
+  "summary": {
+    "business_requests": 500,
+    "business_expected": 500,
+    "steady_conditions": 28,
+    "steady_expected": 30,
+    "fixed_waves": 36,
+    "fixed_expected": 36,
+    "original_expected": {
+      "business_requests": 1500,
+      "steady_conditions": 72,
+      "fixed_waves": 48
+    },
+    "scope": "user_reduced_20261031; diagnostic/reuse/memory phases counted separately"
+  },
+  "jobs": [
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_readonly_graph_s8",
+        "round": 1,
+        "performance": true,
+        "agent": true,
+        "fixed": true
+      },
+      "completed": {
+        "tool_call": 50,
+        "final_answer": 50,
+        "steady_conditions": 6,
+        "performance_requests": 24,
+        "fixed_waves": 6,
+        "archive_waves": 6
+      },
+      "deferred_by_user": false
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_graph_s8",
+        "round": 1,
+        "performance": true,
+        "agent": true,
+        "fixed": true
+      },
+      "completed": {
+        "tool_call": 50,
+        "final_answer": 50,
+        "steady_conditions": 6,
+        "performance_requests": 24,
+        "fixed_waves": 6,
+        "archive_waves": 6
+      },
+      "deferred_by_user": false
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_none_full_graph_s8",
+        "round": 1,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 50,
+        "final_answer": 50,
+        "steady_conditions": 6,
+        "performance_requests": 24
+      },
+      "deferred_by_user": false
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_graph_s16",
+        "round": 1,
+        "performance": true,
+        "agent": true,
+        "fixed": true
+      },
+      "completed": {
+        "tool_call": 50,
+        "final_answer": 50,
+        "steady_conditions": 6,
+        "performance_requests": 24,
+        "fixed_waves": 6,
+        "archive_waves": 6
+      },
+      "deferred_by_user": false
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_graph_s16",
+        "round": 2,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 50,
+        "final_answer": 50,
+        "steady_conditions": 4,
+        "performance_requests": 16
+      },
+      "deferred_by_user": false
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_none_full_graph_s8",
+        "round": 2,
+        "performance": true,
+        "agent": false,
+        "fixed": false
+      },
+      "completed": {
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_graph_s8",
+        "round": 2,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0,
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_readonly_graph_s8",
+        "round": 2,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0,
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_graph_s8",
+        "round": 3,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0,
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_readonly_graph_s8",
+        "round": 3,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0,
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_graph_s16",
+        "round": 3,
+        "performance": true,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0,
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_none_full_graph_s8",
+        "round": 3,
+        "performance": true,
+        "agent": false,
+        "fixed": false
+      },
+      "completed": {
+        "steady_conditions": 0,
+        "performance_requests": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_full_none_baseline_graph_s8",
+        "round": 1,
+        "performance": false,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_full_none_current_graph_s8",
+        "round": 1,
+        "performance": false,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_full_2048_reclaim_graph_s8",
+        "round": 1,
+        "performance": false,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_128_reclaim_graph_s8",
+        "round": 1,
+        "performance": false,
+        "agent": true,
+        "fixed": false
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0
+      },
+      "deferred_by_user": true
+    },
+    {
+      "job": {
+        "name": "isocache_trained_window_2048_reclaim_eager_s8",
+        "round": 1,
+        "performance": false,
+        "agent": true,
+        "fixed": true
+      },
+      "completed": {
+        "tool_call": 0,
+        "final_answer": 0,
+        "fixed_waves": 0,
+        "archive_waves": 0
+      },
+      "deferred_by_user": true
+    }
+  ]
+}

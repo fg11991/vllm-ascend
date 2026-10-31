@@ -1,0 +1,25 @@
+{
+  "time": 1793436173.6872976,
+  "sources": {
+    "4a01608da7be1950eebc9902e3692d257f304759": {
+      "root": "/workspace/dspark_ctxwin_baseline",
+      "files": 722,
+      "differences": [
+        {
+          "path": "vllm_ascend/worker/v2/spec_decode/dspark/speculator.py",
+          "sha256": "1103bbb37638d497fad94b1d98ba2b9f55ddd6e8e46eba755b34c384f33724b7",
+          "classification": "unchanged initial startup group logging"
+        }
+      ]
+    },
+    "ed48548e885aa37126e497c102124184385c636a": {
+      "root": "/workspace/dspark_ctxwin_tmp",
+      "files": 723,
+      "differences": []
+    },
+    "upstream_vllm": {
+      "commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+      "status": ""
+    }
+  }
+}

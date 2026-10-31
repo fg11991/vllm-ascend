@@ -2,6 +2,10 @@
 
 # DSpark 窗口 KV 回收：910B3 实机验证报告
 
+2026-10-31 补充：实际窗口增训草稿、关闭 prefix caching 的同期对照、分叉诊断与块复用结果见
+[补充实验报告](2026-10-31_dspark_trained_window_followup.md)及[技术证据附件](2026-10-31_dspark_followup_evidence.md)。
+本文保留原轮次证据，不与补充实验混算。
+
 分支：030_dspark_ctxwin_tmp。
 实现提交cc746b7ca，基线4a01608da；本轮没有再修改生产代码或hybrid分组算法。
 

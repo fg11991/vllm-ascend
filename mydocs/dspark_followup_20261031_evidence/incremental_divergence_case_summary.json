@@ -1,0 +1,3382 @@
+[
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 26,
+    "client_token_a": 5604,
+    "client_token_b": 17593,
+    "target_top_ids_a": [
+      5604,
+      17593,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_ids_b": [
+      17593,
+      5604,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_logits_a": [
+      28.125,
+      28.125,
+      26.625,
+      25.625,
+      19.75
+    ],
+    "target_top_logits_b": [
+      28.25,
+      28.125,
+      26.5,
+      25.5,
+      19.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11520,
+    "window_start_b": 11520,
+    "earlier_draft_change": null
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 188,
+    "client_token_a": 6681,
+    "client_token_b": 1330,
+    "target_top_ids_a": [
+      6681,
+      1330,
+      264,
+      220,
+      279
+    ],
+    "target_top_ids_b": [
+      1330,
+      6681,
+      264,
+      220,
+      279
+    ],
+    "target_top_logits_a": [
+      32.5,
+      32.25,
+      29.625,
+      25.125,
+      20.5
+    ],
+    "target_top_logits_b": [
+      32.25,
+      32.25,
+      29.625,
+      25.25,
+      20.625
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 22656,
+    "window_start_b": 22656,
+    "earlier_draft_change": {
+      "anchor": 24601,
+      "proposal_index": 3,
+      "predicted_position": 24605,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 540,
+        "anchor": 24601,
+        "proposals": [
+          17593,
+          7189,
+          513,
+          18922,
+          7189,
+          421,
+          7189
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2078,
+        "anchor": 24601,
+        "proposals": [
+          17593,
+          7189,
+          513,
+          15327,
+          18922,
+          7189,
+          421
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 91,
+    "client_token_a": 7189,
+    "client_token_b": 5638,
+    "target_top_ids_a": [
+      7189,
+      5638,
+      3470,
+      10156,
+      14991
+    ],
+    "target_top_ids_b": [
+      5638,
+      7189,
+      10156,
+      14991,
+      3470
+    ],
+    "target_top_logits_a": [
+      24.125,
+      24.0,
+      22.0,
+      21.875,
+      21.875
+    ],
+    "target_top_logits_b": [
+      24.125,
+      24.125,
+      22.0,
+      22.0,
+      21.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 27648,
+    "window_start_b": 27648,
+    "earlier_draft_change": {
+      "anchor": 29698,
+      "proposal_index": 5,
+      "predicted_position": 29704,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 922,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2455,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          11346,
+          8214
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 119,
+    "client_token_a": 17661,
+    "client_token_b": 421,
+    "target_top_ids_a": [
+      17661,
+      421,
+      16155,
+      883,
+      53915
+    ],
+    "target_top_ids_b": [
+      421,
+      17661,
+      16155,
+      883,
+      53915
+    ],
+    "target_top_logits_a": [
+      28.0,
+      27.875,
+      25.375,
+      24.25,
+      23.5
+    ],
+    "target_top_logits_b": [
+      27.875,
+      27.875,
+      25.375,
+      24.25,
+      23.5
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 29696,
+    "window_start_b": 29696,
+    "earlier_draft_change": {
+      "anchor": 31769,
+      "proposal_index": 1,
+      "predicted_position": 31771,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 1313,
+        "anchor": 31769,
+        "proposals": [
+          17593,
+          5435,
+          264,
+          10632,
+          7189,
+          421,
+          7189
+        ],
+        "rejected": 5,
+        "window_start": 29696,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2860,
+        "anchor": 31769,
+        "proposals": [
+          17593,
+          16661,
+          314,
+          7189,
+          314,
+          7189,
+          421
+        ],
+        "rejected": 5,
+        "window_start": 29696,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 26,
+    "client_token_a": 5604,
+    "client_token_b": 17593,
+    "target_top_ids_a": [
+      5604,
+      17593,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_ids_b": [
+      17593,
+      5604,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_logits_a": [
+      28.125,
+      28.125,
+      26.625,
+      25.625,
+      19.75
+    ],
+    "target_top_logits_b": [
+      28.25,
+      28.0,
+      26.625,
+      25.625,
+      19.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11520,
+    "window_start_b": 11520,
+    "earlier_draft_change": null
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 106,
+    "client_token_a": 1791,
+    "client_token_b": 5759,
+    "target_top_ids_a": [
+      1791,
+      5759,
+      29249,
+      10453,
+      3165
+    ],
+    "target_top_ids_b": [
+      5759,
+      1791,
+      29249,
+      10453,
+      3165
+    ],
+    "target_top_logits_a": [
+      29.25,
+      29.25,
+      29.0,
+      26.125,
+      24.875
+    ],
+    "target_top_logits_b": [
+      29.25,
+      29.125,
+      29.0,
+      26.125,
+      25.0
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 22528,
+    "window_start_b": 22528,
+    "earlier_draft_change": {
+      "anchor": 24601,
+      "proposal_index": 1,
+      "predicted_position": 24603,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 540,
+        "anchor": 24601,
+        "proposals": [
+          17593,
+          7189,
+          513,
+          18922,
+          7189,
+          421,
+          7189
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 526,
+        "anchor": 24601,
+        "proposals": [
+          17593,
+          16661,
+          314,
+          264,
+          7189,
+          421,
+          7189
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 88,
+    "client_token_a": 63328,
+    "client_token_b": 7189,
+    "target_top_ids_a": [
+      63328,
+      7189,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_ids_b": [
+      7189,
+      63328,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_logits_a": [
+      21.125,
+      20.875,
+      20.5,
+      19.75,
+      19.5
+    ],
+    "target_top_logits_b": [
+      21.0,
+      21.0,
+      20.5,
+      19.75,
+      19.5
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": true,
+    "window_start_a": 27648,
+    "window_start_b": 27648,
+    "earlier_draft_change": {
+      "anchor": 29698,
+      "proposal_index": 5,
+      "predicted_position": 29704,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 922,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 902,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          11346,
+          8214
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 486,
+    "client_token_a": 7065,
+    "client_token_b": 11429,
+    "target_top_ids_a": [
+      7065,
+      11429,
+      357,
+      1061,
+      46290
+    ],
+    "target_top_ids_b": [
+      11429,
+      7065,
+      357,
+      1061,
+      46290
+    ],
+    "target_top_logits_a": [
+      25.25,
+      25.25,
+      24.875,
+      24.125,
+      22.5
+    ],
+    "target_top_logits_b": [
+      25.375,
+      25.25,
+      25.0,
+      24.125,
+      22.5
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 30080,
+    "window_start_b": 30080,
+    "earlier_draft_change": {
+      "anchor": 31771,
+      "proposal_index": 5,
+      "predicted_position": 31777,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 1314,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          279,
+          1788
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 1289,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          660,
+          7189
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 131,
+    "client_token_a": 353,
+    "client_token_b": 8618,
+    "target_top_ids_a": [
+      353,
+      8618,
+      8439,
+      198,
+      2302
+    ],
+    "target_top_ids_b": [
+      8618,
+      353,
+      8439,
+      198,
+      2302
+    ],
+    "target_top_logits_a": [
+      28.875,
+      28.875,
+      25.25,
+      22.5,
+      18.25
+    ],
+    "target_top_logits_b": [
+      29.0,
+      28.875,
+      25.375,
+      22.625,
+      18.25
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11648,
+    "window_start_b": 11648,
+    "earlier_draft_change": {
+      "anchor": 13602,
+      "proposal_index": 4,
+      "predicted_position": 13607,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 152,
+        "anchor": 13602,
+        "proposals": [
+          660,
+          26895,
+          279,
+          1788,
+          9476,
+          22787,
+          369
+        ],
+        "rejected": 4,
+        "window_start": 11520,
+        "window_length": 2089,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 150,
+        "anchor": 13602,
+        "proposals": [
+          660,
+          26895,
+          279,
+          1788,
+          25,
+          328,
+          22787
+        ],
+        "rejected": 4,
+        "window_start": 11520,
+        "window_length": 2089,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 106,
+    "client_token_a": 1791,
+    "client_token_b": 5759,
+    "target_top_ids_a": [
+      1791,
+      5759,
+      29249,
+      10453,
+      3165
+    ],
+    "target_top_ids_b": [
+      5759,
+      1791,
+      29249,
+      10453,
+      3165
+    ],
+    "target_top_logits_a": [
+      29.25,
+      29.25,
+      29.0,
+      26.125,
+      24.875
+    ],
+    "target_top_logits_b": [
+      29.25,
+      29.125,
+      28.875,
+      26.125,
+      24.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": false,
+    "window_start_a": 22528,
+    "window_start_b": 22528,
+    "earlier_draft_change": {
+      "anchor": 24578,
+      "proposal_index": 4,
+      "predicted_position": 24583,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 536,
+        "anchor": 24578,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 22528,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 542,
+        "anchor": 24578,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          220,
+          16,
+          15
+        ],
+        "rejected": 6,
+        "window_start": 22528,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 232,
+    "client_token_a": 874,
+    "client_token_b": 1442,
+    "target_top_ids_a": [
+      874,
+      1442,
+      40922,
+      1754,
+      3714
+    ],
+    "target_top_ids_b": [
+      1442,
+      874,
+      40922,
+      1754,
+      3714
+    ],
+    "target_top_logits_a": [
+      22.5,
+      22.5,
+      21.625,
+      21.375,
+      19.75
+    ],
+    "target_top_logits_b": [
+      22.5,
+      22.375,
+      21.5,
+      21.375,
+      19.75
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 27776,
+    "window_start_b": 27776,
+    "earlier_draft_change": {
+      "anchor": 29698,
+      "proposal_index": 5,
+      "predicted_position": 29704,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 922,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 918,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          11346,
+          8214
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 51,
+    "client_token_a": 513,
+    "client_token_b": 579,
+    "target_top_ids_a": [
+      513,
+      579,
+      4833,
+      7701,
+      369
+    ],
+    "target_top_ids_b": [
+      579,
+      513,
+      4833,
+      7701,
+      369
+    ],
+    "target_top_logits_a": [
+      29.5,
+      29.5,
+      23.875,
+      23.5,
+      19.875
+    ],
+    "target_top_logits_b": [
+      29.5,
+      29.375,
+      23.75,
+      23.5,
+      19.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": false,
+    "window_start_a": 29696,
+    "window_start_b": 29696,
+    "earlier_draft_change": {
+      "anchor": 31771,
+      "proposal_index": 5,
+      "predicted_position": 31777,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 1314,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          279,
+          1788
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 1313,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          1754,
+          3150
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 26,
+    "client_token_a": 17593,
+    "client_token_b": 5604,
+    "target_top_ids_a": [
+      17593,
+      5604,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_ids_b": [
+      5604,
+      17593,
+      7189,
+      328,
+      2193
+    ],
+    "target_top_logits_a": [
+      28.25,
+      28.0,
+      26.625,
+      25.625,
+      19.875
+    ],
+    "target_top_logits_b": [
+      28.25,
+      28.25,
+      26.5,
+      25.625,
+      19.75
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11520,
+    "window_start_b": 11520,
+    "earlier_draft_change": null
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 440,
+    "client_token_a": 310,
+    "client_token_b": 314,
+    "target_top_ids_a": [
+      310,
+      314,
+      2785,
+      11,
+      8387
+    ],
+    "target_top_ids_b": [
+      314,
+      310,
+      2785,
+      11,
+      8387
+    ],
+    "target_top_logits_a": [
+      24.625,
+      24.625,
+      23.0,
+      22.25,
+      22.125
+    ],
+    "target_top_logits_b": [
+      24.75,
+      24.625,
+      23.0,
+      22.25,
+      22.125
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 22912,
+    "window_start_b": 22912,
+    "earlier_draft_change": {
+      "anchor": 24601,
+      "proposal_index": 4,
+      "predicted_position": 24606,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 526,
+        "anchor": 24601,
+        "proposals": [
+          17593,
+          16661,
+          314,
+          264,
+          7189,
+          421,
+          7189
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2061,
+        "anchor": 24601,
+        "proposals": [
+          17593,
+          16661,
+          314,
+          264,
+          3074,
+          7189,
+          421
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2080,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 88,
+    "client_token_a": 7189,
+    "client_token_b": 63328,
+    "target_top_ids_a": [
+      7189,
+      63328,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_ids_b": [
+      63328,
+      7189,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_logits_a": [
+      21.0,
+      21.0,
+      20.5,
+      19.75,
+      19.5
+    ],
+    "target_top_logits_b": [
+      21.125,
+      21.0,
+      20.375,
+      19.75,
+      19.625
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 27648,
+    "window_start_b": 27648,
+    "earlier_draft_change": {
+      "anchor": 29698,
+      "proposal_index": 5,
+      "predicted_position": 29704,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 902,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          11346,
+          8214
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2441,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 51,
+    "client_token_a": 513,
+    "client_token_b": 579,
+    "target_top_ids_a": [
+      513,
+      579,
+      4833,
+      7701,
+      369
+    ],
+    "target_top_ids_b": [
+      579,
+      513,
+      4833,
+      7701,
+      369
+    ],
+    "target_top_logits_a": [
+      29.625,
+      29.625,
+      24.0,
+      23.625,
+      19.875
+    ],
+    "target_top_logits_b": [
+      29.875,
+      29.375,
+      23.625,
+      23.5,
+      20.0
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": false,
+    "window_start_a": 29696,
+    "window_start_b": 29696,
+    "earlier_draft_change": {
+      "anchor": 31771,
+      "proposal_index": 4,
+      "predicted_position": 31776,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 1289,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          660,
+          7189
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2840,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          11,
+          660,
+          279
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 26,
+    "client_token_a": 5604,
+    "client_token_b": 17593,
+    "target_top_ids_a": [
+      5604,
+      17593,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_ids_b": [
+      17593,
+      5604,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_logits_a": [
+      28.125,
+      28.125,
+      26.375,
+      25.5,
+      19.75
+    ],
+    "target_top_logits_b": [
+      28.25,
+      28.0,
+      26.625,
+      25.625,
+      19.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11520,
+    "window_start_b": 11520,
+    "earlier_draft_change": null
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 440,
+    "client_token_a": 314,
+    "client_token_b": 310,
+    "target_top_ids_a": [
+      314,
+      310,
+      2785,
+      11,
+      8387
+    ],
+    "target_top_ids_b": [
+      310,
+      314,
+      2785,
+      11,
+      8387
+    ],
+    "target_top_logits_a": [
+      24.75,
+      24.625,
+      23.0,
+      22.25,
+      22.0
+    ],
+    "target_top_logits_b": [
+      24.625,
+      24.625,
+      23.0,
+      22.25,
+      22.125
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 22912,
+    "window_start_b": 22912,
+    "earlier_draft_change": {
+      "anchor": 24578,
+      "proposal_index": 4,
+      "predicted_position": 24583,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 542,
+        "anchor": 24578,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          220,
+          16,
+          15
+        ],
+        "rejected": 6,
+        "window_start": 22528,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 522,
+        "anchor": 24578,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 22528,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 88,
+    "client_token_a": 63328,
+    "client_token_b": 7189,
+    "target_top_ids_a": [
+      63328,
+      7189,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_ids_b": [
+      7189,
+      63328,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_logits_a": [
+      21.25,
+      21.0,
+      20.375,
+      19.875,
+      19.5
+    ],
+    "target_top_logits_b": [
+      21.0,
+      21.0,
+      20.5,
+      19.75,
+      19.5
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": true,
+    "window_start_a": 27648,
+    "window_start_b": 27648,
+    "earlier_draft_change": {
+      "anchor": 29725,
+      "proposal_index": 2,
+      "predicted_position": 29728,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 923,
+        "anchor": 29725,
+        "proposals": [
+          421,
+          513,
+          11040,
+          18922,
+          471,
+          279,
+          1788
+        ],
+        "rejected": 5,
+        "window_start": 27648,
+        "window_length": 2084,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 907,
+        "anchor": 29725,
+        "proposals": [
+          421,
+          513,
+          15327,
+          18922,
+          471,
+          279,
+          1788
+        ],
+        "rejected": 5,
+        "window_start": 27648,
+        "window_length": 2084,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 51,
+    "client_token_a": 579,
+    "client_token_b": 513,
+    "target_top_ids_a": [
+      579,
+      513,
+      4833,
+      7701,
+      369
+    ],
+    "target_top_ids_b": [
+      513,
+      579,
+      4833,
+      7701,
+      369
+    ],
+    "target_top_logits_a": [
+      29.5,
+      29.375,
+      23.75,
+      23.5,
+      19.875
+    ],
+    "target_top_logits_b": [
+      29.625,
+      29.625,
+      24.0,
+      23.625,
+      19.875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": false,
+    "window_start_a": 29696,
+    "window_start_b": 29696,
+    "earlier_draft_change": {
+      "anchor": 31771,
+      "proposal_index": 5,
+      "predicted_position": 31777,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 1313,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          1754,
+          3150
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 1289,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          660,
+          7189
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 26,
+    "client_token_a": 5604,
+    "client_token_b": 17593,
+    "target_top_ids_a": [
+      5604,
+      17593,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_ids_b": [
+      17593,
+      5604,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_logits_a": [
+      28.125,
+      28.125,
+      26.375,
+      25.5,
+      19.75
+    ],
+    "target_top_logits_b": [
+      28.25,
+      28.125,
+      26.625,
+      25.5,
+      19.75
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11520,
+    "window_start_b": 11520,
+    "earlier_draft_change": null
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 733,
+    "client_token_a": 6745,
+    "client_token_b": 866,
+    "target_top_ids_a": [
+      6745,
+      866,
+      660,
+      5392,
+      279
+    ],
+    "target_top_ids_b": [
+      866,
+      6745,
+      660,
+      5392,
+      279
+    ],
+    "target_top_logits_a": [
+      30.0,
+      29.875,
+      22.25,
+      21.25,
+      18.125
+    ],
+    "target_top_logits_b": [
+      29.875,
+      29.625,
+      22.125,
+      21.0,
+      18.0
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 23168,
+    "window_start_b": 23168,
+    "earlier_draft_change": {
+      "anchor": 24578,
+      "proposal_index": 4,
+      "predicted_position": 24583,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 542,
+        "anchor": 24578,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          220,
+          16,
+          15
+        ],
+        "rejected": 6,
+        "window_start": 22528,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2102,
+        "anchor": 24578,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 22528,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 88,
+    "client_token_a": 63328,
+    "client_token_b": 7189,
+    "target_top_ids_a": [
+      63328,
+      7189,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_ids_b": [
+      7189,
+      63328,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_logits_a": [
+      21.25,
+      21.0,
+      20.375,
+      19.875,
+      19.5
+    ],
+    "target_top_logits_b": [
+      20.875,
+      20.875,
+      20.375,
+      19.75,
+      19.5
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 27648,
+    "window_start_b": 27648,
+    "earlier_draft_change": {
+      "anchor": 29698,
+      "proposal_index": 5,
+      "predicted_position": 29704,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 918,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          11346,
+          8214
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2490,
+        "anchor": 29698,
+        "proposals": [
+          1156,
+          369,
+          9859,
+          364,
+          264,
+          220,
+          16
+        ],
+        "rejected": 6,
+        "window_start": 27648,
+        "window_length": 2057,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 72,
+    "client_token_a": 279,
+    "client_token_b": 799,
+    "target_top_ids_a": [
+      279,
+      799,
+      264,
+      449,
+      7701
+    ],
+    "target_top_ids_b": [
+      799,
+      279,
+      264,
+      449,
+      7701
+    ],
+    "target_top_logits_a": [
+      27.75,
+      27.75,
+      22.0,
+      18.875,
+      18.375
+    ],
+    "target_top_logits_b": [
+      27.875,
+      27.75,
+      22.0,
+      18.75,
+      18.25
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": true,
+    "window_start_a": 29696,
+    "window_start_b": 29696,
+    "earlier_draft_change": {
+      "anchor": 31771,
+      "proposal_index": 5,
+      "predicted_position": 31777,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 1313,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          1754,
+          3150
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2883,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          660,
+          7189
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 2,
+    "repeat_b": 2,
+    "input": "archive_13568",
+    "prompt_tokens": 13568,
+    "output_first_divergence_zero_based": 26,
+    "client_token_a": 17593,
+    "client_token_b": 5604,
+    "target_top_ids_a": [
+      17593,
+      5604,
+      7189,
+      328,
+      14619
+    ],
+    "target_top_ids_b": [
+      5604,
+      17593,
+      7189,
+      328,
+      2193
+    ],
+    "target_top_logits_a": [
+      28.25,
+      28.125,
+      26.625,
+      25.5,
+      19.75
+    ],
+    "target_top_logits_b": [
+      28.25,
+      28.25,
+      26.5,
+      25.625,
+      19.75
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 11520,
+    "window_start_b": 11520,
+    "earlier_draft_change": null
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 2,
+    "repeat_b": 2,
+    "input": "archive_24576",
+    "prompt_tokens": 24576,
+    "output_first_divergence_zero_based": 552,
+    "client_token_a": 17312,
+    "client_token_b": 8443,
+    "target_top_ids_a": [
+      17312,
+      8443,
+      7056,
+      1791,
+      2070
+    ],
+    "target_top_ids_b": [
+      8443,
+      17312,
+      7056,
+      1791,
+      2070
+    ],
+    "target_top_logits_a": [
+      26.375,
+      26.25,
+      23.5,
+      23.25,
+      23.25
+    ],
+    "target_top_logits_b": [
+      26.25,
+      26.25,
+      23.5,
+      23.375,
+      23.375
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 23040,
+    "window_start_b": 23040,
+    "earlier_draft_change": {
+      "anchor": 24610,
+      "proposal_index": 0,
+      "predicted_position": 24611,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 2109,
+        "anchor": 24610,
+        "proposals": [
+          5706,
+          25,
+          198,
+          12,
+          328,
+          11855,
+          11
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2089,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2064,
+        "anchor": 24610,
+        "proposals": [
+          7944,
+          25,
+          198,
+          12,
+          328,
+          11855,
+          11
+        ],
+        "rejected": 5,
+        "window_start": 22528,
+        "window_length": 2089,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 2,
+    "repeat_b": 2,
+    "input": "archive_29696",
+    "prompt_tokens": 29696,
+    "output_first_divergence_zero_based": 88,
+    "client_token_a": 7189,
+    "client_token_b": 63328,
+    "target_top_ids_a": [
+      7189,
+      63328,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_ids_b": [
+      63328,
+      7189,
+      9476,
+      18922,
+      318
+    ],
+    "target_top_logits_a": [
+      20.875,
+      20.875,
+      20.375,
+      19.75,
+      19.5
+    ],
+    "target_top_logits_b": [
+      21.125,
+      21.0,
+      20.375,
+      19.75,
+      19.625
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": true,
+    "window_start_a": 27648,
+    "window_start_b": 27648,
+    "earlier_draft_change": {
+      "anchor": 29722,
+      "proposal_index": 4,
+      "predicted_position": 29727,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 2494,
+        "anchor": 29722,
+        "proposals": [
+          16661,
+          314,
+          16661,
+          314,
+          279,
+          1788,
+          7189
+        ],
+        "rejected": 4,
+        "window_start": 27648,
+        "window_length": 2081,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2445,
+        "anchor": 29722,
+        "proposals": [
+          16661,
+          314,
+          16661,
+          314,
+          18922,
+          7189,
+          11
+        ],
+        "rejected": 4,
+        "window_start": 27648,
+        "window_length": 2081,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_archive_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 2,
+    "repeat_b": 2,
+    "input": "archive_31744",
+    "prompt_tokens": 31744,
+    "output_first_divergence_zero_based": 124,
+    "client_token_a": 5638,
+    "client_token_b": 7189,
+    "target_top_ids_a": [
+      5638,
+      7189,
+      14991,
+      3470,
+      10156
+    ],
+    "target_top_ids_b": [
+      7189,
+      5638,
+      14991,
+      3470,
+      10156
+    ],
+    "target_top_logits_a": [
+      24.625,
+      24.625,
+      22.0,
+      21.5,
+      21.25
+    ],
+    "target_top_logits_b": [
+      24.75,
+      24.625,
+      22.125,
+      21.375,
+      21.125
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 29696,
+    "window_start_b": 29824,
+    "earlier_draft_change": {
+      "anchor": 31771,
+      "proposal_index": 4,
+      "predicted_position": 31776,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 2883,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          1332,
+          660,
+          7189
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 2840,
+        "anchor": 31771,
+        "proposals": [
+          314,
+          7189,
+          421,
+          7189,
+          11,
+          660,
+          279
+        ],
+        "rejected": 6,
+        "window_start": 29696,
+        "window_length": 2082,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "0829_112eng_wenshu_session-1e9955ad-9111-465b-af6d-ea512d07d154_part1_6_part1_final",
+    "prompt_tokens": 18998,
+    "output_first_divergence_zero_based": 81,
+    "client_token_a": 13,
+    "client_token_b": 11,
+    "target_top_ids_a": [
+      13,
+      11,
+      1892,
+      318,
+      26
+    ],
+    "target_top_ids_b": [
+      11,
+      13,
+      1892,
+      26,
+      318
+    ],
+    "target_top_logits_a": [
+      25.0,
+      24.625,
+      23.125,
+      22.75,
+      22.5
+    ],
+    "target_top_logits_b": [
+      24.875,
+      24.875,
+      23.0,
+      22.5,
+      22.5
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 17024,
+    "window_start_b": 17024,
+    "earlier_draft_change": {
+      "anchor": 19011,
+      "proposal_index": 3,
+      "predicted_position": 19015,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3236,
+        "anchor": 19011,
+        "proposals": [
+          314,
+          11641,
+          37,
+          16,
+          21,
+          16,
+          643
+        ],
+        "rejected": 4,
+        "window_start": 16896,
+        "window_length": 2122,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 3348,
+        "anchor": 19011,
+        "proposals": [
+          314,
+          11641,
+          37,
+          220,
+          16,
+          21,
+          16
+        ],
+        "rejected": 4,
+        "window_start": 16896,
+        "window_length": 2122,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "0829_112eng_wenshu_session-7d7c26a5-bae1-4e4d-9601-4280fa8411d4_part1_6_part1_final",
+    "prompt_tokens": 14512,
+    "output_first_divergence_zero_based": 113,
+    "client_token_a": 21,
+    "client_token_b": 11,
+    "target_top_ids_a": [
+      21,
+      11,
+      13,
+      220,
+      24
+    ],
+    "target_top_ids_b": [
+      11,
+      21,
+      13,
+      220,
+      24
+    ],
+    "target_top_logits_a": [
+      23.0,
+      22.75,
+      12.0625,
+      12.0,
+      10.25
+    ],
+    "target_top_logits_b": [
+      22.875,
+      22.875,
+      12.0625,
+      12.0,
+      10.25
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 12544,
+    "window_start_b": 12544,
+    "earlier_draft_change": {
+      "anchor": 14530,
+      "proposal_index": 6,
+      "predicted_position": 14537,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3272,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          14244
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 3405,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          585
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "0829_112eng_wenshu_session-1e9955ad-9111-465b-af6d-ea512d07d154_part1_6_part1_final",
+    "prompt_tokens": 18998,
+    "output_first_divergence_zero_based": 90,
+    "client_token_a": 318,
+    "client_token_b": 3559,
+    "target_top_ids_a": [
+      318,
+      3559,
+      13,
+      440,
+      303
+    ],
+    "target_top_ids_b": [
+      3559,
+      318,
+      440,
+      13,
+      303
+    ],
+    "target_top_logits_a": [
+      22.125,
+      22.125,
+      21.875,
+      21.875,
+      21.25
+    ],
+    "target_top_logits_b": [
+      22.25,
+      22.125,
+      22.0,
+      21.875,
+      21.25
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 17024,
+    "window_start_b": 17024,
+    "earlier_draft_change": {
+      "anchor": 18998,
+      "proposal_index": 3,
+      "predicted_position": 19002,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3233,
+        "anchor": 18998,
+        "proposals": [
+          7004,
+          805,
+          3155,
+          1421,
+          10709,
+          443,
+          19
+        ],
+        "rejected": 0,
+        "window_start": 16896,
+        "window_length": 2109,
+        "mode": "NONE",
+        "target_padded_tokens": 2626
+      },
+      "b": {
+        "step": 3231,
+        "anchor": 18998,
+        "proposals": [
+          7004,
+          805,
+          3155,
+          279,
+          2570,
+          10709,
+          443
+        ],
+        "rejected": 0,
+        "window_start": 16896,
+        "window_length": 2109,
+        "mode": "NONE",
+        "target_padded_tokens": 2626
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_readonly_baseline_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "0829_112eng_wenshu_session-7d7c26a5-bae1-4e4d-9601-4280fa8411d4_part1_6_part1_final",
+    "prompt_tokens": 14512,
+    "output_first_divergence_zero_based": 113,
+    "client_token_a": 21,
+    "client_token_b": 11,
+    "target_top_ids_a": [
+      21,
+      11,
+      13,
+      220,
+      24
+    ],
+    "target_top_ids_b": [
+      11,
+      21,
+      220,
+      13,
+      24
+    ],
+    "target_top_logits_a": [
+      23.0,
+      22.75,
+      12.0625,
+      12.0,
+      10.25
+    ],
+    "target_top_logits_b": [
+      22.75,
+      22.75,
+      12.125,
+      12.0625,
+      10.125
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": false,
+    "previous_accepted_equal": true,
+    "window_start_a": 12544,
+    "window_start_b": 12544,
+    "earlier_draft_change": {
+      "anchor": 14564,
+      "proposal_index": 3,
+      "predicted_position": 14568,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3279,
+        "anchor": 14564,
+        "proposals": [
+          77,
+          735,
+          2702,
+          38778,
+          318,
+          5213,
+          8
+        ],
+        "rejected": 3,
+        "window_start": 12416,
+        "window_length": 2155,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 3403,
+        "anchor": 14564,
+        "proposals": [
+          77,
+          735,
+          2702,
+          28432,
+          5213,
+          735,
+          3455
+        ],
+        "rejected": 3,
+        "window_start": 12416,
+        "window_length": 2155,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "0829_112eng_wenshu_session-7d7c26a5-bae1-4e4d-9601-4280fa8411d4_part1_6_part1_final",
+    "prompt_tokens": 14512,
+    "output_first_divergence_zero_based": 113,
+    "client_token_a": 11,
+    "client_token_b": 21,
+    "target_top_ids_a": [
+      11,
+      21,
+      220,
+      13,
+      24
+    ],
+    "target_top_ids_b": [
+      21,
+      11,
+      13,
+      220,
+      24
+    ],
+    "target_top_logits_a": [
+      22.75,
+      22.75,
+      12.125,
+      12.0625,
+      10.125
+    ],
+    "target_top_logits_b": [
+      23.0,
+      22.875,
+      12.0625,
+      12.0,
+      10.1875
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 12544,
+    "window_start_b": 12544,
+    "earlier_draft_change": {
+      "anchor": 14530,
+      "proposal_index": 6,
+      "predicted_position": 14537,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3396,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          14244
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 3631,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          585
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "0829_112eng_wenshu_session-1e9955ad-9111-465b-af6d-ea512d07d154_part1_6_part1_final",
+    "prompt_tokens": 18998,
+    "output_first_divergence_zero_based": 81,
+    "client_token_a": 11,
+    "client_token_b": 13,
+    "target_top_ids_a": [
+      11,
+      13,
+      1892,
+      318,
+      26
+    ],
+    "target_top_ids_b": [
+      13,
+      11,
+      1892,
+      318,
+      26
+    ],
+    "target_top_logits_a": [
+      24.875,
+      24.875,
+      23.125,
+      22.75,
+      22.625
+    ],
+    "target_top_logits_b": [
+      25.0,
+      24.875,
+      23.125,
+      22.875,
+      22.625
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 17024,
+    "window_start_b": 17024,
+    "earlier_draft_change": {
+      "anchor": 18998,
+      "proposal_index": 3,
+      "predicted_position": 19002,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3273,
+        "anchor": 18998,
+        "proposals": [
+          7004,
+          805,
+          3155,
+          1421,
+          10709,
+          443,
+          19
+        ],
+        "rejected": 0,
+        "window_start": 16896,
+        "window_length": 2109,
+        "mode": "NONE",
+        "target_padded_tokens": 2626
+      },
+      "b": {
+        "step": 3231,
+        "anchor": 18998,
+        "proposals": [
+          7004,
+          805,
+          3155,
+          279,
+          2570,
+          10709,
+          443
+        ],
+        "rejected": 0,
+        "window_start": 16896,
+        "window_length": 2109,
+        "mode": "NONE",
+        "target_padded_tokens": 2626
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_reclaim_s8_graph_r1_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 1,
+    "input": "0829_112eng_wenshu_session-7d7c26a5-bae1-4e4d-9601-4280fa8411d4_part1_6_part1_final",
+    "prompt_tokens": 14512,
+    "output_first_divergence_zero_based": 113,
+    "client_token_a": 21,
+    "client_token_b": 11,
+    "target_top_ids_a": [
+      21,
+      11,
+      13,
+      220,
+      24
+    ],
+    "target_top_ids_b": [
+      11,
+      21,
+      220,
+      13,
+      24
+    ],
+    "target_top_logits_a": [
+      23.0,
+      22.875,
+      12.0625,
+      12.0625,
+      10.1875
+    ],
+    "target_top_logits_b": [
+      22.75,
+      22.75,
+      12.125,
+      12.0625,
+      10.125
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 12544,
+    "window_start_b": 12544,
+    "earlier_draft_change": {
+      "anchor": 14530,
+      "proposal_index": 6,
+      "predicted_position": 14537,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3335,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          585
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 3396,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          14244
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "0829_112eng_wenshu_session-1e9955ad-9111-465b-af6d-ea512d07d154_part1_6_part1_final",
+    "prompt_tokens": 18998,
+    "output_first_divergence_zero_based": 89,
+    "client_token_a": 760,
+    "client_token_b": 71093,
+    "target_top_ids_a": [
+      760,
+      71093,
+      332,
+      1536,
+      91
+    ],
+    "target_top_ids_b": [
+      71093,
+      760,
+      332,
+      1536,
+      27
+    ],
+    "target_top_logits_a": [
+      21.625,
+      21.25,
+      21.125,
+      20.75,
+      19.25
+    ],
+    "target_top_logits_b": [
+      21.75,
+      21.625,
+      20.875,
+      20.625,
+      19.375
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 17024,
+    "window_start_b": 17024,
+    "earlier_draft_change": {
+      "anchor": 18998,
+      "proposal_index": 3,
+      "predicted_position": 19002,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3273,
+        "anchor": 18998,
+        "proposals": [
+          7004,
+          805,
+          3155,
+          1421,
+          10709,
+          443,
+          19
+        ],
+        "rejected": 0,
+        "window_start": 16896,
+        "window_length": 2109,
+        "mode": "NONE",
+        "target_padded_tokens": 2626
+      },
+      "b": {
+        "step": 3409,
+        "anchor": 18998,
+        "proposals": [
+          7004,
+          805,
+          3155,
+          279,
+          2570,
+          10709,
+          443
+        ],
+        "rejected": 0,
+        "window_start": 16896,
+        "window_length": 2109,
+        "mode": "NONE",
+        "target_padded_tokens": 2626
+      }
+    }
+  },
+  {
+    "file": "trace_compare_business_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r1_vs_diagnostic_isocache_trained_window2048_samegroups_full_s8_graph_r2_c1.json",
+    "configuration_a": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "configuration_b": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "repeat_a": 1,
+    "repeat_b": 2,
+    "input": "0829_112eng_wenshu_session-7d7c26a5-bae1-4e4d-9601-4280fa8411d4_part1_6_part1_final",
+    "prompt_tokens": 14512,
+    "output_first_divergence_zero_based": 113,
+    "client_token_a": 21,
+    "client_token_b": 11,
+    "target_top_ids_a": [
+      21,
+      11,
+      13,
+      220,
+      24
+    ],
+    "target_top_ids_b": [
+      11,
+      21,
+      13,
+      220,
+      24
+    ],
+    "target_top_logits_a": [
+      23.0,
+      22.875,
+      12.0625,
+      12.0625,
+      10.1875
+    ],
+    "target_top_logits_b": [
+      22.875,
+      22.875,
+      12.0625,
+      12.0625,
+      10.25
+    ],
+    "target_shape_a": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "target_shape_b": [
+      "FULL",
+      8,
+      8,
+      1
+    ],
+    "actual_target_input_equal": true,
+    "previous_accepted_equal": true,
+    "window_start_a": 12544,
+    "window_start_b": 12544,
+    "earlier_draft_change": {
+      "anchor": 14530,
+      "proposal_index": 6,
+      "predicted_position": 14537,
+      "before_or_at_output_divergence": true,
+      "a": {
+        "step": 3335,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          585
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      },
+      "b": {
+        "step": 3574,
+        "anchor": 14530,
+        "proposals": [
+          660,
+          440,
+          328,
+          108715,
+          14244,
+          25,
+          14244
+        ],
+        "rejected": 1,
+        "window_start": 12416,
+        "window_length": 2121,
+        "mode": "FULL",
+        "target_padded_tokens": 8
+      }
+    }
+  }
+]

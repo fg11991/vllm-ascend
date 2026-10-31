@@ -1,0 +1,33 @@
+{
+  "steady_with_direct_audit": 24,
+  "changed_files": 0,
+  "readonly_baseline_steady_conditions": 6,
+  "baseline_evidence": "baseline_steady_cache_retrospective.json",
+  "excluded_first_cold_conditions": 6,
+  "files": [
+    "isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c4_cache_audit.json",
+    "isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c1_cache_audit.json",
+    "isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_agent_13k_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_24576_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c4_cache_audit.json",
+    "isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c1_cache_audit.json",
+    "isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_24576_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_24576_c4_cache_audit.json",
+    "isocache_trained_window_none_full_graph_s8_steady_perf_r1_agent_13k_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c4_cache_audit.json",
+    "isocache_trained_window_none_full_graph_s8_steady_perf_r1_long_29696_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_agent_13k_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_29696_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_agent_13k_c1_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s8_steady_perf_r1_long_29696_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r1_long_29696_c4_cache_audit.json",
+    "isocache_trained_window_2048_reclaim_graph_s16_steady_perf_r2_long_24576_c1_cache_audit.json"
+  ]
+}

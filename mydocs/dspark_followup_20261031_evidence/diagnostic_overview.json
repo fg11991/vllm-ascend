@@ -1,0 +1,972 @@
+[
+  {
+    "tag": "diagnostic_isocache_trained_window2048_readonly_baseline_graph",
+    "num_blocks": 2139,
+    "groups": [
+      {
+        "spec": "FullAttentionSpec",
+        "layers": [
+          "language_model.model.layers.3.self_attn.attn",
+          "language_model.model.layers.7.self_attn.attn",
+          "language_model.model.layers.11.self_attn.attn",
+          "language_model.model.layers.15.self_attn.attn",
+          "language_model.model.layers.19.self_attn.attn",
+          "language_model.model.layers.23.self_attn.attn",
+          "language_model.model.layers.27.self_attn.attn",
+          "language_model.model.layers.31.self_attn.attn",
+          "language_model.model.layers.35.self_attn.attn",
+          "language_model.model.layers.39.self_attn.attn",
+          "language_model.model.layers.43.self_attn.attn",
+          "language_model.model.layers.47.self_attn.attn",
+          "language_model.model.layers.51.self_attn.attn",
+          "language_model.model.layers.55.self_attn.attn",
+          "language_model.model.layers.59.self_attn.attn",
+          "language_model.model.layers.63.self_attn.attn",
+          "model.layers.64.self_attn.attn",
+          "model.layers.65.self_attn.attn",
+          "model.layers.66.self_attn.attn",
+          "model.layers.67.self_attn.attn",
+          "model.layers.68.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.0.linear_attn",
+          "language_model.model.layers.4.linear_attn",
+          "language_model.model.layers.8.linear_attn",
+          "language_model.model.layers.12.linear_attn",
+          "language_model.model.layers.16.linear_attn",
+          "language_model.model.layers.20.linear_attn",
+          "language_model.model.layers.24.linear_attn",
+          "language_model.model.layers.28.linear_attn",
+          "language_model.model.layers.32.linear_attn",
+          "language_model.model.layers.36.linear_attn",
+          "language_model.model.layers.40.linear_attn",
+          "language_model.model.layers.44.linear_attn",
+          "language_model.model.layers.48.linear_attn",
+          "language_model.model.layers.52.linear_attn",
+          "language_model.model.layers.56.linear_attn",
+          "language_model.model.layers.60.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.1.linear_attn",
+          "language_model.model.layers.5.linear_attn",
+          "language_model.model.layers.9.linear_attn",
+          "language_model.model.layers.13.linear_attn",
+          "language_model.model.layers.17.linear_attn",
+          "language_model.model.layers.21.linear_attn",
+          "language_model.model.layers.25.linear_attn",
+          "language_model.model.layers.29.linear_attn",
+          "language_model.model.layers.33.linear_attn",
+          "language_model.model.layers.37.linear_attn",
+          "language_model.model.layers.41.linear_attn",
+          "language_model.model.layers.45.linear_attn",
+          "language_model.model.layers.49.linear_attn",
+          "language_model.model.layers.53.linear_attn",
+          "language_model.model.layers.57.linear_attn",
+          "language_model.model.layers.61.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.2.linear_attn",
+          "language_model.model.layers.6.linear_attn",
+          "language_model.model.layers.10.linear_attn",
+          "language_model.model.layers.14.linear_attn",
+          "language_model.model.layers.18.linear_attn",
+          "language_model.model.layers.22.linear_attn",
+          "language_model.model.layers.26.linear_attn",
+          "language_model.model.layers.30.linear_attn",
+          "language_model.model.layers.34.linear_attn",
+          "language_model.model.layers.38.linear_attn",
+          "language_model.model.layers.42.linear_attn",
+          "language_model.model.layers.46.linear_attn",
+          "language_model.model.layers.50.linear_attn",
+          "language_model.model.layers.54.linear_attn",
+          "language_model.model.layers.58.linear_attn",
+          "language_model.model.layers.62.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "slot_bytes": 19267584,
+    "released_by_window": 0,
+    "window_reuses_with_old_continuing": 0,
+    "pool_violations": [],
+    "map_stats": {
+      "draft_records": 13920,
+      "seq_len_checks": 14124,
+      "window_formula_checks": 14124,
+      "rejected_tokens": 68984,
+      "prefill_steps": 440,
+      "length_clamp_steps": 32,
+      "rebase_checks": 14124,
+      "read_resident_checks": 14124,
+      "effective_read_columns": 237228,
+      "context_position_checks": 2831936,
+      "context_write_resident_checks": 2831936,
+      "context_writes": 2831936,
+      "query_position_checks": 98868,
+      "query_write_resident_checks": 98868,
+      "query_writes": 98868,
+      "rejected_write_mask_checks": 68984,
+      "query_positions_beyond_maxlen": 112,
+      "align_crossings": 568,
+      "scheduler_block_crossings": 320
+    },
+    "map_violations": [],
+    "ownership_counts": {
+      "reads_physical_block_checks": 46504,
+      "writes_physical_block_checks": 17300,
+      "reads_host_timestamp_owner_mismatches": 372,
+      "terminal_release": 480,
+      "writes_host_timestamp_owner_mismatches": 108
+    },
+    "prefix_checks": 12,
+    "prefix_mismatches": 0,
+    "last_free": 2138,
+    "max_inflight": 16372
+  },
+  {
+    "tag": "diagnostic_isocache_trained_window2048_reclaim_s8_graph",
+    "num_blocks": 5616,
+    "groups": [
+      {
+        "spec": "FullAttentionSpec",
+        "layers": [
+          "language_model.model.layers.3.self_attn.attn",
+          "language_model.model.layers.11.self_attn.attn",
+          "language_model.model.layers.19.self_attn.attn",
+          "language_model.model.layers.27.self_attn.attn",
+          "language_model.model.layers.35.self_attn.attn",
+          "language_model.model.layers.43.self_attn.attn",
+          "language_model.model.layers.51.self_attn.attn",
+          "language_model.model.layers.59.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "FullAttentionSpec",
+        "layers": [
+          "language_model.model.layers.7.self_attn.attn",
+          "language_model.model.layers.15.self_attn.attn",
+          "language_model.model.layers.23.self_attn.attn",
+          "language_model.model.layers.31.self_attn.attn",
+          "language_model.model.layers.39.self_attn.attn",
+          "language_model.model.layers.47.self_attn.attn",
+          "language_model.model.layers.55.self_attn.attn",
+          "language_model.model.layers.63.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "SlidingWindowSpec",
+        "layers": [
+          "model.layers.64.self_attn.attn",
+          "model.layers.65.self_attn.attn",
+          "model.layers.66.self_attn.attn",
+          "model.layers.67.self_attn.attn",
+          "model.layers.68.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          2191,
+          2191,
+          2191,
+          2191,
+          2191
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.0.linear_attn",
+          "language_model.model.layers.8.linear_attn",
+          "language_model.model.layers.16.linear_attn",
+          "language_model.model.layers.24.linear_attn",
+          "language_model.model.layers.32.linear_attn",
+          "language_model.model.layers.40.linear_attn",
+          "language_model.model.layers.48.linear_attn",
+          "language_model.model.layers.56.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.1.linear_attn",
+          "language_model.model.layers.9.linear_attn",
+          "language_model.model.layers.17.linear_attn",
+          "language_model.model.layers.25.linear_attn",
+          "language_model.model.layers.33.linear_attn",
+          "language_model.model.layers.41.linear_attn",
+          "language_model.model.layers.49.linear_attn",
+          "language_model.model.layers.57.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.2.linear_attn",
+          "language_model.model.layers.10.linear_attn",
+          "language_model.model.layers.18.linear_attn",
+          "language_model.model.layers.26.linear_attn",
+          "language_model.model.layers.34.linear_attn",
+          "language_model.model.layers.42.linear_attn",
+          "language_model.model.layers.50.linear_attn",
+          "language_model.model.layers.58.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.4.linear_attn",
+          "language_model.model.layers.12.linear_attn",
+          "language_model.model.layers.20.linear_attn",
+          "language_model.model.layers.28.linear_attn",
+          "language_model.model.layers.36.linear_attn",
+          "language_model.model.layers.44.linear_attn",
+          "language_model.model.layers.52.linear_attn",
+          "language_model.model.layers.60.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.5.linear_attn",
+          "language_model.model.layers.13.linear_attn",
+          "language_model.model.layers.21.linear_attn",
+          "language_model.model.layers.29.linear_attn",
+          "language_model.model.layers.37.linear_attn",
+          "language_model.model.layers.45.linear_attn",
+          "language_model.model.layers.53.linear_attn",
+          "language_model.model.layers.61.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.6.linear_attn",
+          "language_model.model.layers.14.linear_attn",
+          "language_model.model.layers.22.linear_attn",
+          "language_model.model.layers.30.linear_attn",
+          "language_model.model.layers.38.linear_attn",
+          "language_model.model.layers.46.linear_attn",
+          "language_model.model.layers.54.linear_attn",
+          "language_model.model.layers.62.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "slot_bytes": 7340032,
+    "released_by_window": 683,
+    "window_reuses_with_old_continuing": 67,
+    "pool_violations": [],
+    "map_stats": {
+      "draft_records": 14840,
+      "seq_len_checks": 15052,
+      "window_formula_checks": 15052,
+      "rejected_tokens": 69536,
+      "prefill_steps": 440,
+      "length_clamp_steps": 28,
+      "rebase_checks": 15052,
+      "read_resident_checks": 15052,
+      "effective_read_columns": 253064,
+      "context_position_checks": 2838860,
+      "context_write_resident_checks": 2838860,
+      "context_writes": 2838860,
+      "query_position_checks": 105364,
+      "query_write_resident_checks": 105364,
+      "query_writes": 105364,
+      "rejected_write_mask_checks": 69536,
+      "query_positions_beyond_maxlen": 112,
+      "align_crossings": 620,
+      "scheduler_block_crossings": 332
+    },
+    "map_violations": [],
+    "ownership_counts": {
+      "reads_physical_block_checks": 49560,
+      "writes_physical_block_checks": 18256,
+      "reads_host_timestamp_owner_mismatches": 372,
+      "terminal_release": 480,
+      "writes_host_timestamp_owner_mismatches": 108
+    },
+    "prefix_checks": 12,
+    "prefix_mismatches": 0,
+    "last_free": 5615,
+    "max_inflight": 16372
+  },
+  {
+    "tag": "diagnostic_isocache_trained_window2048_samegroups_full_s8_graph",
+    "num_blocks": 5616,
+    "groups": [
+      {
+        "spec": "FullAttentionSpec",
+        "layers": [
+          "language_model.model.layers.3.self_attn.attn",
+          "language_model.model.layers.11.self_attn.attn",
+          "language_model.model.layers.19.self_attn.attn",
+          "language_model.model.layers.27.self_attn.attn",
+          "language_model.model.layers.35.self_attn.attn",
+          "language_model.model.layers.43.self_attn.attn",
+          "language_model.model.layers.51.self_attn.attn",
+          "language_model.model.layers.59.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "FullAttentionSpec",
+        "layers": [
+          "language_model.model.layers.7.self_attn.attn",
+          "language_model.model.layers.15.self_attn.attn",
+          "language_model.model.layers.23.self_attn.attn",
+          "language_model.model.layers.31.self_attn.attn",
+          "language_model.model.layers.39.self_attn.attn",
+          "language_model.model.layers.47.self_attn.attn",
+          "language_model.model.layers.55.self_attn.attn",
+          "language_model.model.layers.63.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "SlidingWindowSpec",
+        "layers": [
+          "model.layers.64.self_attn.attn",
+          "model.layers.65.self_attn.attn",
+          "model.layers.66.self_attn.attn",
+          "model.layers.67.self_attn.attn",
+          "model.layers.68.self_attn.attn"
+        ],
+        "block_size": 896,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          2191,
+          2191,
+          2191,
+          2191,
+          2191
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.0.linear_attn",
+          "language_model.model.layers.8.linear_attn",
+          "language_model.model.layers.16.linear_attn",
+          "language_model.model.layers.24.linear_attn",
+          "language_model.model.layers.32.linear_attn",
+          "language_model.model.layers.40.linear_attn",
+          "language_model.model.layers.48.linear_attn",
+          "language_model.model.layers.56.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.1.linear_attn",
+          "language_model.model.layers.9.linear_attn",
+          "language_model.model.layers.17.linear_attn",
+          "language_model.model.layers.25.linear_attn",
+          "language_model.model.layers.33.linear_attn",
+          "language_model.model.layers.41.linear_attn",
+          "language_model.model.layers.49.linear_attn",
+          "language_model.model.layers.57.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.2.linear_attn",
+          "language_model.model.layers.10.linear_attn",
+          "language_model.model.layers.18.linear_attn",
+          "language_model.model.layers.26.linear_attn",
+          "language_model.model.layers.34.linear_attn",
+          "language_model.model.layers.42.linear_attn",
+          "language_model.model.layers.50.linear_attn",
+          "language_model.model.layers.58.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.4.linear_attn",
+          "language_model.model.layers.12.linear_attn",
+          "language_model.model.layers.20.linear_attn",
+          "language_model.model.layers.28.linear_attn",
+          "language_model.model.layers.36.linear_attn",
+          "language_model.model.layers.44.linear_attn",
+          "language_model.model.layers.52.linear_attn",
+          "language_model.model.layers.60.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.5.linear_attn",
+          "language_model.model.layers.13.linear_attn",
+          "language_model.model.layers.21.linear_attn",
+          "language_model.model.layers.29.linear_attn",
+          "language_model.model.layers.37.linear_attn",
+          "language_model.model.layers.45.linear_attn",
+          "language_model.model.layers.53.linear_attn",
+          "language_model.model.layers.61.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "spec": "MambaSpec",
+        "layers": [
+          "language_model.model.layers.6.linear_attn",
+          "language_model.model.layers.14.linear_attn",
+          "language_model.model.layers.22.linear_attn",
+          "language_model.model.layers.30.linear_attn",
+          "language_model.model.layers.38.linear_attn",
+          "language_model.model.layers.46.linear_attn",
+          "language_model.model.layers.54.linear_attn",
+          "language_model.model.layers.62.linear_attn"
+        ],
+        "block_size": 32768,
+        "pages": [
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504,
+          917504
+        ],
+        "retention": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    ],
+    "slot_bytes": 7340032,
+    "released_by_window": 0,
+    "window_reuses_with_old_continuing": 0,
+    "pool_violations": [],
+    "map_stats": {
+      "draft_records": 14596,
+      "seq_len_checks": 14812,
+      "window_formula_checks": 14812,
+      "rejected_tokens": 70772,
+      "prefill_steps": 440,
+      "length_clamp_steps": 36,
+      "rebase_checks": 14812,
+      "read_resident_checks": 14812,
+      "effective_read_columns": 248928,
+      "context_position_checks": 2835656,
+      "context_write_resident_checks": 2835656,
+      "context_writes": 2835656,
+      "query_position_checks": 103684,
+      "query_write_resident_checks": 103684,
+      "query_writes": 103684,
+      "rejected_write_mask_checks": 70772,
+      "query_positions_beyond_maxlen": 124,
+      "align_crossings": 596,
+      "scheduler_block_crossings": 324
+    },
+    "map_violations": [],
+    "ownership_counts": {
+      "reads_physical_block_checks": 48876,
+      "writes_physical_block_checks": 18012,
+      "reads_host_timestamp_owner_mismatches": 402,
+      "terminal_release": 520,
+      "writes_host_timestamp_owner_mismatches": 118
+    },
+    "prefix_checks": 12,
+    "prefix_mismatches": 0,
+    "last_free": 5615,
+    "max_inflight": 16372
+  }
+]

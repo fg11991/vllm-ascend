@@ -1,0 +1,27 @@
+{
+  "kind": "Synthetic CPU analysis, not NPU test",
+  "directory": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/ownership-cpu-3v8cugg9",
+  "cases": [
+    {
+      "case": "terminal",
+      "expected_exit": 0,
+      "actual_exit": 0
+    },
+    {
+      "case": "window_free",
+      "expected_exit": 1,
+      "actual_exit": 1
+    },
+    {
+      "case": "reallocated",
+      "expected_exit": 1,
+      "actual_exit": 1
+    },
+    {
+      "case": "not_finished",
+      "expected_exit": 1,
+      "actual_exit": 1
+    }
+  ],
+  "passed": true
+}

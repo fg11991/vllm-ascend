@@ -1,0 +1,84 @@
+{
+  "time": 1793437598.0697577,
+  "our_service_last_real_request": {
+    "time": 1793437167.1811068,
+    "health": 200,
+    "response": {
+      "id": "chatcmpl-8d2fd642f12e28df",
+      "object": "chat.completion",
+      "created": 1793437097,
+      "model": "dspark-trained-followup",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "我已准备就绪，随时为您提供帮助。",
+            "refusal": null,
+            "annotations": null,
+            "audio": null,
+            "function_call": null,
+            "reasoning": null
+          },
+          "logprobs": null,
+          "finish_reason": "stop",
+          "stop_reason": null,
+          "token_ids": null,
+          "routed_experts": null
+        }
+      ],
+      "service_tier": null,
+      "system_fingerprint": "vllm-0.30.0-tp4-8b2aea51",
+      "usage": {
+        "prompt_tokens": 20,
+        "total_tokens": 29,
+        "completion_tokens": 9,
+        "prompt_tokens_details": null,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      },
+      "prompt_logprobs": null,
+      "prompt_token_ids": null,
+      "prompt_text": null,
+      "kv_transfer_params": null,
+      "ec_transfer_params": null,
+      "metrics": null
+    }
+  },
+  "our_service_shutdown": "2026-10-31 09:01:47 UTC; API shutdown triggered; no new AICore error immediately before shutdown",
+  "current_other_validation_processes": [
+    {
+      "pid": 508020,
+      "command": "/workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/python /workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/vllm serve /opt/models/Qwen3.8-27B --served-model-name dspark-apc-experiment --host 127.0.0.1 --port 8873 --dtype bfloat16 --seed 42 --max-model-len 32768 --max-num-seqs 8 --max-num-batched-tokens 8192 --tensor-parallel-size 4 --gpu-memory-utilization 0.9 --trust-remote-code --no-enable-prefix-caching --async-scheduling --tool-call-parser qwen3_coder --enable-auto-tool-choice --reasoning-parser qwen3 --default-chat-template-kwargs {\"enable_thinking\":false} --speculative-config {\"num_speculative_tokens\":7,\"method\":\"dspark\",\"model\":\"/workspace/dspark_ctxwin_validation/apc_20261031_round01/models/trained-window-2048\"} --compilation-config {\"cudagraph_mode\":\"FULL\",\"cudagraph_capture_sizes\":[8,16,24,32,40,48,56,64]} ",
+      "devices": "4,5,6,7"
+    }
+  ],
+  "current_http_health": null,
+  "current_models": {
+    "error": "ConnectionError(MaxRetryError('HTTPConnectionPool(host=\\'127.0.0.1\\', port=8873): Max retries exceeded with url: /health (Caused by NewConnectionError(\"HTTPConnection(host=\\'127.0.0.1\\', port=8873): Failed to establish a new connection: [Errno 111] Connection refused\"))'))"
+  },
+  "device_health": [
+    {
+      "device": 4,
+      "returncode": 0,
+      "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+    },
+    {
+      "device": 5,
+      "returncode": 0,
+      "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+    },
+    {
+      "device": 6,
+      "returncode": 0,
+      "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+    },
+    {
+      "device": 7,
+      "returncode": 0,
+      "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+    }
+  ],
+  "action": "Read-only inspection. Did not stop, replace or send model requests to the other validation service. Shutdown initiator not established."
+}

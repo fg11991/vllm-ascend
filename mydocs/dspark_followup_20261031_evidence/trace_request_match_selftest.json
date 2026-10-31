@@ -1,0 +1,9 @@
+{
+  "kind": "CPU identifier analysis regression, not NPU validation",
+  "accepted": "exact completion ID plus observed worker index/hex suffix",
+  "rejected": [
+    "prefix replay ID",
+    "longer input ID sharing a prefix"
+  ],
+  "passed": true
+}

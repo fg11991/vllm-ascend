@@ -1,0 +1,73 @@
+{
+  "contrasts": {
+    "size16改size8": {
+      "mean_ttft_seconds": {
+        "first_round_min_percent": -0.3764630027460303,
+        "first_round_max_percent": 0.4329289871595421,
+        "condition_count": 6
+      },
+      "weighted_tpot_stream_end_seconds": {
+        "first_round_min_percent": -3.9050342195207643,
+        "first_round_max_percent": 8.405270166817402,
+        "condition_count": 6
+      },
+      "wave_output_tokens_per_second": {
+        "first_round_min_percent": -4.928817856126622,
+        "first_round_max_percent": 1.9087026331811474,
+        "condition_count": 6
+      }
+    },
+    "加入回收及size16布局": {
+      "mean_ttft_seconds": {
+        "first_round_min_percent": -0.5478960695768476,
+        "first_round_max_percent": 0.22068412109057522,
+        "condition_count": 6
+      },
+      "weighted_tpot_stream_end_seconds": {
+        "first_round_min_percent": -2.9896823621871405,
+        "first_round_max_percent": 3.3303785457738266,
+        "condition_count": 6
+      },
+      "wave_output_tokens_per_second": {
+        "first_round_min_percent": -1.495850102898899,
+        "first_round_max_percent": 1.8794890352553661,
+        "condition_count": 6
+      }
+    },
+    "加入回收及size8布局": {
+      "mean_ttft_seconds": {
+        "first_round_min_percent": -0.5347327476330488,
+        "first_round_max_percent": 0.35694422042891194,
+        "condition_count": 6
+      },
+      "weighted_tpot_stream_end_seconds": {
+        "first_round_min_percent": -0.7047080955989826,
+        "first_round_max_percent": 6.8639224693042955,
+        "condition_count": 6
+      },
+      "wave_output_tokens_per_second": {
+        "first_round_min_percent": -3.141965412044867,
+        "first_round_max_percent": 0.3843011999797863,
+        "condition_count": 6
+      }
+    },
+    "裁读": {
+      "mean_ttft_seconds": {
+        "first_round_min_percent": -0.16392067867544435,
+        "first_round_max_percent": 0.3746429389722028,
+        "condition_count": 6
+      },
+      "weighted_tpot_stream_end_seconds": {
+        "first_round_min_percent": -5.080448441514973,
+        "first_round_max_percent": 0.7303377825713664,
+        "condition_count": 6
+      },
+      "wave_output_tokens_per_second": {
+        "first_round_min_percent": -0.501908971435705,
+        "first_round_max_percent": 2.379872359095292,
+        "condition_count": 6
+      }
+    }
+  },
+  "note": "First round descriptive variation across six input/concurrency conditions; neither a repeated confidence interval nor a pure allocator-cost estimate."
+}

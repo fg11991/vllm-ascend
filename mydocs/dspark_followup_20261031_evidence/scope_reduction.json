@@ -1,0 +1,13 @@
+{
+  "time": 1793427439.8639808,
+  "user_authorized": true,
+  "current_job": "size16 round2",
+  "action": "Pause only matrix controller; current benchmark subprocess and service continue. Finish current round then key diagnosis, W2048 reuse and memory32.",
+  "deferred": [
+    "remaining business/performance repetitions",
+    "secondary training/window/eager matrix",
+    "W128 boundary",
+    "controlled preemption",
+    "size16/eager deep trace"
+  ]
+}

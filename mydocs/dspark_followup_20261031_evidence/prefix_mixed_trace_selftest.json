@@ -1,0 +1,8 @@
+{
+  "kind": "Synthetic CPU analysis only; not device validation",
+  "passed": true,
+  "cases": 6,
+  "path": "/workspace/dspark_ctxwin_validation/round_20261031_isolated/prefix-mixed-cpu-wjz7fmnc",
+  "trace": "/opt/w00958190/log/dspark_20261031_diag_synthetic_prefix-mixed-cpu-wjz7fmnc_999999.jsonl",
+  "assertions": "Both first target verification and exact full-prefix coverage found, decode rows excluded"
+}

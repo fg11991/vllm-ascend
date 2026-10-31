@@ -1,0 +1,12 @@
+{
+  "markdownlint_cli": "0.45.0",
+  "changed_markdown_files": 7,
+  "markdownlint_exit_code": 0,
+  "json_parse": "passed",
+  "local_report_links": "passed",
+  "downloaded_bundle_sha256": "All files verified against remote manifest before documented delivery formatting",
+  "formal_per_request_records": 620,
+  "production_code_changed": false,
+  "full_format_ci": "not passed: pre-commit unavailable; see repository_format_check.json",
+  "csv_formatting": "CRLF normalized to LF; parsed CSV rows verified unchanged"
+}

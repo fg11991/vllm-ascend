@@ -1,0 +1,22 @@
+[
+  {
+    "device": 4,
+    "returncode": 0,
+    "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+  },
+  {
+    "device": 5,
+    "returncode": 0,
+    "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+  },
+  {
+    "device": 6,
+    "returncode": 0,
+    "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+  },
+  {
+    "device": 7,
+    "returncode": 0,
+    "output": "\tHealth Status                  : Alarm\n\tError Code                     : 80C98001\n\tError Information              : node type=AIC, sensor type=RAS State, event state=module error can not be fixed\n"
+  }
+]

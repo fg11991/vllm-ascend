@@ -1,0 +1,46 @@
+{
+  "time": 1793437167.1811068,
+  "health": 200,
+  "response": {
+    "id": "chatcmpl-8d2fd642f12e28df",
+    "object": "chat.completion",
+    "created": 1793437097,
+    "model": "dspark-trained-followup",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "我已准备就绪，随时为您提供帮助。",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.30.0-tp4-8b2aea51",
+    "usage": {
+      "prompt_tokens": 20,
+      "total_tokens": 29,
+      "completion_tokens": 9,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "ec_transfer_params": null,
+    "metrics": null
+  }
+}

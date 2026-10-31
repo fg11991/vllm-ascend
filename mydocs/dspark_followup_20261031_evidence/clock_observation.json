@@ -1,0 +1,6 @@
+{
+  "local_utc": "2026-10-31 06:26:46",
+  "container_utc": "2026-10-31 06:21:48",
+  "approx_offset_seconds": -298,
+  "note": "Read-only observation. No host or container clock changed. Client elapsed-time metrics use perf_counter in container; scheduler/worker diagnostic capture_time share container clock. Do not compare local wall timestamps directly to server logs."
+}

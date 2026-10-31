@@ -1,0 +1,69 @@
+{
+  "time": 1793419927.2051694,
+  "roots": [
+    {
+      "root": "/opt/w00958190/flash-attention-npu",
+      "commit": "64a5652de4ba158083c43a6d4ed0a474a7a11419",
+      "status": "",
+      "binaries": []
+    },
+    {
+      "root": "/opt/w00958190/vllm-ascend",
+      "commit": "4a01608da7be1950eebc9902e3692d257f304759",
+      "status": "",
+      "binaries": []
+    },
+    {
+      "root": "/workspace/dspark_ctxwin_baseline/vllm_ascend",
+      "binaries": [
+        {
+          "path": "/workspace/dspark_ctxwin_baseline/vllm_ascend/vllm_ascend_C.cpython-312-aarch64-linux-gnu.so",
+          "realpath": "/opt/w00958190/vllm-ascend/vllm_ascend/vllm_ascend_C.cpython-312-aarch64-linux-gnu.so",
+          "size": 934624,
+          "mtime_ns": 1793152830000000000,
+          "sha256": "523646293b4298699e3ccce36bb79e628cc7989477fbf7fb4053b799820124d1"
+        },
+        {
+          "path": "/workspace/dspark_ctxwin_baseline/vllm_ascend/libvllm_ascend_kernels.so",
+          "realpath": "/opt/w00958190/vllm-ascend/vllm_ascend/libvllm_ascend_kernels.so",
+          "size": 450784,
+          "mtime_ns": 1793152766000000000,
+          "sha256": "86315c6e9ab6c52b52d4f5e4d74bbfd3e1696df6b8d1b5a1757ea3190bc6c324"
+        },
+        {
+          "path": "/workspace/dspark_ctxwin_baseline/vllm_ascend/lib64/libvllm_ascend_kernels.so",
+          "realpath": "/opt/w00958190/vllm-ascend/vllm_ascend/lib64/libvllm_ascend_kernels.so",
+          "size": 450784,
+          "mtime_ns": 1793152766000000000,
+          "sha256": "86315c6e9ab6c52b52d4f5e4d74bbfd3e1696df6b8d1b5a1757ea3190bc6c324"
+        }
+      ]
+    },
+    {
+      "root": "/workspace/dspark_ctxwin_tmp/vllm_ascend",
+      "binaries": [
+        {
+          "path": "/workspace/dspark_ctxwin_tmp/vllm_ascend/vllm_ascend_C.cpython-312-aarch64-linux-gnu.so",
+          "realpath": "/opt/w00958190/vllm-ascend/vllm_ascend/vllm_ascend_C.cpython-312-aarch64-linux-gnu.so",
+          "size": 934624,
+          "mtime_ns": 1793152830000000000,
+          "sha256": "523646293b4298699e3ccce36bb79e628cc7989477fbf7fb4053b799820124d1"
+        },
+        {
+          "path": "/workspace/dspark_ctxwin_tmp/vllm_ascend/libvllm_ascend_kernels.so",
+          "realpath": "/opt/w00958190/vllm-ascend/vllm_ascend/libvllm_ascend_kernels.so",
+          "size": 450784,
+          "mtime_ns": 1793152766000000000,
+          "sha256": "86315c6e9ab6c52b52d4f5e4d74bbfd3e1696df6b8d1b5a1757ea3190bc6c324"
+        },
+        {
+          "path": "/workspace/dspark_ctxwin_tmp/vllm_ascend/lib64/libvllm_ascend_kernels.so",
+          "realpath": "/opt/w00958190/vllm-ascend/vllm_ascend/lib64/libvllm_ascend_kernels.so",
+          "size": 450784,
+          "mtime_ns": 1793152766000000000,
+          "sha256": "86315c6e9ab6c52b52d4f5e4d74bbfd3e1696df6b8d1b5a1757ea3190bc6c324"
+        }
+      ]
+    }
+  ]
+}

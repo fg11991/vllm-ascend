@@ -2,6 +2,10 @@
 
 # DSpark MRv2 context window：先让 draft 只读需要的历史
 
+2026-10-31 补充：相同读窗口下的全量保留与回收对照，以及长篇分叉的诊断，见
+[窗口增训草稿补充实验报告](2026-10-31_dspark_trained_window_followup.md)及
+[技术证据附件](2026-10-31_dspark_followup_evidence.md)。本文保留第一阶段的适配说明。
+
 本文解释第一阶段的“只读窗口”适配。第二阶段的“回收窗口外 KV”见
 [KV 保留与分组报告](dspark_kv_retention.md)，设备证据见
 [实机验证报告](dspark_npu_validation.md)。
