@@ -1,0 +1,39 @@
+{
+  "draft_config": "/workspace/dspark_ctxwin_validation/apc_20261031_round01/models/trained-window-2048/config.json",
+  "draft_weight": "/opt/w00958190/specforge_tmp/export_A_agent_ctxwin2048_step50/model.safetensors",
+  "draft_config_sha256": "44f31063aa212d867ee18f5db68d2125b41af32732db2ef87741256b92f59cb5",
+  "source_hashes": {
+    "worker/v2/spec_decode/dspark/cache_retention.py": "616280f6a1be7e47d8a0310581bc68d0a3f1248d09c48b2ba9fecd969eb4c7a6",
+    "worker/v2/spec_decode/dspark/speculator.py": "0e41f97a8e13401fce5ec239d8160949ce8740d98a5bfa190338d7dab5e52343",
+    "worker/v2/spec_decode/dspark/context_window.py": "0719462d62b09152ebbc5d1c9698ef8f54d9dd1fe4f61522fa4fe66f318b0ce4",
+    "patch/platform/patch_kv_cache_coordinator.py": "828169b4c131a6e42f01be91ce87a36fd1b6025d9f6607eb75e68df9dbf17634"
+  },
+  "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+  "root": "/workspace/dspark_ctxwin_validation/retention_isolation_20261102_round02",
+  "previous_root": "/workspace/dspark_ctxwin_validation/acceptance_20261102_round01",
+  "apc": true,
+  "drop_config": true,
+  "context_window": 2048,
+  "retention": 2191,
+  "comparison": "Single engine and identical groups; request-local release vs suppression of SlidingWindowManager.remove_skipped_blocks; cache lookup unchanged",
+  "planned_sequence": [
+    "release_a",
+    "hold_a",
+    "hold_b",
+    "release_b"
+  ],
+  "requests_per_group": 3,
+  "case": "agent_long_0",
+  "private_checkpoint_reproduced": false,
+  "draft_weight_sha256": "efe3fbf9a844217df975dfb7405cee318f0d20fb5a217a9e0d68da463b4bb0e0",
+  "packages": {
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post7",
+    "triton": "3.6.0",
+    "transformers": "5.14.1",
+    "vllm": "0.30.0+empty",
+    "vllm-ascend": "0.1.dev6051+gfbc3e6b8a"
+  },
+  "final_mode": "release",
+  "final_hashes_reverified": true
+}

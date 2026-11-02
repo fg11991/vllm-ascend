@@ -1,0 +1,11 @@
+{
+  "archive": "raw_evidence.tar.gz",
+  "sha256": "44f3df8cb1535d338b69b71ea77d26ce6b264910e6a8cc41c8b000d83c639d26",
+  "bytes": 1028582,
+  "archived_files": 134,
+  "verified_file_hashes": 133,
+  "archive_copied_unchanged": true,
+  "archive_root": "retention_isolation_20261102_round02",
+  "source_remote": "/workspace/dspark_ctxwin_validation/retention_isolation_20261102_round02_evidence.tar.gz",
+  "internal_hash_index": "retention_isolation_20261102_round02/SHA256SUMS"
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-02",
+  "base_commit": "d010fc7518ca1ace236b85b532568aa97a28f183",
+  "scope": "Documentation and evidence only; no new NPU requests or service operations.",
+  "preserved_untracked_files": [
+    "examples/dspark_accuracy.py",
+    "mydocs/dspark_accuracy_validation.md",
+    "tests/ut/_tools/test_dspark_accuracy.py"
+  ],
+  "verified_file_hashes": 133,
+  "archive_copied_unchanged": true,
+  "recomputed_final_summary": "matches archived JSON",
+  "requests": 20,
+  "greedy_payloads_verified": true,
+  "critical_source_hashes_match_current_branch": true,
+  "secret_scan": {
+    "status": "Two token-ID SHA256 false positives independently recomputed; no credential findings.",
+    "review": "secret_scan_review.json",
+    "log": "secret_scan.log"
+  },
+  "format_ci": {
+    "command": "bash format.sh ci",
+    "exit_code": 0,
+    "manual_hooks_passed": 18,
+    "log": "format_ci.log",
+    "environment": "Existing /tmp/dspark-lint-venv and cached Node system environment via temporary tool links; no hooks skipped or repository rules changed."
+  },
+  "tests": "Offline evidence hash verification and summary recomputation; documentation-only change, no new NPU/UT/ST run."
+}

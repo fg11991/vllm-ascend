@@ -1,0 +1,1016 @@
+{
+  "completed_requests": 20,
+  "coordinator": {
+    "event": "coordinator",
+    "time": 1793616173.1405506,
+    "pid": 704405,
+    "cls": "AscendHybridKVCacheCoordinator",
+    "caching": true,
+    "skips_eagle_block_drop": true,
+    "eagle_group_ids": [
+      0,
+      1
+    ],
+    "managers": [
+      {
+        "gid": 0,
+        "cls": "FullAttentionManager",
+        "block_size": 896,
+        "use_eagle": true,
+        "retention": null
+      },
+      {
+        "gid": 1,
+        "cls": "FullAttentionManager",
+        "block_size": 896,
+        "use_eagle": true,
+        "retention": null
+      },
+      {
+        "gid": 2,
+        "cls": "SlidingWindowManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": 2191
+      },
+      {
+        "gid": 3,
+        "cls": "AscendMambaManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": null
+      },
+      {
+        "gid": 4,
+        "cls": "AscendMambaManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": null
+      },
+      {
+        "gid": 5,
+        "cls": "AscendMambaManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": null
+      },
+      {
+        "gid": 6,
+        "cls": "AscendMambaManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": null
+      },
+      {
+        "gid": 7,
+        "cls": "AscendMambaManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": null
+      },
+      {
+        "gid": 8,
+        "cls": "AscendMambaManager",
+        "block_size": 896,
+        "use_eagle": false,
+        "retention": null
+      }
+    ]
+  },
+  "event_counts": {
+    "coordinator": 1,
+    "retention_policy": 20,
+    "lookup": 20,
+    "window_reclaim": 14,
+    "spec_step": 1223,
+    "cache_touch": 144,
+    "retirement_suppressed": 332
+  },
+  "actual_freed_blocks": 36,
+  "suppressed_calls": 332,
+  "total_cache_hits": 229376.0,
+  "phases": {
+    "main": {
+      "release": {
+        "cold": {
+          "requests": 2,
+          "accepted": 663,
+          "drafted": 861,
+          "steps": 123,
+          "acceptance": 0.7700348432055749,
+          "mean_acceptance_length": 6.390243902439025
+        },
+        "hot": {
+          "requests": 4,
+          "accepted": 1374,
+          "drafted": 1750,
+          "steps": 250,
+          "acceptance": 0.7851428571428571,
+          "mean_acceptance_length": 6.496
+        }
+      },
+      "hold": {
+        "cold": {
+          "requests": 2,
+          "accepted": 637,
+          "drafted": 770,
+          "steps": 110,
+          "acceptance": 0.8272727272727273,
+          "mean_acceptance_length": 6.790909090909091
+        },
+        "hot": {
+          "requests": 4,
+          "accepted": 1324,
+          "drafted": 1645,
+          "steps": 235,
+          "acceptance": 0.8048632218844984,
+          "mean_acceptance_length": 6.634042553191489
+        }
+      }
+    },
+    "cross": {
+      "release": {
+        "hot": {
+          "requests": 2,
+          "accepted": 710,
+          "drafted": 896,
+          "steps": 128,
+          "acceptance": 0.7924107142857143,
+          "mean_acceptance_length": 6.546875
+        }
+      },
+      "hold": {
+        "hot": {
+          "requests": 2,
+          "accepted": 710,
+          "drafted": 896,
+          "steps": 128,
+          "acceptance": 0.7924107142857143,
+          "mean_acceptance_length": 6.546875
+        }
+      }
+    },
+    "reverse": {
+      "release": {
+        "hot": {
+          "requests": 2,
+          "accepted": 709,
+          "drafted": 903,
+          "steps": 129,
+          "acceptance": 0.7851605758582503,
+          "mean_acceptance_length": 6.496124031007752
+        }
+      },
+      "hold": {
+        "hot": {
+          "requests": 2,
+          "accepted": 670,
+          "drafted": 840,
+          "steps": 120,
+          "acceptance": 0.7976190476190477,
+          "mean_acceptance_length": 6.583333333333333
+        }
+      }
+    }
+  },
+  "pairs": [
+    {
+      "release": "I_cross_ra_release_agent_long_0_r3",
+      "hold": "I_cross_ra_hold_agent_long_0_r3",
+      "same_output_ids": true,
+      "common_output_tokens": 418,
+      "lengths": [
+        418,
+        418
+      ],
+      "same_cached_block_ids": true,
+      "release_minus_hold_pp": 1.4388736263736268,
+      "first_same_history_step_difference": [
+        {
+          "output_tokens_before": 56,
+          "release_accepted": 5,
+          "hold_accepted": 1
+        }
+      ],
+      "first_release_processed_tokens": 14739,
+      "first_release_processed_tokens_minus_prompt": 227,
+      "phase": "cross",
+      "cache": "release_a",
+      "cached_blocks_match_original": true
+    },
+    {
+      "release": "I_cross_hb_release_agent_long_0_r3",
+      "hold": "I_cross_hb_hold_agent_long_0_r3",
+      "same_output_ids": true,
+      "common_output_tokens": 418,
+      "lengths": [
+        418,
+        418
+      ],
+      "same_cached_block_ids": true,
+      "release_minus_hold_pp": -1.4845521541950069,
+      "first_same_history_step_difference": [
+        {
+          "output_tokens_before": 376,
+          "release_accepted": 6,
+          "hold_accepted": 7
+        }
+      ],
+      "first_release_processed_tokens": 14739,
+      "first_release_processed_tokens_minus_prompt": 227,
+      "phase": "cross",
+      "cache": "hold_b",
+      "cached_blocks_match_original": true
+    },
+    {
+      "release": "I_reverse_ra_release_agent_long_0_r3",
+      "hold": "I_reverse_ra_hold_agent_long_0_r3",
+      "same_output_ids": false,
+      "common_output_tokens": 113,
+      "lengths": [
+        418,
+        392
+      ],
+      "same_cached_block_ids": true,
+      "release_minus_hold_pp": 0.050441361916775396,
+      "first_same_history_step_difference": [
+        {
+          "output_tokens_before": 56,
+          "release_accepted": 1,
+          "hold_accepted": 5
+        }
+      ],
+      "first_release_processed_tokens": 14740,
+      "first_release_processed_tokens_minus_prompt": 228,
+      "phase": "reverse",
+      "cache": "release_a",
+      "cached_blocks_match_original": true
+    },
+    {
+      "release": "I_reverse_hb_release_agent_long_0_r3",
+      "hold": "I_reverse_hb_hold_agent_long_0_r3",
+      "same_output_ids": false,
+      "common_output_tokens": 330,
+      "lengths": [
+        418,
+        396
+      ],
+      "same_cached_block_ids": true,
+      "release_minus_hold_pp": -2.5991222760290533,
+      "first_same_history_step_difference": [
+        {
+          "output_tokens_before": 56,
+          "release_accepted": 1,
+          "hold_accepted": 5
+        }
+      ],
+      "first_release_processed_tokens": 14740,
+      "first_release_processed_tokens_minus_prompt": 228,
+      "phase": "reverse",
+      "cache": "hold_b",
+      "cached_blocks_match_original": true
+    }
+  ],
+  "rows": [
+    {
+      "label": "I_release_a_agent_long_0_r0",
+      "group": "release_a",
+      "retention_mode": "release",
+      "repeat": 0,
+      "stats": {
+        "steps": 62,
+        "drafted": 434,
+        "accepted": 331,
+        "acceptance": 0.7626728110599078,
+        "mean_acceptance_length": 6.338709677419355,
+        "accepted_per_position": [
+          58,
+          55,
+          48,
+          46,
+          44,
+          42,
+          38
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14904,
+        "completion_tokens": 392
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 0.0,
+        "vllm:spec_decode_num_drafts_total": 62.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 434.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 331.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 14,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_release_a_agent_long_0_r1",
+      "group": "release_a",
+      "retention_mode": "release",
+      "repeat": 1,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          59,
+          51,
+          51,
+          49,
+          45,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_release_a_agent_long_0_r2",
+      "group": "release_a",
+      "retention_mode": "release",
+      "repeat": 2,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          59,
+          51,
+          51,
+          49,
+          45,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_hold_a_agent_long_0_r0",
+      "group": "hold_a",
+      "retention_mode": "hold",
+      "repeat": 0,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          58,
+          51,
+          51,
+          48,
+          46,
+          40
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 0.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 66
+    },
+    {
+      "label": "I_hold_a_agent_long_0_r1",
+      "group": "hold_a",
+      "retention_mode": "hold",
+      "repeat": 1,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          59,
+          51,
+          51,
+          48,
+          46,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 31
+    },
+    {
+      "label": "I_hold_a_agent_long_0_r2",
+      "group": "hold_a",
+      "retention_mode": "hold",
+      "repeat": 2,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          59,
+          51,
+          51,
+          48,
+          46,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 31
+    },
+    {
+      "label": "I_hold_b_agent_long_0_r0",
+      "group": "hold_b",
+      "retention_mode": "hold",
+      "repeat": 0,
+      "stats": {
+        "steps": 46,
+        "drafted": 322,
+        "accepted": 282,
+        "acceptance": 0.8757763975155279,
+        "mean_acceptance_length": 7.130434782608695,
+        "accepted_per_position": [
+          45,
+          45,
+          41,
+          41,
+          40,
+          37,
+          33
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14841,
+        "completion_tokens": 329
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 0.0,
+        "vllm:spec_decode_num_drafts_total": 46.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 322.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 282.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 48
+    },
+    {
+      "label": "I_hold_b_agent_long_0_r1",
+      "group": "hold_b",
+      "retention_mode": "hold",
+      "repeat": 1,
+      "stats": {
+        "steps": 46,
+        "drafted": 322,
+        "accepted": 282,
+        "acceptance": 0.8757763975155279,
+        "mean_acceptance_length": 7.130434782608695,
+        "accepted_per_position": [
+          45,
+          45,
+          41,
+          41,
+          39,
+          38,
+          33
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14841,
+        "completion_tokens": 329
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 46.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 322.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 282.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 13
+    },
+    {
+      "label": "I_hold_b_agent_long_0_r2",
+      "group": "hold_b",
+      "retention_mode": "hold",
+      "repeat": 2,
+      "stats": {
+        "steps": 61,
+        "drafted": 427,
+        "accepted": 332,
+        "acceptance": 0.7775175644028103,
+        "mean_acceptance_length": 6.442622950819672,
+        "accepted_per_position": [
+          57,
+          55,
+          49,
+          47,
+          46,
+          41,
+          37
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14904,
+        "completion_tokens": 392
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 61.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 427.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 28
+    },
+    {
+      "label": "I_release_b_agent_long_0_r0",
+      "group": "release_b",
+      "retention_mode": "release",
+      "repeat": 0,
+      "stats": {
+        "steps": 61,
+        "drafted": 427,
+        "accepted": 332,
+        "acceptance": 0.7775175644028103,
+        "mean_acceptance_length": 6.442622950819672,
+        "accepted_per_position": [
+          58,
+          56,
+          48,
+          46,
+          44,
+          42,
+          38
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14904,
+        "completion_tokens": 392
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 0.0,
+        "vllm:spec_decode_num_drafts_total": 61.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 427.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 14,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_release_b_agent_long_0_r1",
+      "group": "release_b",
+      "retention_mode": "release",
+      "repeat": 1,
+      "stats": {
+        "steps": 61,
+        "drafted": 427,
+        "accepted": 332,
+        "acceptance": 0.7775175644028103,
+        "mean_acceptance_length": 6.442622950819672,
+        "accepted_per_position": [
+          58,
+          56,
+          48,
+          46,
+          44,
+          42,
+          38
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14904,
+        "completion_tokens": 392
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 61.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 427.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_release_b_agent_long_0_r2",
+      "group": "release_b",
+      "retention_mode": "release",
+      "repeat": 2,
+      "stats": {
+        "steps": 61,
+        "drafted": 427,
+        "accepted": 332,
+        "acceptance": 0.7775175644028103,
+        "mean_acceptance_length": 6.442622950819672,
+        "accepted_per_position": [
+          58,
+          56,
+          48,
+          46,
+          44,
+          42,
+          38
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14904,
+        "completion_tokens": 392
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 61.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 427.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 332.0,
+        "vllm:prefix_cache_queries_total": 14512.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_cross_ra_hold_agent_long_0_r3",
+      "group": "cross_ra_hold",
+      "retention_mode": "hold",
+      "repeat": 3,
+      "stats": {
+        "steps": 65,
+        "drafted": 455,
+        "accepted": 354,
+        "acceptance": 0.778021978021978,
+        "mean_acceptance_length": 6.446153846153846,
+        "accepted_per_position": [
+          63,
+          59,
+          50,
+          50,
+          48,
+          45,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 455.0,
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_drafts_total": 65.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 354.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 31
+    },
+    {
+      "label": "I_cross_ra_release_agent_long_0_r3",
+      "group": "cross_ra_release",
+      "retention_mode": "release",
+      "repeat": 3,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          59,
+          51,
+          51,
+          49,
+          45,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_cross_hb_release_agent_long_0_r3",
+      "group": "cross_hb_release",
+      "retention_mode": "release",
+      "repeat": 3,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          61,
+          59,
+          51,
+          51,
+          49,
+          45,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_cross_hb_hold_agent_long_0_r3",
+      "group": "cross_hb_hold",
+      "retention_mode": "hold",
+      "repeat": 3,
+      "stats": {
+        "steps": 63,
+        "drafted": 441,
+        "accepted": 356,
+        "acceptance": 0.8072562358276644,
+        "mean_acceptance_length": 6.650793650793651,
+        "accepted_per_position": [
+          60,
+          58,
+          51,
+          51,
+          49,
+          46,
+          41
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:spec_decode_num_draft_tokens_total": 441.0,
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_drafts_total": 63.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 356.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 30
+    },
+    {
+      "label": "I_reverse_ra_release_agent_long_0_r3",
+      "group": "reverse_ra_release",
+      "retention_mode": "release",
+      "repeat": 3,
+      "stats": {
+        "steps": 65,
+        "drafted": 455,
+        "accepted": 354,
+        "acceptance": 0.778021978021978,
+        "mean_acceptance_length": 6.446153846153846,
+        "accepted_per_position": [
+          63,
+          59,
+          50,
+          50,
+          48,
+          45,
+          39
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_draft_tokens_total": 455.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 65.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 354.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    },
+    {
+      "label": "I_reverse_ra_hold_agent_long_0_r3",
+      "group": "reverse_ra_hold",
+      "retention_mode": "hold",
+      "repeat": 3,
+      "stats": {
+        "steps": 61,
+        "drafted": 427,
+        "accepted": 332,
+        "acceptance": 0.7775175644028103,
+        "mean_acceptance_length": 6.442622950819672,
+        "accepted_per_position": [
+          57,
+          55,
+          49,
+          47,
+          46,
+          41,
+          37
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14904,
+        "completion_tokens": 392
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_draft_tokens_total": 427.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 61.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 332.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 28
+    },
+    {
+      "label": "I_reverse_hb_hold_agent_long_0_r3",
+      "group": "reverse_hb_hold",
+      "retention_mode": "hold",
+      "repeat": 3,
+      "stats": {
+        "steps": 59,
+        "drafted": 413,
+        "accepted": 338,
+        "acceptance": 0.8184019370460048,
+        "mean_acceptance_length": 6.728813559322034,
+        "accepted_per_position": [
+          57,
+          56,
+          48,
+          47,
+          46,
+          44,
+          40
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14908,
+        "completion_tokens": 396
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_draft_tokens_total": 413.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 59.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 338.0
+      },
+      "actual_freed_blocks": 0,
+      "suppressed_calls": 26
+    },
+    {
+      "label": "I_reverse_hb_release_agent_long_0_r3",
+      "group": "reverse_hb_release",
+      "retention_mode": "release",
+      "repeat": 3,
+      "stats": {
+        "steps": 64,
+        "drafted": 448,
+        "accepted": 355,
+        "acceptance": 0.7924107142857143,
+        "mean_acceptance_length": 6.546875,
+        "accepted_per_position": [
+          62,
+          59,
+          50,
+          50,
+          48,
+          46,
+          40
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 14512,
+        "total_tokens": 14930,
+        "completion_tokens": 418
+      },
+      "metric_delta": {
+        "vllm:prefix_cache_queries_total": 14512.0,
+        "vllm:spec_decode_num_draft_tokens_total": 448.0,
+        "vllm:num_preemptions_total": 0.0,
+        "vllm:prefix_cache_hits_total": 14336.0,
+        "vllm:spec_decode_num_drafts_total": 64.0,
+        "vllm:spec_decode_num_accepted_tokens_total": 355.0
+      },
+      "actual_freed_blocks": 1,
+      "suppressed_calls": 0
+    }
+  ]
+}
