@@ -306,7 +306,9 @@ class AscendDSparkSpeculator(LmheadTPDraftSamplingMixin, DSparkSpeculator):
             specs = tuple(spec.kv_cache_specs.values()) if isinstance(spec, UniformTypeKVCacheSpecs) else (spec,)
             if not all(isinstance(inner, AttentionSpec) for inner in specs):
                 continue
-            if not all(isinstance(inner, SlidingWindowSpec) for inner in specs):
+            if self.vllm_config.speculative_config.dspark_drop_outside_window_kv and not all(
+                isinstance(inner, SlidingWindowSpec) for inner in specs
+            ):
                 raise ValueError(
                     f"DSpark context-window KV retention was lost while grouping draft cache group {gid}; "
                     "full-attention allocation fallback is not supported."
@@ -341,10 +343,11 @@ class AscendDSparkSpeculator(LmheadTPDraftSamplingMixin, DSparkSpeculator):
         )
         logger.info(
             "DSpark draft reads an aligned context window: context_window=%d, context_window_align=%d, "
-            "draft block length=%d.",
+            "draft block length=%d, drop_outside_window_kv=%s.",
             config.context_window,
             config.context_window_align,
             self.num_query_per_req,
+            self.vllm_config.speculative_config.dspark_drop_outside_window_kv,
         )
 
     @contextmanager

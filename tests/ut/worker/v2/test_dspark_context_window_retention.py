@@ -40,6 +40,7 @@ def make_config(enabled=True):
     return SimpleNamespace(
         speculative_config=SimpleNamespace(
             num_speculative_tokens=7,
+            dspark_drop_outside_window_kv=True,
             draft_model_config=SimpleNamespace(
                 hf_config=SimpleNamespace(dflash_config={"context_window": 256, "context_window_align": 128})
                 if enabled
@@ -59,8 +60,10 @@ def full_spec(spec_type=FullAttentionSpec, **kwargs):
 
 @pytest.mark.parametrize("spec_type", [FullAttentionSpec, MLAAttentionSpec, AscendMLAAttentionSpec])
 @pytest.mark.parametrize("enabled", [False, True])
-def test_only_draft_spec_changes(monkeypatch, spec_type, enabled):
+@pytest.mark.parametrize("drop_kv", [False, True])
+def test_only_draft_spec_changes(monkeypatch, spec_type, enabled, drop_kv):
     config = make_config(enabled)
+    config.speculative_config.dspark_drop_outside_window_kv = drop_kv
     original_spec = full_spec(spec_type)
     original = MagicMock(return_value=original_spec)
     layer = SimpleNamespace(get_kv_cache_spec=original, sliding_window=None, impl=SimpleNamespace(sliding_window=None))
@@ -71,7 +74,10 @@ def test_only_draft_spec_changes(monkeypatch, spec_type, enabled):
     original.assert_called_once_with(config)
     assert layer.sliding_window is None and layer.impl.sliding_window is None
     assert spec.page_size_bytes == original_spec.page_size_bytes
-    if not enabled:
+    assert cache_retention.read_context_window_config(config.speculative_config.draft_model_config.hf_config) == (
+        DraftContextWindowConfig(256, 128) if enabled else None
+    )
+    if not enabled or not drop_kv:
         assert spec is original_spec and layer.get_kv_cache_spec is original
         return
     assert isinstance(spec, SlidingWindowSpec)
@@ -108,8 +114,10 @@ def test_unsupported_settings_fail_at_startup(mode):
 
 
 @pytest.mark.parametrize("prefix_caching", [False, True])
-def test_prefix_caching_preserves_windowed_draft_retention(monkeypatch, prefix_caching):
+@pytest.mark.parametrize("drop_kv", [False, True])
+def test_prefix_caching_preserves_windowed_draft_retention(monkeypatch, prefix_caching, drop_kv):
     config = make_config()
+    config.speculative_config.dspark_drop_outside_window_kv = drop_kv
     config.cache_config.enable_prefix_caching = prefix_caching
     layer = SimpleNamespace(get_kv_cache_spec=lambda _: full_spec())
     model = SimpleNamespace(get_draft_kv_cache_layer_names=lambda: ["draft"])
@@ -117,8 +125,11 @@ def test_prefix_caching_preserves_windowed_draft_retention(monkeypatch, prefix_c
     cache_retention.validate_windowed_retention(config)
     cache_retention.configure_draft_kv_retention(model, config, 7)
     spec = layer.get_kv_cache_spec(config)
-    assert isinstance(spec, SlidingWindowSpec)
-    assert spec.sliding_window == 399
+    if drop_kv:
+        assert isinstance(spec, SlidingWindowSpec)
+        assert spec.sliding_window == 399
+    else:
+        assert type(spec) is FullAttentionSpec
     assert config.cache_config.enable_prefix_caching is prefix_caching
 
 

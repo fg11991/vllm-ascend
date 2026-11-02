@@ -1,11 +1,14 @@
 import math
 from contextlib import contextmanager
 from copy import copy
-from dataclasses import replace
+from dataclasses import make_dataclass, replace
 from typing import Literal, get_args
 
 import vllm.config.speculative as speculative_config
+from pydantic import StrictBool
+from pydantic.dataclasses import rebuild_dataclass
 from transformers import DeepseekV2Config, PretrainedConfig
+from vllm.config import VllmConfig
 from vllm.config.model import ModelConfig
 from vllm.config.speculative import SpeculativeConfig
 from vllm.transformers_utils.configs.speculators import SpeculatorsConfig
@@ -232,6 +235,27 @@ def _normalize_glm_mla_dspark(self):
 
 SpeculativeConfig.hf_config_override = staticmethod(_normalize_legacy_qwen3_dspark_config)
 SpeculativeConfig.__post_init__ = _dspark_post_init
+
+
+def _register_dspark_window_retention_option() -> None:
+    """Add the Ascend-only option without replacing upstream's config class.
+
+    Keep the stdlib fields and Pydantic schemas in sync so CLI JSON, nested
+    VllmConfig validation, serialization and spawned workers retain the flag.
+    Remove this adapter when upstream exposes the same retention option.
+    """
+    name = "dspark_drop_outside_window_kv"
+    if name in SpeculativeConfig.__dataclass_fields__:
+        return
+    option = make_dataclass("DSparkWindowRetentionOption", [(name, StrictBool, True)])
+    SpeculativeConfig.__annotations__[name] = StrictBool
+    SpeculativeConfig.__dataclass_fields__[name] = option.__dataclass_fields__[name]
+    setattr(SpeculativeConfig, name, True)
+    rebuild_dataclass(SpeculativeConfig, force=True, _parent_namespace_depth=1)
+    rebuild_dataclass(VllmConfig, force=True, _parent_namespace_depth=1)
+
+
+_register_dspark_window_retention_option()
 
 # The pinned vLLM revision propagates enable_expert_parallel to the draft
 # parallel config (upstream #55914) but no longer disables it for dense

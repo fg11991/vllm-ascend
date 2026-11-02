@@ -16,6 +16,31 @@
 回收逻辑仍会在启用PD connector、DCP/PCP任一大于1，
 或关闭hybrid manager时主动拒绝启动。“文本输入”是本次验收范围，不是这里新增的启动检查。
 
+## 独立控制窗口外 KV 回收
+
+在 `--speculative-config` 顶层设置 `dspark_drop_outside_window_kv`，默认 `true`。
+这是 Ascend 的 DSpark 扩展字段，仅接受 JSON 布尔值，不接受字符串 `"false"`、0 或 null。
+例如保留读取窗口、关闭额外的窗口外回收：
+
+```bash
+--speculative-config '{"method":"dspark","model":"/实际路径/export_A_agent_ctxwin2048_step50","num_speculative_tokens":7,"dspark_drop_outside_window_kv":false}'
+```
+
+| 设置 | 读取窗口 | draft KV 分配与回收 |
+| --- | --- | --- |
+| 省略或 `true` | 继续使用训练配置的窗口 | 保持当前 SlidingWindowSpec 转换和安全余量回收 |
+| `false` | 窗口长度、对齐、读取 metadata 均不变 | 不转换 draft KV spec，使用模型原有分配策略 |
+
+对本轮 Qwen GQA draft，`false` 使用原 FullAttentionSpec，允许其与 target 按原规则分组，
+不再由 DSpark 窗口策略丢弃旧 KV。请求结束释放、一般缓存驱逐、模型本身已有的 SWA 策略不受此开关控制。
+没有窗口训练配置时，这个开关不会凭空启用窗口。APC 是独立的服务开关，可与两种模式组合。
+DCP/PCP、PD connector 和 hybrid manager 的现有启动限制保持不变，不因关闭回收而放宽支持范围。
+不修改权重 config，也不修改 target 的缓存策略；切换需要重新启动服务。
+
+启动日志的 `drop_outside_window_kv=True/False` 可用于核对配置。
+2026-10-31 的实机记录只对应当前默认的 `true` 行为；新开关的 `false` 路径不能借用旧记录声称完成 APC 实机验收。
+新开关的检查与验证边界见 [开关验证记录](2026-11-02_dspark_kv_drop_toggle.md)。
+
 ## 从“读不到”到“可以归还”
 
 第一阶段的 draft 只读对齐窗口，但 KV spec 仍是 FullAttentionSpec。

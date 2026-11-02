@@ -12,7 +12,7 @@ from unittest.mock import MagicMock
 import pytest
 import torch
 from vllm.config.compilation import CUDAGraphMode
-from vllm.v1.kv_cache_interface import AttentionSpec, SlidingWindowSpec, UniformTypeKVCacheSpecs
+from vllm.v1.kv_cache_interface import AttentionSpec, FullAttentionSpec, SlidingWindowSpec, UniformTypeKVCacheSpecs
 from vllm.v1.worker.gpu.cudagraph_utils import BatchExecutionDescriptor
 
 from vllm_ascend.worker.v2.spec_decode.dspark.context_window import (
@@ -38,9 +38,11 @@ def make_speculator(
     num_groups=1,
     draft_group_ids=(0,),
     kv_cache_groups=None,
+    drop_kv=True,
 ):
     speculator = AscendDSparkSpeculator.__new__(AscendDSparkSpeculator)
     speculator.device = torch.device("cpu")
+    speculator.vllm_config = SimpleNamespace(speculative_config=SimpleNamespace(dspark_drop_outside_window_kv=drop_kv))
     speculator.num_query_per_req = 4
     speculator.draft_kv_cache_group_ids = list(draft_group_ids)
     speculator.kv_cache_config = SimpleNamespace(
@@ -92,6 +94,26 @@ class TestWithoutTheConfig:
 
 
 class TestWithTheConfig:
+    @pytest.mark.parametrize("uniform", [False, True])
+    def test_explicit_retention_opt_out_still_windows_full_attention(self, uniform):
+        spec = FullAttentionSpec(block_size=128, num_kv_heads=1, head_size=128, dtype=torch.bfloat16)
+        if uniform:
+            spec = UniformTypeKVCacheSpecs(block_size=128, kv_cache_specs={"target.0": spec, "draft.0": spec})
+        speculator = make_speculator(
+            DraftContextWindowConfig(256, 128),
+            kv_cache_groups=[SimpleNamespace(kv_cache_spec=spec)],
+            drop_kv=False,
+        )
+        speculator._init_context_window()
+        speculator.input_buffers.seq_lens.copy_(torch.tensor([1000, 0, 0, 0], dtype=torch.int32))
+        original_table = speculator.block_tables.input_block_tables[0].clone()
+        with speculator.draft_attn_input_scope():
+            # anchor=996; floor((996-256)/128)*128=640; read length=360.
+            assert speculator.input_buffers.seq_lens[0] == 360
+            assert speculator.block_tables.input_block_tables[0][0, 0] == original_table[0, 5]
+        assert speculator.input_buffers.seq_lens[0] == 1000
+        torch.testing.assert_close(speculator.block_tables.input_block_tables[0], original_table)
+
     def test_full_allocation_fallback_is_rejected(self):
         speculator = make_speculator(
             DraftContextWindowConfig(256, 128),

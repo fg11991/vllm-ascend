@@ -93,6 +93,10 @@ def configure_draft_kv_retention(model: Module, vllm_config: VllmConfig, block_l
     if config is None:
         return
     validate_windowed_retention(vllm_config)
+    if not speculative.dspark_drop_outside_window_kv:
+        # Keep the draft's trained read window, but leave its original cache
+        # specs/managers untouched. Native model SWA policies still apply.
+        return
     window = retention_window(config, block_length, speculative.num_speculative_tokens)
     names = model.get_draft_kv_cache_layer_names()
     layers = get_layers_from_vllm_config(vllm_config, AttentionLayerBase, names)

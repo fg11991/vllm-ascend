@@ -7,13 +7,14 @@
 
 ## 1. 准备代码、环境和路径
 
-本次提交尚未 push，直接拉远端分支可能拿不到 APC 补丁。
-将本次交付的 `vllm-ascend-ctxwin-apc.tar.gz` 复制到新容器的 `/workspace`，解压到一个新目录：
+从 tmp 分支获取代码，放入新目录，避免覆盖已有实验。
+此前交付的 `89b0bd3b5` 源码包含 APC 补丁，但不含后来新增的 KV 回收开关。
 
 ```bash
 cd /workspace
-mkdir vllm-ascend-ctxwin-apc
-tar -xzf vllm-ascend-ctxwin-apc.tar.gz -C vllm-ascend-ctxwin-apc --strip-components=1
+git clone --branch 030_dspark_ctxwin_tmp --single-branch \
+  https://github.com/fg11991/vllm-ascend.git vllm-ascend-ctxwin-apc
+git -C vllm-ascend-ctxwin-apc log -1 --oneline
 export ASCEND_SRC=/workspace/vllm-ascend-ctxwin-apc
 export VLLM_SRC=/vllm-workspace/vllm
 
@@ -63,7 +64,7 @@ Transformers 5.14.1、Triton 3.6.0，以及 FA4 提交 `64a5652de4ba158083c43a6d
 复用已有兼容容器，不为执行本步骤自动升级 Transformers、CANN 或驱动。
 如 vLLM 提交不同或工作区已有修改，先确认差异；不能把不同实现的结果直接并入本轮结论。
 
-在这个专用实验容器中安装刚传来的 Ascend 源码，保留已有依赖版本：
+在这个专用实验容器中安装刚获取的 Ascend 源码，保留已有依赖版本：
 
 ```bash
 python -m pip install --no-deps --no-build-isolation -e "$ASCEND_SRC"
@@ -195,7 +196,20 @@ python "$RUN_ROOT/summarize.py" > "$RUN_ROOT/summary.stdout.json"
 每组只运行一次；需要重试时使用新的 RUN_ROOT，保留首次错误及旧结果。
 命令失败后先查看日志，不带着不完整结果继续下一个阶段。
 
-## 5. 判断通过的依据
+## 5. 可选：关闭窗口外 KV 回收
+
+上述脚本省略 `dspark_drop_outside_window_kv`，默认开启回收，与历史实机配置一致。
+若要测试只读窗口，在新 RUN_ROOT 的 `serve_manual.sh` 中，把生成 spec 的一行改为：
+
+```bash
+spec=$(python -c 'import json,os; print(json.dumps(dict(method="dspark", num_speculative_tokens=7, model=os.environ["DRAFT"], dspark_drop_outside_window_kv=False)))')
+```
+
+启动日志应显示 `drop_outside_window_kv=False`，2048/128 读取窗口仍存在，draft 保留原 FullAttentionSpec。
+这个模式不应要求出现 DSpark `window_reclaim` 事件；分组和 APC 命中数也可能变化，不能硬套历史 9856。
+该组合需独立记录，本次新增开关的验证边界见 [开关验证记录](2026-11-02_dspark_kv_drop_toggle.md)。
+
+## 6. 判断通过的依据（默认开启回收）
 
 查看 `results_summary.json`、`off/on.scheduler.jsonl`、各阶段 metrics 与服务日志。
 

@@ -1,8 +1,13 @@
+import json
+import pickle
+from dataclasses import asdict, replace
 from types import SimpleNamespace
 from unittest.mock import MagicMock
 
 import pytest
+from pydantic import TypeAdapter, ValidationError
 from transformers import Qwen3Config
+from vllm.config import VllmConfig
 from vllm.config.model_arch import ModelArchitectureConfig
 from vllm.config.speculative import SpeculativeConfig
 
@@ -358,3 +363,39 @@ def test_deepseek_v41_dspark_keeps_expert_count_when_optional_field_is_absent():
 
     assert not hasattr(text_config, "num_experts_per_tok")
     assert draft_model_config.model_arch_config.num_experts_per_token == 6
+
+
+@pytest.mark.parametrize("value", [None, False, True])
+def test_dspark_drop_window_kv_config_round_trip(monkeypatch, value):
+    # Exercise the real CLI JSON schema without loading a draft checkpoint.
+    monkeypatch.setattr(patch_speculative_config, "_orig_post_init", lambda self: None)
+    payload = {"method": "ngram", "num_speculative_tokens": 7}
+    if value is not None:
+        payload["dspark_drop_outside_window_kv"] = value
+    adapter = TypeAdapter(SpeculativeConfig)
+    config = adapter.validate_json(json.dumps(payload))
+    expected = True if value is None else value
+    assert config.dspark_drop_outside_window_kv is expected
+    assert asdict(config)["dspark_drop_outside_window_kv"] is expected
+    assert adapter.validate_json(adapter.dump_json(config)).dspark_drop_outside_window_kv is expected
+    assert replace(config).dspark_drop_outside_window_kv is expected
+    assert pickle.loads(pickle.dumps(config)).dspark_drop_outside_window_kv is expected
+
+
+@pytest.mark.parametrize("value", ["false", "true", 0, 1, None, [], {}])
+def test_dspark_drop_window_kv_requires_json_boolean(monkeypatch, value):
+    monkeypatch.setattr(patch_speculative_config, "_orig_post_init", lambda self: None)
+    with pytest.raises(ValidationError, match="dspark_drop_outside_window_kv"):
+        TypeAdapter(SpeculativeConfig).validate_json(
+            json.dumps({"method": "ngram", "num_speculative_tokens": 7, "dspark_drop_outside_window_kv": value})
+        )
+
+
+def test_dspark_drop_window_kv_nested_schema_is_rebuilt(monkeypatch):
+    # Use real nested validation but omit hardware/model initialization.
+    monkeypatch.setattr(patch_speculative_config, "_orig_post_init", lambda self: None)
+    monkeypatch.setattr(VllmConfig, "__post_init__", lambda self: None)
+    config = VllmConfig(
+        speculative_config={"method": "ngram", "num_speculative_tokens": 7, "dspark_drop_outside_window_kv": False}
+    )
+    assert config.speculative_config.dspark_drop_outside_window_kv is False

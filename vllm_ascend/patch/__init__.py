@@ -784,6 +784,21 @@
 #       parallelism for non-MoE draft models (upstream #56930) or exposes a
 #       backend-safe draft parallel config selection.
 #
+#   4. `vllm.config.speculative.SpeculativeConfig` and `VllmConfig` schemas
+#    Why:
+#       The pinned upstream config has no switch for Ascend DSpark window KV
+#       reclamation. Users need to compare windowed reads with/without dropping
+#       old draft KV through --speculative-config, without editing weights.
+#    How:
+#       Add the strict bool dspark_drop_outside_window_kv (default True) to the
+#       existing dataclass and rebuild its and VllmConfig's Pydantic schemas.
+#       Only draft cache-spec conversion and the required retention-spec guard
+#       consult it; attention window math and target cache policy are unchanged.
+#    Related PR (if no, explain why):
+#       No upstream PR; this is the experimental Ascend DSpark retention path.
+#    Future Plan:
+#       Remove the schema adapter once upstream provides this option.
+#
 # ** 20. File: platform/patch_structured_output.py**
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   1. `vllm.sampling_params.SamplingParams._validate_structured_outputs`

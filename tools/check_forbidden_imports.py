@@ -46,6 +46,8 @@ CHECK_IMPORTS = {
             # Backport the upstream MessageQueue pickle protocol and test its wire format.
             "vllm_ascend/patch/platform/patch_shm_broadcast.py",
             "tests/ut/patch/platform/test_patch_shm_broadcast.py",
+            # Round-trip a locally constructed config as spawned workers do; no external pickle input.
+            "tests/ut/patch/platform/test_patch_speculative_config_dspark.py",
         },
     ),
     "re": ForbiddenImport(

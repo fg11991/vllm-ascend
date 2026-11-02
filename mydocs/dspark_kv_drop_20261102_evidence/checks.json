@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-02",
+  "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+  "remote_source": "/workspace/dspark_ctxwin_validation/kv_drop_toggle_20261102_713omnje/source",
+  "ut": "154 passed, 14 warnings in 8.11s",
+  "config_smoke": "real target/draft configuration initialization for true and false; both retain 2048/128 read window",
+  "format_ci": "18 manual hooks passed",
+  "npu_inference_rerun": false,
+  "retained_service_restarted": false,
+  "source_sha256": {
+    "vllm_ascend/patch/platform/patch_speculative_config.py": "53c2d8f2312f62b164d78282f21ec8040c667e9fa304954348fbab7603d26cf8",
+    "vllm_ascend/worker/v2/spec_decode/dspark/cache_retention.py": "616280f6a1be7e47d8a0310581bc68d0a3f1248d09c48b2ba9fecd969eb4c7a6",
+    "vllm_ascend/worker/v2/spec_decode/dspark/speculator.py": "0e41f97a8e13401fce5ec239d8160949ce8740d98a5bfa190338d7dab5e52343",
+    "tests/ut/patch/platform/test_patch_speculative_config_dspark.py": "6d42d3887901bb7032d0c7b1d7cf43772ed5e2600a0d07a3ec3f8ef2b145e0fd",
+    "tests/ut/worker/v2/test_dspark_context_window_retention.py": "4d9f77311fe9edc26a1b0dde5e5df56bd7543f76083bab68337d6d81229f919d",
+    "tests/ut/worker/v2/test_dspark_speculator_context_window.py": "046d2ade972e1ce36f52bc4f6d46dbd3fbfc4217b730db1003c14faafaafeae4"
+  }
+}
