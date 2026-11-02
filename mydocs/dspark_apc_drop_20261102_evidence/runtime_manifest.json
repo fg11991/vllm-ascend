@@ -1,0 +1,27 @@
+{
+  "source_commit": "47cff9175f50f47b78c9bf479f8c22b72bf6964e",
+  "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+  "python": "3.12.13 (main, Oct  3 2026, 09:08:48) [GCC 12.3.1 (openEuler 12.3.1-110.oe2403sp4)]",
+  "packages": {
+    "vllm": "0.30.0+empty",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post7",
+    "transformers": "5.14.1",
+    "triton": "3.6.0",
+    "pydantic": "2.14.1"
+  },
+  "source_sha256": {
+    "patch/platform/patch_speculative_config.py": "53c2d8f2312f62b164d78282f21ec8040c667e9fa304954348fbab7603d26cf8",
+    "worker/v2/spec_decode/dspark/cache_retention.py": "616280f6a1be7e47d8a0310581bc68d0a3f1248d09c48b2ba9fecd969eb4c7a6",
+    "worker/v2/spec_decode/dspark/speculator.py": "0e41f97a8e13401fce5ec239d8160949ce8740d98a5bfa190338d7dab5e52343",
+    "worker/v2/spec_decode/dspark/context_window.py": "0719462d62b09152ebbc5d1c9698ef8f54d9dd1fe4f61522fa4fe66f318b0ce4"
+  },
+  "deadline_taipei": "2026-11-02 12:24:13",
+  "request_settings": {
+    "temperature": 0,
+    "top_p": 1,
+    "seed": 42,
+    "prompt_logprobs": null,
+    "output_logprobs": 5
+  }
+}

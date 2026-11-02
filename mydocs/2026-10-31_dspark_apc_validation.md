@@ -2,6 +2,9 @@
 
 实机验证日期：2026-10-31。补丁与记录整理日期：2026-11-02。
 
+后续APC与回收开关的四组实机对照见 [2026-11-02验证报告](2026-11-02_dspark_apc_drop_validation.md)。
+本页继续保留2026-10-31实验结果与当时验证边界。
+
 ## 结论与代码范围
 
 仅解除 `validate_windowed_retention()` 对 `enable_prefix_caching=True` 的启动禁令后，

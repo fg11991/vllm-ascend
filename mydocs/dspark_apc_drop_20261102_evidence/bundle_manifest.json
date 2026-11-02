@@ -1,0 +1,15 @@
+{
+  "experiment_date": "2026-11-02",
+  "branch": "030_dspark_ctxwin_tmp",
+  "tested_ascend_commit": "47cff9175f50f47b78c9bf479f8c22b72bf6964e",
+  "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+  "source_directory": "/Users/wuyidong/projects/newly_job/vllm-ascend-workspace/vllm-ascend/prefix-cache-experiment-20261031/apc_drop_20261102_round01",
+  "remote_directory": "/workspace/dspark_ctxwin_validation/apc_drop_20261102_round01",
+  "archive": "raw_evidence.tar.gz",
+  "archive_sha256": "7494712cc46e3cdd9fbab71e9866570bd796b060a382cb31f18b82b2046a8836",
+  "archive_bytes": 1431085,
+  "hashed_files": 250,
+  "archive_members": 251,
+  "internal_file_index": "SHA256SUMS",
+  "preservation": "Archive copied byte-for-byte; all 250 indexed file hashes verified. Historical reports and scripts inside remain unchanged."
+}

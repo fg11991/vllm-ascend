@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-02",
+  "base_commit": "47cff9175f50f47b78c9bf479f8c22b72bf6964e",
+  "initial_worktree": "clean",
+  "scope": "Documentation and evidence only; no new NPU requests or service operations.",
+  "evidence": {
+    "verified_file_hashes": 250,
+    "archive_copied_unchanged": true,
+    "recomputed_results_summary": "matches archived JSON",
+    "recomputed_final_analysis": "matches archived JSON",
+    "requests": 84,
+    "greedy_settings_verified": true,
+    "apc_actual_hits_per_group": 145152,
+    "duplicate_lookup_excluded": true,
+    "secret_scan": "gitleaks dir --redact: passed on all extracted evidence, no leaks found"
+  },
+  "format_ci": {
+    "command": "bash format.sh ci",
+    "exit_code": 0,
+    "manual_hooks_passed": 18,
+    "log": "format_ci.log",
+    "environment": "Reused /tmp/dspark-lint-venv, existing Node tool links and Homebrew tools; no checks skipped or rules changed."
+  },
+  "tests": "Offline evidence recomputation only; no new UT/ST or performance claims."
+}
