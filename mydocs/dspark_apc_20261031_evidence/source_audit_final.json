@@ -1,0 +1,17 @@
+{
+  "original": {
+    "root": "/workspace/dspark_ctxwin_tmp",
+    "checked_files": 791,
+    "differences": []
+  },
+  "experiment": {
+    "root": "/workspace/dspark_ctxwin_validation/apc_20261031_round01/source",
+    "checked_files": 791,
+    "differences": [
+      "tests/ut/worker/v2/test_dspark_context_window_retention.py",
+      "vllm_ascend/worker/v2/spec_decode/dspark/cache_retention.py"
+    ]
+  },
+  "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+  "vllm_status": ""
+}

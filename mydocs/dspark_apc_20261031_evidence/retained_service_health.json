@@ -1,0 +1,44 @@
+{
+  "time_utc_epoch": 1793438886.1095288,
+  "health": 200,
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "dspark-apc-experiment",
+        "object": "model",
+        "created": 1793438886,
+        "owned_by": "vllm",
+        "root": "/opt/models/Qwen3.8-27B",
+        "parent": null,
+        "max_model_len": 32768,
+        "permission": [
+          {
+            "id": "modelperm-91cf5b262c1bb4a3",
+            "object": "model_permission",
+            "created": 1793438886,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "api_processes": [
+    {
+      "pid": 524839,
+      "cmd": "/workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/python /workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/vllm serve /opt/models/Qwen3.8-27B --served-model-name dspark-apc-experiment --host 127.0.0.1 --port 8873 --dtype bfloat16 --seed 42 --max-model-len 32768 --max-num-seqs 8 --max-num-batched-tokens 8192 --tensor-parallel-size 4 --gpu-memory-utilization 0.9 --trust-remote-code --enable-prefix-caching --async-scheduling --tool-call-parser qwen3_coder --enable-auto-tool-choice --reasoning-parser qwen3 --default-chat-template-kwargs {\"enable_thinking\":false} --speculative-config {\"num_speculative_tokens\":7,\"method\":\"dspark\",\"model\":\"/workspace/dspark_ctxwin_validation/apc_20261031_round01/models/trained-window-2048\"} --compilation-config {\"cudagraph_mode\":\"FULL\",\"cudagraph_capture_sizes\":[8,16,24,32,40,48,56,64]} ",
+      "devices": "4,5,6,7"
+    }
+  ],
+  "foreground_pty_session": 92914,
+  "url_inside_container": "http://127.0.0.1:8873",
+  "completed_validation_requests": 7
+}

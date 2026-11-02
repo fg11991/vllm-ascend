@@ -1,0 +1,204 @@
+{
+  "结论": "本轮小范围功能验证通过：仅解除启动禁令后，MRV2 DSpark context window + KV 回收与 APC 可以同时运行并发生真实缓存命中；不等同完整支持或生产稳定性验收。",
+  "完成状态": "本轮已结束，不再启动额外测试。",
+  "机器与容器": {
+    "ssh": "910b3",
+    "container": "wyd_va_030rc2_1028",
+    "physical_npus": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "tp": 4
+  },
+  "验证代码": {
+    "ascend_commit": "ed48548e885aa37126e497c102124184385c636a",
+    "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+    "isolated_source": "/workspace/dspark_ctxwin_validation/apc_20261031_round01/source",
+    "final_local_tmp_head": "93f4158bb799649eae1a413611a78e6474af4eaf",
+    "local_branch_note": "实验期间其他工作新增文档提交；已确认其 vllm_ascend 与 tests/ut/worker/v2 相对 ed48548e 无差异，本轮未修改 tmp 工作区。"
+  },
+  "代码修改": [
+    {
+      "file": "vllm_ascend/worker/v2/spec_decode/dspark/cache_retention.py",
+      "change": "仅删除 enable_prefix_caching 时的 ValueError。"
+    },
+    {
+      "file": "tests/ut/worker/v2/test_dspark_context_window_retention.py",
+      "change": "移除 prefix 禁用断言，增加 APC 开关均保留 SlidingWindowSpec 的测试。"
+    }
+  ],
+  "验证辅助脚本": "独立 venv 通过 .pth 导入隔离源码；启动审计、CPU-only lookup/reclaim 观察、固定输入客户端和结果汇总。所有调度调用原样转发，未改变命中策略，无设备侧逐步采样。",
+  "配置": {
+    "target": "/opt/models/Qwen3.8-27B",
+    "draft": "/opt/w00958190/specforge_tmp/export_A_agent_ctxwin2048_step50",
+    "context_window": 2048,
+    "context_window_align": 128,
+    "retention_window": 2191,
+    "num_speculative_tokens": 7,
+    "dtype": "BF16",
+    "seed": 42,
+    "temperature": 0,
+    "max_output_tokens": 128,
+    "max_model_len": 32768,
+    "max_num_seqs": 8,
+    "max_num_batched_tokens": 8192,
+    "gpu_memory_utilization": 0.9,
+    "async_scheduling": true,
+    "FA4_sink": 2,
+    "target_graph": "FULL_DECODE_ONLY",
+    "draft_graph": "FULL",
+    "hybrid": true,
+    "groups": "FullAttention 8x2; SlidingWindow draft 5x1; Mamba 8x6",
+    "blocks": 5616,
+    "group_min_size": 8,
+    "APC_自动行为": "上游自动设置 Mamba cache mode=align，Mamba block_size 从 32768 变为 896；attention/draft block_size 均为 896。"
+  },
+  "测试": {
+    "off": {
+      "startup": true,
+      "single_passed": 3,
+      "concurrent_passed": 4,
+      "output_tokens_single": [
+        118,
+        116,
+        115
+      ],
+      "output_tokens_concurrent_by_id": [
+        68,
+        36,
+        33,
+        101
+      ],
+      "prefix_hits_tokens": 0,
+      "window_reclaimed_block_occurrences": 56,
+      "mean_acceptance_length_single": [
+        3.5454545454545454,
+        4.0344827586206895,
+        3.8666666666666667
+      ],
+      "mean_acceptance_length_concurrent": 3.076923076923077
+    },
+    "on": {
+      "startup": true,
+      "single_passed": 3,
+      "concurrent_passed": 4,
+      "output_tokens_single": [
+        118,
+        118,
+        118
+      ],
+      "output_tokens_concurrent_by_id": [
+        68,
+        36,
+        31,
+        101
+      ],
+      "single_output_ids_identical": true,
+      "prefix_hits_tokens_single": [
+        0,
+        9856,
+        9856
+      ],
+      "prefix_hits_tokens_concurrent": [
+        9856,
+        9856,
+        9856,
+        9856
+      ],
+      "prefix_hits_tokens_total": 59136,
+      "prefix_queries_tokens_total": 70228,
+      "window_reclaimed_block_occurrences": 8,
+      "mean_acceptance_length_single": [
+        3.774193548387097,
+        3.774193548387097,
+        3.774193548387097
+      ],
+      "mean_acceptance_length_concurrent": 3.076923076923077
+    },
+    "prompt_tokens_single": 10035,
+    "common_prefix_tokens_all_five_inputs": 10011,
+    "NPU_inference_requests_total": 14,
+    "full_UT": "39 passed",
+    "server_exceptions": 0,
+    "preemptions": 0,
+    "异常重复": "人工检查全部输出，无异常循环；全部 stop 结束，无长度截断。"
+  },
+  "输出一致性边界": "APC on 的冷请求与两次命中请求输出118 token完全相同，且与off冷请求相同。off自重复已在第88个输出token分叉；并发跨APC对照3/4完全相同，另1条在第27个token分叉（33 vs 31 token），语义正常。未对该并发后缀追加多轮off自重复，未定位其分叉根因，不能据此证明APC严格数值等价或认定差异全是原有数值波动。",
+  "缓存证据": "6个命中请求联合命中9856 token，9组均返回缓存表；draft组最后3个物理块均非null，历史前缀为null。metrics总命中与调度lookup累计一致。回收事件是CPU管理器观察，不是设备读写完成时刻证明。",
+  "已有警告": "上游未识别draft专属is_eagle_group标记，代码保守回退至所有组尾块保护。本轮没有修改该策略。",
+  "设备状态": "后四卡实验前后均为Alarm，最终错误码80C98001；未做设备复位，未将本轮称为健康设备条件下的稳定性验收。",
+  "留驻服务": {
+    "time_utc_epoch": 1793438886.1095288,
+    "health": 200,
+    "models": {
+      "object": "list",
+      "data": [
+        {
+          "id": "dspark-apc-experiment",
+          "object": "model",
+          "created": 1793438886,
+          "owned_by": "vllm",
+          "root": "/opt/models/Qwen3.8-27B",
+          "parent": null,
+          "max_model_len": 32768,
+          "permission": [
+            {
+              "id": "modelperm-91cf5b262c1bb4a3",
+              "object": "model_permission",
+              "created": 1793438886,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ]
+        }
+      ]
+    },
+    "api_processes": [
+      {
+        "pid": 524839,
+        "cmd": "/workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/python /workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/vllm serve /opt/models/Qwen3.8-27B --served-model-name dspark-apc-experiment --host 127.0.0.1 --port 8873 --dtype bfloat16 --seed 42 --max-model-len 32768 --max-num-seqs 8 --max-num-batched-tokens 8192 --tensor-parallel-size 4 --gpu-memory-utilization 0.9 --trust-remote-code --enable-prefix-caching --async-scheduling --tool-call-parser qwen3_coder --enable-auto-tool-choice --reasoning-parser qwen3 --default-chat-template-kwargs {\"enable_thinking\":false} --speculative-config {\"num_speculative_tokens\":7,\"method\":\"dspark\",\"model\":\"/workspace/dspark_ctxwin_validation/apc_20261031_round01/models/trained-window-2048\"} --compilation-config {\"cudagraph_mode\":\"FULL\",\"cudagraph_capture_sizes\":[8,16,24,32,40,48,56,64]} ",
+        "devices": "4,5,6,7"
+      }
+    ],
+    "foreground_pty_session": 92914,
+    "url_inside_container": "http://127.0.0.1:8873",
+    "completed_validation_requests": 7
+  },
+  "未验证": [
+    "长时间压力与性能收益",
+    "不同长度/窗口/块边界矩阵",
+    "高并发、抢占、强制驱逐与跨请求块复用压力",
+    "逐步设备读写映射和隐藏状态数值等价",
+    "并发措辞差异的严格归因",
+    "MLA、PD、DCP/PCP、独立draft APC优化"
+  ],
+  "远端结果目录": "/workspace/dspark_ctxwin_validation/apc_20261031_round01",
+  "关键日志": [
+    "/opt/w00958190/log/dspark_apc_20261031_round01_off_serve.log",
+    "/opt/w00958190/log/dspark_apc_20261031_round01_on_serve.log",
+    "/opt/w00958190/log/dspark_apc_20261031_round01_off_client_retry1.log",
+    "/opt/w00958190/log/dspark_apc_20261031_round01_on_client.log"
+  ],
+  "截止": {
+    "automation_id": "npu-apc",
+    "time": "2026-10-31 19:30 Asia/Taipei",
+    "note": "已提前完成；截止自动任务不得重启或重复实验。"
+  },
+  "未进行操作": [
+    "未push",
+    "未合并",
+    "未创建PR",
+    "未修改原始模型config",
+    "未修改原有远端源码",
+    "未停止前四卡任务"
+  ]
+}

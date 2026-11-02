@@ -1,0 +1,10 @@
+{
+  "validation_date": "2026-10-31",
+  "integration_date": "2026-11-02",
+  "source_directory": "/Users/wuyidong/projects/newly_job/vllm-ascend-workspace/vllm-ascend/prefix-cache-experiment-20261031/npu_round_01",
+  "archive": "raw_evidence.tar.gz",
+  "archive_sha256": "f2ca021dd5f19a8414303856f71e43c3dc34b75f166cd7709faa0d9d244e63af",
+  "archived_files": 78,
+  "raw_manifest": "raw_evidence_sha256.json",
+  "note": "原始记录按字节归档；其中完成状态、分支和留驻健康状态均指2026-10-31实验结束时，不代表本次整理后或当前远端状态。"
+}

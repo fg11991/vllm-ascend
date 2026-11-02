@@ -89,15 +89,13 @@ def test_only_draft_spec_changes(monkeypatch, spec_type, enabled):
         assert not is_kv_cache_spec_uniform({"draft": spec, "target": original_spec})
 
 
-@pytest.mark.parametrize("mode", ["dcp", "pcp", "prefix", "pd", "hybrid_disabled"])
+@pytest.mark.parametrize("mode", ["dcp", "pcp", "pd", "hybrid_disabled"])
 def test_unsupported_settings_fail_at_startup(mode):
     config = make_config()
     if mode == "dcp":
         config.parallel_config.decode_context_parallel_size = 2
     elif mode == "pcp":
         config.parallel_config.prefill_context_parallel_size = 2
-    elif mode == "prefix":
-        config.cache_config.enable_prefix_caching = True
     elif mode == "pd":
         config.kv_transfer_config = object()
     else:
@@ -107,6 +105,21 @@ def test_unsupported_settings_fail_at_startup(mode):
     # Opt-out keeps existing configurations (including prefix caching/PD) valid.
     config.speculative_config.draft_model_config.hf_config = SimpleNamespace()
     cache_retention.configure_draft_kv_retention(None, config, 7)
+
+
+@pytest.mark.parametrize("prefix_caching", [False, True])
+def test_prefix_caching_preserves_windowed_draft_retention(monkeypatch, prefix_caching):
+    config = make_config()
+    config.cache_config.enable_prefix_caching = prefix_caching
+    layer = SimpleNamespace(get_kv_cache_spec=lambda _: full_spec())
+    model = SimpleNamespace(get_draft_kv_cache_layer_names=lambda: ["draft"])
+    monkeypatch.setattr(cache_retention, "get_layers_from_vllm_config", lambda *args: {"draft": layer})
+    cache_retention.validate_windowed_retention(config)
+    cache_retention.configure_draft_kv_retention(model, config, 7)
+    spec = layer.get_kv_cache_spec(config)
+    assert isinstance(spec, SlidingWindowSpec)
+    assert spec.sliding_window == 399
+    assert config.cache_config.enable_prefix_caching is prefix_caching
 
 
 def test_non_paged_draft_cache_is_unchanged():

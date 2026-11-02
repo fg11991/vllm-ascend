@@ -193,7 +193,9 @@ size=8的eager模式完成8条32768-token输入，每条1024输出，无抢占�
 该模式另完成三条32k明确答案对照，token IDs和接受长度均与基线一致。
 
 普通MLA只有CPU类型、布局、metadata和分组证据，没有真实MLA checkpoint设备验收。
-DCP/PCP、prefix caching、PD connector在启用回收时明确拒绝。
+本次历史测量所用实现拒绝 DCP/PCP、prefix caching 和 PD connector。
+2026-11-02 整理更新：prefix caching 已解除启动禁令；新增证据与限制见
+[2026-10-31 APC 小范围验证](2026-10-31_dspark_apc_validation.md)。其余拒绝条件保留。
 混合模态、抢占重算、特殊压缩/量化MLA及DSV4组合也不在本次设备验收范围。
 
 ## 为什么启动并发数字与实测占用不同

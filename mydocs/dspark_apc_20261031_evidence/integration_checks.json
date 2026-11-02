@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-02",
+  "branch": "030_dspark_ctxwin_tmp",
+  "base_head": "93f4158bb799649eae1a413611a78e6474af4eaf",
+  "initial_worktree": "clean",
+  "applied_patch": "原实验补丁可直接应用，生产差异仅删除两行 APC 禁令；不修改 draft prefix cache 策略。",
+  "code_sha256": {
+    "vllm_ascend/worker/v2/spec_decode/dspark/cache_retention.py": "bd85794fd81d8c99f6c561606abbc8a58e3d2b3bd0360356398a95cee59bd6d2",
+    "tests/ut/worker/v2/test_dspark_context_window_retention.py": "8f2686898807c855f16a4308d7ddbc3a12a8ed9eba6757260d99c8d05e0e7b58"
+  },
+  "unit_test_rerun": {
+    "host": "910b3",
+    "container": "wyd_va_030rc2_1028",
+    "command": "ASCEND_RT_VISIBLE_DEVICES=4,5,6,7 /workspace/dspark_ctxwin_validation/apc_20261031_round01/runtime/bin/python -m pytest -q /workspace/dspark_ctxwin_validation/apc_20261031_round01/source/tests/ut/worker/v2/test_dspark_context_window_retention.py",
+    "result": "39 passed, 17 warnings in 6.96s",
+    "verified_local_remote_code_and_test_sha256_match": true,
+    "vllm_commit": "ced6857afa0ea7b2e3f0846a62e1394e90f15607",
+    "vllm_status": "clean",
+    "scope": "仅重复相关UT，没有重新跑NPU推理矩阵，也未启动、停止或切换服务。"
+  },
+  "local_tests": {
+    "targeted_UT": "收集失败：本地 Python 环境缺少 regex。",
+    "full_suite_collection": "收集失败：tests/e2e/conftest.py 缺少 huggingface_hub；全仓测试未完成。",
+    "full_suite_collection_output": "\n==================================== ERRORS ====================================\n__________________________ ERROR collecting tests/e2e __________________________\n../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/tmp/dspark-cpu-venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module\n    exec(co, module.__dict__)\ntests/e2e/conftest.py:39: in <module>\n    import huggingface_hub\nE   ModuleNotFoundError: No module named 'huggingface_hub'\n=========================== short test summary info ============================\nERROR tests/e2e - ModuleNotFoundError: No module named 'huggingface_hub'\n!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!\nno tests collected, 1 error in 0.04s\n"
+  },
+  "format_ci": {
+    "command": "bash format.sh ci",
+    "pre_commit_version": "4.0.1",
+    "isolated_checkout_used": true,
+    "exit_code": 0,
+    "result": "全部 18 个 manual hooks 通过；未使用 SKIP 或删除检查规则。",
+    "log": "format_ci.log",
+    "environment_fix": {
+      "node": "22.22.3 (existing local installation exposed via a temporary /var/folders tool directory)",
+      "npm": "10.9.8",
+      "go": "1.27.3 (Homebrew)",
+      "shellcheck": "0.11.0 (Homebrew)",
+      "gitleaks": "8.30.1 (Homebrew)",
+      "explanation": "pre-commit 默认系统工具检测排除用户 home 路径；临时工具目录指向已有 Node，Go 使用 Homebrew，避免不完整的 Node/Go 自动下载。各 hook 版本保持仓库配置。",
+      "path_setup": "PATH=<temporary-tool-directory>:/tmp/dspark-lint-venv/bin:/opt/homebrew/bin:$PATH"
+    },
+    "evidence_preservation": "仅为原始 CANN 错误短语和一个精确的机器请求 ID 增加拼写例外；原始日志、JSON 和归档未改写。",
+    "scope": "全仓格式/静态检查，不等同于全仓 UT 或新增 NPU 推理验证。"
+  },
+  "changed_file_lint": {
+    "ruff_version": "0.14.0",
+    "ruff_check": "passed: implementation and test",
+    "ruff_format_check": "passed: 2 files already formatted",
+    "markdownlint_version": "0.45.0",
+    "markdownlint": "passed: 4 changed Markdown files"
+  },
+  "evidence_verification": {
+    "raw_files": 78,
+    "sha256": "all passed",
+    "recomputed_results_summary": "matches archived summary after normalizing comparison order",
+    "requests_complete": 14,
+    "apc_hits_from_metrics_and_lookup": 59136
+  },
+  "npu_evidence_date": "2026-10-31",
+  "current_service_health": "未重新检查；归档健康记录只代表实验结束时。",
+  "history_note": "原始validation_results.json的尾块保护回退是源码解释；本次报告不将其作为运行时分支证明。",
+  "format_ci_previous_attempt": {
+    "command": "bash format.sh ci",
+    "pre_commit_version": "4.0.1",
+    "isolated_checkout_used": true,
+    "exit_code": 3,
+    "result": "未通过：markdownlint 所需 Node 环境下载多次 IncompleteRead，尚未运行完整hooks。",
+    "output": "[INFO] Installing environment for https://github.com/igorshubovych/markdownlint-cli.\n[INFO] Once installed this environment will be reused.\n[INFO] This may take a few minutes...\nAn unexpected error has occurred: CalledProcessError: command: ('/tmp/dspark-lint-venv/bin/python', '-mnodeenv', '--prebuilt', '--clean-src', '/Users/wuyidong/.cache/pre-commit/repodt8sk7x2/node_env-default')\nreturn code: 1\nstdout: (none)\nstderr:\n     * Install prebuilt node (26.13.0) .Incomplete read while reading from https://nodejs.org/download/release/v26.13.0/node-v26.13.0-darwin-arm64.tar.gz - IncompleteRead(4361857 bytes read, 53972804 more expected)\n    Incomplete read while reading from https://nodejs.org/download/release/v26.13.0/node-v26.13.0-darwin-arm64.tar.gz - IncompleteRead(3981294 bytes read, 54353367 more expected)\n    Incomplete read while reading from https://nodejs.org/download/release/v26.13.0/node-v26.13.0-darwin-arm64.tar.gz - IncompleteRead(4554734 bytes read, 53779927 more expected)\n    \n    Traceback (most recent call last):\n      File \"<frozen runpy>\", line 198, in _run_module_as_main\n      File \"<frozen runpy>\", line 88, in _run_code\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 2220, in <module>\n        main()\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 1639, in main\n        create_environment(env_dir, args)\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 1410, in create_environment\n        install_node(env_dir, src_dir, args)\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 1079, in install_node\n        install_node_wrapped(env_dir, src_dir, args)\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 1139, in install_node_wrapped\n        download_node_src(url, src_dir, args)\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 882, in download_node_src\n        dl_contents = _download_node_file(node_url)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 874, in _download_node_file\n        raise e\n      File \"/tmp/dspark-lint-venv/lib/python3.12/site-packages/nodeenv.py\", line 866, in _download_node_file\n        return io.BytesIO(urlopen(node_url).read())\n                          ^^^^^^^^^^^^^^^^^^^^^^^^\n      File \"/Users/wuyidong/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/http/client.py\", line 500, in read\n        s = self._safe_read(self.length)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      File \"/Users/wuyidong/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/http/client.py\", line 665, in _safe_read\n        raise IncompleteRead(data.getvalue(), amt - data.tell())\n    http.client.IncompleteRead: IncompleteRead(4554734 bytes read, 53779927 more expected)\nCheck the log at /Users/wuyidong/.cache/pre-commit/pre-commit.log\n"
+  },
+  "manual_guide_checks": {
+    "bash_syntax": "passed: all Bash blocks",
+    "python_syntax": "passed: embedded Python blocks",
+    "serve_shellcheck": "passed: shellcheck -S error -s bash",
+    "npu_rerun": "not performed; commands adapted from the archived 2026-10-31 experiment"
+  }
+}

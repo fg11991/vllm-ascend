@@ -36,6 +36,10 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.codespell]
+# Preserve the verbatim CANN error text quoted in the DSpark validation evidence.
+ignore-regex = 'ERR99999 UNKNOWN applicaiton exception'
+
 [tool.uv.extra-build-dependencies]
 pandas = ["setuptools<72"]
 

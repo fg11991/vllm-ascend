@@ -11,7 +11,9 @@
 这里解释为什么需要第二阶段、代码怎样实现，以及为什么回收不一定立刻改善启动并发数字。
 
 当前设备验收范围为文本输入的GQA；普通MLA尚未完成设备验收，混合模态未经验证。
-回收逻辑会在启用prefix caching、PD connector、DCP/PCP任一大于1，
+2026-11-02 更新：已解除 prefix caching 启动禁令，限定配置的实机结果及未验证边界见
+[APC 小范围验证](2026-10-31_dspark_apc_validation.md)。
+回收逻辑仍会在启用PD connector、DCP/PCP任一大于1，
 或关闭hybrid manager时主动拒绝启动。“文本输入”是本次验收范围，不是这里新增的启动检查。
 
 ## 从“读不到”到“可以归还”
@@ -201,9 +203,10 @@ CPU真实planner在同一预算下，宽8的启动容量估算优于宽16和宽5
 
 ## 支持范围和交付状态
 
-启用回收时明确拒绝prefix caching、PD connector、DCP/PCP，
+启用回收时仍明确拒绝PD connector、DCP/PCP大于1，
 以及关闭hybrid manager的组合。这些拒绝不表示理论上无法支持，
-而是当前没有足够证据证明相应命中、传输与分片逻辑正确。
+而是当前没有足够证据证明相应传输与分片逻辑正确。
+prefix caching 已解除启动禁令，但当前仅有上述 APC 报告的小范围功能证据，未完成生产正确性验收。
 
 实现提交为cc746b7ca，位于独立分支030_dspark_ctxwin_tmp。
 改动覆盖cache_retention、speculator、MLA spec/registry、attn_utils和窄分组兼容处理。

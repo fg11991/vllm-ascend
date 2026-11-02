@@ -81,8 +81,6 @@ def validate_windowed_retention(vllm_config: VllmConfig) -> None:
     parallel = vllm_config.parallel_config
     if parallel.decode_context_parallel_size != 1 or parallel.prefill_context_parallel_size != 1:
         raise ValueError("DSpark context-window KV retention does not support DCP/PCP context parallelism.")
-    if vllm_config.cache_config.enable_prefix_caching:
-        raise ValueError("DSpark context-window KV retention requires --no-enable-prefix-caching.")
     if vllm_config.kv_transfer_config is not None:
         raise ValueError("DSpark context-window KV retention does not yet support a PD KV connector.")
     if vllm_config.scheduler_config.disable_hybrid_kv_cache_manager:

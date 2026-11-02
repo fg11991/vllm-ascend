@@ -1,0 +1,1417 @@
+{
+  "off": {
+    "requests": [
+      {
+        "label": "concurrent_1",
+        "prompt_tokens": 10032,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_concurrent_1",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10032,
+          "total_tokens": 10100,
+          "completion_tokens": 68
+        },
+        "ok": true,
+        "text": "The team preserves original records to maintain a verifiable baseline before any corrections are made to the data. This practice ensures that the integrity of the initial observations is retained, allowing for transparency in the data management process. By keeping these unaltered records, the project can accurately study seasonal weather patterns without the risk of losing the source information.",
+        "seconds": 11.788770319893956
+      },
+      {
+        "label": "concurrent_2",
+        "prompt_tokens": 10029,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_concurrent_2",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10029,
+          "total_tokens": 10065,
+          "completion_tokens": 36
+        },
+        "ok": true,
+        "text": "Based on the field notes, the four measurements made by the observatory are:\n\n1. Temperature\n2. Rainfall\n3. Wind speed\n4. Cloud cover",
+        "seconds": 10.90145378978923
+      },
+      {
+        "label": "concurrent_3",
+        "prompt_tokens": 10029,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_concurrent_3",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10029,
+          "total_tokens": 10062,
+          "completion_tokens": 33
+        },
+        "ok": true,
+        "text": "Technicians inspect the sensors on a weekly basis. They compare independent measurements to verify accuracy. Finally, they preserve the original records before making any corrections to errors.",
+        "seconds": 11.173683220054954
+      },
+      {
+        "label": "concurrent_4",
+        "prompt_tokens": 10033,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_concurrent_4",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10033,
+          "total_tokens": 10134,
+          "completion_tokens": 101
+        },
+        "ok": true,
+        "text": "By consistently recording key meteorological variables such as temperature, rainfall, wind speed, and cloud cover, the observatory builds a comprehensive dataset that captures the natural fluctuations of the atmosphere over time. The rigorous quality control measures, including weekly sensor inspections and the preservation of original records, ensure that the data is accurate and reliable, which is essential for identifying true climatic trends rather than measurement errors. This high-integrity longitudinal data allows researchers to analyze recurring cycles and variations, thereby revealing distinct seasonal weather patterns.",
+        "seconds": 12.030022319871932
+      },
+      {
+        "label": "single_r0",
+        "prompt_tokens": 10035,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_single_r0",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10035,
+          "total_tokens": 10153,
+          "completion_tokens": 118
+        },
+        "ok": true,
+        "text": "*   **Data Collection**: The observatory continuously records four key meteorological variables: temperature, rainfall, wind speed, and cloud cover.\n*   **Routine Inspection**: Technicians perform weekly inspections of the sensors to ensure they are functioning correctly.\n*   **Cross-Validation**: Independent measurements are compared to verify data accuracy and consistency.\n*   **Data Preservation**: Original records are preserved and archived before any modifications are made to the dataset.\n*   **Error Correction**: Errors identified during the inspection and comparison phases are corrected only after the original data has been secured.",
+        "seconds": 78.69413499999791
+      },
+      {
+        "label": "single_r1",
+        "prompt_tokens": 10035,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_single_r1",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10035,
+          "total_tokens": 10151,
+          "completion_tokens": 116
+        },
+        "ok": true,
+        "text": "*   **Data Collection**: The observatory continuously records four key meteorological variables: temperature, rainfall, wind speed, and cloud cover.\n*   **Routine Inspection**: Technicians perform weekly inspections of the sensors to ensure they are functioning correctly.\n*   **Cross-Validation**: Independent measurements are compared to verify data accuracy and consistency.\n*   **Data Preservation**: Original records are preserved and archived before any modifications are made.\n*   **Error Correction**: Errors are identified and corrected only after the original data has been secured, maintaining a clear audit trail.",
+        "seconds": 2.684462269768119
+      },
+      {
+        "label": "single_r2",
+        "prompt_tokens": 10035,
+        "http_status": 200,
+        "server_request_id": "cmpl-off_single_r2",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10035,
+          "total_tokens": 10150,
+          "completion_tokens": 115
+        },
+        "ok": true,
+        "text": "*   **Data Collection**: The observatory continuously records four key meteorological variables: temperature, rainfall, wind speed, and cloud cover.\n*   **Routine Inspection**: Technicians perform weekly inspections of the sensors to ensure they are functioning correctly.\n*   **Cross-Validation**: Independent measurements are compared to verify data accuracy and consistency.\n*   **Data Preservation**: Original records are preserved and archived before any modifications are made.\n*   **Error Correction**: Errors identified during the inspection and comparison phases are corrected only after the original data has been secured.",
+        "seconds": 2.4229450495913625
+      }
+    ],
+    "lookups": [
+      {
+        "event": "lookup",
+        "time": 1793437952.9889283,
+        "pid": 508311,
+        "request_id": "cmpl-off_single_r0-0-b66be64f",
+        "prompt_tokens": 10035,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438031.653927,
+        "pid": 508311,
+        "request_id": "cmpl-off_single_r1-0-98b7a238",
+        "prompt_tokens": 10035,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438034.3615186,
+        "pid": 508311,
+        "request_id": "cmpl-off_single_r2-0-9657dc69",
+        "prompt_tokens": 10035,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438036.8043756,
+        "pid": 508311,
+        "request_id": "cmpl-off_concurrent_1-0-977b1ded",
+        "prompt_tokens": 10032,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438037.8733742,
+        "pid": 508311,
+        "request_id": "cmpl-off_concurrent_2-0-8e17ddbc",
+        "prompt_tokens": 10029,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438038.164247,
+        "pid": 508311,
+        "request_id": "cmpl-off_concurrent_3-0-a954b1bb",
+        "prompt_tokens": 10029,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438044.4559438,
+        "pid": 508311,
+        "request_id": "cmpl-off_concurrent_4-0-b0437579",
+        "prompt_tokens": 10033,
+        "enabled": false,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      }
+    ],
+    "reclaimed_blocks": 56,
+    "reclaim_events": 14,
+    "retention_windows": [
+      2191
+    ],
+    "phases": {
+      "after_single_r0": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 33.0,
+          "vllm:spec_decode_num_draft_tokens_total": 231.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 84.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 84.0,
+          "vllm:prefix_cache_queries_total": 0.0,
+          "vllm:prefix_cache_hits_total": 0.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 8.0,
+          "vllm:request_num_preemptions_count": 1.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.5454545454545454
+      },
+      "after_single_r1": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 29.0,
+          "vllm:spec_decode_num_draft_tokens_total": 203.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 88.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 88.0,
+          "vllm:prefix_cache_queries_total": 0.0,
+          "vllm:prefix_cache_hits_total": 0.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 8.0,
+          "vllm:request_num_preemptions_count": 1.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 4.0344827586206895
+      },
+      "after_single_r2": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 30.0,
+          "vllm:spec_decode_num_draft_tokens_total": 210.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 86.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 86.0,
+          "vllm:prefix_cache_queries_total": 0.0,
+          "vllm:prefix_cache_hits_total": 0.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 8.0,
+          "vllm:request_num_preemptions_count": 1.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.8666666666666667
+      },
+      "after_concurrent": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 78.0,
+          "vllm:spec_decode_num_draft_tokens_total": 546.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 162.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 162.0,
+          "vllm:prefix_cache_queries_total": 0.0,
+          "vllm:prefix_cache_hits_total": 0.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 32.0,
+          "vllm:request_num_preemptions_count": 4.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.076923076923077
+      }
+    },
+    "single_comparisons": [
+      {
+        "identical": false,
+        "common_output_prefix_tokens": 87,
+        "lengths": [
+          118,
+          116
+        ]
+      },
+      {
+        "identical": false,
+        "common_output_prefix_tokens": 87,
+        "lengths": [
+          118,
+          115
+        ]
+      }
+    ]
+  },
+  "on": {
+    "requests": [
+      {
+        "label": "concurrent_1",
+        "prompt_tokens": 10032,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_concurrent_1",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10032,
+          "total_tokens": 10100,
+          "completion_tokens": 68
+        },
+        "ok": true,
+        "text": "The team preserves original records to maintain a verifiable baseline before any corrections are made to the data. This practice ensures that the integrity of the initial observations is retained, allowing for transparency in the data management process. By keeping these unaltered records, the project can accurately study seasonal weather patterns without the risk of losing the source information.",
+        "seconds": 25.266225339844823
+      },
+      {
+        "label": "concurrent_2",
+        "prompt_tokens": 10029,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_concurrent_2",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10029,
+          "total_tokens": 10065,
+          "completion_tokens": 36
+        },
+        "ok": true,
+        "text": "Based on the field notes, the four measurements made by the observatory are:\n\n1. Temperature\n2. Rainfall\n3. Wind speed\n4. Cloud cover",
+        "seconds": 23.95883919019252
+      },
+      {
+        "label": "concurrent_3",
+        "prompt_tokens": 10029,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_concurrent_3",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10029,
+          "total_tokens": 10060,
+          "completion_tokens": 31
+        },
+        "ok": true,
+        "text": "Technicians inspect the sensors on a weekly basis. They compare independent measurements to verify accuracy. Finally, they preserve the original records before correcting any errors.",
+        "seconds": 24.146535079926252
+      },
+      {
+        "label": "concurrent_4",
+        "prompt_tokens": 10033,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_concurrent_4",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10033,
+          "total_tokens": 10134,
+          "completion_tokens": 101
+        },
+        "ok": true,
+        "text": "By consistently recording key meteorological variables such as temperature, rainfall, wind speed, and cloud cover, the observatory builds a comprehensive dataset that captures the natural fluctuations of the atmosphere over time. The rigorous quality control measures, including weekly sensor inspections and the preservation of original records, ensure that the data is accurate and reliable, which is essential for identifying true climatic trends rather than measurement errors. This high-integrity longitudinal data allows researchers to analyze recurring cycles and variations, thereby revealing distinct seasonal weather patterns.",
+        "seconds": 25.466653080191463
+      },
+      {
+        "label": "single_r0",
+        "prompt_tokens": 10035,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_single_r0",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10035,
+          "total_tokens": 10153,
+          "completion_tokens": 118
+        },
+        "ok": true,
+        "text": "*   **Data Collection**: The observatory continuously records four key meteorological variables: temperature, rainfall, wind speed, and cloud cover.\n*   **Routine Inspection**: Technicians perform weekly inspections of the sensors to ensure they are functioning correctly.\n*   **Cross-Validation**: Independent measurements are compared to verify data accuracy and consistency.\n*   **Data Preservation**: Original records are preserved and archived before any modifications are made to the dataset.\n*   **Error Correction**: Errors identified during the inspection and comparison phases are corrected only after the original data has been secured.",
+        "seconds": 112.22329115029424
+      },
+      {
+        "label": "single_r1",
+        "prompt_tokens": 10035,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_single_r1",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10035,
+          "total_tokens": 10153,
+          "completion_tokens": 118
+        },
+        "ok": true,
+        "text": "*   **Data Collection**: The observatory continuously records four key meteorological variables: temperature, rainfall, wind speed, and cloud cover.\n*   **Routine Inspection**: Technicians perform weekly inspections of the sensors to ensure they are functioning correctly.\n*   **Cross-Validation**: Independent measurements are compared to verify data accuracy and consistency.\n*   **Data Preservation**: Original records are preserved and archived before any modifications are made to the dataset.\n*   **Error Correction**: Errors identified during the inspection and comparison phases are corrected only after the original data has been secured.",
+        "seconds": 2.5211850800551474
+      },
+      {
+        "label": "single_r2",
+        "prompt_tokens": 10035,
+        "http_status": 200,
+        "server_request_id": "cmpl-on_single_r2",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 10035,
+          "total_tokens": 10153,
+          "completion_tokens": 118
+        },
+        "ok": true,
+        "text": "*   **Data Collection**: The observatory continuously records four key meteorological variables: temperature, rainfall, wind speed, and cloud cover.\n*   **Routine Inspection**: Technicians perform weekly inspections of the sensors to ensure they are functioning correctly.\n*   **Cross-Validation**: Independent measurements are compared to verify data accuracy and consistency.\n*   **Data Preservation**: Original records are preserved and archived before any modifications are made to the dataset.\n*   **Error Correction**: Errors identified during the inspection and comparison phases are corrected only after the original data has been secured.",
+        "seconds": 2.1037857900373638
+      }
+    ],
+    "lookups": [
+      {
+        "event": "lookup",
+        "time": 1793438676.2137861,
+        "pid": 525308,
+        "request_id": "cmpl-on_single_r0-0-93c10fc5",
+        "prompt_tokens": 10035,
+        "enabled": true,
+        "hit_tokens": 0,
+        "shared_boundary": 0,
+        "groups": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438788.4537134,
+        "pid": 525308,
+        "request_id": "cmpl-on_single_r1-0-801bb9bd",
+        "prompt_tokens": 10035,
+        "enabled": true,
+        "hit_tokens": 9856,
+        "shared_boundary": 0,
+        "groups": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            79
+          ],
+          [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            81
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            29,
+            30,
+            83
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            33
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            41
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            49
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            57
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            65
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            73
+          ]
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438790.993258,
+        "pid": 525308,
+        "request_id": "cmpl-on_single_r2-0-aebd26a6",
+        "prompt_tokens": 10035,
+        "enabled": true,
+        "hit_tokens": 9856,
+        "shared_boundary": 0,
+        "groups": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            79
+          ],
+          [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            81
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            29,
+            30,
+            83
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            33
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            41
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            49
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            57
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            65
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            73
+          ]
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438793.1620958,
+        "pid": 525308,
+        "request_id": "cmpl-on_concurrent_2-0-8a4e5b46",
+        "prompt_tokens": 10029,
+        "enabled": true,
+        "hit_tokens": 9856,
+        "shared_boundary": 0,
+        "groups": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            79
+          ],
+          [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            81
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            29,
+            30,
+            83
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            33
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            41
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            49
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            57
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            65
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            73
+          ]
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438793.1686077,
+        "pid": 525308,
+        "request_id": "cmpl-on_concurrent_1-0-941d7d1e",
+        "prompt_tokens": 10032,
+        "enabled": true,
+        "hit_tokens": 9856,
+        "shared_boundary": 0,
+        "groups": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            79
+          ],
+          [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            81
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            29,
+            30,
+            83
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            33
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            41
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            49
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            57
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            65
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            73
+          ]
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438793.6278484,
+        "pid": 525308,
+        "request_id": "cmpl-on_concurrent_3-0-89a32c87",
+        "prompt_tokens": 10029,
+        "enabled": true,
+        "hit_tokens": 9856,
+        "shared_boundary": 0,
+        "groups": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            79
+          ],
+          [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            81
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            29,
+            30,
+            83
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            33
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            41
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            49
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            57
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            65
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            73
+          ]
+        ]
+      },
+      {
+        "event": "lookup",
+        "time": 1793438793.628655,
+        "pid": 525308,
+        "request_id": "cmpl-on_concurrent_4-0-9ac86bf0",
+        "prompt_tokens": 10033,
+        "enabled": true,
+        "hit_tokens": 9856,
+        "shared_boundary": 0,
+        "groups": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            79
+          ],
+          [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            81
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            29,
+            30,
+            83
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            33
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            41
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            49
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            57
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            65
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            73
+          ]
+        ]
+      }
+    ],
+    "reclaimed_blocks": 8,
+    "reclaim_events": 2,
+    "retention_windows": [
+      2191
+    ],
+    "phases": {
+      "after_single_r0": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 31.0,
+          "vllm:spec_decode_num_draft_tokens_total": 217.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 86.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 86.0,
+          "vllm:prefix_cache_queries_total": 10035.0,
+          "vllm:prefix_cache_hits_total": 0.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 8.0,
+          "vllm:request_num_preemptions_count": 1.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.774193548387097
+      },
+      "after_single_r1": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 31.0,
+          "vllm:spec_decode_num_draft_tokens_total": 217.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 86.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 86.0,
+          "vllm:prefix_cache_queries_total": 10035.0,
+          "vllm:prefix_cache_hits_total": 9856.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 8.0,
+          "vllm:request_num_preemptions_count": 1.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.774193548387097
+      },
+      "after_single_r2": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 31.0,
+          "vllm:spec_decode_num_draft_tokens_total": 217.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 86.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 86.0,
+          "vllm:prefix_cache_queries_total": 10035.0,
+          "vllm:prefix_cache_hits_total": 9856.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 8.0,
+          "vllm:request_num_preemptions_count": 1.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.774193548387097
+      },
+      "after_concurrent": {
+        "delta": {
+          "vllm:spec_decode_num_drafts_total": 78.0,
+          "vllm:spec_decode_num_draft_tokens_total": 546.0,
+          "vllm:spec_decode_num_accepted_tokens_total": 162.0,
+          "vllm:spec_decode_num_accepted_tokens_per_pos_total": 162.0,
+          "vllm:prefix_cache_queries_total": 40123.0,
+          "vllm:prefix_cache_hits_total": 39424.0,
+          "vllm:external_prefix_cache_queries_total": 0.0,
+          "vllm:external_prefix_cache_hits_total": 0.0,
+          "vllm:num_preemptions_total": 0.0,
+          "vllm:request_num_preemptions_bucket": 32.0,
+          "vllm:request_num_preemptions_count": 4.0,
+          "vllm:request_num_preemptions_sum": 0.0
+        },
+        "mean_acceptance_length": 3.076923076923077
+      }
+    },
+    "single_comparisons": [
+      {
+        "identical": true,
+        "common_output_prefix_tokens": 118,
+        "lengths": [
+          118,
+          118
+        ]
+      },
+      {
+        "identical": true,
+        "common_output_prefix_tokens": 118,
+        "lengths": [
+          118,
+          118
+        ]
+      }
+    ]
+  },
+  "cross_apc_comparisons": [
+    {
+      "label": "single_r0",
+      "identical": true,
+      "common_output_prefix_tokens": 118,
+      "lengths": [
+        118,
+        118
+      ]
+    },
+    {
+      "label": "single_r2",
+      "identical": false,
+      "common_output_prefix_tokens": 87,
+      "lengths": [
+        115,
+        118
+      ]
+    },
+    {
+      "label": "concurrent_2",
+      "identical": true,
+      "common_output_prefix_tokens": 36,
+      "lengths": [
+        36,
+        36
+      ]
+    },
+    {
+      "label": "concurrent_3",
+      "identical": false,
+      "common_output_prefix_tokens": 26,
+      "lengths": [
+        33,
+        31
+      ]
+    },
+    {
+      "label": "single_r1",
+      "identical": false,
+      "common_output_prefix_tokens": 87,
+      "lengths": [
+        116,
+        118
+      ]
+    },
+    {
+      "label": "concurrent_1",
+      "identical": true,
+      "common_output_prefix_tokens": 68,
+      "lengths": [
+        68,
+        68
+      ]
+    },
+    {
+      "label": "concurrent_4",
+      "identical": true,
+      "common_output_prefix_tokens": 101,
+      "lengths": [
+        101,
+        101
+      ]
+    }
+  ]
+}
