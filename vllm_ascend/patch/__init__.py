@@ -1808,3 +1808,20 @@
 #   Upstream ownership: vLLM's factory and GPU runner dispatch hook.
 #   Future plan: remove these hooks once upstream supports the Ascend ragged
 #   state-operator contract and eager cost initialization for hybrid GDN.
+
+# ** File: platform/patch_opd_trace.py **
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#   1. `vllm.v1.metrics.stats.RequestSpecDecodeMetrics`
+#    Why:
+#       vLLM v0.30's typed MsgPack codec needs a declared dataclass field to
+#       carry per-request OPD scheduler events to the OpenAI response.
+#    How:
+#       Install an optional `opd_trace` field before the frontend and engine
+#       codecs are constructed. Preserve the class identity, constructor and
+#       existing `to_dict()` metrics. The OPD scheduler populates the field for
+#       requests with `opd_trace_id` and `opd_trace_response=1`; the OpenAI
+#       response model already permits the extra field. Events remain owned
+#       by each request and include the final stop-trimmed commit.
+#    Future Plan:
+#       Replace the schema adapter when upstream provides an optional native
+#       scheduler-trace field with the same serialization contract.
