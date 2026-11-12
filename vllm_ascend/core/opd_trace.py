@@ -6,13 +6,11 @@ import json
 import logging
 import os
 
-from vllm.logger import init_logger
+from vllm.logger import logger
 from vllm.v1.core.sched.async_scheduler import AsyncScheduler
 from vllm.v1.core.sched.scheduler import Scheduler
 
 from vllm_ascend.core.opd_draft_digest import safetensors_digest
-
-logger = init_logger(__name__)
 
 
 def sample_with_verified_widths(batch, sample_tokens, grammar_output):

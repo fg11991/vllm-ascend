@@ -54,7 +54,7 @@ def test_trace_sees_filtered_commits(trace, scheduler_name, monkeypatch, caplog,
         "vllm_ascend.core.opd_draft_digest": SimpleNamespace(
             **runpy.run_path(str(path.with_name("opd_draft_digest.py")))
         ),
-        "vllm.logger": SimpleNamespace(init_logger=logging.getLogger),
+        "vllm.logger": SimpleNamespace(logger=logging.getLogger("vllm")),
         "vllm.v1.core.sched.scheduler": SimpleNamespace(Scheduler=SchedulerDouble),
         "vllm.v1.core.sched.async_scheduler": SimpleNamespace(AsyncScheduler=SchedulerDouble),
     }
