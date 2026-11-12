@@ -16,6 +16,11 @@
 
 import os
 
+# Install the metrics schema before other patches can construct a typed codec.
+# isort: off
+import vllm_ascend.patch.platform.patch_opd_trace  # noqa
+# isort: on
+
 import vllm_ascend.patch.platform.patch_deepseek_v4_vision  # noqa
 import vllm_ascend.patch.platform.patch_distributed  # noqa
 import vllm_ascend.patch.platform.patch_glm53_reasoning  # noqa

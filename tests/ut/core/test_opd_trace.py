@@ -42,13 +42,15 @@ class SchedulerDouble:
         req.output_token_ids.extend(ids)
         req.num_output_tokens += len(ids)
         if req.stopped:
+            model_runner_output.final_metrics = req.spec_decode_metrics
             self.requests.clear()
         return model_runner_output
 
 
+@pytest.mark.parametrize("response_flag", [None, True, 1, False, 0, "false", "1", 2, 1.0])
 @pytest.mark.parametrize("trace", [True, False])
 @pytest.mark.parametrize("scheduler_name", ["OPDTraceScheduler", "OPDTraceAsyncScheduler"])
-def test_trace_sees_filtered_commits(trace, scheduler_name, monkeypatch, caplog, tmp_path):
+def test_trace_sees_filtered_commits(trace, response_flag, scheduler_name, monkeypatch, caplog, tmp_path):
     path = Path(__file__).resolve().parents[3] / "vllm_ascend/core/opd_trace.py"
     stubs = {
         "vllm_ascend.core.opd_draft_digest": SimpleNamespace(
@@ -86,7 +88,10 @@ def test_trace_sees_filtered_commits(trace, scheduler_name, monkeypatch, caplog,
     req = SimpleNamespace(
         draft_dir=tmp_path,
         request_id="internal-17",
-        sampling_params=SimpleNamespace(eos_token_id=8, extra_args={"opd_trace_id": "unique"} if trace else None),
+        sampling_params=SimpleNamespace(
+            eos_token_id=8,
+            extra_args={"opd_trace_id": "unique", "opd_trace_response": response_flag} if trace else None,
+        ),
         status=SimpleNamespace(name="FINISHED_STOPPED"),
         stop_reason=None,
         num_output_tokens=0,
@@ -121,6 +126,14 @@ def test_trace_sees_filtered_commits(trace, scheduler_name, monkeypatch, caplog,
             output = SimpleNamespace(step=update, opd_verify_widths={"internal-17": 2 if update[0] == [1, 2] else 7})
             assert scheduler.update_from_output(sched, output) is output
     events = [json.loads(r.message.split("DSPARK_OPD ", 1)[1]) for r in caplog.records if "DSPARK_OPD " in r.message]
+    inline = type(response_flag) in (bool, int) and response_flag == 1
+    if trace and inline:
+        assert events == []
+        payload = output.final_metrics.opd_trace
+        assert payload["version"] == 1
+        events = payload["events"]
+    else:
+        assert not hasattr(req.spec_decode_metrics, "opd_trace")
     if trace:
         assert [e["offset"] for e in events] == [0, 1, 3, 4]
         assert [e["verified_width"] for e in events] == [None, 2, None, 7]

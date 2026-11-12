@@ -102,7 +102,15 @@ class _OPDTrace:
                 event["draft_weights_sha256"] = self._draft_weights_sha256
                 prompt = json.dumps(req.prompt_token_ids, separators=(",", ":")).encode()
                 event["prompt_digest"] = hashlib.sha256(prompt).hexdigest()
-            logger.info("DSPARK_OPD %s", json.dumps(event, separators=(",", ":")))
+            response_flag = (req.sampling_params.extra_args or {}).get("opd_trace_response")
+            # OpenAI vllm_xargs converts JSON true to integer 1 in v0.30.
+            inline_response = type(response_flag) in (bool, int) and response_flag == 1
+            if inline_response:
+                if getattr(m, "opd_trace", None) is None:
+                    m.opd_trace = {"version": 1, "events": []}
+                m.opd_trace["events"].append(event)
+            else:
+                logger.info("DSPARK_OPD %s", json.dumps(event, separators=(",", ":")))
         return result
 
 
