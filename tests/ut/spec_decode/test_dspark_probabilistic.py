@@ -172,7 +172,7 @@ def test_probabilistic_markov_loop_exports_true_target_space_q(proposer_class, m
         corrected_logits = proposer.model.logits[:, step] + proposer.model.markov_bias(previous_ids.float()[:, None])
         target_logits = torch.full((len(tokens), vocab_size), -torch.inf)
         target_logits[:, kept_ids] = corrected_logits
-        torch.testing.assert_close(proposer.sampler_inputs[step], target_logits)
+        torch.testing.assert_close(proposer.sampler_inputs[step], corrected_logits)
         previous_ids, step_probs = _sample(target_logits, metadata)
         expected_tokens.append(previous_ids)
         expected_probs.append(step_probs)
@@ -249,7 +249,7 @@ def test_lmhead_tp_padding_is_trimmed_before_mapped_sampling(proposer_class, mon
     torch.testing.assert_close(proposer._last_draft_probs, reference._last_draft_probs)
     assert proposer._last_draft_probs.shape == (2, _BLOCK_SIZE, _TARGET_VOCAB_SIZE)
     assert len(proposer.sampler_inputs) == _BLOCK_SIZE
-    assert all(logits.shape == (2, _TARGET_VOCAB_SIZE) for logits in proposer.sampler_inputs)
+    assert all(logits.shape == (2, len(_BASE_LOGITS)) for logits in proposer.sampler_inputs)
 
 
 @pytest.mark.parametrize("method", ["eagle3", "dflash"])
@@ -303,6 +303,18 @@ def test_mapped_draft_with_real_npu_sampler(proposer_class, monkeypatch):
     tokens, probabilities = proposer._sample_dspark_draft_from_logits(logits[:2], mixed)
     assert tokens[0].cpu().item() == _KEPT_IDS[_BASE_LOGITS.argmax()].item()
     torch.testing.assert_close(probabilities.cpu(), expected.expand(2, -1), atol=1e-6, rtol=1e-5)
+
+    # The merged loop writes q into a strided step view of its final cache.
+    cache = torch.full((2, 3, _TARGET_VOCAB_SIZE), -7.0, device="npu:0")
+    proposer._sample_dspark_draft_from_logits(logits[:2], mixed, probs_out=cache[:, 0])
+    previous_probs = cache[:, 0].clone()
+    step_out = cache[:, 1]
+    assert not step_out.is_contiguous()
+    tokens, probabilities = proposer._sample_dspark_draft_from_logits(logits[:2], mixed, probs_out=step_out)
+    assert probabilities.data_ptr() == step_out.data_ptr()
+    torch.testing.assert_close(probabilities.cpu(), expected.expand(2, -1), atol=1e-6, rtol=1e-5)
+    torch.testing.assert_close(cache[:, 0], previous_probs)
+    assert torch.all(cache[:, 2] == -7)
 
     greedy = _metadata([0.0, 0.0])
     greedy.temperature = greedy.temperature.to("npu:0")
