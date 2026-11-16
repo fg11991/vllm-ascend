@@ -14,6 +14,7 @@
 | 无映射但草稿头比 target 宽 | 成立。额外列在 greedy 和概率采样前均按真实 target 词表裁掉。 |
 | mixed batch 的 greedy 行 q | 与上游约定一致，不是当前验证器的分布错误。仅 random 行的 q 表示真实提议分布，greedy 行由独立 mask 验证，不读取该 q。 |
 | 逐步 full-vocab 分配与 stack 峰值 | 分配风险成立，尚无此前代码实际 OOM 的证据。草稿在小词表上采样，再把 q 写入最终预分配缓存，减少 full-vocab logits/noise 和 list/stack 重复缓存。 |
+| 上机额外发现的 GDN 短验证 NaN | 上轮接受 8 个 token、本轮 query 缩至 5 时，旧 FLA kernel 提前返回而未写输出。缩短的真实 spec query 改走已有 DCUT，保留完整 8 槽历史及原接受数。 |
 
 语法反例中 `q=(0.4,0.1,0.5)`、约束后的 `p=(0.5,0.5,0)`：旧截断流程输出 `(0.65,0.35,0)`；保留首拒位置后，经 `(p-q)+` 恢复到 p。
 修复只对 V1 DSpark、`draft_sample_method=probabilistic`、`rejection_sample_method=standard` 启用，其他模式沿用原行为。
@@ -25,6 +26,7 @@
 - `vllm_ascend/worker/model_runner_v1.py::_get_spec_decode_draft_probs`：按请求和步数对齐缓存，缺失与占位行强制拒绝。
 - `vllm_ascend/patch/platform/patch_dspark_structured_output.py`：保留首个非法候选，只修改 mask 输入副本，保持 grammar 回滚。
 - `tests/ut/spec_decode/test_dspark_probabilistic.py`、`tests/ut/spec_decode/test_dspark_review_regressions.py`、`tests/ut/spec_decode/test_dspark_probability_cache.py`、`tests/ut/patch/platform/test_dspark_grammar_rejection.py`：回归测试。
+- `vllm_ascend/ops/gdn_attn_builder.py`：按真实 CPU query 长度选择 DCUT；`tests/ut/ops/test_gdn_shortened_verification.py` 验证 8→5、8→1 和完整历史状态读取。
 
 验证阶段仍需保留完整 target 空间的 q；runner 按请求重排时也会分配对齐后的概率张量。
 此次减少草稿采样的冗余分配，不保证任意批量和词表大小下均不会 OOM。
@@ -42,3 +44,6 @@
 - 910b3 同一组测试：**71 passed**。包含真实采样器的概率分布检查、跨步 strided q 写入，以及两种 anchor 模式的 kernel sentinel 边界检查。
 - 已暂存的完整代码运行 `bash format.sh ci` 通过。
 - 端到端请求、动态 K 的实际步数证据及最终服务健康状态将在完成后补充。
+
+TP2 JSON 故障已通过临时 hook 定位：5 行 target logits 在应用 grammar mask 前均为 NaN，mask 本身非空，q 仍归一化。与实际安装 FLA 源码的 `accepted > seqLen` 早退相符。
+不通过 `nan_to_num` 或改写残差采样来掩盖无效 target 分布。诊断 hook 仅在独立测试目录使用，不纳入生产代码。
