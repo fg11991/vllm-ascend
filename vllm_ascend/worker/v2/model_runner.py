@@ -148,12 +148,7 @@ class NPUModelRunner(GPUModelRunner):
     max_num_reqs: int
 
     def __init__(self, vllm_config: VllmConfig, device: torch.device):
-        # Keep exact host counts until all active consumers are known.
-        self._trace_opd_widths = bool(
-            vllm_config.speculative_config
-            and vllm_config.speculative_config.enable_adaptive_verification
-            and is_opd_scheduler(vllm_config.scheduler_config.scheduler_cls)
-        )
+        self._trace_opd_proposals = is_opd_scheduler(vllm_config.scheduler_config.scheduler_cls)
         self._skip_spec_cpu_length_sync = False
         # Ascend-specific configurations
         self.ascend_config = get_ascend_config()
@@ -384,11 +379,16 @@ class NPUModelRunner(GPUModelRunner):
         if pcp_manager is not None and isinstance(pcp_manager, AscendPCPManager):
             pcp_manager._sampling_hidden_restored = False
         self._restore_replicated_draft_target_states()
-        if self._trace_opd_widths and self.execute_model_state is not None and self.is_last_pp_rank:
-            from vllm_ascend.core.opd_trace import sample_with_verified_widths
+        if self._trace_opd_proposals and self.execute_model_state is not None and self.is_last_pp_rank:
+            from vllm_ascend.core.opd_trace import sample_with_opd_proposals
 
-            output = sample_with_verified_widths(
-                self.execute_model_state.input_batch, super().sample_tokens, grammar_output
+            batch = pcp_manager.global_batch if pcp_manager is not None else self.execute_model_state.input_batch
+            output = sample_with_opd_proposals(
+                batch,
+                self.req_states.draft_tokens,
+                super().sample_tokens,
+                grammar_output,
+                adaptive=self.adaptive_verification is not None,
             )
         else:
             output = super().sample_tokens(grammar_output)

@@ -219,6 +219,7 @@ def test_inline_requests_interleave_and_keep_the_final_round(monkeypatch, caplog
         last = SimpleNamespace(
             steps={"one": ([17], (7, 0), True), "two": ([11, 12, 13], (7, 2), True)},
             opd_verify_widths={"one": 7, "two": 2},
+            opd_draft_token_ids={"one": [8, 9, 10, 11, 12, 13, 14], "two": [11, 12, 14, 15, 16, 17, 18]},
         )
         schedule.num_scheduled_tokens = {"one": 1, "two": 1}
         scheduler.update_from_output(schedule, last)
@@ -230,6 +231,8 @@ def test_inline_requests_interleave_and_keep_the_final_round(monkeypatch, caplog
     assert [e["offset"] for e in one.opd_trace["events"]] == [0, 1]
     assert [e["offset"] for e in two.opd_trace["events"]] == [0, 1]
     assert last.final_metrics["one"].opd_trace["events"][-1]["token_ids"] == [17]
+    assert last.final_metrics["one"].opd_trace["events"][-1]["draft_token_ids"] == [8, 9, 10, 11, 12, 13, 14]
+    assert last.final_metrics["two"].opd_trace["events"][-1]["draft_token_ids"] == [11, 12, 14, 15, 16, 17, 18]
     assert last.final_metrics["two"].opd_trace["events"][-1]["verified_width"] == 2
     assert last.final_metrics["two"].opd_trace["events"][-1]["stopped"] is True
     assert plain.opd_trace is None and "opd_trace" not in plain.to_dict()

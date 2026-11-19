@@ -153,6 +153,7 @@ from vllm_ascend.compilation.acl_graph import (
 )
 from vllm_ascend.compilation.breakable_aclgraph import BreakableACLGraphWrapper
 from vllm_ascend.core.kv_cache_interface import is_circular_kv_cache_spec
+from vllm_ascend.core.opd_trace_config import is_opd_scheduler
 from vllm_ascend.device.hardware_profile import HardwareCapability, get_current_hardware_profile
 from vllm_ascend.distributed.kv_transfer.kv_p2p.sfa_pd_rd2h import get_prebound_copy_sfa_slots
 from vllm_ascend.distributed.kv_transfer.kv_pool.ascend_store.layerwise_cache_layout import (
@@ -385,6 +386,7 @@ class NPUModelRunner(GPUModelRunner):
 
         with _torch_cuda_wrapper():
             super().__init__(vllm_config, device)
+        self._trace_opd_proposals = is_opd_scheduler(vllm_config.scheduler_config.scheduler_cls)
         self.lookback_token_ids: CpuGpuBuffer | None = None
 
         self.device_metadata_executor: DeviceMetadataExecutor | None = None
@@ -2799,6 +2801,12 @@ class NPUModelRunner(GPUModelRunner):
         # Clear ephemeral state.
         self.execute_model_state = None
 
+        opd_draft_ids = None
+        if self._trace_opd_proposals and spec_decode_metadata is not None:
+            from vllm_ascend.core.opd_trace import v1_draft_token_ids
+
+            opd_draft_ids = v1_draft_token_ids(self.input_batch.req_ids, spec_decode_metadata)
+
         # Apply structured output bitmasks if present.
         if grammar_output is not None:
             # here we are different from gpu_model_runner,
@@ -2935,6 +2943,8 @@ class NPUModelRunner(GPUModelRunner):
             num_nans_in_logits=num_nans_in_logits,
             cudagraph_stats=cudagraph_stats,
         )
+        if opd_draft_ids is not None:
+            model_runner_output.opd_draft_token_ids = opd_draft_ids
         if self.dynamic_eplb:
             self.eplb_updator.forward_end(self.eplb_heat_collection_status)
 

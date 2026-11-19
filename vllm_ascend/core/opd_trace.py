@@ -1,5 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Opt-in v0.30 scheduler trace for first-rejection replay."""
+"""Opt-in v0.30 scheduler trace for first-rejection replay.
+
+``token_ids`` are committed output IDs after stop trimming. ``draft_token_ids``
+records the seven scheduled proposal slots before adaptive verification trims
+the batch. Unscheduled slots are -1. Ordinary decode and grammar-invalid
+verification events carry null. Only the first ``verified_width`` proposal
+slots were verified, including on terminal events.
+"""
 
 import hashlib
 import json
@@ -13,13 +20,57 @@ from vllm.v1.core.sched.scheduler import Scheduler
 from vllm_ascend.core.opd_draft_digest import safetensors_digest
 
 
-def sample_with_verified_widths(batch, sample_tokens, grammar_output):
-    """Snapshot device boundaries before the sampler can reuse the input batch."""
-    offsets = batch.cu_num_logits[: len(batch.req_ids) + 1].tolist()
-    widths = {rid: end - start - 1 for rid, start, end in zip(batch.req_ids, offsets, offsets[1:])}
+NUM_PROPOSALS = 7
+
+
+def _pad_proposal_ids(ids):
+    return ids + [-1] * (NUM_PROPOSALS - len(ids))
+
+
+def v1_draft_token_ids(req_ids, metadata):
+    """V1 rejection-sampler metadata already contains the packed proposal IDs."""
+    ids = metadata.draft_token_ids.tolist()
+    proposals = {}
+    cursor = 0
+    for rid, count in zip(req_ids, metadata.num_draft_tokens, strict=True):
+        if count:
+            proposals[rid] = _pad_proposal_ids(ids[cursor : cursor + count])
+            cursor += count
+    return proposals
+
+
+def sample_with_opd_proposals(batch, draft_tokens, sample_tokens, grammar_output, *, adaptive):
+    """Snapshot current proposals before sampling writes next-step proposals."""
+    counts = batch.num_draft_tokens_per_req
+    if counts is None:
+        return sample_tokens(grammar_output)
+
+    # Async scheduling may expose only -1 placeholders to the scheduler. The
+    # runner fills target input rows from this request-state tensor. Adaptive
+    # verification keeps a prefix, so the raw proposal row also covers the
+    # slots it trimmed. Transfer at most eight integers per request at once.
+    rows = draft_tokens[batch.idx_mapping]
+    if adaptive:
+        import torch
+
+        offsets = batch.cu_num_logits[: len(batch.req_ids) + 1]
+        widths = (offsets[1:] - offsets[:-1] - 1).to(rows.dtype)
+        values = torch.cat((rows, widths.unsqueeze(-1)), dim=-1).tolist()
+        verified_widths = {rid: row[-1] for rid, row in zip(batch.req_ids, values, strict=True)}
+    else:
+        values = rows.tolist()
+        verified_widths = {rid: int(count) for rid, count in zip(batch.req_ids, counts, strict=True)}
+
+    proposals = {
+        rid: _pad_proposal_ids(row[:count])
+        for rid, count, row in zip(batch.req_ids, counts, values, strict=True)
+        if count
+    }
     output = sample_tokens(grammar_output)
     if output is not None:
-        getattr(output, "model_runner_output", output).opd_verify_widths = widths
+        result = getattr(output, "model_runner_output", output)
+        result.opd_draft_token_ids = proposals
+        result.opd_verify_widths = verified_widths
     return output
 
 
@@ -32,7 +83,7 @@ class _OPDTrace:
             raise ValueError("OPD trace requires SPECFORGE_OPD_DRAFT_REVISION and detailed per-request metrics")
         if not logger.isEnabledFor(logging.INFO):
             raise ValueError("OPD trace needs INFO output; check VLLM_LOGGING_LEVEL and the trace logger")
-        if spec is None or spec.method != "dspark" or spec.num_speculative_tokens != 7:
+        if spec is None or spec.method != "dspark" or spec.num_speculative_tokens != NUM_PROPOSALS:
             raise ValueError("OPD trace expects DSpark with seven proposals")
         if bool(self.scheduler_config.async_scheduling) != isinstance(self, OPDTraceAsyncScheduler):
             raise ValueError("OPD scheduler class must match the service's async_scheduling setting")
@@ -78,6 +129,10 @@ class _OPDTrace:
             effective = drafted
             if verified and self._runner_widths:
                 effective = getattr(model_runner_output, "opd_verify_widths", {}).get(req.request_id)
+            invalid = (scheduler_output.num_invalid_spec_tokens or {}).get(req.request_id, 0)
+            proposals = None
+            if verified and not invalid:
+                proposals = getattr(model_runner_output, "opd_draft_token_ids", {}).get(req.request_id)
             event = {
                 "request_id": req.request_id,
                 "trace_id": trace_id,
@@ -85,10 +140,11 @@ class _OPDTrace:
                 "sample_from_anchor": self._sample_from_anchor,
                 "offset": offset,
                 "token_ids": ids,
+                "draft_token_ids": proposals,
                 "drafted": drafted,
                 "verified_width": effective,
                 "accepted": m.per_step_accepted[step] if verified else None,
-                "invalid": (scheduler_output.num_invalid_spec_tokens or {}).get(req.request_id, 0),
+                "invalid": invalid,
                 "preemptions": req.num_preemptions,
                 "stopped": req.is_finished(),
                 "stopped_on_eos": (
